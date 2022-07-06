@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ../xsd
+cd ../BPM+
 
 git mv bmi-21-11-16.xsd BKPMN.xsd
 git mv bmi-21-11-17.xsd BKPMN-Semantic.xsd
