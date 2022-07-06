@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:bhmn="https://www.omg.org/spec/BHMN/20211108/MODEL"
+    xmlns:bhmndi="https://www.omg.org/spec/BHMN/20211108/BHMNDI"
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL/"
+    xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    targetNamespace="https://www.omg.org/spec/BHMN/20211108/MODEL">
+
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="bmi-21-11-25.xsd"/>
+    <xsd:import namespace="http://www.omg.org/spec/BPMN/20100524/MODEL/" schemaLocation="../BPMN/BPMN20.xsd"/>
+    <xsd:import namespace="http://www.omg.org/spec/CMMN/20151109/MODEL" schemaLocation="../CMMN/CMMN11.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/" schemaLocation="../DMN/DMN13.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/BHMN/20211108/BHMNDI" schemaLocation="bmi-21-11-39.xsd"/>
+
+    <xsd:element name="BaseElement" abstract="true" type="bhmn:tBaseElement">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tBaseElement">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tBaseElement">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="semanticReference" type="sce:tSemanticReference">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                A concrete BaseElement can include multiple SCE SemanticReference elements.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="BusinessRuleTask" type="bhmn:tBusinessRuleTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tBusinessRuleTask">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tBusinessRuleTask">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="decisionRef" type="bhmn:tDecision">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                A reference to a Decision (see below). If decisionRef is not specified, then decisionRefExpression MUST be specified. 
+                                Only one of the attributes, decisionRefExpression or decisionRef MUST be specified.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="decisionRefExpression" type="bpmn:tExpression">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Tbd...
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="Case" type="bhmn:tCase">
+        <xsd:annotation>
+            <xsd:documentation>
+                A Case in this context is an abstraction of Cases as they are specified in various Case modeling specifications. 
+                By default, a version of the CMMN specification is assumed.
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tCase">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tRootElement">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="input" type="bhmn:tCaseParameter">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Zero or more inputs of the Case.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="output" type="bhmn:tCaseParameter">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Zero or more outputs of the Case.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute use="required" name="externalRef" type="xsd:QName">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The concrete Case to be used.
+                        </xsd:documentation>
+                    </xsd:annotation>                    
+                </xsd:attribute>
+                <xsd:attribute use="required" name="implementationType" type="xsd:anyURI">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The implementation type of the Case. It MUST be provided in URI format.
+                        </xsd:documentation>
+                    </xsd:annotation>                    
+                </xsd:attribute>                
+                <xsd:attribute use="required" name="name" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the Case.
+                        </xsd:documentation>
+                    </xsd:annotation>                    
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="CaseParameter" type="bhmn:tCaseParameter">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tCaseParameter">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tRootElement">
+                <xsd:attribute use="required" name="name" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the CaseParameter.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="CaseTask" type="bhmn:tCaseTask">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tCaseTask">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tTask">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="caseRef" type="bhmn:tCase">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                A reference to a Case (see below). If caseRef is not specified, then caseRefExpression MUST be specified. 
+                                Only one of the attributes, caseRefExpression or caseRef MUST be specified.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="caseRefExpression" type="bpmn:tExpression">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Tbd...
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute use="optional" name="implementation" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This attribute specifies the technology that will be used to link to a CMMN Case Model.
+                            More tbd…
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="CMMNElement" abstract="true" type="bhmn:tCMMNElement">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tCMMNElement">
+        <xsd:complexContent>
+            <xsd:extension base="cmmn:tCmmnElement">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="semanticReference" type="sce:tSemanticReference">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                A concrete CMMNElement can include multiple SCE SemanticReference elements.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="Decision" type="bhmn:tDecision">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tDecision">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tRootElement">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="input" type="bhmn:tDecisionParameter">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Tbd...
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="output" type="bhmn:tDecisionParameter">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                Tbd...
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute use="required" name="name" type="xsd:string"/>
+                <xsd:attribute use="required" name="implementationType" type="xsd:anyURI"/>                
+                <xsd:attribute use="required" name="externalRef" type="xsd:QName"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="DecisionParameter" type="bhmn:tDecisionParameter">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tDecisionParameter">
+        <xsd:complexContent>
+            <xsd:extension base="bpmn:tRootElement">
+                <xsd:attribute use="required" name="name" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the DecisionParameter.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="DMNElement" abstract="true" type="bhmn:tDMNElement">
+        <xsd:annotation>
+            <xsd:documentation>
+                Tbd...
+            </xsd:documentation>
+        </xsd:annotation>        
+    </xsd:element>
+    <xsd:complexType name="tDMNElement">
+        <xsd:complexContent>
+            <xsd:extension base="dmn:tDMNElement">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="semanticReference" type="sce:tSemanticReference">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                A concrete DMNElement can include multiple SCE SemanticReference elements.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+</xsd:schema>

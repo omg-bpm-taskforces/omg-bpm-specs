@@ -1,0 +1,1693 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xsd:schema xmlns:bkpmn="https://www.omg.org/spec/BKPMN/20211108/MODEL"
+	xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="https://www.omg.org/spec/BKPMN/20211108/MODEL">	
+	
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="bmi-21-11-25.xsd"/>
+
+	<xsd:element name="import" type="bkpmn:tImport"/>
+	<xsd:complexType name="tImport">
+		<xsd:attribute name="namespace" type="xsd:anyURI" use="required"/>
+		<xsd:attribute name="location" type="xsd:string" use="required"/>
+		<xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
+	</xsd:complexType>
+	
+	<xsd:element name="BKPMNModel" type="bkpmn:tBKPMNModel">	
+		<xsd:annotation>
+			<xsd:documentation>
+				A BKPMNPackage is mechanism for packaging and distributing a set of BPM+ models (i.e., the knowledge). A BKPMNPackage references separate, 
+				but connected BPM+ models (BPMN Processes, CMMN Cases, and DMN Decision Services). It should be noted that BKPMN is focused solely on the 
+				BMI behavioral standards. A BKPMNPackage also contains a Data Item library for the data that will be used by the BPM+ models 
+				(the proposed standard SDMN defines the elements of the Data Item library).
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tBKPMNModel">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEModel">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="bkpmnVocabulary" type="bkpmn:tBKPMNVocabulary">
+						<xsd:annotation>
+							<xsd:documentation> 
+								This is a list of the BKPMNVocabularies that are included in the BKPMNModel.
+								This is a subset of the list of SCEVocabularies.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="definitions" type="bkpmn:tBKPMNDefinitions">
+						<xsd:annotation>
+							<xsd:documentation> 
+								This is a list of the BKPMNDefinitions that are included in the BKPMNModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="instances" type="bkpmn:tBKPMNInstances">
+						<xsd:annotation>
+							<xsd:documentation> 
+								This is a list of the BKPMNInstances that are included in the BKPMNModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="manifest" type="bkpmn:tManifest">
+						<xsd:annotation>
+							<xsd:documentation>
+								The Manifest is a list of files that contain the components of the BKPMNModel. This includes the files that contains 
+								the BPM+ models.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="purposeRef" type="bkpmn:tPurpose">
+						<xsd:annotation>
+							<xsd:documentation>
+								The purpose element provides another classification mechanism for the BKPMNPackage. This classification could be used 
+								as part of a search for a particular BKPMNPackage, for example.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNDefinitions" type="bkpmn:tBKPMNDefinitions">
+		<xsd:annotation>
+			<xsd:documentation>
+				A BKPMNPackage is mechanism for packaging and distributing a set of BPM+ models (i.e., the knowledge). A BKPMNPackage references separate, 
+				but connected BPM+ models (BPMN Processes, CMMN Cases, and DMN Decision Services). It should be noted that BKPMN is focused solely on the 
+				BMI behavioral standards. A BKPMNPackage also contains a Data Item library for the data that will be used by the BPM+ models 
+				(the proposed standard SDMN defines the elements of the Data Item library).
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNDefinitions">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEDefinitions">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="knowledgeElement" type="bkpmn:tKnowledgeElement">
+						<xsd:annotation>
+							<xsd:documentation>
+								The knowledgeElement association ...
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="knowledgeModel" type="bkpmn:tBPMPlusKnowledgeModel"/>					                    
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+		
+	<xsd:element name="BKPMNInstances" type="bkpmn:tBKPMNInstances">
+		<xsd:annotation>
+			<xsd:documentation>
+				The BKPMNInstances element is one of the two main containers for the contents of a BPM+ Knowledge Package. 
+				It contains a set of PackageElements.
+				The BKPMNInstances element is contained within a BKPMNModel package.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNInstances">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEDefinitions">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="packageElement" type="bkpmn:tPackageElement"/>					
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="BKPMNVocabulary" type="bkpmn:tBKPMNVocabulary"/>
+	<xsd:complexType name="tBKPMNVocabulary">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEVocabulary"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="Purpose" type="bkpmn:tPurpose">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Purpose Enumeration provides a list of options for the purpose attribute of a BKPMNPackage. This list of literals can be extended.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPurpose">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BPMPlusKnowledgeModel" type="bkpmn:tBPMPlusKnowledgeModel" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>
+				A model that can be presented with a visual representation of the breadth and scope of a BKPMNDefinitions in terms of the 
+				BPM+ models it contains. It is contained within a BKPMNDefinitions.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBPMPlusKnowledgeModel">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMNDefinitions">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="bkpmnModelElementRef" type="bkpmn:tBKPMNModelElement">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of the BKPMNDiagramElements (BKPMNPackageRefs, CaseRefs, ChoreographyRefs, CollaborationRefs, DecisionServiceRefs, 
+								and ProcessRefs) that are within the BKPMNDiagram.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="connector" type="bkpmn:tModelElementConnector">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of the Connectors that are within the BPMPlusKnowledgeModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="KnowledgeModel" type="bkpmn:tKnowledgeModel">
+		<xsd:annotation>
+			<xsd:documentation>
+				A diagram that provides a visual representation of the breadth and scope of a BKPMNPackage in terms of the BPM+ models it contains.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tKnowledgeModel">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusKnowledgeModel">
+				<xsd:sequence/>				
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNModelElement" abstract="true" type="bkpmn:tBKPMNModelElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				This class is included in the metamodel to serve as a mechanism to group seven other classes and provide a single association for the 
+				BKPMNDiagram class.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNModelElement"/>
+
+	<xsd:element name="BKPMNPackageRef" type="bkpmn:tBKPMNPackageRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tBKPMNPackageRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="CaseRef" type="bkpmn:tCaseRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				This represents one of the Cases that is part of the BKPMNPackage. In the BKPMN model, it is a reference to a Case within a CMMN file.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tCaseRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tCMMNElementRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bkpmn:LifecycleEvent">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: startTrigger
+								This identifies the Event that triggers the start of the overall Knowledge Package.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ChoreographyRef" type="bkpmn:tChoreographyRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				This represents the Choreography model that is part of the BKPMNPackage. In the BKPMN model, it is a reference to a 
+				Choreography within a BPMN file that can be used in multiple BKPMNPackages. There should be only one Choreography model for a 
+				given BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tChoreographyRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="CollaborationRef" type="bkpmn:tCollaborationRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				This represents a Collaboration model that is part of the BKPMNPackage. In the BKPMN model, it is a reference to a Collaboration 
+				within a BPMN file that can be used in multiple BKPMNPackages. A Collaboration will be linked to one or more Process elements in a 
+				BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tCollaborationRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DecisionServiceRef" type="bkpmn:tDecisionServiceRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				This represents one of the Decision Services that is part of the BKPMNPackage. In the BKPMN model, it is a reference to a 
+				Decision Service within a DMN file that can be used in multiple BKPMNPackages.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tDecisionServiceRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tDMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DevelopmentMethod" type="bkpmn:tDevelopmentMethod">
+		<xsd:annotation>
+			<xsd:documentation>
+				Many BKPMNPackages (particularly in healthcare) will contain the details of the methodology that was used to create the 
+				BKPMNPackage. This type of information is also captured in the Pedigree of business elements. We still need to reconcile this…
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tDevelopmentMethod">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMNPackageRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="OperationalModelRef" type="bkpmn:tOperationalModelRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tOperationalModelRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="bkpmn:OperationalDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: operationalDocumentRef
+								The implementationType of the referenced OperationalDocumentRef MUST NOT be of the types that are listed as the specializations of 
+								the OperationalDocumentRef element, such as BPMN and CMMN, etc.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="modelElement" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							This identifies the URI of the element that the concrete OperationalModelRef represents. The URI will be found in the 
+							appropriate model definition file referenced in the Manifest.
+							-- Changed to anyURI after initial submission -- Discuss URI vs QName --
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="required" name="modelElementType" type="xsd:string"/>				
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ProcessRef" type="bkpmn:tProcessRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tProcessRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bkpmn:LifecycleEvent">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: startTrigger
+								This identifies the Event that triggers the start of the overall Knowledge Package.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="SharedDataModelRef" type="bkpmn:tSharedDataModelRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tSharedDataModelRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tSDMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="UndefinedBehavior" type="bkpmn:tUndefinedBehavior" substitutionGroup="bkpmn:BKPMNModelElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Undefined Behavior element is used as a placeholder for one of the other behavioral elements. It is mainly used early in the 
+				development of a BKPMNPackage. A specific behavior is known to be part of the pathway, but it is not clear at that point whether the 
+				behavior is a Process or a Case. This allows the inclusion of the behavior in the overall context before the modeler is ready to set its 
+				type.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tUndefinedBehavior">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMNModelElement"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="Group" type="bkpmn:tGroup" substitutionGroup="sce:ModelArtifact">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Group object is a ModelArtifact that provides a visual mechanism to informally group elements of a diagram. Groups are often used to 
+				highlight certain sections of a diagram without adding additional constraints or semantics. The highlighted (grouped) section of the 
+				diagram can be separated for reporting and analysis purposes. BKPMN extends the SCE Group element by adding an association to a 
+				ParticipantRef. This allows provides the capability for Groups in a BKPMNDiagram to separate the behavioral elements into groups related 
+				to a particular participant of the BKPMNPackage behaviors. 
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tGroup">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tGroup">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="bkpmn:ParticipantRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: participantRef
+								This identifies the Participant within the BKPMNPackagethat is associated with the Group. The GeneralModelRef and 
+								BKPMNModelRef elements that are contained within the graphical boundaries of the Group should also be associated with the same 
+								ParticipantRef.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ModelElementConnector" abstract="true" type="bkpmn:tModelElementConnector"/>	
+	<xsd:complexType name="tModelElementConnector">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tElementRelationshipType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="sourceRef" type="bkpmn:tBKPMNModelElement">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies the KnowledgeModel element that is at the source end of the ModelElementConnector. 
+								This attribute redefines the sourceRef attribute of SCE ElementRelationshipType.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="targetRef" type="bkpmn:tBKPMNModelElement">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies the KnowledgeModel element that is at the target end of the ModelElementConnector. 
+								The arrowhead will be at the end of the ModelElementConnector attached to this element. 
+								This attribute redefines the targetRef attribute of SCE ElementRelationshipType.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ModelLink" type="bkpmn:tModelLink" substitutionGroup="bkpmn:ModelElementConnector"/>	
+	<xsd:complexType name="tModelLink">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tModelElementConnector"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ReferenceLink" type="bkpmn:tReferenceLink" substitutionGroup="bkpmn:ModelElementConnector"/>	
+	<xsd:complexType name="tReferenceLink">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tModelElementConnector"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="OrderSetHandlerRef" type="bkpmn:tOrderSetHandlerRef"/>	
+	<xsd:complexType name="tOrderSetHandlerRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMNPackageRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="QuestionnaireHandlerRef" type="bkpmn:tQuestionnaireHandlerRef"/>	
+	<xsd:complexType name="tQuestionnaireHandlerRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBKPMNPackageRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BPMPlusModelElement" abstract="true" type="bkpmn:tBPMPlusModelElement"/>	
+	<xsd:complexType name="tBPMPlusModelElement">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="outgoing" type="bkpmn:tModelElementConnector">
+						<xsd:annotation>
+							<xsd:documentation>
+								Expected element: RelationshipConnector
+								This attribute identifies the outgoing Relationship Connector of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="incoming" type="bkpmn:tModelElementConnector">
+						<xsd:annotation>
+							<xsd:documentation>
+								Expected element: RelationshipConnector
+								This attribute identifies the incoming Relationship Connector of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bkpmn:PolicyRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: policyRef
+								This identifies any policies that are related to the BPMPlusModelElement.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="modelElement" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							This identifies the URI of the element that the concrete BPMPlusModelElement represents. The URI will be found in the 
+							appropriate model definition file referenced in the Manifest.
+							-- Changed to anyURI after initial submission -- Discuss URI vs QName --
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="modelElementName" type="xsd:string"/>
+				<xsd:attribute use="optional" name="modelElementType" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNPackageSummary" type="bkpmn:tBKPMNPackageSummary"/>	
+	<xsd:complexType name="tBKPMNPackageSummary">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tResourceDocumentRef">
+				<xsd:attribute use="optional" name="language" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute sets the written language used for the BKPMNPackageSummary. If this attribute is not set, 
+							then the setting from the BKPMNPackage element will be used.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="Contributor" type="bkpmn:tContributor" substitutionGroup="bkpmn:PackageElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				A Contributor is a person that assisted in the development of the BKPMNPackage. There are different types of Contributors, such as editors, reviewers, etc.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tContributor">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPackageElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="contributorKind" type="bkpmn:tContributorKind">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute sets the type of contribution provided by the Contributor. See the section below for the information on the 
+								ContributorType element.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="resourceRoleRef" type="bkpmn:tResourceRoleRef"/>					
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ContributorKind"/>
+	<xsd:complexType name="tContributorKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="ParticipantRef" type="bkpmn:tParticipantRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				A Participant is distinguished from a Performer. Performers are those resources, often Human, that are responsible for performing 
+				activities within a Process or a Case. In a healthcare setting…
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tParticipantRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="PolicyRef" type="bkpmn:tPolicyRef" substitutionGroup="bkpmn:PackageElement"/>	
+	<xsd:complexType name="tPolicyRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPackageElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="bkpmn:PolicyDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: policyDocumentRef
+								This identifies the Policy Document (through the PolicyDocumentRef) that contains the Policy element. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>					
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="policy" type="xsd:anyURI"/>				
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="Publisher" type="bkpmn:tPublisher" substitutionGroup="bkpmn:PackageElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				Note: the publisher will also be found in the Pedigree of the BKPMNPackage, if the Pedigree is being tracked.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPublisher">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPackageElement"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="UsageTerms" type="bkpmn:tUsageTerms" substitutionGroup="bkpmn:PackageElement"/>	
+	<xsd:complexType name="tUsageTerms">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPackageElement">
+				<xsd:attribute use="optional" name="rightsDeclaration" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="LifecycleEvent" type="bkpmn:tLifecycleEvent">
+		<xsd:annotation>
+			<xsd:documentation>
+				A LifecycleEvent is a significant circumstance or event, as identified by the BKPMNPackage developer, that occurs during the development 
+				of the BKPMNPackage.  LifecycleEvent is contained within a BKPMNPackage and can be referenced by a Recommendation.
+				Note: lifecycle events will also be found in the Pedigree of the BKPMNPackage, if the Pedigree is being tracked.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tLifecycleEvent">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="bkpmn:EventRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: eventRef
+								This relates the BPMN elements, such as Start Evenrts, that are associated with the LifecycleEvent.
+								It is possible that multiple Process Events, across the Processes of the BKPMNPackage, may be associated with the LifecycleEvent. 
+								Both EventRefs and MilestoneRefs may be associated with a LifecycleEvent.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="bkpmn:MilestoneRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: milestoneRef
+								This relates the CMMN elements, such as Milestones, that are associated with the LifecycleEvent.
+								It is possible that multiple Case elements, across the Cases of the BKPMNPackage, may be associated with the LifecycleEvent. 
+								Both EventRefs and MilestoneRefs may be associated with a LifecycleEvent.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNPackageInput" type="bkpmn:tBKPMNPackageInput" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				An Input represents a key DataItem that is necessary to be present at the start of a performance of a BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNPackageInput">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="dataItemRef" type="bkpmn:tDataItemRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute is optional since a BKPMNPackage can be developed before all the information is available. However, before a 
+								BKPMNPackage is considered complete, the DataItemRef for the BKPMNPackageInput should be set (e.g., there should be a 
+								Situational Data Model within the BKPMNPackage that contains the referenced Data Item).								
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNPackageOutput" type="bkpmn:tBKPMNPackageOutput" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				A BKPMNPackageOutput represents a key Data Item that is a product at the end of a performance of a BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNPackageOutput">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="dataItemRef" type="bkpmn:tDataItemRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute is optional since a BKPMNPackage can be developed before all the information is available. However, before a 
+								BKPMNPackage is considered complete, the DataItemRef for the BKPMNPackageOutput should be set (e.g., there should be a Situational Data Model 
+								within the BKPMNPackage that contains the referenced Data Item).
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="Effect" type="bkpmn:tEffect" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				An Effect is some change to the environment or data that may occur when the behaviors of BPM+ Knowledge Package is performed. 
+				In the healthcare domain, for example, a reduction in blood pressure may be the effect of the application of a medication. Each BKPMNPackage 
+				can contain a list of Effects, which are contained within a BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tEffect">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="eventRef" type="bkpmn:tLifecycleEvent">
+						<xsd:annotation>
+							<xsd:documentation>
+								This allows the BKPMNPackage modeler to associate various BPMN events or CMMN milestones to the Effect. These events 
+								can be used to define a type of lifecycle for the Effect.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="measureRef" type="bkpmn:tMeasure">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies any Measures that are defined to determine whether or not the Effect occurs.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="impactKindRef" type="bkpmn:tImpactKind">
+						<xsd:annotation>
+							<xsd:documentation>
+								This element indicates the type of impact that the Effect will have when the behaviors of the BKPMNPackage or 
+								Recommendation are executed.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="effectText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							An optional text description of the Effect.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="probability" type="xsd:integer">
+					<xsd:annotation>
+						<xsd:documentation>
+							This is a probability rating that defines how likely the Effect will occur when the behaviors of the owning BKPMNPackage or 
+							Recommendation are performed.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="ImpactKind"/>	
+	<xsd:complexType name="tImpactKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="Measure" type="bkpmn:tMeasure" substitutionGroup="bkpmn:KnowledgeElement"/>
+	<xsd:complexType name="tMeasure">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="expressionRef" type="bkpmn:tExpressionRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies the DMN expression that is used to evaluate the Measure. 
+								The expression will be contained within a DMN model as part of a Decision or Business Knowledge Model.								
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="measureKindRef" type="bkpmn:tMeasureKind">
+						<xsd:annotation>
+							<xsd:documentation>
+								The MeasureType element provides a connection to an ontology that will define the types of measures that 
+								are used in the context of the BPM+ Knowledge Package.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="MeasureKind">
+		<xsd:annotation>
+			<xsd:documentation>
+				includes: quality, process, perception, performance, input
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tMeasureKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="RiskFactor" type="bkpmn:tRiskFactor" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				Indicates the impact and probability of loss.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tRiskFactor">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="determinant" type="bkpmn:tDataItemRef"/>					
+					<xsd:element maxOccurs="1" minOccurs="0" name="expressionRef" type="bkpmn:tExpressionRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								A RiskFactor can be expressed through an expression (e.g., “Age > 75 years”). The actual expression will be contained within a 
+								DMN model as part of a Decision or Business Knowledge Model.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="riskKindRef" type="bkpmn:tRiskKind">
+						<xsd:annotation>
+							<xsd:documentation>
+								This defines the type of risk that is being defined.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="riskFactorText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							This provides a description of the RiskFactor.
+							Additional discussion or documentation can be included in the Documentation element.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="RiskKind">
+		<xsd:annotation>
+			<xsd:documentation>
+				This defines the type of risk that is being defined. Examples of risk types include: 
+				fraction-of-incidences
+				hazard-ratio
+				increases-in-incidences
+				relative
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tRiskKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="Applicability" type="bkpmn:tApplicability" substitutionGroup="bkpmn:KnowledgeElement"/>
+	<xsd:complexType name="tApplicability">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="inclusionDecision" type="xsd:QName">
+						<xsd:annotation>
+							<xsd:documentation>
+								This references the DecisionServiceRef that will execution the criteria that determines if the current context should be 
+								excluded.								
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="exclusionDecision" type="xsd:QName">
+						<xsd:annotation>
+							<xsd:documentation>
+								This references the DecisionServiceRef that will execution the criteria.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="applicabilityDecision" type="xsd:QName">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a brief summary of what constitutes the applicability for the BKPMNPackage.
+								Additional description of the applicability can be provided by the Documentation element.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="applicabilityText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							This is a brief summary of what constitutes the applicability for the BKPMNPackage.
+							Additional description of the applicability can be provided by the Documentation element.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="knowledgePackageApplicability" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>
+							If true, this specifies that this Applicability definition applies to the overall BKPMNPackage rather than a Recommendation.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BPMNDocumentRef" type="bkpmn:tBPMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more BPMN Documents, which are XML documents, usually with the file extension “.bpmn.” Within a single 
+				BPMN Document there can be multiple Processes, Choreographies, and/or Collaborations. A BPMNDocumentRef element references the 
+				XML document, thus including the BPMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBPMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="bpmnElementRef" type="bkpmn:tBPMNElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+=								This provides the list of the BPMN elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the BPMNDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="CMMNDocumentRef" type="bkpmn:tCMMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more CMMN Documents, which are XML documents, usually with the file extension “.cmmn.” Within a single 
+				CMMN Document there can be multiple Cases. A CMMNDocumentRef element references the XML document, thus including the CMMN Document 
+				in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tCMMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="cmmnElementRef" type="bkpmn:tCMMNElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This provides the list of the CMMN elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the CMMNDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DMNDocumentRef" type="bkpmn:tDMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more DMN Documents, which are XML documents, usually with the file extension “.dmn.” Within a single 
+				DMN Document there can be multiple Decision Services. A DMNDocumentRef element references the XML document, thus including the 
+				DMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tDMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" ref="bkpmn:DMNElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: dmnElementRef
+								This provides the list of the DMN elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the DMNDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMNDocumentRef" type="bkpmn:tBKPMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more BKPMN Documents, which are XML documents, usually with the file extension “.bkpmn.” Within a single 
+				BKPMN Document there will be one BKPMNPackage. A BKPMNDocumentRef element references the XML document, thus including the 
+				BKPMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="bkpmnElementRef" type="bkpmn:tBKPMElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This provides the list of the BKPMN elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the BKPMNDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="MDMIDocumentRef" type="bkpmn:tMDMIDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more MDMI Documents, which are XML documents, usually with the file extension “.mdmi.” Within a single 
+				MDMI Document there will be multiple MDMI models. A MDMIDocumentRef element references the XML document, thus including the 
+				PPMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tMDMIDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" ref="bkpmn:MDMIElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element Role: mdmiElementRef
+								This provides the list of the MDMI elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the MDMIDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="MDMIElementRef" type="bkpmn:tMDMIElementRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				There are currently 3 classes that are specializations of the DMNElementRef element. Those classes are: DecisionServiceRef, 
+				DecisionRef, and ExpressionRef.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tMDMIElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="dmnDocumentRef" type="bkpmn:tDMNDocumentRef"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="PPMNDocumentRef" type="bkpmn:tPPMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more PPMN Documents, which are XML documents, usually with the file extension “.ppmn.” Within a single 
+				BKPMN Document there will be one BKPMNPackage. A PPMNDocumentRef element references the XML document, thus including the 
+				PPMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPPMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" ref="bkpmn:PPMNElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element Role: ppmnElementRef
+								This provides the list of the PPMN elements that are referenced within the BKPMNPackage. There must be at least one element 
+								referenced otherwise the PPMNDocumentRef does not need to be included in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="PPMNElementRef" type="bkpmn:tPPMNElementRef"/>	
+	<xsd:complexType name="tPPMNElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="ppmnDocumentRef" type="bkpmn:tPPMNDocumentRef"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="PMOrganizationRef" type="bkpmn:tPMOrganizationRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				ResourceRoles are contained within a BPMN Process.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPMOrganizationRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="PMPersonRef" type="bkpmn:tPMPersonRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				ResourceRoles are contained within a BPMN Process.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPMPersonRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>	
+	
+	<xsd:element name="PedigreeAndProvenanceRef" type="bkpmn:tPedigreeAndProvenanceRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tPedigreeAndProvenanceRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tPPMNElementRef"/>			
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="Manifest" type="bkpmn:tManifest"/>
+	<xsd:complexType name="tManifest">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="operationalDocumentRef" type="bkpmn:tOperationalDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation> 	
+								This association provides the list of documents containing BPM+ models or other types of operational models that are 
+								part of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="resourceDocumentRef" type="bkpmn:tResourceDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association provides the list of documents containing documents that are used a resource information that help 
+								in the understanding and purpose of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="LanguageProfile" type="bkpmn:tLanguageProfile">
+		<xsd:annotation>
+			<xsd:documentation>
+				It is contained within a Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tLanguageProfile">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="modelingLanguage" type="bkpmn:tModelingLanguage">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association provides the list of BPM+ and other standards that are being used by documents that are part of the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ModelingLanguage" type="bkpmn:tModelingLanguage">
+		<xsd:annotation>
+			<xsd:documentation>
+				It is contained within a Profile.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tModelingLanguage">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:attribute use="required" name="languageName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							The name of the modeling language listed in the Profile. The name must be consistent with the language identified by the languageURI property.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="required" name="languageVersion " type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							The version of the modeling language listed in the Profile. The version must be consistent with the language identified by the languageURI property.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="required" name="languageURI " type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							The URI to the definition of the ModelingLanguage.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="SDMNDocumentRef" type="bkpmn:tSDMNDocumentRef" substitutionGroup="bkpmn:OperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Manifest lists zero or more SDMN Documents, which are XML documents, usually with the file extension “.sdmn.” Within a single 
+				SDMN Document there will be one Situational Data Model. A SDMNDocumentRef element references the XML document, thus including the 
+				SDMN Document in the Manifest.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tSDMNDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tOperationalDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="sdmnElementRef" type="bkpmn:tSDMNElementRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								There should be at least one Situational Data Model in the SDMN document. Otherwise, there is no need for the SDMN 
+								document to be in the Manifest.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="OperationalDocumentRef" type="bkpmn:tOperationalDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				As type of element, OperationslDocumentRefs are not graphically shown on a BKPMNDiagram.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tOperationalDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="operationalModelRef" type="bkpmn:tOperationalModelRef"/>					
+					<xsd:element maxOccurs="1" minOccurs="0" name="profile" type="bkpmn:tLanguageProfile"/>
+				</xsd:sequence>
+				<xsd:attribute use="required" name="operationalDocumentLocation" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							The URI where the Operational Document is located. The documentLocation SHALL be specified in a URI format.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="required" name="implementationKind" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							The implementation kind could be derived from the extension of the target file. E.g., a file with an extension of ".bpmn" would be listed as a 
+							BPMN implementation.  The specializations of OperationalDocumentRef will derive the implementationKind from the document in the documentLocation.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BPMNElementRef" type="bkpmn:tBPMNElementRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				There are currently 6 classes that are specializations of the BPMNElementRef element. Those classes are: ProcessRef, EventRef, 
+				CollaborationRef, ChoreographyRef, ResourceRoleRef, and ParticipantRef. These 6 types of BPMN elements have been identified as being 
+				relevant for the definition of the BKPMNPackage. The RootElement of BPMN is used in this context to provide the flexibility to extend 
+				BKPMN with references BPMN elements that are not on this list.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBPMNElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="bpmnDocumentRef" type="bkpmn:tBPMNDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies the BPMN Document (through the BPMNDocumentRef) that contains the BPMN element referenced by the concrete 
+								sub-class of this BPMPlusModelElementRef. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="EventRef" type="bkpmn:tEventRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				It is contained within a BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tEventRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ResourceRoleRef" type="bkpmn:tResourceRoleRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				ResourceRoles are contained within a BPMN Process.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tResourceRoleRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="CMMNElementRef" type="bkpmn:tCMMNElementRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				There are currently 4 classes that are specializations of the CMMNElementRef element. Those classes are: CaseRef, MilestoneRef, 
+				ExitCriterionRef, and CaseRoleRef.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tCMMNElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="bkpmn:CMMNDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: cmmnDocumentRef
+								This identifies the CMMN Document (through the CMMNDocumentRef) that contains the CMMN element referenced by the concrete sub-class 
+								of this BPMPlusModelElementRef. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="MilestoneRef" type="bkpmn:tMilestoneRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tMilestoneRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tCMMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DMNElementRef" type="bkpmn:tDMNElementRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				There are currently 3 classes that are specializations of the DMNElementRef element. Those classes are: DecisionServiceRef, 
+				DecisionRef, and ExpressionRef. These 3 types of DMN elements have been identified as being relevant for the definition of the 
+				BKPMNPackage. The DMNElement of DMN is used in this context to provide the flexibility to extend BKPMN with references DMN elements 
+				that are not on this list.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tDMNElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="bkpmn:DMNDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: dmnDocumentRef
+								This identifies the DMN Document (through the DMNDocumentRef) that contains the DMN element referenced by the concrete 
+								sub-class of this BPMPlusModelElement. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DecisionRef" type="bkpmn:tDecisionRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tDecisionRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tDMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ExpressionRef" type="bkpmn:tExpressionRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				BKPMN does not directly support the definition of executable expressions. If a BKPMNPackage developer requires an executable expression, 
+				then the capabilities of DMN should be used. The BKPMN Expression can then be linked to a DMN Expression that is part of the BKPMNPackage.
+				The expression will be contained within a DMN model as part of a Decision or Business Knowledge Model.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tExpressionRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tDMNElementRef">
+				<xsd:attribute use="optional" name="dmnExpressionKind" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="KnowledgeElement" abstract="true" type="bkpmn:tKnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				The KnowledgeElement abstract class is one of two intermediary classes to help with the organization of multiple elements 
+				that are contained within a BKPMNPackage (the other being PackageElement). Instead of creating separate containment associations 
+				to BKPMNPackage, there is one containment association from KnowledgeElement to BKPMNPackage and then there are a set of concrete 
+				subclasses to KnowledgeElement (which can be seen in the figure below). The class is named KnowledgeElement to indicate that its 
+				subclasses are elements that can be categorized as reflecting some aspect of the knowledge that is contained in the BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tKnowledgeElement">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="PackageElement" abstract="true" type="bkpmn:tPackageElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				The PackageElement abstract class is one of two intermediary classes to help with the organization of multiple elements 
+				that are contained within a BKPMNPackage (the other being KnowledgeElement). Instead of creating separate containment associations 
+				to BKPMNPackage, there is one containment association from PackageElement to BKPMNPackage and then there are a set of concrete 
+				subclasses to PackageElement (which can be seen in the figure below). The class is named PackageElement to indicate that its 
+				subclasses are elements that can be categorized as reflecting some aspect of the package itself that may help in the understanding 
+				or discovery of the BKPMNPackage.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tPackageElement">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tTypedElement"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="BKPMElementRef" type="bkpmn:tBKPMElementRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				There is currently 1 class that are specializations of the BKPMNElementRef element. That class is: BKPMNPackageRef.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="bkpmnDocumentRef" type="bkpmn:tBKPMNDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies the BKPMN Document (through the BKPMNDocumentRef) that contains the BKPMN element referenced by the concrete sub-class of this 
+								BPMPlusModelElementRef. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DataItemRef" type="bkpmn:tDataItemRef" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tDataItemRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tSDMNElementRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="SDMNElementRef" type="bkpmn:tSDMNElementRef" substitutionGroup="bkpmn:KnowledgeElement">
+		<xsd:annotation>
+			<xsd:documentation>
+				There are currently 2 classes that are specializations of the SDMNNamedElementRef element. Those classes are: DataItemRef, and 
+				SituationalDataModelRef.The SDMNElement of SDMN is used in this context to provide the flexibility to extend BKPMN with references 
+				SDMN elements that are not on this list.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tSDMNElementRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="bkpmn:SDMNDocumentRef">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: sdmnDocumentRef
+								This identifies the SDMN Document (through the SDMNDocumentRef) that contains the SDMN element referenced by the concrete 
+								sub-class of this BPMPlusModelElementRef. This document MUST be identified.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="Recommendation" type="bkpmn:tRecommendation" substitutionGroup="bkpmn:KnowledgeElement"/>	
+	<xsd:complexType name="tRecommendation">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tKnowledgeElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="applicabilityRef" type="bkpmn:tApplicability">
+						<xsd:annotation>
+							<xsd:documentation>
+								The applicability of a BKPMNPackage is a statement of the conditions that must be met, after a BKPMNPackageStartTrigger occurs, 
+								in order for the BKPMNPackage to be applied.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="inputRef" type="bkpmn:tBKPMNPackageInput">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of the key Data Items that are necessary to be present at the start of a performance of a BKPMNPackage. 
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="outputRef" type="bkpmn:tBKPMNPackageOutput">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of the key Data Items that are a product at the end of a performance of a BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="effectRef" type="bkpmn:tEffect">
+						<xsd:annotation>
+							<xsd:documentation>
+								The Effects of a BKPMNPackage are statements as to a change in condition or a result that occurs due to enacting of the 
+								behaviors of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="lifecycleEventRef" type="bkpmn:tLifecycleEvent">
+						<xsd:annotation>
+							<xsd:documentation>
+								These are the significant circumstances or events, as identified by the BKPMNPackage developer, that occur during the enactment 
+								of the BKPMNPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="recommendedBehaviorRef" type="bkpmn:tBPMPlusModelElement">
+						<xsd:annotation>
+							<xsd:documentation>
+								This identifies BPM+ model elements (e.g., a Process) that is related to the Recommendation.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bkpmn:Recommendation">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element role: relatedRecommendation
+								This identifies another Recommendation that is related to this Recommendation.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="statusRef" type="bkpmn:tRecommendationStatus">
+						<xsd:annotation>
+							<xsd:documentation>
+								The RecommendationStatus defines how the Recommendation is related to Recommendations the of previous versions of the BKPMPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="0" name="strengthRef" type="bkpmn:tRecommendationStrength">
+						<xsd:annotation>
+							<xsd:documentation>
+								The RecommendationStrength is an evaluation of the confidence that the Recommendation developers have 
+								regarding how the Recommendation should be applied.  
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="optional" name="recommendationText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							This is the written narrative of the Recommendation. It will often include “We recommend…”
+							Additional discussion or documentation can be included in the Documentation element.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="RecommendedBehavior" type="bkpmn:tRecommendedBehavior"/>	
+	<xsd:complexType name="tRecommendedBehavior">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tBPMPlusModelElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="bpmplusModelElementRef" type="bkpmn:tBPMPlusModelElement"/>					
+				</xsd:sequence>
+				<xsd:attribute name="behaviorDescription" use="optional" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							An optional text description of the RecommendationBehavior.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="RecommendationStatus">
+		<xsd:annotation>
+			<xsd:documentation>
+				The RecommendationStatus defines how the Recommendation is related to Recommendations the of previous versions of the Definitions. 
+				Custom enumeration sets can be defined, however, a common list includes: amended; deleted; new-added; new-replaced; not-changed.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tRecommendationStatus">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="RecommendationStrength">
+		<xsd:annotation>
+			<xsd:documentation>
+				The RecommendationStrength is an evaluation of the confidence that the Recommendation developers have regarding how the 
+				Recommendation should be applied.  Custom enumeration sets can be defined, however, a common list includes: 
+				strong-against; strong-for; weak-against; weak-for.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tRecommendationStrength">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="InitializationDataRef" type="bkpmn:tInitializationDataRef" substitutionGroup="bkpmn:ResourceDocumentRef"/>	
+	<xsd:complexType name="tInitializationDataRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tResourceDocumentRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="NarrativeRef" type="bkpmn:tNarrativeRef" substitutionGroup="bkpmn:ResourceDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				Narratives are text or video documents that provide supporting information to help understand the behaviors of a BKPMNPackage. 
+				They add supporting descriptions that would help someone navigate the models or understand why they are structured the way that they are.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tNarrativeRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tResourceDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="narrativeKindRef" type="bkpmn:tNarrativeKind"/>					
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="NarrativeKind"/>	
+	<xsd:complexType name="tNarrativeKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="PolicyDocumentRef" type="bkpmn:tPolicyDocumentRef" substitutionGroup="bkpmn:ResourceDocumentRef"/>	
+	<xsd:complexType name="tPolicyDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tResourceDocumentRef">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" name="policyRef" type="bkpmn:tPolicyRef"/>										
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="ResourceDocumentRef" type="bkpmn:tResourceDocumentRef">
+		<xsd:annotation>
+			<xsd:documentation>
+				As type of element, ResourceDocumentRefs are not graphically shown on a BKPMNDiagram.
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tResourceDocumentRef">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="1" name="documentKindRef" type="bkpmn:tDocumentKind"/>					
+				</xsd:sequence>
+				<xsd:attribute use="required" name="documentLocation" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							The URI where the RelatedResourceRef is located. The documentLocation SHALL be specified in a URI format.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="DocumentKind"/>	
+	<xsd:complexType name="tDocumentKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSemanticReference"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="TestCaseRef" type="bkpmn:tTestCaseRef" substitutionGroup="bkpmn:ResourceDocumentRef"/>	
+	<xsd:complexType name="tTestCaseRef">
+		<xsd:complexContent>
+			<xsd:extension base="bkpmn:tResourceDocumentRef"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+</xsd:schema>

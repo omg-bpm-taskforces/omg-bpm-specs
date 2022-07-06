@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<xsd:schema xmlns="https://www.omg.org/spec/BKPMN/20211108/MODEL"
+	xmlns:bkpmndi="https://www.omg.org/spec/BKPMN/20211108/BKPMNDI"
+	xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="https://www.omg.org/spec/BKPMN/20211108/MODEL">
+
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="bmi-21-11-25.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/BKPMN/20211108/BKPMNDI" schemaLocation="bmi-21-11-18.xsd"/>
+	<xsd:include schemaLocation="bmi-21-11-17.xsd"/>
+	
+	<xsd:element name="BKPMNModelPackage" type="tBKPMNModelPackage">
+		<xsd:annotation>
+			<xsd:documentation>
+				A BKPMNPackage is mechanism for packaging and distributing a set of BPM+ models (i.e., the knowledge). A BKPMNPackage references separate, 
+				but connected BPM+ models (BPMN Processes, CMMN Cases, and DMN Decision Services). It should be noted that BKPMN is focused solely on the 
+				BMI behavioral standards. A BKPMNPackage also contains a Data Item library for the data that will be used by the BPM+ models 
+				(the proposed standard SDMN defines the elements of the Data Item library).
+			</xsd:documentation>
+		</xsd:annotation>		
+	</xsd:element>
+	<xsd:complexType name="tBKPMNModelPackage">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEModelPackage">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="0" name="presentation" type="bkpmndi:tBKPMNDI">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute contains the Diagram Interchange information contained within this package. 
+								This redefines the presentation association of SCEModelPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="1" minOccurs="1" name="model" type="tBKPMNModel">
+						<xsd:annotation>
+							<xsd:documentation>
+								This the BkPMNModel sub-package contained within a BKPMNModelPackage. This redefines the model association of SCEModelPackage.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="jurisdiction" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute defines the countries or other areas (such as states) where the BKPMNPackage is in effect.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute use="required" name="completed" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>
+							This property is set to true when a Knowledge Package contains a complete and coherent set of models. This means that all the models 
+							that are referenced by the Manifest are completed and the dependencies (relationships) between those models are well defined. 
+							Further, all the dependencies (relationships) between Knowledge Package elements and the referenced models are also well defined – 
+							these dependencies SHALL be validated before the property can set to true. When completed is still false (the default setting), 
+							a Knowledge Package can still be discovered and/or distributed, but there is no expectation that the Knowledge Package is valid, 
+							complete, or ready to use in practice.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="documentKind" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							The documentKind setting provides a classification mechanism for the BKPMNPackage. This classification could be used as 
+							part of a search for a particular BKPMNPackage, for example.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="effectivePeriodStart" type="xsd:dateTime">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute defines the start date for when BKPMNPackage is in effect.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="optional" name="effectivePeriodEnd" type="xsd:dateTime">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute defines the end date for when BKPMNPackage is no longer in effect.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute use="required" name="published" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>
+							This property is set to true when a Knowledge Package is “officially” published and available for review and consumption. This is analogous 
+							to the publishing of a book or the release of a version of software. The completed property SHALL be true before published property can set to true.
+							When set to true, the content of the Knowledge Package, both internal and referenced, is considered immutable (locked). This includes the 
+							versionDate of the Knowledge Package. When the version of the Knowledge Package is updated, then the published property is reset to false.
+							Beyond the validation that applies to the complete property, there is no specify mechanism to validate that a Knowledge Package is 
+							fully suitable for publishing. The Knowledge Package development team will determine when it is at a level of completeness that warrants 
+							setting published to true. When published is still false (the default setting), a Knowledge Package can still be discovered and/or distributed, 
+							but there is no expectation that the Knowledge Package is valid, complete, or ready to use in practice.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+</xsd:schema>
