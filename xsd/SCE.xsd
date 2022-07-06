@@ -5,8 +5,8 @@
 	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL" 
 	elementFormDefault="qualified">
 
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="bmi-21-11-27.xsd"/>
-	<xsd:include schemaLocation="bmi-21-11-26.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
+	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
 	<xsd:element name="SCEModelPackage" type="tSCEModelPackage" abstract="true">
 		<xsd:annotation>

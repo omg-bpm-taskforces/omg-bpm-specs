@@ -5,7 +5,7 @@
 			targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
-	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="bmi-21-11-30.xsd"/>
+	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
 
 	<xsd:annotation>
 		<xsd:documentation>

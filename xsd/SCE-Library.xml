@@ -6,7 +6,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	id="_adl020900-cgl033-d105-anep021714-01" 
 	name="RelationshipKinds"
-	xsi:schemaLocation="https://www.omg.org/spec/SCE/20211108/MODEL bmi-21-11-26.xsd" 
+	xsi:schemaLocation="https://www.omg.org/spec/SCE/20211108/MODEL SCE-Semantic.xsd" 
 	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds">
 	
 	<sce:term id="_adl020900-cgl033105-anep021714-02" 

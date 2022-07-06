@@ -7,7 +7,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	id="_adl020900-cgl033-d105-anep021717-01"
 	name="SDMNLibrary"
-	xsi:schemaLocation="https://www.omg.org/spec/SDMN/20211108/MODEL bmi-21-11-07.xsd" 
+	xsi:schemaLocation="https://www.omg.org/spec/SDMN/20211108/MODEL SDMN-Semantic.xsd" 
 	targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL/SDMNLibrary">
 	
 	<sdmn:sdmnVocabulary

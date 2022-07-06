@@ -7,10 +7,10 @@
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
 
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="bmi-21-11-25.xsd"/>  
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="SCE.xsd"/>  
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
-    <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="bmi-21-11-08.xsd"/>
-    <xsd:include schemaLocation="bmi-21-11-07.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
+    <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
     <xsd:element name="SDMNModelPackage" type="tSDMNModelPackage">
         <xsd:annotation>

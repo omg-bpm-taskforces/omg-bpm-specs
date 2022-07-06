@@ -7,7 +7,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	id="_adl020900-cgl033-d105-anep021718-01"
 	name="BKPMNLibrary"
-	xsi:schemaLocation="https://www.omg.org/spec/BKPMN/20211108/MODEL bmi-21-11-16.xsd" 
+	xsi:schemaLocation="https://www.omg.org/spec/BKPMN/20211108/MODEL BKPMN.xsd" 
 	targetNamespace="https://www.omg.org/spec/BKPMN/20211108/MODEL/BKPMNLibrary">
 	
 	<bkpmn:bkpmnVocabulary
