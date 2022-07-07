@@ -20,3 +20,10 @@ e.g. the [VS Code extension for XML Language Support](https://marketplace.visual
 or [XML Copy Editor](https://xml-copy-editor.sourceforge.io/).
 
 An [XML calatog](catalog.xml) is provided for tools to know the schema locations for the namespaces, e.g. in [VS Code](https://github.com/redhat-developer/vscode-xml/blob/master/docs/Validation.md#xml-catalog-with-xsd).
+
+You can also associate language-specific file extensions to be treated as XML to enable schema validation, e.g. in VS Code:
+```json
+"files.associations": {
+  "*.bpmn": "xml"
+}
+```
