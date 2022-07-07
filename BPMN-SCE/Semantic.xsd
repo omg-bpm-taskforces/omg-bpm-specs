@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
 	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL">
 	
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../BPM+/SCE.xsd"/>  
+
 	<xsd:element name="activity" type="tActivity"/>
 	<xsd:complexType name="tActivity" abstract="true">
 		<xsd:complexContent>
@@ -91,12 +94,14 @@
 
 	<xsd:element name="baseElement" type="tBaseElement"/>
 	<xsd:complexType name="tBaseElement" abstract="true">
-		<xsd:sequence>
-			<xsd:element ref="documentation" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element ref="extensionElements" minOccurs="0" maxOccurs="1" /> 
-		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
-		<xsd:anyAttribute namespace="##other" processContents="lax"/>
+		<xsd:complexContent>			
+			<xsd:extension base="sce:tSCEElement">
+				<xsd:sequence>
+					<xsd:element ref="extensionElements" minOccurs="0" maxOccurs="1" /> 
+				</xsd:sequence>
+				<xsd:anyAttribute namespace="##other" processContents="lax"/>
+			</xsd:extension>
+		</xsd:complexContent>
 	</xsd:complexType>
 	
 	<xsd:element name="baseElementWithMixedContent" type="tBaseElementWithMixedContent"/>
@@ -137,7 +142,6 @@
 					<xsd:element ref="ioSpecification" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="ioBinding" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -205,7 +209,6 @@
 				<xsd:sequence>
 					<xsd:element ref="categoryValue" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -280,7 +283,6 @@
 					<xsd:element name="choreographyRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="conversationLink" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="isClosed" type="xsd:boolean" default="false"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -352,7 +354,6 @@
 	<xsd:complexType name="tConversationLink"> 
 		<xsd:complexContent> 
 			<xsd:extension base="tBaseElement"> 
-				<xsd:attribute name="name" type="xsd:string" use="optional"/> 
 				<xsd:attribute name="sourceRef" type="xsd:QName" use="required"/> 
 				<xsd:attribute name="targetRef" type="xsd:QName" use="required"/> 
 			</xsd:extension> 
@@ -368,7 +369,6 @@
 					<xsd:element name="messageFlowRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="correlationKey" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -380,7 +380,6 @@
 				<xsd:sequence>
 					<xsd:element name="correlationPropertyRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="optional"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -392,7 +391,6 @@
 				<xsd:sequence>
 					<xsd:element ref="correlationPropertyRetrievalExpression" minOccurs="1" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="optional"/>
 				<xsd:attribute name="type" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -455,7 +453,6 @@
 				<xsd:sequence>
 					<xsd:element ref="dataState" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="optional"/>
 				<xsd:attribute name="itemSubjectRef" type="xsd:QName" />
 				<xsd:attribute name="isCollection" type="xsd:boolean" default="false"/>
 			</xsd:extension>
@@ -502,7 +499,6 @@
 				<xsd:sequence>
 					<xsd:element ref="dataState" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="optional" />
 				<xsd:attribute name="itemSubjectRef" type="xsd:QName"/>
 				<xsd:attribute name="isCollection" type="xsd:boolean" default="false"/>
 			</xsd:extension>
@@ -520,7 +516,6 @@
 	<xsd:complexType name="tDataState">
 		<xsd:complexContent>
 			<xsd:extension base="tBaseElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -532,7 +527,6 @@
 				<xsd:sequence>
 					<xsd:element ref="dataState" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="capacity" type="xsd:integer"/>
 				<xsd:attribute name="isUnlimited" type="xsd:boolean" default="true"/>
 				<xsd:attribute name="itemSubjectRef" type="xsd:QName"/>
@@ -580,7 +574,6 @@
 	<xsd:complexType name="tError">
 		<xsd:complexContent>
 			<xsd:extension base="tRootElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="errorCode" type="xsd:string"/>
 				<xsd:attribute name="structureRef" type="xsd:QName"/>
 			</xsd:extension>
@@ -600,7 +593,6 @@
 	<xsd:complexType name="tEscalation">
 		<xsd:complexContent>
 			<xsd:extension base="tRootElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="escalationCode" type="xsd:string"/>
 				<xsd:attribute name="structureRef" type="xsd:QName"/>
 			</xsd:extension>
@@ -692,7 +684,6 @@
 					<xsd:element ref="monitoring" minOccurs="0" maxOccurs="1"/>
 					<xsd:element name="categoryValueRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -856,7 +847,6 @@
 					<xsd:element name="whileExecutingInputRefs" type="xsd:IDREF" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="outputSetRefs" type="xsd:IDREF" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" />
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -868,7 +858,6 @@
 				<xsd:sequence>
 					<xsd:element ref="operation" minOccurs="1" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="required"/>
 				<xsd:attribute name="implementationRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -940,7 +929,6 @@
 					<xsd:element name="flowNodeRef" type="xsd:IDREF" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="childLaneSet" type="tLaneSet" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="partitionElementRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -953,7 +941,6 @@
 				<xsd:sequence>
 					<xsd:element ref="lane" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -966,7 +953,6 @@
 					<xsd:element name="source" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="target" type="xsd:QName" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="required"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -989,7 +975,6 @@
 	<xsd:complexType name="tMessage">
 		<xsd:complexContent>
 			<xsd:extension base="tRootElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="itemRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -1011,7 +996,6 @@
 	<xsd:complexType name="tMessageFlow">
 		<xsd:complexContent>
 			<xsd:extension base="tBaseElement">
-				<xsd:attribute name="name" type="xsd:string" use="optional"/>
 				<xsd:attribute name="sourceRef" type="xsd:QName" use="required"/>
 				<xsd:attribute name="targetRef" type="xsd:QName" use="required"/>
 				<xsd:attribute name="messageRef" type="xsd:QName"/>
@@ -1075,7 +1059,6 @@
 					<xsd:element name="outMessageRef" type="xsd:QName" minOccurs="0" maxOccurs="1"/>
 					<xsd:element name="errorRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="required"/>
 				<xsd:attribute name="implementationRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -1091,7 +1074,6 @@
 					<xsd:element name="whileExecutingOutputRefs" type="xsd:IDREF" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="inputSetRefs" type="xsd:IDREF" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -1112,7 +1094,6 @@
 					<xsd:element name="endPointRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="participantMultiplicity" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="processRef" type="xsd:QName" use="optional"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -1147,7 +1128,6 @@
 				<xsd:sequence>
 					<xsd:element name="participantRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -1159,7 +1139,6 @@
 				<xsd:sequence>
 					<xsd:element name="participantRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -1178,7 +1157,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="process" type="tProcess" substitutionGroup="rootElement"/>
+	<xsd:element name="process" type="tProcess" substitutionGroup="sce:SCERootElement"/>
 	<xsd:complexType name="tProcess">
 		<xsd:complexContent>
 			<xsd:extension base="tCallableElement">
@@ -1216,7 +1195,6 @@
 				<xsd:sequence>
 					<xsd:element ref="dataState" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="itemSubjectRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -1271,7 +1249,6 @@
 				<xsd:sequence>
 					<xsd:element ref="resourceParameter" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
-				<xsd:attribute name="name" type="xsd:string" use="required"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -1291,7 +1268,6 @@
 	<xsd:complexType name="tResourceParameter">
 		<xsd:complexContent>
 			<xsd:extension base="tBaseElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="type" type="xsd:QName"/>
 				<xsd:attribute name="isRequired" type="xsd:boolean"/>
 			</xsd:extension>
@@ -1321,7 +1297,6 @@
 					</xsd:sequence> 
 					<xsd:element ref="resourceAssignmentExpression" minOccurs="0" maxOccurs="1"/> 
 				</xsd:choice>
-				<xsd:attribute name="name" type="xsd:string"/>
 			</xsd:extension> 
 		</xsd:complexContent> 
 	</xsd:complexType>
@@ -1391,7 +1366,6 @@
 	<xsd:complexType name="tSignal">
 		<xsd:complexContent>
 			<xsd:extension base="tRootElement">
-				<xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="structureRef" type="xsd:QName"/>
 			</xsd:extension>
 		</xsd:complexContent>
