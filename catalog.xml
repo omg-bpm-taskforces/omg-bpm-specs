@@ -1,0 +1,35 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+    <uri
+        name="https://www.omg.org/spec/SCE/20211108/MODEL"
+        uri="./BPM+/SCE.xsd" />
+        
+    <uri
+        name="https://www.omg.org/spec/SDMN/20211108/MODEL"
+        uri="./BPM+/SDMN.xsd" />
+        
+    <uri
+        name="https://www.omg.org/spec/BKPMN/20211108/MODEL"
+        uri="./BPM+/BKPMN.xsd" />
+        
+    <uri
+        name="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        uri="./BPMN/BPMN20.xsd" />
+        
+    <uri
+        name="https://www.omg.org/spec/DMN/20211108/MODEL/"
+        uri="./DMN/DMN14.xsd" />
+        
+    <uri
+        name="https://www.omg.org/spec/DMN/20191111/MODEL/"
+        uri="./DMN/DMN13.xsd" />
+        
+    <uri
+        name="http://www.omg.org/spec/DMN/20180521/MODEL/"
+        uri="./DMN/DMN12.xsd" />
+        
+    <uri
+        name="http://www.omg.org/spec/CMMN/20151109/MODEL"
+        uri="./CMMN/CMMN11.xsd" />
+
+</catalog>
