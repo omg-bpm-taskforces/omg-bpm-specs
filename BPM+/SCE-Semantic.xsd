@@ -525,14 +525,15 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="semanticReferenceRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								A concrete SCEElement can reference multiple SemanticReference elements.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="conceptReference" use="optional" type="xsd:anyURI">
+					<xsd:annotation>
+						<xsd:documentation>
+							This property provides the capability of including a Concept Reference for any SCEElement.
+							It is expected that the value of the URI is persistent.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -716,41 +717,6 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-
-	<xsd:element name="SemanticReference" type="sce:tSemanticReference">
-		<xsd:annotation>
-			<xsd:documentation>
-				Most BPM+ models (dependent on SCE) are not intended to define full-scale ontologies or domain models, such as data models. 
-				However, the activities, decisions, data items, etc. of BPM+ are representative of elements defined by ontologies or data models. 
-				The specific context of the BPM+ elements may result in different terminology or sub-sets of data representation elements within 
-				the normative domain models. To reduce any confusion due to terminology or data representation, the BPM+ models dependent on SCE 
-				have the capability of linking model elements to the appropriate external sources of truth for their domain. The SemanticReference 
-				is that mechanism in SCE.
-			</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="tSemanticReference">
-		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
-				<xsd:attribute name="conceptURI" type="xsd:anyURI" use="required">
-					<xsd:annotation>
-						<xsd:documentation>
-						    This attribute defines the URI location of the target of the SemanticReference.
-					    </xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-				<xsd:attribute name="conceptNamespace" type="xsd:anyURI" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-						    This attribute documents the version of the target of the SemanticReference when the SemanticReference was included in the 
-						    model. If this information is not provided, then it is likely that the conceptURI will navigate to the current version of 
-						    the target of the SemanticReference, which could have changed since the SemanticReference was established in the model.
-					    </xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-			</xsd:extension>
-		</xsd:complexContent>
-	</xsd:complexType>
 	
 	<xsd:element name="ElementRelationship" type="sce:tElementRelationship">
 		<xsd:annotation>
@@ -856,7 +822,7 @@
 	<xsd:element name="RelationshipKind" type="sce:tRelationshipKind"/>	
 	<xsd:complexType name="tRelationshipKind">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSemanticReference"/>
+			<xsd:extension base="sce:tSCEElement"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
@@ -1318,7 +1284,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
-					<xsd:element name="term" type="sce:tSemanticReference" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="term" type="sce:tSCEElement" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This association defines artifacts used to extend the semantics of the source element(s).
