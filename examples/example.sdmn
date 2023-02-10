@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdmn:SDMNModelPackage targetNamespace="falko" id="modelPackage"
+    xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
+    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions2">
+      <sce:elementTypeRelationship xsi:type="sdmn:tContainmentConnector" id="c1">
+        <sce:sourceRef>dataItem1</sce:sourceRef>
+        <sce:targetRef>dataItem2</sce:targetRef>
+        <sce:relationshipKindRef id="rKR1" conceptURI="... NO VALIDATION HERE ;-P" />
+        <sdmn:sourceRef id="sR1"></sdmn:sourceRef>
+        <sdmn:targetRef id="tR1"></sdmn:targetRef>
+      </sce:elementTypeRelationship>
+      <sdmn:dataItem id="dataItem1"></sdmn:dataItem>
+      <sdmn:dataItem id="dataItem2"></sdmn:dataItem>
+    </sce:definitions>
+    <sdmn:definitions targetNamespace="falko" id="definitions1"></sdmn:definitions>
+  </sce:model>
+  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
+  </sdmn:model>
+</sdmn:SDMNModelPackage>
