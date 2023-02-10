@@ -117,7 +117,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEModel">
+	<xsd:complexType name="tSCEModel" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
