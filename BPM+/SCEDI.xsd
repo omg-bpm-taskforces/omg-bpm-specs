@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-	xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
-	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+<xsd:schema xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+	xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -33,19 +33,19 @@
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-		</xsd:sequence>				
+		</xsd:sequence>
 	</xsd:complexType>
 
 	<xsd:element name="SCEDiagram" type="scedi:tSCEDiagram" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				The abstract class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model. 
+				The abstract class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model.
 				It is contained within the SCEDI element. The languages that are dependent on SCE will define concrete diagrams based on SCEDiagram.
-				SCEDiagram is the container of SCEDiagramElement (SCEShape(s) and SCEEdge(s)). SCEDiagram cannot include other SCEDiagrams. A SCEDiagram can 
+				SCEDiagram is the container of SCEDiagramElement (SCEShape(s) and SCEEdge(s)). SCEDiagram cannot include other SCEDiagrams. A SCEDiagram can
 				define a SCEStyle locally and/or it can refer to a shared one defined in the SCEDI. Properties defined in the local style overrides
-				the one in the referenced shared style. That combined style (shared and local) is the default style for all the SCEDiagramElement contained 
+				the one in the referenced shared style. That combined style (shared and local) is the default style for all the SCEDiagramElement contained
 				in this SCEDiagram. The SCEDiagram class represents a two-dimensional surface with an origin of (0, 0) at the top left corner.
-				This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements 
+				This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements
 				that are nested in a SCEDiagram.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -94,9 +94,9 @@
 	<xsd:element name="SCEDiagramElement" type="di:DiagramElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEDiagramElement class is contained by the SCEDiagram and is the base class for DMNShape and DMNEdge. SCEDiagramElement inherits its styling 
-				from its parent SCEDiagram. In addition, it can refer to one of the shared SCEStyle defined in the SCEDI and/or it can define a local style. See 
-				section below for more details on styling. SCEDiagramElement MAY also contain a SCELabel when it has a visible text label. If no SCELabel is defined, 
+				The SCEDiagramElement class is contained by the SCEDiagram and is the base class for DMNShape and DMNEdge. SCEDiagramElement inherits its styling
+				from its parent SCEDiagram. In addition, it can refer to one of the shared SCEStyle defined in the SCEDI and/or it can define a local style. See
+				section below for more details on styling. SCEDiagramElement MAY also contain a SCELabel when it has a visible text label. If no SCELabel is defined,
 				the SCEDiagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -105,12 +105,12 @@
 	<xsd:element name="SCEEdge" type="scedi:tSCEEdge" substitutionGroup="scedi:SCEDiagramElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEEdge class specializes DI::Edge and SCEDiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent 
+				The SCEEdge class specializes DI::Edge and SCEDiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent
 				model elements. SCEEdge are used to depict Requirements or Associations in the SCE-dependent model. Since SCEDiagramElement might be
-				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SCEEdge is connected. When 
+				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SCEEdge is connected. When
 				SCEEdge has a source, its sourceModelElement MUST refer to the SCEDiagramElement it starts from. That SCEDiagramElement MUST resolved to
 				the SCEElement that is the actual source of the Requirement or Association. For Requirement, this is the required SCEElement. When it has a target, its
-				targetModelElement MUST refer to the SCEDiagramElement where it ends. That SCEDiagramElement MUST resolved to the SCEElement that is the actual 
+				targetModelElement MUST refer to the SCEDiagramElement where it ends. That SCEDiagramElement MUST resolved to the SCEElement that is the actual
 				target of the Requirement or Association. For Requirement, this is the SCEElement holding it.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -138,7 +138,7 @@
 							<xsd:documentation>
 								Element Role: label
 								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								An optional label when the SCE-dependent Element has a visible text label.                
+								An optional label when the SCE-dependent Element has a visible text label.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -170,9 +170,9 @@
 	<xsd:complexType name="tSCEShape">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEShape class specializes DI::Shape and SCEDiagramElement. It is a kind of Shape that depicts a DMNElement from the SCE-dependent model. 
+				The SCEShape class specializes DI::Shape and SCEDiagramElement. It is a kind of Shape that depicts a DMNElement from the SCE-dependent model.
 				SCEShape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
-				to their diagrams. SCEShape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
+				to their diagrams. SCEShape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to
 				further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -184,7 +184,7 @@
 							<xsd:documentation>
 								Element Role: label
 								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								An optional label when the SCE-dependent Element has a visible text label.                
+								An optional label when the SCE-dependent Element has a visible text label.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -192,7 +192,7 @@
 						<xsd:annotation>
 							<xsd:documentation>
 								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								A reference to the SCEElement that is being depicted.                
+								A reference to the SCEElement that is being depicted.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -204,9 +204,9 @@
 	<xsd:element name="SCEStyle" type="scedi:tSCEStyle" substitutionGroup="di:Style">
 		<xsd:annotation>
 			<xsd:documentation>
-				SCEStyle specializes DC::Style. It is a kind of style that provides appearance options for a SCEDiagramElement. SCEStyle is used to keep some 
+				SCEStyle specializes DC::Style. It is a kind of style that provides appearance options for a SCEDiagramElement. SCEStyle is used to keep some
 				non-normative visual attributes such as colors and font. SCE doesn’t give any semantic to color and font styling, but tools can decide to use them and
-				interchange them. SCEDiagramElement style is calculated by percolating up SCEStyle attributes defined at a different level of the hierarchy. 
+				interchange them. SCEDiagramElement style is calculated by percolating up SCEStyle attributes defined at a different level of the hierarchy.
 				Each attribute is considered independently (meaning that a SCEStyle attribute can be individually overloaded). The precedence rules are as follow:
 				• The SCEStyle defined by the localStyle attribute of the SCEDiagramElement
 				• The SCEStyle referenced by the sharedStyle attribute of the SCEDiagramElement

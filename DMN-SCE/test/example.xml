@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions
-  xsi:schemaLocation="https://www.omg.org/spec/DMN/20211108/MODEL/ ../dmn/DMN14.xsd"
+  xsi:schemaLocation="https://www.omg.org/spec/DMN/20211108/MODEL/ ../../DMN/DMN14.xsd"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="https://www.omg.org/spec/DMN/20211108/MODEL/"
   xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"

@@ -3,4 +3,4 @@ all: validate
 
 .PHONY: validate
 validate:
-	xmllint --schema ../dmn/DMN14.xsd --noout example.xml
+	xmllint --schema ../../DMN/DMN14.xsd --noout example.xml
