@@ -2,19 +2,24 @@
 <sdmn:SDMNModelPackage targetNamespace="falko" id="modelPackage"
     xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
   <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
     <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
       <sce:elementTypeRelationship xsi:type="sdmn:tContainmentConnector" id="c1">
+        <!-- FIXME: overriding of sourceRef & targetRef instead of duplicating them -->
         <sce:sourceRef>dataItem1</sce:sourceRef>
         <sce:targetRef>dataItem2</sce:targetRef>
         <sce:relationshipKindRef id="rKR1" conceptURI="... NO VALIDATION HERE ;-P" />
         <sdmn:sourceRef id="sR1">
+          <!-- FIXME: sdmn:sourceRef is of type sdmn:tDataItem instead of referencing one via IDREF or QName -->
           <sdmn:multiplicityKindRef id="mKR1"
             conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
         </sdmn:sourceRef>
         <sdmn:targetRef id="tR1">
+          <!-- FIXME: sdmn:targetRef is of type sdmn:tDataItem instead of referencing one via IDREF or QName -->
           <sdmn:multiplicityKindRef id="mKR2"
             conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
         </sdmn:targetRef>
@@ -30,6 +35,9 @@
     </sce:definitions>
     <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
   </sce:model>
+  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
   <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
+    <!-- FIXME: this shouldn't be possible -->
   </sdmn:model>
+  <sdmndi:SDMNDI></sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>
