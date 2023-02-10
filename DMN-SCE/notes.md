@@ -1,10 +1,12 @@
 * DC and DI can be replaced without problem
-* DMNEdge sourceElement and targetElement are redundant (can be derived from semantic part)
+* DMNEdge sourceElement and targetElement are redundant unless you don't use waypoints (can be derived from semantic part)
 
 |       type      |      DMN     |      SCE     |
 | --------------- | ------------ | ------------ |
-| Edge source and target element | entity | attribute |
-| Label text | entity | attribute |
+| Edge source and target element | element | attribute |
+| Label text | element | attribute |
 
 * DMNStyle uses inconsistent case PascalCase for some properties, camelCase for most.
-* element ref is an attribute in DMN but an entity in SCE
+* Element Ref is an element in SCE while an attribute in DMN; the ref is also duplicated -> SCE should define general "elementRef"
+
+* labelHorizontalAlignement -> typo in SCEDI.xsd
