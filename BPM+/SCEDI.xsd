@@ -249,7 +249,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="labelHorizontalAlignement" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
+					<xsd:element name="labelHorizontalAlignment" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								How text should be positioned horizontally within the Label bounds. Default depends
