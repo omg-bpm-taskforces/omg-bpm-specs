@@ -3,6 +3,7 @@
             xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
             xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
             xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+						xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
             targetNamespace="https://www.omg.org/spec/DMN/20191111/DMNDI/"
             elementFormDefault="qualified" attributeFormDefault="unqualified">
 
@@ -10,10 +11,12 @@
 	            schemaLocation="../sce/DC.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI"
 	            schemaLocation="../sce/DI.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
+	            schemaLocation="../sce/SCEDI.xsd"/>
 
 	<xsd:element name="DMNDI" type="dmndi:DMNDI"/>
 	<xsd:element name="DMNDiagram" type="dmndi:DMNDiagram"/>
-	<xsd:element name="DMNDiagramElement" type="di:DiagramElement">
+	<xsd:element name="DMNDiagramElement" type="di:DiagramElement" abstract="true" substitutionGroup="scedi:SCEDiagramElement">
 		<xsd:annotation>
 			<xsd:documentation>This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence</xsd:documentation>
 		</xsd:annotation>
@@ -21,7 +24,7 @@
 	<xsd:element name="DMNShape" type="dmndi:DMNShape" substitutionGroup="dmndi:DMNDiagramElement"/>
 	<xsd:element name="DMNEdge" type="dmndi:DMNEdge" substitutionGroup="dmndi:DMNDiagramElement"/>
 	<xsd:element name="DMNStyle" type="dmndi:DMNStyle" substitutionGroup="di:Style"/>
-	<xsd:element name="DMNLabel" type="dmndi:DMNLabel"/>
+	<xsd:element name="DMNLabel" type="dmndi:DMNLabel" substitutionGroup="scedi:SCELabel"/>
 	<xsd:element name="DMNDecisionServiceDividerLine" type="dmndi:DMNDecisionServiceDividerLine"/>
 
 	<xsd:complexType name="DMNDI">
@@ -44,7 +47,7 @@
 
 	<xsd:complexType name="DMNShape">
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="scedi:tSCEShape">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNLabel" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDecisionServiceDividerLine" minOccurs="0" maxOccurs="1"/>
@@ -64,10 +67,7 @@
 
 	<xsd:complexType name="DMNEdge">
 		<xsd:complexContent>
-			<xsd:extension base="di:Edge">
-				<xsd:sequence>
-					<xsd:element ref="dmndi:DMNLabel" minOccurs="0" maxOccurs="1"/>
-				</xsd:sequence>
+			<xsd:extension base="scedi:tSCEEdge">
 				<xsd:attribute name="dmnElementRef" type="xsd:QName" use="required"/>
 				<xsd:attribute name="sourceElement" type="xsd:QName" use="optional"/>
 				<xsd:attribute name="targetElement" type="xsd:QName" use="optional"/>
@@ -77,7 +77,7 @@
 
 	<xsd:complexType name="DMNLabel">
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="scedi:tSCELabel">
 				<xsd:sequence>
 					<xsd:element name="Text" type="xsd:string" minOccurs="0" maxOccurs="1" />
 				</xsd:sequence>
