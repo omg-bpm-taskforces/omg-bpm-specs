@@ -5,7 +5,7 @@ This repo focuses on the SCE-based specifications:
 
 * [Specification Common Elements (SCE)](https://www.omg.org/spec/SCE)
 * [Shared Data Model and Notation (SDMN)](https://www.omg.org/spec/SDMN)
-* [BPM+ Knowledge Package Model and Notation(BKPMN)](https://www.omg.org/spec/BKPMN)
+* [Knowledge Package Model and Notation(KPMN)](https://www.omg.org/spec/BKPMN)
 * [Pedigree and Provenance Model and Notation (PPMN)](https://www.omg.org/techprocess/meetings/schedule/PPMN_RFP.html)
 
 As dependencies it also includes:
