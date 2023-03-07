@@ -16,7 +16,7 @@
         <xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
     </xsd:complexType>
     
-    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel">
+    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel" substitutionGroup="sce:SCEModel">
         <xsd:annotation>
             <xsd:documentation>
                 The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
