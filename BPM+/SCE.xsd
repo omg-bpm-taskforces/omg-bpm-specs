@@ -235,7 +235,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="tSCEContainer">
 				<xsd:sequence>
-					<xsd:element name="diagrams" type="scedi:tSCEDI" minOccurs="0" maxOccurs="1">
+					<xsd:element ref="scedi:SCEDI" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute contains the Diagram Interchange information contained within this SCEModelPackage.

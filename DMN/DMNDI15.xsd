@@ -14,7 +14,7 @@
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
 							schemaLocation="../BPM+/SCEDI.xsd"/>
 
-	<xsd:element name="DMNDI" type="dmndi:DMNDI"/>
+	<xsd:element name="DMNDI" type="dmndi:DMNDI" substitutionGroup="scedi:SCEDI"/>
 	<xsd:element name="DMNDiagram" type="dmndi:DMNDiagram"/>
 	<xsd:element name="DMNDiagramElement" type="di:DiagramElement">
 		<xsd:annotation>

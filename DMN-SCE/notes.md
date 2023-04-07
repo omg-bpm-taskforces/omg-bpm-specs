@@ -19,3 +19,5 @@
 scedi:tSCEStyle uses elements where DMN uses attributes (label alignment)
 
 casing is different (some names are capitalized in SCEDI while lowercased in DMNDI and vice versa)
+
+Note that DMNDI has to be moved to the top if dmn:Definitions are to extend sce:Model

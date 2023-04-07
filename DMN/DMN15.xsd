@@ -72,7 +72,6 @@
 					<xsd:element ref="artifact" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="elementCollection" type="tElementCollection" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="businessContextElement" minOccurs="0" maxOccurs="unbounded"/>
-					<xsd:element ref="dmndi:DMNDI" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
 				<xsd:attributeGroup ref="tDMNElementAttributesGroup"></xsd:attributeGroup>
 				<xsd:attributeGroup ref="tNamedElement"></xsd:attributeGroup>
