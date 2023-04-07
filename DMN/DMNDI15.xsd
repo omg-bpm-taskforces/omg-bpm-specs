@@ -23,8 +23,8 @@
 	</xsd:element>
 	<xsd:element name="DMNShape" type="dmndi:DMNShape" substitutionGroup="dmndi:DMNDiagramElement"/>
 	<xsd:element name="DMNEdge" type="dmndi:DMNEdge" substitutionGroup="dmndi:DMNDiagramElement"/>
-	<xsd:element name="DMNStyle" type="dmndi:DMNStyle" substitutionGroup="di:Style"/>
-	<xsd:element name="DMNLabel" type="dmndi:DMNLabel"/>
+	<xsd:element name="DMNStyle" type="dmndi:DMNStyle" substitutionGroup="scedi:SCEStyle"/>
+	<xsd:element name="DMNLabel" type="dmndi:DMNLabel" substitutionGroup="scedi:SCELabel"/>
 	<xsd:element name="DMNDecisionServiceDividerLine" type="dmndi:DMNDecisionServiceDividerLine"/>
 
 	<xsd:complexType name="DMNDI">
@@ -86,29 +86,13 @@
 	<xsd:complexType name="DMNLabel">
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCELabel">
-				<xsd:sequence>
-					<xsd:element name="Text" type="xsd:string" minOccurs="0" maxOccurs="1" />
-				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
 	<xsd:complexType name="DMNStyle">
 		<xsd:complexContent>
-			<xsd:extension base="di:Style">
-				<xsd:sequence>
-					<xsd:element name="FillColor" type="dc:Color" minOccurs="0" maxOccurs="1"/>
-					<xsd:element name="StrokeColor" type="dc:Color" minOccurs="0" maxOccurs="1"/>
-					<xsd:element name="FontColor" type="dc:Color" minOccurs="0" maxOccurs="1"/>
-				</xsd:sequence>
-				<xsd:attribute name="fontFamily" type="xsd:string"/>
-				<xsd:attribute name="fontSize" type="xsd:double"/>
-				<xsd:attribute name="fontItalic" type="xsd:boolean"/>
-				<xsd:attribute name="fontBold" type="xsd:boolean"/>
-				<xsd:attribute name="fontUnderline" type="xsd:boolean"/>
-				<xsd:attribute name="fontStrikeThrough" type="xsd:boolean"/>
-				<xsd:attribute name="labelHorizontalAlignement" type="dc:AlignmentKind"/>
-				<xsd:attribute name="labelVerticalAlignment" type="dc:AlignmentKind"/>
+			<xsd:extension base="scedi:tSCEStyle">
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
