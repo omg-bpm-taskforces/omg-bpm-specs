@@ -1,38 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="https://www.omg.org/spec/SCE/20211108/MODEL" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL" 
+<xsd:schema xmlns="https://www.omg.org/spec/SCE/20211108/MODEL"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL"
 	elementFormDefault="qualified">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
-	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
-	<xsd:element name="SCEModelPackage" type="tSCEModelPackage" abstract="true">
+	<xsd:element name="SCERootElement" type="tSCERootElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling 
-				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification. 
-				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications 
-				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the 
-				Collaborations, Processes, and other elements that make up the BPMN model. The SCEPackage element provides the key 
+				SCERootElement is the abstract super class for most SCE elements. Basically, it is the root element of the SCE metamodel.
+				All of the elements within SCE, and any specification that is dependent on SCE, will inherit the attributes of SCERootElement.
+				It provides the basic attributes for id and name.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tSCERootElement">
+		<xsd:attribute name="aliasID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					Various alternative identifiers for this Element. Generally, these will be set by tools, but one of them (the humanId), in particular,
+					may be set by the modeler.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="humanID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					An identifier for this Element that is set by the modeler. It is the responsibility of the modeler to maintain the uniqueness of
+					this identifier within a model or relative to some other context.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="id" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					This attribute is used to uniquely identify a SCEElement. The id is REQUIRED if this element is referenced or intended to be
+					referenced by something else. If the element is not currently referenced and is never intended to be referenced, the id MAY be omitted.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- <xsd:attribute name="name" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					The name attribute is a text description or label of the element. In general, the name is optional, but many elements will require a name.
+					The definition of each specialization of SCEElement will identify this requirement.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute> -->
+	</xsd:complexType>
+
+	<xsd:element name="SCEElement" type="tSCEElement" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>
+				SCEElement extends SCERootElement with a set of common associations, such as documentation, that are useful for
+				most elements of a modeling language. Most of the elements within SCE, and any specification that is dependent on SCE,
+				will inherit the attributes and associations of SCEElement.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tSCEElement">
+		<xsd:complexContent>
+			<xsd:extension base="tSCERootElement">
+				<xsd:sequence>
+					<!-- <xsd:element name="attachment" type="sce:tAttachment" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association is used to annotate any concrete specialization of SCEElement with one or more attachments.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+					<!-- <xsd:element name="categoryRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association is used to categorize any concrete specialization of SCEElement. A Category has user-defined semantics, which
+								can be used for documentation or analysis purposes.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+					<!-- <xsd:element name="documentation" type="sce:tDocumentation" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association is used to annotate any concrete specialization of SCEElement with descriptions and other documentation.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+					<!-- <xsd:element name="extensionDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association is used to attach additional attributes and associations to any concrete specialization of SCEElement –
+								i.e., provide an extension. This association is not applicable when the XML schema interchange is used, since the XSD
+								mechanisms for supporting anyAttribute and any element already satisfy this requirement.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+					<!-- <xsd:element name="extensionValue" type="sce:tExtensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This association is used to provide values for extended attributes and model associations. This association is not applicable
+								when the XML schema interchange is used, since the XSD mechanisms for supporting anyAttribute and any element already satisfy
+								this requirement.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+					<!-- <xsd:element name="semanticReferenceRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								A concrete SCEElement can reference multiple SemanticReference elements.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element> -->
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="SCEContainer" type="tSCEContainer">
+		<xsd:annotation>
+			<xsd:documentation>
+				SCEContainer is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not
+				contained within any element. It’s five sub-classes (listed in the next five sections), will be used to organize
+				the types of content that make up a model or set of models (of a language that utilizes SCE). The SCEModelPackage
+				is the top-level package used for distribution of the content of a modeling language.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tSCEContainer">
+		<xsd:complexContent>
+			<xsd:extension base="tSCEElement">
+				<!-- <xsd:sequence>
+					<xsd:element name="adornmentInstance" type="sce:tAdornmentInstance" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the AdornmentInstances contained within a concrete specialization of SCEContainer.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="element" type="sce:tSCERootElement" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the SCERootElements contained within a SCEModelPackage. Many elements will be identified
+								through additional associations that subset this property.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="containedPackage" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the sub-packages for SCEContainer (which are SCERootElements that show up through the "element"
+								element). This provides the capability for all specializations of SCEContainer to include sub-packages.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="extension" type="sce:tExtension" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute identifies Extensions beyond the attributes and model associations in a concrete specialization of
+								SCEContainer.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="import" type="sce:tImport" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This attribute is used to import externally defined elements and make them available for use by elements within a
+								concrete specialization of SCEContainer.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence> -->
+				<!--
+				<xsd:attribute name="exporter" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute identifies the tool that is exporting the model file that is dependent on SCE.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute identifies the version of the tool that is exporting the file that is dependent on SCE.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="targetNamespace" type="xsd:anyURI" use="required">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute identifies the namespace associated with a concrete specialization of SCEContainer and will
+							follow the convention established by XML Schema.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute> -->
+				<xsd:attribute name="tag" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							The tag setting provides another classification mechanism for the SCEContainer. This classification could be
+							used as part of a search for a particular model that is a concrete specialization of SCEContainer, for example.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="version" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute specifies the version of the model package that is dependent on SCE.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="versionDate" type="xsd:dateTime" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							The date when the version of the model package that is dependent on SCE was established.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="SCEModel" type="tSCEModel" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>
+				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling
+				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification.
+				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications
+				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the
+				Collaborations, Processes, and other elements that make up the BPMN model. The SCEContainer element provides the key
 				attributes and associations that most BMI modeling specifications will need as part of their packaging element.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEModelPackage">
+	<xsd:complexType name="tSCEModel">
 		<xsd:complexContent>
-			<xsd:extension base="tSCEPackage">
+			<xsd:extension base="tSCEContainer">
 				<xsd:sequence>
-					<xsd:element name="model" type="tSCEModel" minOccurs="1" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This the SCEModel sub-package contained within a SCEModelPackage. This is a subset of the 
-								containedPackage association of the SCEPackage element.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="presentation" type="scedi:tSCEDI" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="diagrams" type="scedi:tSCEDI" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute contains the Diagram Interchange information contained within this SCEModelPackage.
@@ -40,8 +243,22 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="exporter" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute identifies the tool that is exporting the model file that is dependent on SCE.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute identifies the version of the tool that is exporting the file that is dependent on SCE.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	
+
 </xsd:schema>

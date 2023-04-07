@@ -3,6 +3,7 @@
 	xmlns="https://www.omg.org/spec/DMN/20211108/MODEL/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
+	xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
 	targetNamespace="https://www.omg.org/spec/DMN/20211108/MODEL/">
 
 	<xsd:import namespace="https://www.omg.org/spec/DMN/20191111/DMNDI/"
@@ -14,8 +15,9 @@
 		</xsd:annotation>
 	</xsd:import>
 
-	<xsd:element name="DMNElement" type="tDMNElement" abstract="true"/>
-	<xsd:complexType name="tDMNElement">
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL"></xsd:import>
+
+	<xsd:group name="tDMNElement">
 		<xsd:sequence>
 			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 			<xsd:element name="extensionElements" minOccurs="0" maxOccurs="1">
@@ -26,15 +28,25 @@
 				</xsd:complexType>
 			</xsd:element>
 		</xsd:sequence>
+	</xsd:group>
+	<xsd:element name="DMNElement" type="tDMNElement" abstract="true"/>
+	<xsd:complexType name="tDMNElement">
+		<xsd:sequence>
+			<xsd:group ref="tDMNElement"></xsd:group>
+		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
 		<xsd:attribute name="label" type="xsd:string" use="optional"/>
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:complexType>
+
+	<xsd:attributeGroup name="tNamedElement">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:attributeGroup>
 	<xsd:element name="namedElement" type="tNamedElement" abstract="true" substitutionGroup="DMNElement"/>
 	<xsd:complexType name="tNamedElement">
 		<xsd:complexContent>
 			<xsd:extension base="tDMNElement">
-				<xsd:attribute name="name" type="xsd:string" use="required"/>
+				<xsd:attributeGroup ref="tNamedElement"></xsd:attributeGroup>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -44,7 +56,7 @@
 	<xsd:element name="definitions" type="tDefinitions" substitutionGroup="namedElement"/>
 	<xsd:complexType name="tDefinitions">
 		<xsd:complexContent>
-			<xsd:extension base="tNamedElement">
+			<xsd:extension base="sce:tSCEModel">
 				<xsd:sequence>
 					<xsd:element ref="import" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="itemDefinition" type="tItemDefinition" minOccurs="0" maxOccurs="unbounded"/>
@@ -57,8 +69,6 @@
 				<xsd:attribute name="expressionLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20211108/FEEL/"/>
 				<xsd:attribute name="typeLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20211108/FEEL/"/>
 				<xsd:attribute name="namespace" type="xsd:anyURI" use="required"/>
-				<xsd:attribute name="exporter" type="xsd:string" use="optional"/>
-				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -560,7 +570,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="tIterator">
 				<xsd:sequence>
-					<xsd:element name="satisfies" type="tChildExpression"/>	
+					<xsd:element name="satisfies" type="tChildExpression"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>

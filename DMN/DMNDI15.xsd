@@ -40,7 +40,7 @@
 
 	<xsd:complexType name="DMNDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="di:Diagram">
+			<xsd:extension base="scedi:tSCEDiagram">
 				<xsd:sequence>
 					<xsd:element name="Size" type="dc:Dimension" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDiagramElement" minOccurs="0" maxOccurs="unbounded"/>
@@ -52,7 +52,7 @@
 
 	<xsd:complexType name="DMNShape">
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="scedi:tSCEShape">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNLabel" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDecisionServiceDividerLine" minOccurs="0" maxOccurs="1"/>
@@ -72,7 +72,7 @@
 
 	<xsd:complexType name="DMNEdge">
 		<xsd:complexContent>
-			<xsd:extension base="di:Edge">
+			<xsd:extension base="scedi:tSCEEdge">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNLabel" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
@@ -85,7 +85,7 @@
 
 	<xsd:complexType name="DMNLabel">
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="scedi:tSCELabel">
 				<xsd:sequence>
 					<xsd:element name="Text" type="xsd:string" minOccurs="0" maxOccurs="1" />
 				</xsd:sequence>

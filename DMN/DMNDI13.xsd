@@ -28,15 +28,19 @@
 	<xsd:element name="DMNDecisionServiceDividerLine" type="dmndi:DMNDecisionServiceDividerLine"/>
 
 	<xsd:complexType name="DMNDI">
-		<xsd:sequence>
-			<xsd:element ref="dmndi:DMNDiagram" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element ref="dmndi:DMNStyle" minOccurs="0" maxOccurs="unbounded"/>
-		</xsd:sequence>
+		<xsd:complexContent>
+			<xsd:extension base="scedi:tSCEDI">
+				<xsd:sequence>
+					<xsd:element ref="dmndi:DMNDiagram" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="dmndi:DMNStyle" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
 	</xsd:complexType>
 
 	<xsd:complexType name="DMNDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="di:Diagram">
+			<xsd:extension base="scedi:tSCEDiagram">
 				<xsd:sequence>
 					<xsd:element name="Size" type="dc:Dimension" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDiagramElement" minOccurs="0" maxOccurs="unbounded"/>
