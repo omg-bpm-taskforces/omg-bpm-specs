@@ -188,14 +188,6 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="sceElementRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								A reference to the SCEElement that is being depicted.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
