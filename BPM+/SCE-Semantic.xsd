@@ -530,6 +530,12 @@
 					<xsd:annotation>
 						<xsd:documentation>
 							This property provides the capability of including a Concept Reference for any SCEElement.
+							Most BPM+ models (dependent on SCE) are not intended to define full-scale ontologies or domain models, such as data models. 
+							However, the activities, decisions, data items, etc. of BPM+ are representative of elements defined by ontologies or data models. 
+							The specific context of the BPM+ elements may result in different terminology or sub-sets of data representation elements within 
+							the normative domain models. To reduce any confusion due to terminology or data representation, the BPM+ models dependent on SCE 
+							have the capability of linking model elements to the appropriate external source of truth for their domain. The Concept Reference 
+							is that mechanism in SCE.
 							It is expected that the value of the URI is persistent.
 						</xsd:documentation>
 					</xsd:annotation>
