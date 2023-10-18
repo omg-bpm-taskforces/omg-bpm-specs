@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: korelstar/xmllint-problem-matcher@v1
-      - uses: ChristophWurst/xmllint-action@v1.2
+      - name: Enable annotations for XML validation errors and warnings
+        uses: korelstar/xmllint-problem-matcher@v1
+      - name: Validate example.sdmn using SDMN.xsd
+        uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/example.sdmn
           xml-schema-file: BPM+/SDMN.xsd
