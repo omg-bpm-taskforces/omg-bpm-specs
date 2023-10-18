@@ -18,7 +18,10 @@ jobs:
       - name: Enable annotations for XML validation errors and warnings
         uses: korelstar/xmllint-problem-matcher@v1
       - name: Validate example.sdmn using SDMN.xsd
+        id: xmllint
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/example.sdmn
           xml-schema-file: BPM+/SDMN.xsd
+      - run: |
+          echo ${{ steps.xmllint.outputs.errors }}
