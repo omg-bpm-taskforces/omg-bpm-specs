@@ -24,4 +24,4 @@ jobs:
           xml-file: examples/example.sdmn
           xml-schema-file: BPM+/SDMN.xsd
       - run: |
-          echo ${{ steps.xmllint.outputs.errors }}
+          echo "::error file=SDMN-Semantic.xsd,line=9::element import: Schemas parser warning : Element '{http://www.w3.org/2001/XMLSchema}import': Skipping import of schema located at 'BPM+/BPM+/SCE.xsd' for the namespace 'https://www.omg.org/spec/SCE/20211108/MODEL', since this namespace was already imported with the schema located at 'BPM+/SCE.xsd'."
