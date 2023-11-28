@@ -22,4 +22,4 @@ jobs:
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/example.sdmn
-          xml-schema-file: BPM+/SDMN.xsd
+          xml-schema-file: SDMN/SDMN.xsd
