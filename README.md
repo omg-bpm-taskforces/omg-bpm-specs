@@ -31,3 +31,5 @@ You can also associate language-specific file extensions to be treated as XML to
   "*.kpmn": "xml"
 }
 ```
+
+A [GitHub Actions workflow](.github/workflows/main.yml) is used to validate examples against XML schemas as a test for bot schemas as well as examples.
