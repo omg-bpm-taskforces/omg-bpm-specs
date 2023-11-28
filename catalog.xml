@@ -10,7 +10,7 @@
         
     <uri
         name="https://www.omg.org/spec/BKPMN/20211108/MODEL"
-        uri="./BPM+/BKPMN.xsd" />
+        uri="./BPM+/KPMN.xsd" />
         
     <uri
         name="http://www.omg.org/spec/BPMN/20100524/MODEL"
