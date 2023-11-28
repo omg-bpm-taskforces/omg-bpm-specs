@@ -8,8 +8,8 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 	<!-- DS Use public URLs for schemaLocation -->
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
-	<xsd:import namespace="http://www.omg.org/spec/DMN/20180521/DI/" schemaLocation="DI.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
+	<xsd:import namespace="http://www.omg.org/spec/DMN/20180521/DI/" schemaLocation="../SCE/DI.xsd"/>
 
     <xsd:element name="BHMNDI" type="bhmndi:tBHMNDI">
     	<xsd:annotation>
