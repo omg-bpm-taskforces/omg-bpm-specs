@@ -2,15 +2,15 @@
 
     <uri
         name="https://www.omg.org/spec/SCE/20211108/MODEL"
-        uri="./BPM+/SCE.xsd" />
+        uri="./SCE/SCE.xsd" />
         
     <uri
         name="https://www.omg.org/spec/SDMN/20211108/MODEL"
-        uri="./BPM+/SDMN.xsd" />
+        uri="./SDMN/SDMN.xsd" />
         
     <uri
         name="https://www.omg.org/spec/BKPMN/20211108/MODEL"
-        uri="./BPM+/BKPMN.xsd" />
+        uri="./KPMN/BKPMN.xsd" />
         
     <uri
         name="http://www.omg.org/spec/BPMN/20100524/MODEL"
