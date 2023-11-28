@@ -6,7 +6,7 @@
 	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI"/>
 
     <xsd:element name="BKPMNDI" type="bkpmndi:tBKPMNDI">
@@ -124,4 +124,3 @@
 	</xsd:complexType>
 		
 </xsd:schema>
-
