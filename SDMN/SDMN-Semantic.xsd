@@ -82,13 +82,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="location" type="sdmn:tLocation">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                A list of potential Locations for Data Items. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>                    
                     <xsd:element maxOccurs="1" minOccurs="0" name="sharedDataModel" type="sdmn:tSharedDataModel">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -169,14 +162,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" ref="sdmn:Location">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: locationRef
-                                A list of potential Locations for the Data Item. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                     <xsd:element maxOccurs="1" minOccurs="0" name="metaDefinitionRef" type="xsd:QName">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -253,85 +238,6 @@
     <xsd:complexType name="tMultiplicityKind">
         <xsd:complexContent>
             <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="Location" type="sdmn:tLocation" abstract="true" >
-        <xsd:annotation>
-            <xsd:documentation>
-                Location is an abstract class where its concrete specializations identify a particular place or position. Locations are contained within a 
-                SDMNPackage and can be referenced by DataItems.
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:element>
-    <xsd:complexType name="tLocation">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
-                <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="description" type="xsd:string">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                A description of the Location.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="GeospatialExtent" type="sdmn:tGeospatialExtent" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tGeospatialExtent">
-        <xsd:annotation>
-            <xsd:documentation>
-                Tbd... 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="NetworkAddress" type="sdmn:tNetworkAddress" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tNetworkAddress">
-        <xsd:annotation>
-            <xsd:documentation>
-                The address of an element or node on a network. 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="PhysicalAddress" type="sdmn:tPhysicalAddress" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tPhysicalAddress">
-        <xsd:annotation>
-            <xsd:documentation>
-                A physical location in the real world. 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>          
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="SpaceTime" type="sdmn:tSpaceTime" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tSpaceTime">
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation">
-                <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="1" name="location" type="xsd:QName">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Tbd...
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-                <xsd:attribute use="required" name="startTime" type="xsd:dateTime"/>
-                <xsd:attribute use="required" name="endTime" type="xsd:dateTime"/>
-            </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
     
