@@ -7,7 +7,7 @@
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
 
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
     <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
@@ -15,11 +15,11 @@
     <xsd:element name="SDMNModelPackage" type="tSDMNModelPackage">
         <xsd:annotation>
             <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
+                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace
+                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file
                 for a Shared Data Model usually would be appended with a “.sdmn” label.
             </xsd:documentation>
-        </xsd:annotation>        
+        </xsd:annotation>
     </xsd:element>
     <xsd:complexType name="tSDMNModelPackage">
         <xsd:complexContent>
@@ -28,7 +28,7 @@
                     <xsd:element maxOccurs="1" minOccurs="0" name="model" type="tSDMNModel">
                         <xsd:annotation>
                             <xsd:documentation>
-                                This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage. 
+                                This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
@@ -46,5 +46,5 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
+
 </xsd:schema>
