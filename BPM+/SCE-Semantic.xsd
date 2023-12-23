@@ -1340,13 +1340,6 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="libraryLocation" type="xsd:anyURI" use="required">
-					<xsd:annotation>
-						<xsd:documentation>
-							This attribute specifies the location of the SCEKindSet for the extendable enumerated list of Kinds.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
