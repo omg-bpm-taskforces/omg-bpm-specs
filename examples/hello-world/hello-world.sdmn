@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdmn:SDMNModelPackage id="sharedDataModel"
+    targetNamespace="https://example.org/hello-world/shared-data-model"
+    xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    >
+
+  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
+  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="https://example.org/hello-world/shared-data-model" id="model1">
+    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="https://example.org/hello-world/shared-data-model" id="definitions1">
+
+      <sdmn:dataItem id="dataItem_Name">
+        <sdmn:multiplicityKindRef id="mKR1"
+          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
+      </sdmn:dataItem>
+      <sdmn:dataItem id="dataItem_Greeting">
+        <sdmn:multiplicityKindRef id="mKR4"
+          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
+      </sdmn:dataItem>
+
+      <!-- DMN will reference by @name while BPMN uses @id -->
+      <sdmn:itemDefinition id="itemDef_Name" name="Name" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+        <sdmn:itemKindRef id="iKR_Unspecified"
+          conceptURI="https://www.omg.org/spec/SDMN/20211108/MODEL/SDMNLibrary/ItemKinds#_adl020900-cgl033105-anep021715-10"/>
+        <sdmn:multiplicityKindRef id="mKR_Unspecified"
+          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
+      </sdmn:itemDefinition>
+    </sce:definitions>
+    <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
+  </sce:model>
+  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
+  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
+    <!-- FIXME: this shouldn't be possible -->
+  </sdmn:model>
+  <sdmndi:SDMNDI></sdmndi:SDMNDI>
+</sdmn:SDMNModelPackage>
