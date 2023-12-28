@@ -17,8 +17,26 @@ jobs:
       - uses: actions/checkout@v4
       - name: Enable annotations for XML validation errors and warnings
         uses: korelstar/xmllint-problem-matcher@v1
+      - name: Validate SCE-Library.xml using SCE.xsd
+        id: xmllint-sce-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: SCE/SCE-Library.xml
+          xml-schema-file: SCE/SCE.xsd
+      - name: Validate SDMN-Library.xml using SDMN.xsd
+        id: xmllint-sdmn-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: SDMN/SDMN-Library.xml
+          xml-schema-file: SDMN/SDMN.xsd
+      - name: Validate BKPMN-Library.xml using BKPMN.xsd
+        id: xmllint-bkpmn-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: BKPMN/BKPMN-Library.xml
+          xml-schema-file: BKPMN/BKPMN.xsd
       - name: Validate example.sdmn using SDMN.xsd
-        id: xmllint
+        id: xmllint-sdmn-example
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/example.sdmn
