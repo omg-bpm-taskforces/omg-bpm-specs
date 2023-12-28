@@ -41,3 +41,21 @@ jobs:
         with:
           xml-file: examples/example.sdmn
           xml-schema-file: SDMN/SDMN.xsd
+      - name: Validate hello-world.sdmn using SDMN.xsd
+        id: xmllint-sdmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.sdmn
+          xml-schema-file: SDMN/SDMN.xsd
+      - name: Validate hello-world.bpmn using BPMN20.xsd
+        id: xmllint-bpmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.bpmn
+          xml-schema-file: BPMN20/BPMN20.xsd
+      - name: Validate hello-world.dmn using DMN15.xsd
+        id: xmllint-dmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.dmn
+          xml-schema-file: DMN15/DMN15.xsd      
