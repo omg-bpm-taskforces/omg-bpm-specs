@@ -159,10 +159,10 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="vocabulary" type="sce:tSCEVocabulary" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="kindSet" type="sce:tSCEKindSet" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of terms (semantic references) that are part of a concrete specialization of SCEModel.
+								This is a list of terms (kinds) that are part of a concrete specialization of SCEModel.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -723,6 +723,29 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+
+	<xsd:element name="Kind" type="sce:tKind">
+		<xsd:annotation>
+			<xsd:documentation>
+				A Kind is one of a set of Kinds (terms) that make up an extendable enumerated list of values for a text-based property of an 
+				element property.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="tKind">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCERootElement">
+				<xsd:attribute name="conceptReference" type="xsd:anyURI" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							This property provides the capability of including a Concept Reference for any Kind.
+							It is expected that the value of the URI is persistent.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
 	
 	<xsd:element name="ElementRelationship" type="sce:tElementRelationship">
 		<xsd:annotation>
@@ -824,11 +847,30 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+
+	<xsd:element name="RelationshipKindSet" type="sce:tRelationshipKindSet"/>	
+	<xsd:complexType name="tRelationshipKindSet">
+		<xsd:complexContent>
+			<xsd:extension base="sce:tSCEKindSet">
+				<xsd:sequence>
+					<xsd:element ref="sce:RelationshipKind" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								Element Role: kind
+								The extendable list of enumerated terms is a set of Kinds.
+								This redefines the kind association of SCEKindSet.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>				
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
 	
-	<xsd:element name="RelationshipKind" type="sce:tRelationshipKind"/>	
+	<xsd:element name="RelationshipKind" type="sce:tRelationshipKind"/>
 	<xsd:complexType name="tRelationshipKind">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement"/>
+			<xsd:extension base="sce:tKind"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
@@ -1278,26 +1320,33 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCEVocabulary" type="sce:tSCEVocabulary">
+	<xsd:element name="SCEKindSet" type="sce:tSCEKindSet">
 		<xsd:annotation>
 			<xsd:documentation>
-				This is a list of terms (SemanticReferences) that can be used to define the meaning of elements of a concrete 
-				specialization of SCEPackage. Multiple Vocabularies can be defined. They are contained in an SCEPackage. 
+				This is a list of terms (Kinds) that can be used to define the meaning of elements of a concrete 
+				specialization of SCEPackage. Multiple KindSets can be defined. They are contained in an SCEPackage. 
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEVocabulary">
+	<xsd:complexType name="tSCEKindSet">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
-					<xsd:element name="term" type="sce:tSCEElement" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="kind" type="sce:tKind" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This association defines artifacts used to extend the semantics of the source element(s).
+								The extendable list of enumerated terms is a set of Kinds.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="libraryLocation" type="xsd:anyURI" use="required">
+					<xsd:annotation>
+						<xsd:documentation>
+							This attribute specifies the location of the SCEKindSet for the extendable enumerated list of Kinds.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
