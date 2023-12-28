@@ -33,8 +33,8 @@ jobs:
         id: xmllint-bkpmn-library
         uses: ChristophWurst/xmllint-action@v1.2
         with:
-          xml-file: BKPMN/BKPMN-Library.xml
-          xml-schema-file: BKPMN/BKPMN.xsd
+          xml-file: KPMN/BKPMN-Library.xml
+          xml-schema-file: KPMN/BKPMN.xsd
       - name: Validate example.sdmn using SDMN.xsd
         id: xmllint-sdmn-example
         uses: ChristophWurst/xmllint-action@v1.2
