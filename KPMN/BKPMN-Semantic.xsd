@@ -5,7 +5,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
 	targetNamespace="https://www.omg.org/spec/BKPMN/20211108/MODEL">	
 	
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="SCE.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
 
 	<xsd:element name="import" type="bkpmn:tImport"/>
 	<xsd:complexType name="tImport">

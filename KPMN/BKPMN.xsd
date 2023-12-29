@@ -6,7 +6,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
 	targetNamespace="https://www.omg.org/spec/BKPMN/20211108/MODEL">
 
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="SCE.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
 	<xsd:import namespace="https://www.omg.org/spec/BKPMN/20211108/BKPMNDI" schemaLocation="BKPMNDI.xsd"/>
 	<xsd:include schemaLocation="BKPMN-Semantic.xsd"/>
 	

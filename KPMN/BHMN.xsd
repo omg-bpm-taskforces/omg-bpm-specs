@@ -9,7 +9,7 @@
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/BHMN/20211108/MODEL">
 
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="SCE.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
     <xsd:import namespace="http://www.omg.org/spec/BPMN/20100524/MODEL/" schemaLocation="../BPMN/BPMN20.xsd"/>
     <xsd:import namespace="http://www.omg.org/spec/CMMN/20151109/MODEL" schemaLocation="../CMMN/CMMN11.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/" schemaLocation="../DMN/DMN13.xsd"/>

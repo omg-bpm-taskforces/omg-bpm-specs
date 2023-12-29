@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  xmllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable annotations for XML validation errors and warnings
+        uses: korelstar/xmllint-problem-matcher@v1
+      - name: Validate SCE-Library.xml using SCE.xsd
+        id: xmllint-sce-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: SCE/SCE-Library.xml
+          xml-schema-file: SCE/SCE.xsd
+        if: always()
+      - name: Validate SDMN-Library.xml using SDMN.xsd
+        id: xmllint-sdmn-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: SDMN/SDMN-Library.xml
+          xml-schema-file: SDMN/SDMN.xsd
+        if: always()
+      - name: Validate BKPMN-Library.xml using BKPMN.xsd
+        id: xmllint-bkpmn-library
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: KPMN/BKPMN-Library.xml
+          xml-schema-file: KPMN/BKPMN.xsd
+        if: always()
+      - name: Validate example.sdmn using SDMN.xsd
+        id: xmllint-sdmn-example
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/example.sdmn
+          xml-schema-file: SDMN/SDMN.xsd
+        if: always()
+      - name: Validate hello-world.sdmn using SDMN.xsd
+        id: xmllint-sdmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.sdmn
+          xml-schema-file: SDMN/SDMN.xsd
+        if: always()
+      - name: Validate hello-world.bpmn using BPMN20.xsd
+        id: xmllint-bpmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.bpmn
+          xml-schema-file: BPMN/BPMN20.xsd
+        if: always()
+      - name: Validate hello-world.dmn using DMN15.xsd
+        id: xmllint-dmn-hello-world
+        uses: ChristophWurst/xmllint-action@v1.2
+        with:
+          xml-file: examples/hello-world/hello-world.dmn
+          xml-schema-file: DMN/DMN13.xsd
+        if: always()
