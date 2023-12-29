@@ -52,40 +52,40 @@ jobs:
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world.bpmn
-          xml-schema-file: BPMN20/BPMN20.xsd
+          xml-schema-file: BPMN/BPMN20.xsd
       - name: Validate hello-world.dmn using DMN15.xsd
         id: xmllint-dmn-hello-world
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world.dmn
-          xml-schema-file: DMN15/DMN15.xsd
+          xml-schema-file: DMN/DMN15.xsd
       - name: Validate hello-world-data-item-imported-as-intput-data.dmn
         id: xmllint-dmn-hello-world-data-item-imported-as-intput-data
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-data-item-imported-as-intput-data.dmn
-          xml-schema-file: DMN15/DMN15.xsd
+          xml-schema-file: DMN/DMN15.xsd
       - name: Validate hello-world-dataItemRef-extension-on-info-requirement.dmn
         id: xmllint-dmn-hello-world-dataItemRef-extension-on-info-requirement
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataItemRef-extension-on-info-requirement.dmn
-          xml-schema-file: DMN15/DMN15.xsd
+          xml-schema-file: DMN/DMN15.xsd
       - name: Validate hello-world-dataItemRef-extension.dmn
         id: xmllint-dmn-hello-world-dataItemRef-extension
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataItemRef-extension.dmn
-          xml-schema-file: DMN15/DMN15.xsd
+          xml-schema-file: DMN/DMN15.xsd
       - name: Validate hello-world-dataObjectRef.bpmn
         id: xmllint-bpmn-hello-world-dataObjectRef
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataObjectRef.bpmn
-          xml-schema-file: BPMN20/BPMN20.xsd
+          xml-schema-file: BPMN/BPMN20.xsd
       - name: Validate hello-world-dataObjectRef-extension.bpmn
         id: xmllint-bpmn-hello-world-dataObjectRef-extension
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataObjectRef-extension.bpmn
-          xml-schema-file: BPMN20/BPMN20.xsd
+          xml-schema-file: BPMN/BPMN20.xsd
