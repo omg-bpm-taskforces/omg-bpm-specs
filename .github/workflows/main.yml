@@ -66,28 +66,28 @@ jobs:
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world.dmn
-          xml-schema-file: DMN/DMN15.xsd
+          xml-schema-file: DMN/DMN13.xsd
         if: always()
       - name: Validate hello-world-data-item-imported-as-intput-data.dmn
         id: xmllint-dmn-hello-world-data-item-imported-as-intput-data
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-data-item-imported-as-intput-data.dmn
-          xml-schema-file: DMN/DMN15.xsd
+          xml-schema-file: DMN/DMN13.xsd
         if: always()
       - name: Validate hello-world-dataItemRef-extension-on-info-requirement.dmn
         id: xmllint-dmn-hello-world-dataItemRef-extension-on-info-requirement
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataItemRef-extension-on-info-requirement.dmn
-          xml-schema-file: DMN/DMN15.xsd
+          xml-schema-file: DMN/DMN13.xsd
         if: always()
       - name: Validate hello-world-dataItemRef-extension.dmn
         id: xmllint-dmn-hello-world-dataItemRef-extension
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world-dataItemRef-extension.dmn
-          xml-schema-file: DMN/DMN15.xsd
+          xml-schema-file: DMN/DMN13.xsd
         if: always()
       - name: Validate hello-world-dataObjectRef.bpmn
         id: xmllint-bpmn-hello-world-dataObjectRef
