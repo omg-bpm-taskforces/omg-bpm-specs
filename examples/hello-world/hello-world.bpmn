@@ -39,11 +39,10 @@
         <targetRef>DataObjectReference_Greeting</targetRef>
       </dataOutputAssociation>
     </businessRuleTask>
-    <!-- FIXME: dataObjectRef is an IDREF would have to be a QName -->
-    <dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="data:dataItem_Name" />
-    <dataObject id="DataObject_0z70eq6" itemSubjectRef="data:itemDef_Name" />
-    <dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="DataObject_0hlooem" />
-    <dataObject id="DataObject_0hlooem" />
+    <dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="DataObject_Name" />
+    <dataObject id="DataObject_Name" itemSubjectRef="data:itemDef_Name" />
+    <dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="DataObject_Greeting" />
+    <dataObject id="DataObject_Greeting" />
   </process>
 
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
