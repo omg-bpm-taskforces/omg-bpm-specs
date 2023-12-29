@@ -55,7 +55,6 @@ jobs:
         with:
           xml-file: examples/hello-world/hello-world.bpmn
           xml-schema-file: BPMN/BPMN20.xsd
-        continue-on-error: true
       - name: Validate hello-world.dmn using DMN15.xsd
         id: xmllint-dmn-hello-world
         uses: ChristophWurst/xmllint-action@v1.2
