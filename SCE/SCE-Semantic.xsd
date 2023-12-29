@@ -438,7 +438,7 @@
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="tSCERootElement">
-		<xsd:attribute name="aliasID" type="xsd:string" use="optional">
+		<xsd:attribute name="aliasId" type="xsd:string" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
 					Various alternative identifiers for this Element. Generally, these will be set by tools, but one of them (the humanId), in particular, 
@@ -446,7 +446,7 @@
 				</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="humanID" type="xsd:string" use="optional">
+		<xsd:attribute name="humanId" type="xsd:string" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
 					An identifier for this Element that is set by the modeler. It is the responsibility of the modeler to maintain the uniqueness of 
