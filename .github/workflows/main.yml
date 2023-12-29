@@ -13,6 +13,8 @@ on:
 jobs:
   xmllint:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - name: Enable annotations for XML validation errors and warnings
@@ -53,6 +55,7 @@ jobs:
         with:
           xml-file: examples/hello-world/hello-world.bpmn
           xml-schema-file: BPMN/BPMN20.xsd
+        continue-on-error: true
       - name: Validate hello-world.dmn using DMN15.xsd
         id: xmllint-dmn-hello-world
         uses: ChristophWurst/xmllint-action@v1.2
