@@ -12,7 +12,7 @@
         <!-- FIXME: overriding of sourceRef & targetRef instead of duplicating them -->
         <sce:sourceRef>dataItem1</sce:sourceRef>
         <sce:targetRef>dataItem2</sce:targetRef>
-        <sce:relationshipKindRef id="rKR1" conceptURI="... NO VALIDATION HERE ;-P" />
+        <sce:relationshipKindRef id="rKR1" conceptReference="... NO VALIDATION HERE ;-P" />
         <sdmn:sourceRef id="sR1">
           <!-- FIXME: sdmn:sourceRef is of type sdmn:tDataItem instead of referencing one via IDREF or QName -->
           <sdmn:multiplicityKindRef id="mKR1"
