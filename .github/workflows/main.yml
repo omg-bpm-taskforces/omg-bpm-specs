@@ -13,8 +13,6 @@ on:
 jobs:
   xmllint:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - name: Enable annotations for XML validation errors and warnings
