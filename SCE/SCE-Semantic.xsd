@@ -151,14 +151,6 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="profile" type="sce:tSCEProfile" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of all the SCEProfile sub-packages contained within a SCEModel. This is a subset of the 
-								containedPackage association of the SCEPackage element.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 					<xsd:element name="kindSet" type="sce:tSCEKindSet" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
@@ -266,22 +258,6 @@
 					</xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
-		</xsd:complexContent>
-	</xsd:complexType>
-
-	<xsd:element name="SCEProfile" type="sce:tSCEProfile" abstract="true">
-		<xsd:annotation>
-			<xsd:documentation>
-				A kind of SCEPackage that comprises SCE profiles that can be applied to other SCE elements.  SCEProfiles provide a mechanism 
-				to exchange profile libraries. The SCEProfile element inherits the attributes of SCEPackage (see table above). It is an abstract 
-				element; thus, SCE cannot be implemented by itself to create a modeling package. An implementation of another modeling specification 
-				that is dependent on SCE is required to produce a concreate modeling package.
-			</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="tSCEProfile">
-		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEPackage"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 	
