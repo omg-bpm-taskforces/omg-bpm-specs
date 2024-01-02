@@ -395,7 +395,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="commentRef" type="sce:tDocumentation" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="commentRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								Comment is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
@@ -569,7 +569,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element name="typeRef" type="sce:tElementType" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								The class(es) that provide(s) a specification of the SCEElement. This usually is applied to the concrete 
@@ -774,7 +774,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="typeRef" type="sce:tElementRelationshipType" minOccurs="0" maxOccurs="1">
+					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								the type shoulde be tElementTypeRelation
@@ -782,7 +782,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="relationshipKindRef" type="sce:tRelationshipKind" minOccurs="1" maxOccurs="1">
+					<xsd:element name="relationshipKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								A description of the type of the relationship. See the RelationshipType enumeration, below, for more details.
@@ -820,7 +820,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="relationshipKindRef" type="sce:tRelationshipKind" minOccurs="1" maxOccurs="1">
+					<xsd:element name="relationshipKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								A description of the type of the relationship. See the RelationshipType enumeration, below, for more details.
