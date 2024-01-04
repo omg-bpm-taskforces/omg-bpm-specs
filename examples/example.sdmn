@@ -4,10 +4,13 @@
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    >
+
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
   <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
-    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
+    <sce:SCEDefinitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
       <sce:elementTypeRelationship xsi:type="sdmn:tContainmentConnector" id="c1">
         <!-- FIXME: overriding of sourceRef & targetRef instead of duplicating them -->
         <sce:sourceRef>dataItem1</sce:sourceRef>
@@ -32,10 +35,10 @@
         <sdmn:multiplicityKindRef id="mKR4"
           conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
       </sdmn:dataItem>
-    </sce:definitions>
+    </sce:SCEDefinitions>
     <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
   </sce:model>
-  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
+  <scedi:SCEDI xsi:type="sdmndi:tSDMNDI"></scedi:SCEDI>
   <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
     <!-- FIXME: this shouldn't be possible -->
   </sdmn:model>
