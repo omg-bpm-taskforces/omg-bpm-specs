@@ -8,7 +8,7 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				SCEPackage is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not 
-				contained within any element. It’s five sub-classes (listed in the next five sections), will be used to organize 
+				contained within any element. Its five sub-classes (listed in the next five sections), will be used to organize 
 				the types of content that make up a model or set of models (of a language that utilizes SCE). The SCEModelPackage 
 				is the top-level package used for distribution of the content of a modeling language.
 			</xsd:documentation>
@@ -667,8 +667,8 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				A Category, which have user-defined semantics, can be used for documentation or metadata organizational purposes. For example, 
-				recommendations (in the healthcare domain) can be assignesoud a category of “Lifestyle Modification” with further breakdowns into 
-				“Weight Reduction,” “Exercise Program,” and “Diet Modification” sub-categories.
+				recommendations (in the healthcare domain) can be assigned a category of “Lifestyle Modification” with further breakdowns into 
+				“Weight Reduction”, “Exercise Program”, and “Diet Modification” sub-categories.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
