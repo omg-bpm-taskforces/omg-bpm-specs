@@ -68,20 +68,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataState" type="sdmn:tDataState">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This is a list of the potential DataStates that can be associated with a Data Item.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="format" type="sdmn:tItemFormat">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                A list of potential ItemFormats for Data Items. This will apply mainly to electronic documents (such as .pdf). 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="itemDefinition" type="sdmn:tItemDefinition">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -89,13 +75,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="location" type="sdmn:tLocation">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                A list of potential Locations for Data Items. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>                    
                     <xsd:element maxOccurs="1" minOccurs="0" name="sharedDataModel" type="sdmn:tSharedDataModel">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -168,31 +147,6 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tElementType">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdmn:DataState">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: dataStateRef
-                                A Data Item can have multiple DataStates, which represent significant [tbd...] The DataStates of a Data Item may show up as 
-                                Milestones within a CMMN Case. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" ref="sdmn:ItemFormat">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: formatRef
-                                A list of potential ItemFormats for the Data Item. This will apply mainly to electronic documents (such as .pdf). 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" ref="sdmn:Location">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: locationRef
-                                A list of potential Locations for the Data Item. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                     <xsd:element maxOccurs="1" minOccurs="0" name="metaDefinitionRef" type="xsd:QName">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -232,48 +186,6 @@
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
-    
-    <xsd:element name="DataState" type="sdmn:tDataState">
-        <xsd:annotation>
-            <xsd:documentation>
-                Data Items can optionally reference a DataState element, which is the state of the data contained in the Data Item. The definition of these 
-                DataStates, e.g., possible values and any specific semantic are out of scope of this specification. Therefore, SDMN adopters can use the 
-                DataState element and the SDMN extensibility capabilities to define their DataStates.
-            </xsd:documentation>
-        </xsd:annotation>        
-    </xsd:element>
-    <xsd:complexType name="tDataState">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
-                <xsd:sequence/>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="ItemFormat" type="sdmn:tItemFormat"/>
-    <xsd:complexType name="tItemFormat">
-        <xsd:annotation>
-            <xsd:documentation>
-                Represents the format of an Entity. It can be something as simple as "mime types" or the specification of a format documented in a 
-                formal format registry. ItemFormats are contained within a SDMNPackage and can be referenced by DataItems.
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
-                <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="1" name="formatDefinitionRef" type="xsd:anyURI">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                The identifier of the format within the specified format registry. For example "dicom" if the registry is that of W3C mime types. 
-                                This is not the usual "id" found commonly in this specification. This is a "stringified" (if necessary) unique id in the 
-                                context of the .formatRegistry.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
 
     <xsd:element name="ItemKind" type="sdmn:tItemKind"/>
     <xsd:complexType name="tItemKind">
@@ -286,85 +198,6 @@
     <xsd:complexType name="tMultiplicityKind">
         <xsd:complexContent>
             <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="Location" type="sdmn:tLocation" abstract="true" >
-        <xsd:annotation>
-            <xsd:documentation>
-                Location is an abstract class where its concrete specializations identify a particular place or position. Locations are contained within a 
-                SDMNPackage and can be referenced by DataItems.
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:element>
-    <xsd:complexType name="tLocation">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
-                <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="description" type="xsd:string">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                A description of the Location.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="GeospatialExtent" type="sdmn:tGeospatialExtent" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tGeospatialExtent">
-        <xsd:annotation>
-            <xsd:documentation>
-                Tbd... 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="NetworkAddress" type="sdmn:tNetworkAddress" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tNetworkAddress">
-        <xsd:annotation>
-            <xsd:documentation>
-                The address of an element or node on a network. 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="PhysicalAddress" type="sdmn:tPhysicalAddress" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tPhysicalAddress">
-        <xsd:annotation>
-            <xsd:documentation>
-                A physical location in the real world. 
-            </xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation"/>          
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="SpaceTime" type="sdmn:tSpaceTime" substitutionGroup="sdmn:Location"/>
-    <xsd:complexType name="tSpaceTime">
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tLocation">
-                <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="1" name="location" type="xsd:QName">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Tbd...
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-                <xsd:attribute use="required" name="startTime" type="xsd:dateTime"/>
-                <xsd:attribute use="required" name="endTime" type="xsd:dateTime"/>
-            </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
     
@@ -448,7 +281,7 @@
     <xsd:element name="Connector" abstract="true" type="sdmn:tConnector"/>
     <xsd:complexType name="tConnector">
         <xsd:complexContent>
-            <xsd:extension base="sce:tElementRelationshipType">
+            <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
                     <xsd:element maxOccurs="1" minOccurs="1" name="sourceRef" type="sdmn:tDataItem">
                         <xsd:annotation>
