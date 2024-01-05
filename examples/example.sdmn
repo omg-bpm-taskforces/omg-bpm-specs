@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage targetNamespace="falko" id="modelPackage"
-    xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
+<sdmn:SDMNModelPackage id="SharedDataModel"
+    targetNamespace="https://example.org/shared-data-model"
+    xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
