@@ -676,13 +676,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tAnnotation">
 				<xsd:sequence>
-					<xsd:element name="parentRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This association allows the nesting of Categories. A Category MAY be a parent for more than one Category.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>

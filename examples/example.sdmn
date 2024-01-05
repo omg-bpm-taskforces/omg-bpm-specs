@@ -11,7 +11,14 @@
 
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
   <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
+    <sce:category id="category_Region" name="Region">
+      <sce:category id="childCategory_North" name="North"/>
+      <sce:category id="childCategory_South" name="South"/>
+      <sce:category id="childCategory_East" name="East"/>
+      <sce:category id="childCategory_West" name="West"/>
+    </sce:category>
     <sce:SCEDefinitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
+      <sce:categoryRef>category_Region</sce:categoryRef>
       <sce:elementRelationshipType xsi:type="sdmn:tContainmentConnector" id="c1">
         <!-- FIXME: overriding of sourceRef & targetRef instead of duplicating them -->
         <sce:sourceRef>dataItem1</sce:sourceRef>
