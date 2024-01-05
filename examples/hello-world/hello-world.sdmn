@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage id="sharedDataModel"
+<sdmn:SDMNModelPackage id="HelloWorldDataModel"
     targetNamespace="https://example.org/hello-world/shared-data-model"
-    xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns="https://example.org/hello-world/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
