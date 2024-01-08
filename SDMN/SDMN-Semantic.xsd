@@ -180,7 +180,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="multiplicityKindRef" type="sdmn:tMultiplicityKind" minOccurs="1" maxOccurs="1" />
+                    <xsd:element name="multiplicityKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1" />
                 </xsd:sequence>
                 <xsd:attribute name="dataItemRef" use="optional" type="xsd:QName"/>
             </xsd:extension>
@@ -246,7 +246,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="itemKindRef" type="sdmn:tItemKind" minOccurs="1" maxOccurs="1">
+                    <xsd:element name="itemKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This defines the nature of the DataItem. Possible values are physical, information, conceptual, and others. 
@@ -255,7 +255,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="multiplicityKindRef" type="sdmn:tMultiplicityKind" minOccurs="1" maxOccurs="1">
+                    <xsd:element name="multiplicityKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
@@ -283,14 +283,14 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
-                    <xsd:element name="sourceRef" type="sdmn:tDataItem" minOccurs="1" maxOccurs="1">
+                    <xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 The DataItem that the Connector is connecting from.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="targetRef" type="sdmn:tDataItem" minOccurs="1" maxOccurs="1">
+                    <xsd:element name="targetRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 The DataItem that the Connector is connecting to.
