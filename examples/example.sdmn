@@ -8,8 +8,10 @@
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="https://example.org/shared-data-model" id="model1">
-    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
+  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
+  <sce:presentation/>
+  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
+    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
       <sdmn:dataItem id="dataItem1">
         <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:dataItem>
@@ -22,12 +24,7 @@
           <sdmn:targetRef>dataItem2</sdmn:targetRef>
         </sdmn:connector>
       </sdmn:sharedDataModel>
-    </sce:definitions>
-    <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
-  </sce:model>
-  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
-  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
-    <!-- FIXME: this shouldn't be possible -->
-  </sdmn:model>
+    </sdmn:SDMNDefinitions>
+  </sdmn:SDMNModel>
   <sdmndi:SDMNDI></sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>

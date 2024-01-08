@@ -12,8 +12,10 @@
     >
 
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="https://example.org/hello-world/shared-data-model" id="model1">
-    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="https://example.org/hello-world/shared-data-model" id="definitions1">
+  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
+  <sce:presentation/>
+  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
+    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
 
       <sdmn:dataItem id="dataItem_Name">
         <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
@@ -28,12 +30,7 @@
         <sdmn:itemKindRef>itemkind:_adl020900-cgl033105-anep021715-10<!-- Unspecified --></sdmn:itemKindRef>
         <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:itemDefinition>
-    </sce:definitions>
-    <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
-  </sce:model>
-  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
-  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
-    <!-- FIXME: this shouldn't be possible -->
-  </sdmn:model>
+    </sdmn:SDMNDefinitions>
+  </sdmn:SDMNModel>
   <sdmndi:SDMNDI></sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>

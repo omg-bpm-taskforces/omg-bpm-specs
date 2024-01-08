@@ -25,7 +25,7 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEModelPackage">
                 <xsd:sequence>
-                    <xsd:element name="model" type="tSDMNModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="SDMNModel" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage. 

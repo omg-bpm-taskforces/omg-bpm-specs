@@ -29,14 +29,14 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEModel">
                 <xsd:sequence>
-                    <xsd:element name="definitions" type="sdmn:tSDMNDefinitions" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:SDMNDefinitions" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the SDMNDefinitions that are included in the SDMNModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="sdmnVocabulary" type="sdmn:tSDMNVocabulary" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:SDMNVocabulary" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the SDMNVocabularies that are included in the SDMNModel.
@@ -61,21 +61,21 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEDefinitions">
                 <xsd:sequence>
-                    <xsd:element name="dataItem" type="sdmn:tDataItem" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:DataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Data Items that are included in the SDMNDefinitions.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="itemDefinition" type="sdmn:tItemDefinition" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:ItemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This is a list of the ItemDefinitions that are included in the SDMNPackage.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:SharedDataModel" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 TBD... 
@@ -92,7 +92,7 @@
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSDMNDefinitions">
                 <xsd:sequence>
-                    <xsd:element name="connector" type="sdmn:tConnector" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:Connector" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
@@ -336,7 +336,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="assignment" type="sdmn:tAssignment" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:Assignment" minOccurs="1" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Specifies one or more data elements Assignments. By using an Assignment, single data structure elements can be 
