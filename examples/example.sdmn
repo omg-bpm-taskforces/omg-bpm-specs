@@ -30,7 +30,7 @@
     </sdmn:SDMNDefinitions>
   </sdmn:SDMNModel>
   <sdmndi:SDMNDI>
-    <sdmndi:diagram>
+    <sdmndi:SDMNDiagram>
       <sdmndi:SDMNShape id="dataItem1_di">
         <dc:Bounds x="152" y="115" width="36" height="50" />
         <scedi:sceElementRef>dataItem1</scedi:sceElementRef>
@@ -48,6 +48,6 @@
         <scedi:targetElementRef>dataItem2</scedi:targetElementRef>
         <scedi:sourceElementRef>dataItem1</scedi:sourceElementRef>
       </sdmndi:SDMNEdge>
-    </sdmndi:diagram>
+    </sdmndi:SDMNDiagram>
   </sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>
