@@ -25,9 +25,8 @@
       </sdmn:dataItem>
 
       <!-- DMN will reference by @name while BPMN uses @id -->
-      <sdmn:itemDefinition id="itemDef_Name" name="Name" isCollection="false">
+      <sdmn:itemDefinition id="itemDef_Name" name="Name" itemKind="DataType" isCollection="false">
         <dmn:typeRef>string</dmn:typeRef>
-        <sdmn:itemKindRef>itemkind:_adl020900-cgl033105-anep021715-10<!-- Unspecified --></sdmn:itemKindRef>
         <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:itemDefinition>
     </sdmn:SDMNDefinitions>
