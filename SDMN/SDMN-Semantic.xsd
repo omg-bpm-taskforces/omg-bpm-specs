@@ -145,7 +145,7 @@
     </xsd:element>
     <xsd:complexType name="tDataItem">
         <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
+            <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
                     <xsd:element name="metaDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
@@ -210,7 +210,7 @@
     </xsd:element>
     <xsd:complexType name="tAssignment">
         <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
+            <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
                     <xsd:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
