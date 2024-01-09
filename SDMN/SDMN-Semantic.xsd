@@ -187,13 +187,6 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="itemKind" type="sdmn:tItemKind"/>
-    <xsd:complexType name="tItemKind">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-
     <xsd:element name="multiplicityKind"  type="sdmn:tMultiplicityKind"/>
     <xsd:complexType name="tMultiplicityKind">
         <xsd:complexContent>
