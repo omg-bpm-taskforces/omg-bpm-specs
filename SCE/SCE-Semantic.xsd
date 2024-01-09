@@ -304,7 +304,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="association" type="sce:tAssociation" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="association" type="sce:tAssociation" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				An Association is used to associate ModelArtifacts (often Text Annotations) to other diagram elements. If a ModelArtifact extension, 
@@ -361,7 +361,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:element name="group" type="sce:tGroup" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="group" type="sce:tGroup" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Group object is a ModelArtifact that provides a visual mechanism to informally group elements of a diagram. Groups are often 
@@ -376,7 +376,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="textAnnotation" type="sce:tTextAnnotation" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="textAnnotation" type="sce:tTextAnnotation" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				Text Annotations are a mechanism for a modeler to provide additional information for the reader of a SDMN Model.
@@ -640,7 +640,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 	
-	<xsd:element name="attachment" type="sce:tAttachment" substitutionGroup="sce:Annotation">
+	<xsd:element name="attachment" type="sce:tAttachment" substitutionGroup="sce:annotation">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Attachment element provides a place for model developers to provide attached documents to a model element.
@@ -688,7 +688,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="documentation" type="sce:tDocumentation" substitutionGroup="sce:Annotation">
+	<xsd:element name="documentation" type="sce:tDocumentation" substitutionGroup="sce:annotation">
 		<xsd:annotation>
 			<xsd:documentation>
 					The Documentation element provides a place for model developers to provide descriptive information about a model element.
