@@ -37,10 +37,12 @@
         </sdmn:targetRef>
       </sce:elementRelationshipType>
       <sdmn:dataItem id="dataItem1">
+        <sce:categoryRef>childCategory_West</sce:categoryRef>
         <sdmn:multiplicityKindRef id="mKR3"
           conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
       </sdmn:dataItem>
       <sdmn:dataItem id="dataItem2">
+        <sce:categoryRef>childCategory_East</sce:categoryRef>
         <sdmn:multiplicityKindRef id="mKR4"
           conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
       </sdmn:dataItem>
