@@ -61,21 +61,21 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEDefinitions">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:DataItem" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Data Items that are included in the SDMNDefinitions.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:ItemDefinition" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This is a list of the ItemDefinitions that are included in the SDMNPackage.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:SharedDataModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 TBD... 
@@ -87,12 +87,12 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="SharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
+    <xsd:element name="sharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSDMNDefinitions">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:Connector" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
@@ -118,12 +118,12 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="DataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:SharedDataModel"/>
+    <xsd:element name="dataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:sharedDataModel"/>
     <xsd:complexType name="tDataItemModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSharedDataModel">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:DataItem" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 Element Role: dataItemRef
@@ -136,7 +136,7 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="DataItem" type="sdmn:tDataItem">
+    <xsd:element name="dataItem" type="sdmn:tDataItem">
         <xsd:annotation>
             <xsd:documentation>
                 A SDMN Data Item represents a common definition and structure for the data handling elements of the other BPM+ models.
@@ -155,7 +155,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:Assignment" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:assignment" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Element Role: preAssignement
@@ -187,21 +187,21 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ItemKind" type="sdmn:tItemKind"/>
+    <xsd:element name="itemKind" type="sdmn:tItemKind"/>
     <xsd:complexType name="tItemKind">
         <xsd:complexContent>
             <xsd:extension base="sce:tSemanticReference"/>
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="MultiplicityKind"  type="sdmn:tMultiplicityKind"/>
+    <xsd:element name="multiplicityKind"  type="sdmn:tMultiplicityKind"/>
     <xsd:complexType name="tMultiplicityKind">
         <xsd:complexContent>
             <xsd:extension base="sce:tSemanticReference"/>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="Assignment" type="sdmn:tAssignment">
+    <xsd:element name="assignment" type="sdmn:tAssignment">
         <xsd:annotation>
             <xsd:documentation>
                 tbd...
@@ -225,7 +225,7 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ItemDefinition" type="sdmn:tItemDefinition">
+    <xsd:element name="itemDefinition" type="sdmn:tItemDefinition">
         <xsd:annotation>
             <xsd:documentation>
                 Defines the detailed structure, which can be simple or complex, of a Data Item.
@@ -278,7 +278,7 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="Connector" abstract="true" type="sdmn:tConnector"/>
+    <xsd:element name="connector" abstract="true" type="sdmn:tConnector"/>
     <xsd:complexType name="tConnector">
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEElement">
@@ -302,28 +302,28 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="CompensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="compensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tCompensationConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ContainmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="containmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tContainmentConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="ReferenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="referenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tReferenceConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="DataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="dataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tDataAssociation">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector">
@@ -336,7 +336,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:Assignment" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:element ref="sdmn:assignment" minOccurs="1" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Specifies one or more data elements Assignments. By using an Assignment, single data structure elements can be 
