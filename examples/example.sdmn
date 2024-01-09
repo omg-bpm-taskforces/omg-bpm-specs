@@ -5,7 +5,10 @@
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
+    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
   <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
     <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
@@ -40,5 +43,25 @@
   <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
     <!-- FIXME: this shouldn't be possible -->
   </sdmn:model>
-  <sdmndi:SDMNDI></sdmndi:SDMNDI>
+  <sdmndi:SDMNDI>
+    <sdmndi:diagram>
+      <sdmndi:SDMNShape id="dataItem1_di">
+        <dc:Bounds x="152" y="115" width="36" height="50" />
+        <scedi:sceElementRef>dataItem1</scedi:sceElementRef>
+      </sdmndi:SDMNShape>
+      <sdmndi:SDMNShape id="dataItem2_di">
+        <dc:Bounds x="270" y="115" width="36" height="50" />
+        <scedi:sceElementRef>dataItem2</scedi:sceElementRef>
+      </sdmndi:SDMNShape>
+      <sdmndi:SDMNEdge id="c1_di">
+        <di:waypoint x="188" y="140" />
+        <di:waypoint x="270" y="140" />
+        <!-- FIXME: avoid redundance and use <scedi:sceElementRef>c1</scedi:sceElementRef> -->
+        <!-- FIXME: source and target should either be removed from SCEDI
+          or at least be optional and in the right order -->
+        <scedi:targetElementRef>dataItem2</scedi:targetElementRef>
+        <scedi:sourceElementRef>dataItem1</scedi:sourceElementRef>
+      </sdmndi:SDMNEdge>
+    </sdmndi:diagram>
+  </sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>
