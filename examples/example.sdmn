@@ -22,10 +22,10 @@
         <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:dataItem>
       <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model" >
-        <sdmn:connector xsi:type="sdmn:tContainmentConnector" id="c1">
+        <sdmn:containmentConnector id="c1">
           <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
           <sdmn:targetRef>dataItem2</sdmn:targetRef>
-        </sdmn:connector>
+        </sdmn:containmentConnector>
       </sdmn:sharedDataModel>
     </sdmn:SDMNDefinitions>
   </sdmn:SDMNModel>
