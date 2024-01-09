@@ -268,7 +268,9 @@
                 <xsd:attribute name="itemKind" type="xsd:string" use="optional" default="DataType">
                     <xsd:annotation>
                         <xsd:documentation>
-                            This defines the nature of the DataItem. Possible values are physical, information, conceptual, and others. 
+                            This defines the nature of the DataItem. Possible values are Conceptual, DataType, Document,
+                            Folder, Physical, Relationship, UMLClass, Unknown, Unspecified, WSDLMessage, XSDComplexType,
+                            XSDElement, and XSDSimpleType.
                             The default value is DataType. If the ItemDefinition has itemComponents or itemComponentRefs, 
                             then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
                         </xsd:documentation>
