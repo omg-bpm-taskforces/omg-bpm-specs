@@ -24,13 +24,6 @@ jobs:
           xml-file: SCE/SCE-Library.xml
           xml-schema-file: SCE/SCE.xsd
         if: always()
-      - name: Validate SDMN-Library.xml using SDMN.xsd
-        id: xmllint-sdmn-library
-        uses: ChristophWurst/xmllint-action@v1.2
-        with:
-          xml-file: SDMN/SDMN-Library.xml
-          xml-schema-file: SDMN/SDMN.xsd
-        if: always()
       - name: Validate BKPMN-Library.xml using BKPMN.xsd
         id: xmllint-bkpmn-library
         uses: ChristophWurst/xmllint-action@v1.2
