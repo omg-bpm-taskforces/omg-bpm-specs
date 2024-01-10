@@ -52,6 +52,15 @@ Publish the release branch:
 git push --set-upstream origin release/sce-1.0-ballot-3
 ```
 
+## Light-weight process without per-issue pull requests
+
+Create a branch for the next ballot and
+add a single commit per issue.
+This safes the extra-overhead of creating and merging
+separate branches & pull requests
+and can be helpful for inter-dependent issues.
+Larger issues can still be done as a pull request as described above.
+
 # Revised Text Template for JIRA
 
 ```jira
