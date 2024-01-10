@@ -29,17 +29,10 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEModel">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="definitions" type="sdmn:tSDMNDefinitions">
+                    <xsd:element ref="sdmn:SDMNDefinitions" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the SDMNDefinitions that are included in the SDMNModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="sdmnVocabulary" type="sdmn:tSDMNVocabulary">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the SDMNVocabularies that are included in the SDMNModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
@@ -61,21 +54,21 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEDefinitions">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataItem" type="sdmn:tDataItem">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Data Items that are included in the SDMNDefinitions.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="itemDefinition" type="sdmn:tItemDefinition">
+                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This is a list of the ItemDefinitions that are included in the SDMNPackage.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="sharedDataModel" type="sdmn:tSharedDataModel">
+                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 TBD... 
@@ -87,12 +80,12 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="SharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
+    <xsd:element name="sharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSDMNDefinitions">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="connector" type="sdmn:tConnector">
+                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
@@ -104,26 +97,12 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="SDMNVocabulary" type="sdmn:tSDMNVocabulary" abstract="false">
-        <xsd:annotation>
-            <xsd:documentation>
-                This is a list of terms (SemanticReferences) that can be used to define the meaning of elements of 
-                SDMNVocabulary. Multiple Vocabularies can be defined. They are contained in an SDMNModel. 
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:element>
-    <xsd:complexType name="tSDMNVocabulary">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEVocabulary"/>            
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="DataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:SharedDataModel"/>
+    <xsd:element name="dataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:sharedDataModel"/>
     <xsd:complexType name="tDataItemModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSharedDataModel">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdmn:DataItem">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 Element Role: dataItemRef
@@ -136,7 +115,7 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="DataItem" type="sdmn:tDataItem">
+    <xsd:element name="dataItem" type="sdmn:tDataItem">
         <xsd:annotation>
             <xsd:documentation>
                 A SDMN Data Item represents a common definition and structure for the data handling elements of the other BPM+ models.
@@ -145,9 +124,9 @@
     </xsd:element>
     <xsd:complexType name="tDataItem">
         <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
+            <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="metaDefinitionRef" type="xsd:QName">
+                    <xsd:element name="metaDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 A reference to an itemDefinition that defines the Properties of the Data Item. The itemComponents of the ItemDefinition structure 
@@ -155,7 +134,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" ref="sdmn:Assignment">
+                    <xsd:element ref="sdmn:assignment" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Element Role: preAssignement
@@ -164,7 +143,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="referenceTargetRef" type="xsd:QName">
+                    <xsd:element name="referenceTargetRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Zero or more source Data Item. For reference hierarchies of a Data Item, referenceSourceRef refers to the source of the Data Item. If 
@@ -172,7 +151,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="typeDefinitionRef" type="xsd:QName">
+                    <xsd:element name="typeDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 A reference to an itemDefinition that defines the detailed structure, which can be simple or complex, of the Data Item.
@@ -180,28 +159,14 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="1" name="multiplicityKindRef" type="sdmn:tMultiplicityKind" />
                 </xsd:sequence>
                 <xsd:attribute name="dataItemRef" use="optional" type="xsd:QName"/>
+                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOnce"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ItemKind" type="sdmn:tItemKind"/>
-    <xsd:complexType name="tItemKind">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="MultiplicityKind"  type="sdmn:tMultiplicityKind"/>
-    <xsd:complexType name="tMultiplicityKind">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="Assignment" type="sdmn:tAssignment">
+    <xsd:element name="assignment" type="sdmn:tAssignment">
         <xsd:annotation>
             <xsd:documentation>
                 tbd...
@@ -210,9 +175,9 @@
     </xsd:element>
     <xsd:complexType name="tAssignment">
         <xsd:complexContent>
-            <xsd:extension base="sce:tElementType">
+            <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
-                    <xsd:element minOccurs="1" maxOccurs="1" ref="dmn:expression">
+                    <xsd:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation> 
                                 Element Role: value
@@ -225,7 +190,7 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ItemDefinition" type="sdmn:tItemDefinition">
+    <xsd:element name="itemDefinition" type="sdmn:tItemDefinition">
         <xsd:annotation>
             <xsd:documentation>
                 Defines the detailed structure, which can be simple or complex, of a Data Item.
@@ -236,30 +201,13 @@
         <xsd:complexContent>
             <xsd:extension base="dmn:tItemDefinition">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" maxOccurs="unbounded" ref="sce:SemanticReference">
+                    <xsd:element ref="sce:SemanticReference" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Element Role: semanticReference
                                 A ItemDefinition can include multiple SemanticReference elements. This attribute was added because ItemDefinition is based on the 
                                 DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in SemanticReference as part 
                                 of its definition.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element minOccurs="1" maxOccurs="1" name="itemKindRef" type="sdmn:tItemKind">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This defines the nature of the DataItem. Possible values are physical, information, conceptual, and others. 
-                                The default value is information. If the ItemDefinition has itemComponents or itemComponentRefs, 
-                                then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element minOccurs="1" maxOccurs="1" name="multiplicityKindRef" type="sdmn:tMultiplicityKind">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
-                                multiplicty attribute of the associated DataItem. This 
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
@@ -274,23 +222,42 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
+                <xsd:attribute name="itemKind" type="xsd:string" use="optional" default="DataType">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This defines the nature of the DataItem. Possible values are Conceptual, DataType, Document,
+                            Folder, Physical, Relationship, UMLClass, Unknown, Unspecified, WSDLMessage, XSDComplexType,
+                            XSDElement, and XSDSimpleType.
+                            The default value is DataType. If the ItemDefinition has itemComponents or itemComponentRefs, 
+                            then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOne">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
+                            multiplicty attribute of the associated DataItem. This 
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="Connector" abstract="true" type="sdmn:tConnector"/>
+    <xsd:element name="connector" abstract="true" type="sdmn:tConnector"/>
     <xsd:complexType name="tConnector">
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEElement">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="1" name="sourceRef" type="sdmn:tDataItem">
+                    <xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 The DataItem that the Connector is connecting from.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="1" name="targetRef" type="sdmn:tDataItem">
+                    <xsd:element name="targetRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 The DataItem that the Connector is connecting to.
@@ -302,33 +269,33 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="CompensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="compensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tCompensationConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="ContainmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="containmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tContainmentConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="ReferenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="referenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tReferenceConnector">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector"/>
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="DataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:Connector"/>
+    <xsd:element name="dataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:connector"/>
     <xsd:complexType name="tDataAssociation">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tConnector">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="transformation" type="dmn:tLiteralExpression">
+                    <xsd:element name="transformation" type="dmn:tLiteralExpression" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Specifies an optional transformation Expression. The actual scope of accessible data for that Expression is 
@@ -336,7 +303,7 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="unbounded" minOccurs="1" name="assignment" type="sdmn:tAssignment">
+                    <xsd:element ref="sdmn:assignment" minOccurs="1" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
                                 Specifies one or more data elements Assignments. By using an Assignment, single data structure elements can be 

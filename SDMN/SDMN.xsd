@@ -25,14 +25,14 @@
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEModelPackage">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="1" minOccurs="0" name="model" type="tSDMNModel">
+                    <xsd:element ref="SDMNModel" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage. 
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element maxOccurs="1" minOccurs="0" ref="sdmndi:SDMNDI">
+                    <xsd:element ref="sdmndi:SDMNDI" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
                                 This attribute contains the Diagram Interchange information contained within this SDMNPackage.

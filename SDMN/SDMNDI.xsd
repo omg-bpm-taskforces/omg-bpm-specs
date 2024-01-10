@@ -20,14 +20,14 @@
 		<xsd:complexContent>
 		    <xsd:extension base="scedi:tSCEDI">
         		    <xsd:sequence>
-        		    	<xsd:element maxOccurs="unbounded" minOccurs="0" name="diagram" type="sdmndi:tSDMNDiagram">
+        		    	<xsd:element ref="sdmndi:SDMNDiagram" minOccurs="0" maxOccurs="unbounded">
 				        <xsd:annotation>
 					        <xsd:documentation>
 					            A list of SDMNDiagrams.
 					        </xsd:documentation>
 				        </xsd:annotation>
 			        </xsd:element>
-			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="style" type="scedi:tSCEStyle">
+			        <xsd:element ref="scedi:SCEStyle" minOccurs="0" maxOccurs="unbounded">
 				        <xsd:annotation>
 					        <xsd:documentation>
 					            A list of shared SCEStyle that can be referenced by all SDMNDiagrams diagrams and SDMNDiagramElements.
@@ -56,7 +56,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCEDiagram">
 				<xsd:sequence>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="sdmndi:SDMNDiagramElement">
+					<xsd:element ref="sdmndi:SDMNDiagramElement" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: diagramElement
