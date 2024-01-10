@@ -36,13 +36,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:SDMNVocabulary" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the SDMNVocabularies that are included in the SDMNModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -101,20 +94,6 @@
                     </xsd:element>
                 </xsd:sequence>
             </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="SDMNVocabulary" type="sdmn:tSDMNVocabulary" abstract="false">
-        <xsd:annotation>
-            <xsd:documentation>
-                This is a list of terms (SemanticReferences) that can be used to define the meaning of elements of 
-                SDMNVocabulary. Multiple Vocabularies can be defined. They are contained in an SDMNModel. 
-            </xsd:documentation>
-        </xsd:annotation>
-    </xsd:element>
-    <xsd:complexType name="tSDMNVocabulary">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEVocabulary"/>            
         </xsd:complexContent>
     </xsd:complexType>
     
