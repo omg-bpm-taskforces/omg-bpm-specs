@@ -17,17 +17,14 @@
   <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
     <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
 
-      <sdmn:dataItem id="dataItem_Name">
-        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
+      <sdmn:dataItem id="dataItem_Name" multiplicityKind="Unspecified">
+        <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
       </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem_Greeting">
-        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
-      </sdmn:dataItem>
+      <sdmn:dataItem id="dataItem_Greeting"/>
 
       <!-- DMN will reference by @name while BPMN uses @id -->
-      <sdmn:itemDefinition id="itemDef_Name" name="Name" itemKind="DataType" isCollection="false">
+      <sdmn:itemDefinition id="itemDef_Name" name="Name" itemKind="DataType" multiplicityKind="Unspecified" isCollection="false">
         <dmn:typeRef>string</dmn:typeRef>
-        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:itemDefinition>
     </sdmn:SDMNDefinitions>
   </sdmn:SDMNModel>

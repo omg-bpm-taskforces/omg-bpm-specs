@@ -180,20 +180,13 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="multiplicityKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1" />
                 </xsd:sequence>
                 <xsd:attribute name="dataItemRef" use="optional" type="xsd:QName"/>
+                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOnce"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="multiplicityKind"  type="sdmn:tMultiplicityKind"/>
-    <xsd:complexType name="tMultiplicityKind">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
     <xsd:element name="assignment" type="sdmn:tAssignment">
         <xsd:annotation>
             <xsd:documentation>
@@ -239,14 +232,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="multiplicityKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
-                                multiplicty attribute of the associated DataItem. This 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                 </xsd:sequence>                
                 <xsd:attribute name="itemDefinitionRef" type="xsd:QName" use="optional">
                     <xsd:annotation>
@@ -266,6 +251,14 @@
                             XSDElement, and XSDSimpleType.
                             The default value is DataType. If the ItemDefinition has itemComponents or itemComponentRefs, 
                             then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOne">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
+                            multiplicty attribute of the associated DataItem. This 
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>

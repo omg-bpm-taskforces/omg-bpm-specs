@@ -15,12 +15,8 @@
   <sce:presentation/>
   <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
     <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
-      <sdmn:dataItem id="dataItem1">
-        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
-      </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem2">
-        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
-      </sdmn:dataItem>
+      <sdmn:dataItem id="dataItem1"/>
+      <sdmn:dataItem id="dataItem2"/>
       <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model" >
         <sdmn:containmentConnector id="c1">
           <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
