@@ -4,47 +4,33 @@
     xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
+    xmlns:multiplicity="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
     xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
     xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model1">
-    <sce:definitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="falko" id="definitions1">
-      <sce:elementTypeRelationship xsi:type="sdmn:tContainmentConnector" id="c1">
-        <!-- FIXME: overriding of sourceRef & targetRef instead of duplicating them -->
-        <sce:sourceRef>dataItem1</sce:sourceRef>
-        <sce:targetRef>dataItem2</sce:targetRef>
-        <sce:relationshipKindRef id="rKR1" conceptURI="... NO VALIDATION HERE ;-P" />
-        <sdmn:sourceRef id="sR1">
-          <!-- FIXME: sdmn:sourceRef is of type sdmn:tDataItem instead of referencing one via IDREF or QName -->
-          <sdmn:multiplicityKindRef id="mKR1"
-            conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
-        </sdmn:sourceRef>
-        <sdmn:targetRef id="tR1">
-          <!-- FIXME: sdmn:targetRef is of type sdmn:tDataItem instead of referencing one via IDREF or QName -->
-          <sdmn:multiplicityKindRef id="mKR2"
-            conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
-        </sdmn:targetRef>
-      </sce:elementTypeRelationship>
+  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
+  <sce:presentation/>
+  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
+    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
       <sdmn:dataItem id="dataItem1">
-        <sdmn:multiplicityKindRef id="mKR3"
-          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
+        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:dataItem>
       <sdmn:dataItem id="dataItem2">
-        <sdmn:multiplicityKindRef id="mKR4"
-          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
+        <sdmn:multiplicityKindRef>multiplicity:_adl020900-cgl033105-anep021716-05<!-- Unspecified --></sdmn:multiplicityKindRef>
       </sdmn:dataItem>
-    </sce:definitions>
-    <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
-  </sce:model>
-  <sce:presentation xsi:type="sdmndi:tSDMNDI"></sce:presentation>
-  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
-    <!-- FIXME: this shouldn't be possible -->
-  </sdmn:model>
+      <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model" >
+        <sdmn:containmentConnector id="c1">
+          <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
+          <sdmn:targetRef>dataItem2</sdmn:targetRef>
+        </sdmn:containmentConnector>
+      </sdmn:sharedDataModel>
+    </sdmn:SDMNDefinitions>
+  </sdmn:SDMNModel>
   <sdmndi:SDMNDI>
-    <sdmndi:diagram>
+    <sdmndi:SDMNDiagram>
       <sdmndi:SDMNShape id="dataItem1_di">
         <dc:Bounds x="152" y="115" width="36" height="50" />
         <scedi:sceElementRef>dataItem1</scedi:sceElementRef>
@@ -62,6 +48,6 @@
         <scedi:targetElementRef>dataItem2</scedi:targetElementRef>
         <scedi:sourceElementRef>dataItem1</scedi:sourceElementRef>
       </sdmndi:SDMNEdge>
-    </sdmndi:diagram>
+    </sdmndi:SDMNDiagram>
   </sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>
