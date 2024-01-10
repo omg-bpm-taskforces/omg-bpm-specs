@@ -187,13 +187,6 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="itemKind" type="sdmn:tItemKind"/>
-    <xsd:complexType name="tItemKind">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSemanticReference"/>
-        </xsd:complexContent>
-    </xsd:complexType>
-
     <xsd:element name="multiplicityKind"  type="sdmn:tMultiplicityKind"/>
     <xsd:complexType name="tMultiplicityKind">
         <xsd:complexContent>
@@ -246,15 +239,6 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element name="itemKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This defines the nature of the DataItem. Possible values are physical, information, conceptual, and others. 
-                                The default value is information. If the ItemDefinition has itemComponents or itemComponentRefs, 
-                                then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                     <xsd:element name="multiplicityKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -271,6 +255,17 @@
                             only be viewed in this model. Any changes to the original must be carried out in the source Shared Data Model. Other types of 
                             structures are not allowed for the SDMN . However, BPMN Data Objects and CMMN Case File Items have the capability of references 
                             other types of structures. These other types of structures would not be a part of the SDMN Shared Data Model.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="itemKind" type="xsd:string" use="optional" default="DataType">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This defines the nature of the DataItem. Possible values are Conceptual, DataType, Document,
+                            Folder, Physical, Relationship, UMLClass, Unknown, Unspecified, WSDLMessage, XSDComplexType,
+                            XSDElement, and XSDSimpleType.
+                            The default value is DataType. If the ItemDefinition has itemComponents or itemComponentRefs, 
+                            then the itemKind for each of these sub-ItemDefinitions must match the top-level ItemDefinition. 
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
