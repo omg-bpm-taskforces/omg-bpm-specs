@@ -8,7 +8,7 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				SCEPackage is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not 
-				contained within any element. It’s five sub-classes (listed in the next five sections), will be used to organize 
+				contained within any element. Its five sub-classes (listed in the next five sections), will be used to organize 
 				the types of content that make up a model or set of models (of a language that utilizes SCE). The SCEModelPackage 
 				is the top-level package used for distribution of the content of a modeling language.
 			</xsd:documentation>
@@ -18,14 +18,14 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element name="adornmentInstance" type="sce:tAdornmentInstance" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:adornmentInstance" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the AdornmentInstances contained within a concrete specialization of SCEPackage.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="element" type="sce:tSCERootElement" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCERootElement" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the SCERootElements contained within a SCEModelPackage. Many elements will be identified 
@@ -41,7 +41,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="extension" type="sce:tExtension" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:extension" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute identifies Extensions beyond the attributes and model associations in a concrete specialization of 
@@ -49,7 +49,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="import" type="sce:tImport" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:import" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute is used to import externally defined elements and make them available for use by elements within a 
@@ -121,14 +121,14 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
-					<xsd:element name="category" type="sce:tCategory" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the Categories contained within a concrete specialization of SCEModel.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="definitions" type="sce:tSCEDefinitions" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCEDefinitions" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the SCEDefinitions sub-packages contained within a SCEModel. This is a subset of the 
@@ -136,14 +136,14 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="externalRelationship" type="sce:tExternalRelationship" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the external relationships contained within a concrete specialization of SCEModel.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="instances" type="sce:tSCEInstances" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCEInstances" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the SCEInstances sub-packages contained within a SCEModel. This is a subset of the 
@@ -151,7 +151,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="profile" type="sce:tSCEProfile" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCEProfile" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the SCEProfile sub-packages contained within a SCEModel. This is a subset of the 
@@ -159,7 +159,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="kindSet" type="sce:tSCEKindSet" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCEKindSet" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of terms (kinds) that are part of a concrete specialization of SCEModel.
@@ -201,7 +201,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="elementTypeRelationship" type="sce:tElementRelationshipType" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:elementRelationshipType" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the ElementTypeRelationships contained within a concrete specialization of 
@@ -209,7 +209,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="modelArtifact" type="sce:tModelArtifact" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:modelArtifact" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the ModelArtifacts contained within a concrete specialization of SCEDefinitions. 
@@ -247,7 +247,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="elementRelationship" type="sce:tElementRelationship" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:elementRelationship" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the ElementRelationships contained within a concrete specialization of 
@@ -255,7 +255,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="modelArtifact" type="sce:tModelArtifact" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:modelArtifact" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This is a list of all the ModelArtifacts contained within a concrete specialization of SCEDefinitions. 
@@ -285,7 +285,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 	
-	<xsd:element name="ModelArtifact" type="sce:tModelArtifact" abstract="true">
+	<xsd:element name="modelArtifact" type="sce:tModelArtifact" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				A ModelArtifact is an object that provides supporting information about a model. However, it does not have any behavioral semantics. 
@@ -304,7 +304,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Association" type="sce:tAssociation" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="association" type="sce:tAssociation" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				An Association is used to associate ModelArtifacts (often Text Annotations) to other diagram elements. If a ModelArtifact extension, 
@@ -361,7 +361,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:element name="Group" type="sce:tGroup" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="group" type="sce:tGroup" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Group object is a ModelArtifact that provides a visual mechanism to informally group elements of a diagram. Groups are often 
@@ -376,7 +376,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="TextAnnotation" type="sce:tTextAnnotation" substitutionGroup="sce:ModelArtifact">
+	<xsd:element name="textAnnotation" type="sce:tTextAnnotation" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
 				Text Annotations are a mechanism for a modeler to provide additional information for the reader of a SDMN Model.
@@ -395,7 +395,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="commentRef" type="sce:tDocumentation" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="commentRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								Comment is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
@@ -485,7 +485,7 @@
 		<xsd:complexContent>			
 			<xsd:extension base="sce:tSCERootElement">
 				<xsd:sequence>
-					<xsd:element name="attachment" type="sce:tAttachment" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:attachment" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This association is used to annotate any concrete specialization of SCEElement with one or more attachments.
@@ -500,7 +500,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="documentation" type="sce:tDocumentation" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:documentation" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This association is used to annotate any concrete specialization of SCEElement with descriptions and other documentation.
@@ -516,7 +516,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="extensionValue" type="sce:tExtensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:extensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This association is used to provide values for extended attributes and model associations. This association is not applicable 
@@ -544,7 +544,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="ElementType" type="sce:tElementType" abstract="true">
+	<xsd:element name="elementType" type="sce:tElementType" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				A kind of SCEElement that is the type or specification of a TypedElement.
@@ -557,7 +557,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="TypedElement" type="sce:tTypedElement" abstract="true">
+	<xsd:element name="typedElement" type="sce:tTypedElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				A kind of SCEElement that has zero or more ElementTypes, identified by the typeRef attribute.  
@@ -569,7 +569,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element name="typeRef" type="sce:tElementType" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								The class(es) that provide(s) a specification of the SCEElement. This usually is applied to the concrete 
@@ -581,7 +581,7 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	<xsd:element name="Annotation" type="sce:tAnnotation" abstract="true">
+	<xsd:element name="annotation" type="sce:tAnnotation" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Annotation element is an abstract element that is used to organize a set of elements that are used to annotate any 
@@ -595,7 +595,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Import" type="sce:tImport">
+	<xsd:element name="import" type="sce:tImport">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Import class is used by an implementation of a modeling specification (i.e., a model), dependent on SCE, when referencing an 
@@ -640,7 +640,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 	
-	<xsd:element name="Attachment" type="sce:tAttachment" substitutionGroup="sce:Annotation">
+	<xsd:element name="attachment" type="sce:tAttachment" substitutionGroup="sce:annotation">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Attachment element provides a place for model developers to provide attached documents to a model element.
@@ -663,12 +663,12 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Category" type="sce:tCategory">
+	<xsd:element name="category" type="sce:tCategory">
 		<xsd:annotation>
 			<xsd:documentation>
 				A Category, which have user-defined semantics, can be used for documentation or metadata organizational purposes. For example, 
-				recommendations (in the healthcare domain) can be assignesoud a category of “Lifestyle Modification” with further breakdowns into 
-				“Weight Reduction,” “Exercise Program,” and “Diet Modification” sub-categories.
+				recommendations (in the healthcare domain) can be assigned a category of “Lifestyle Modification” with further breakdowns into 
+				“Weight Reduction”, “Exercise Program”, and “Diet Modification” sub-categories.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
@@ -676,14 +676,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tAnnotation">
 				<xsd:sequence>
-					<xsd:element name="parentRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This association allows the nesting of Categories. A Category MAY be a parent for more than one Category.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="child" type="sce:tCategory" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This association allows the nesting of Categories. A Category MAY have more than one child Category.
@@ -695,7 +688,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Documentation" type="sce:tDocumentation" substitutionGroup="sce:Annotation">
+	<xsd:element name="documentation" type="sce:tDocumentation" substitutionGroup="sce:annotation">
 		<xsd:annotation>
 			<xsd:documentation>
 					The Documentation element provides a place for model developers to provide descriptive information about a model element.
@@ -724,7 +717,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Kind" type="sce:tKind">
+	<xsd:element name="kind" type="sce:tKind">
 		<xsd:annotation>
 			<xsd:documentation>
 				A Kind is one of a set of Kinds (terms) that make up an extendable enumerated list of values for a text-based property of an 
@@ -747,7 +740,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 	
-	<xsd:element name="ElementRelationship" type="sce:tElementRelationship">
+	<xsd:element name="elementRelationship" type="sce:tElementRelationship">
 		<xsd:annotation>
 			<xsd:documentation>
 				A kind of relationships between two SCEElements. The RelationshipType enumeration element identify specific types of relationships.
@@ -774,7 +767,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="typeRef" type="sce:tElementRelationshipType" minOccurs="0" maxOccurs="1">
+					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								the type shoulde be tElementTypeRelation
@@ -782,7 +775,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="relationshipKindRef" type="sce:tRelationshipKind" minOccurs="1" maxOccurs="1">
+					<xsd:element name="relationshipKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								A description of the type of the relationship. See the RelationshipType enumeration, below, for more details.
@@ -794,7 +787,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="ElementRelationshipType" type="sce:tElementRelationshipType">
+	<xsd:element name="elementRelationshipType" type="sce:tElementRelationshipType">
 		<xsd:annotation>
 			<xsd:documentation>
 				A kind of ElementRelationship that specifies two ElementTypes (rather than SCEElements). The RelationshipType enumeration 
@@ -820,7 +813,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="relationshipKindRef" type="sce:tRelationshipKind" minOccurs="1" maxOccurs="1">
+					<xsd:element name="relationshipKindRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								A description of the type of the relationship. See the RelationshipType enumeration, below, for more details.
@@ -848,12 +841,12 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="RelationshipKindSet" type="sce:tRelationshipKindSet"/>	
+	<xsd:element name="relationshipKindSet" type="sce:tRelationshipKindSet"/>	
 	<xsd:complexType name="tRelationshipKindSet">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEKindSet">
 				<xsd:sequence>
-					<xsd:element ref="sce:RelationshipKind" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:relationshipKind" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: kind
@@ -867,14 +860,14 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 	
-	<xsd:element name="RelationshipKind" type="sce:tRelationshipKind"/>
+	<xsd:element name="relationshipKind" type="sce:tRelationshipKind"/>
 	<xsd:complexType name="tRelationshipKind">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tKind"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="Extension" type="sce:tExtension">
+	<xsd:element name="extension" type="sce:tExtension">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Extension element binds/imports an ExtensionDefinition and its attributes to a model definition.
@@ -885,7 +878,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCERootElement">
 				<xsd:sequence>
-					<xsd:element name="definition" type="sce:tExtensionDefinition" minOccurs="1" maxOccurs="1">
+					<xsd:element ref="sce:extensionDefinition" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								This flag defines if the semantics defined by the extension definition and its attribute definition MUST be understood by 
@@ -906,7 +899,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AdornmentAttributeDefinition" type="sce:tAdornmentAttributeDefinition">
+	<xsd:element name="adornmentAttributeDefinition" type="sce:tAdornmentAttributeDefinition">
 		<xsd:annotation>
 			<xsd:documentation>
 				A member of a AdornmentProfile that describes an attribute that is applicable to specific SCEElements.  The 
@@ -970,7 +963,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AdornmentDefinition" type="sce:tAdornmentDefinition">
+	<xsd:element name="adornmentDefinition" type="sce:tAdornmentDefinition">
 		<xsd:annotation>
 			<xsd:documentation>
 				A reference to one or more types to which one or more AdornmentAttributeDefinitions apply as part of a AdornmentProfile.
@@ -994,7 +987,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AdornmentInstance" type="sce:tAdornmentInstance">
+	<xsd:element name="adornmentInstance" type="sce:tAdornmentInstance">
 		<xsd:annotation>
 			<xsd:documentation>
 				An element that has been adorned with one or more AdornmentValues through an AdornmentProfile.
@@ -1005,7 +998,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element name="value" type="sce:tExtensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:extensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								A value that has been added to an adornedElement.
@@ -1018,7 +1011,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AdornmentProfile" type="sce:tAdornmentProfile">
+	<xsd:element name="adornmentProfile" type="sce:tAdornmentProfile">
 		<xsd:annotation>
 			<xsd:documentation>
 				A profile of attribute definitions that may apply to one or more SCEElements under organizational, ad hoc, or de jure standards or 
@@ -1058,7 +1051,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AdornmentValue" type="sce:tAdornmentValue" abstract="true">
+	<xsd:element name="adornmentValue" type="sce:tAdornmentValue" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				A value of an attribute associated with an AdornedElement.  AdornmentValue is specialization of ExtensionAttributeValue where the 
@@ -1089,7 +1082,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="AttributeType" type="sce:tAttributeType">
+	<xsd:element name="attributeType" type="sce:tAttributeType">
 		<xsd:annotation>
 			<xsd:documentation>
 				The type of a AdornmentAttributeDefinition.  The type is specified by the PrimativeAttributeType enumeration.
@@ -1110,7 +1103,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="DateTimeValue" type="sce:tDateTimeValue">
+	<xsd:element name="dateTimeValue" type="sce:tDateTimeValue">
 		<xsd:annotation>
 			<xsd:documentation>
 				An AdornmentValue that is a DateTime type.
@@ -1131,7 +1124,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="IntegerValue" type="sce:tIntegerValue">
+	<xsd:element name="integerValue" type="sce:tIntegerValue">
 		<xsd:annotation>
 			<xsd:documentation>    
 				An AdornmentValue that is an Integer type.
@@ -1152,7 +1145,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="StringValue" type="sce:tStringValue">
+	<xsd:element name="stringValue" type="sce:tStringValue">
 		<xsd:annotation>
 			<xsd:documentation>
 				An AdornmentValue that is a String type.
@@ -1186,7 +1179,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:element name="ExtensionAttributeDefinition" type="sce:tExtensionAttributeDefinition">
+	<xsd:element name="extensionAttributeDefinition" type="sce:tExtensionAttributeDefinition">
 		<xsd:annotation>
 			<xsd:documentation>
 				The ExtensionAttributeDefinition defines new attributes. This type is not applicable when the XML schema interchange is used; 
@@ -1216,7 +1209,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="ExtensionAttributeValue" type="sce:tExtensionAttributeValue">
+	<xsd:element name="extensionAttributeValue" type="sce:tExtensionAttributeValue">
 		<xsd:annotation>
 			<xsd:documentation>
 				The ExtensionAttributeDefinition defines new attributes. This type is not applicable when the XML schema interchange is used; 
@@ -1257,7 +1250,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="ExtensionDefinition" type="sce:tExtensionDefinition">
+	<xsd:element name="extensionDefinition" type="sce:tExtensionDefinition">
 		<xsd:annotation>
 			<xsd:documentation>
 				The ExtensionDefinition class defines and groups additional attributes. This type is not applicable when the XML schema interchange is used, 
@@ -1270,7 +1263,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element name="extensionAttributeDefinition" type="sce:tExtensionAttributeDefinition" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:extensionAttributeDefinition" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 							    The specific attributes that make up the extension.
@@ -1282,7 +1275,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="ExternalRelationship" type="sce:tExternalRelationship"/>	
+	<xsd:element name="externalRelationship" type="sce:tExternalRelationship"/>	
 	<xsd:complexType name="tExternalRelationship">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
@@ -1332,7 +1325,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
-					<xsd:element name="kind" type="sce:tKind" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:kind" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								The extendable list of enumerated terms is a set of Kinds.

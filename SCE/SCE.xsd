@@ -32,7 +32,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="presentation" type="scedi:tSCEDI" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="scedi:SCEDI" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute contains the Diagram Interchange information contained within this SCEModelPackage.

@@ -19,14 +19,14 @@
 	</xsd:element>
 	<xsd:complexType name="tSCEDI">
 		<xsd:sequence>
-			<xsd:element name="diagram" type="scedi:tSCEDiagram" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="scedi:SCEDiagram" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
 						A list of SCEDiagrams.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="style" type="scedi:tSCEStyle" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="scedi:SCEStyle" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
 						A list of shared SCEStylethat can be referenced by all SCE-dependent diagrams and SCEDiagramElement.
@@ -78,7 +78,7 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="localStyle" type="scedi:tSCEStyle" minOccurs="0" maxOccurs="1">
+					<xsd:element ref="scedi:SCEStyle" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								A SCEStyle that defines the default styling for this diagram. Properties defined in
