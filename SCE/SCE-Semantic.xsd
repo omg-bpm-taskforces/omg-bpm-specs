@@ -448,10 +448,10 @@
 				<xsd:list itemType="xsd:string"/>
 			</xsd:simpleType>
 		</xsd:attribute>
-		<xsd:attribute name="id" type="xsd:ID" use="required">
+		<xsd:attribute name="id" type="xsd:ID" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					This attribute is used to uniquely identify a SCEElement. The id is REQUIRED if this element is referenced or intended to be 
+					This optional attribute is used to uniquely identify a SCEElement. The id is REQUIRED if this element is referenced or intended to be 
 					referenced by something else. If the element is not currently referenced and is never intended to be referenced, the id MAY be omitted.
 				</xsd:documentation>
 			</xsd:annotation>
