@@ -80,32 +80,28 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="sharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
+    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel"/>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSDMNDefinitions">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element name="itemDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
-                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
+                                This is a list of references to the ItemDefinitions that are included in this SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="dataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:sharedDataModel"/>
-    <xsd:complexType name="tDataItemModel">
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tSharedDataModel">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element name="dataItemRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
-                                Element Role: dataItemRef
+                                This is a list of references to the DataItems that are included in this SharedDataModel.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
