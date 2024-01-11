@@ -196,18 +196,16 @@
     <xsd:complexType name="tItemDefinition">
         <xsd:complexContent>
             <xsd:extension base="dmn:tItemDefinition">
-                <xsd:sequence>
-                    <xsd:element ref="sce:SemanticReference" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: semanticReference
-                                A ItemDefinition can include multiple SemanticReference elements. This attribute was added because ItemDefinition is based on the 
-                                DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in SemanticReference as part 
-                                of its definition.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>                
+                <xsd:attribute name="conceptReference" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Element Role: conceptReference
+                            A ItemDefinition can include a Concept Reference. This attribute was added because ItemDefinition is based on the 
+                            DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in Concept Reference as part 
+                            of its definition.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
                 <xsd:attribute name="itemDefinitionRef" type="xsd:QName" use="optional">
                     <xsd:annotation>
                         <xsd:documentation>
