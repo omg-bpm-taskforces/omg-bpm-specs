@@ -61,6 +61,9 @@ separate branches & pull requests
 and can be helpful for inter-dependent issues.
 Larger issues can still be done as a pull request as described above.
 
+The ballot branch can be rebased and force-pushed to until the ballot opens.
+If commit ids change, the URLs MUST be updated in the JIRA proposals.
+
 # Revised Text Template for JIRA
 
 ```jira
