@@ -998,7 +998,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEElement">
 				<xsd:sequence>
-					<xsd:element ref="sce:extensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="value" type="sce:tExtensionAttributeValue" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								A value that has been added to an adornedElement.
