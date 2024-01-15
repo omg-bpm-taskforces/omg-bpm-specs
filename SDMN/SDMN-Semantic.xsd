@@ -80,32 +80,28 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="sharedDataModel" abstract="true" type="sdmn:tSharedDataModel"/>
+    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel"/>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
             <xsd:extension base="sdmn:tSDMNDefinitions">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element name="itemDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
-                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
+                                This is a list of references to the ItemDefinitions that are included in this SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="dataItemModel" type="sdmn:tDataItemModel" substitutionGroup="sdmn:sharedDataModel"/>
-    <xsd:complexType name="tDataItemModel">
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tSharedDataModel">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element name="dataItemRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
-                                Element Role: dataItemRef
+                                This is a list of references to the DataItems that are included in this SharedDataModel.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
@@ -200,18 +196,16 @@
     <xsd:complexType name="tItemDefinition">
         <xsd:complexContent>
             <xsd:extension base="dmn:tItemDefinition">
-                <xsd:sequence>
-                    <xsd:element ref="sce:SemanticReference" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                Element Role: semanticReference
-                                A ItemDefinition can include multiple SemanticReference elements. This attribute was added because ItemDefinition is based on the 
-                                DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in SemanticReference as part 
-                                of its definition.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>                
+                <xsd:attribute name="conceptReference" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Element Role: conceptReference
+                            A ItemDefinition can include a Concept Reference. This attribute was added because ItemDefinition is based on the 
+                            DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in Concept Reference as part 
+                            of its definition.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
                 <xsd:attribute name="itemDefinitionRef" type="xsd:QName" use="optional">
                     <xsd:annotation>
                         <xsd:documentation>

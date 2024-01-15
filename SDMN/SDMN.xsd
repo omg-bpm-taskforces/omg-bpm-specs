@@ -41,8 +41,6 @@
                         </xsd:annotation>
                     </xsd:element>
                 </xsd:sequence>
-                <xsd:attribute name="expressionLanguage" default="https://www.omg.org/spec/DMN/20191111/FEEL/" use="optional" type="xsd:anyURI"/>
-                <xsd:attribute name="typeLanguage" default="https://www.omg.org/spec/DMN/20191111/FEEL/" use="optional" type="xsd:anyURI"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>

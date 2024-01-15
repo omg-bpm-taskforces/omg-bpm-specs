@@ -17,7 +17,9 @@
     <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
       <sdmn:dataItem id="dataItem1"/>
       <sdmn:dataItem id="dataItem2"/>
-      <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model" >
+      <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
+        <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
+        <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>
         <sdmn:containmentConnector id="c1">
           <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
           <sdmn:targetRef>dataItem2</sdmn:targetRef>

@@ -7,6 +7,9 @@
     xmlns:multiplicity="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds"
     xmlns:itemkind="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/ItemKinds"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
+    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     >
@@ -23,10 +26,22 @@
       <sdmn:dataItem id="dataItem_Greeting"/>
 
       <!-- DMN will reference by @name while BPMN uses @id -->
-      <sdmn:itemDefinition id="itemDef_Name" name="Name" itemKind="DataType" multiplicityKind="Unspecified" isCollection="false">
+      <sdmn:itemDefinition id="itemDef_Name" name="Name"
+          itemKind="DataType" multiplicityKind="Unspecified" isCollection="false"
+          conceptReference="https://en.wikipedia.org/wiki/Name">
         <dmn:typeRef>string</dmn:typeRef>
       </sdmn:itemDefinition>
+      <sdmn:sharedDataModel targetNamespace="fixme:SCE-41" id="sDM1">
+        <sdmn:itemDefinitionRef>itemDef_Name</sdmn:itemDefinitionRef>
+      </sdmn:sharedDataModel>
     </sdmn:SDMNDefinitions>
   </sdmn:SDMNModel>
-  <sdmndi:SDMNDI></sdmndi:SDMNDI>
+  <sdmndi:SDMNDI>
+    <sdmndi:SDMNDiagram>
+      <sdmndi:SDMNShape id="itemDef_Name_di">
+        <dc:Bounds x="160" y="120" width="150" height="60"/>
+        <scedi:sceElementRef>itemDef_Name</scedi:sceElementRef>
+      </sdmndi:SDMNShape>
+    </sdmndi:SDMNDiagram>
+  </sdmndi:SDMNDI>
 </sdmn:SDMNModelPackage>
