@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage id="SharedDataModel"
+<sdmn:SDMNModel id="SharedDataModel"
     targetNamespace="https://example.org/shared-data-model"
     xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
@@ -12,34 +12,30 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     >
 
-  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
-  <sce:presentation/>
-  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
-    <sce:category id="category_Region" name="Region">
-      <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
-      <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
-      <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
-      <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
-    </sce:category>
-    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
-      <sce:categoryRef>category_Region</sce:categoryRef>
-      <sdmn:dataItem id="dataItem1">
-        <sce:categoryRef>childCategory_West</sce:categoryRef>
-      </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem2">
-        <sce:categoryRef>childCategory_East</sce:categoryRef>
-      </sdmn:dataItem>
-      <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
-        <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
-        <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>
-        <sdmn:containmentConnector id="c1">
-          <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
-          <sdmn:targetRef>dataItem2</sdmn:targetRef>
-        </sdmn:containmentConnector>
-      </sdmn:sharedDataModel>
-    </sdmn:SDMNDefinitions>
-  </sdmn:SDMNModel>
+  <sce:category id="category_Region" name="Region">
+    <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
+    <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
+    <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
+    <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
+  </sce:category>
+
+  <sdmn:dataItem id="dataItem1">
+    <sce:categoryRef>childCategory_West</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:dataItem id="dataItem2">
+    <sce:categoryRef>childCategory_East</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
+    <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
+    <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>
+    <sdmn:containmentConnector id="c1">
+      <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
+      <sdmn:targetRef>dataItem2</sdmn:targetRef>
+    </sdmn:containmentConnector>
+  </sdmn:sharedDataModel>
+
   <sdmndi:SDMNDI>
     <sdmndi:SDMNDiagram>
       <sdmndi:SDMNShape id="dataItem1_di">
@@ -61,4 +57,4 @@
       </sdmndi:SDMNEdge>
     </sdmndi:SDMNDiagram>
   </sdmndi:SDMNDI>
-</sdmn:SDMNModelPackage>
+</sdmn:SDMNModel>

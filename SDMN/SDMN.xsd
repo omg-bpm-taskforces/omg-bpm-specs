@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
+<xsd:schema id="SDMN" version="1.0"
+    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="qualified"
-    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
+    elementFormDefault="qualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
     <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
-    <xsd:element name="SDMNModelPackage" type="tSDMNModelPackage">
+    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel">
         <xsd:annotation>
             <xsd:documentation>
                 The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
@@ -21,14 +22,28 @@
             </xsd:documentation>
         </xsd:annotation>        
     </xsd:element>
-    <xsd:complexType name="tSDMNModelPackage">
+    <xsd:complexType name="tSDMNModel">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModelPackage">
+            <xsd:extension base="sce:tSCEModel">
                 <xsd:sequence>
-                    <xsd:element ref="SDMNModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation> 
+                                This is a list of the Data Items that are included in the SDMNDefinitions.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
-                                This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage. 
+                                This is a list of the ItemDefinitions that are included in the SDMNPackage.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                TBD... 
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>

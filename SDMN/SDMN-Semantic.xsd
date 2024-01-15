@@ -15,75 +15,11 @@
         <xsd:attribute name="location" type="xsd:string" use="required"/>
         <xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
     </xsd:complexType>
-    
-    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel">
-        <xsd:annotation>
-            <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
-                for a Shared Data Model usually would be appended with a “.sdmn” label.
-            </xsd:documentation>
-        </xsd:annotation>        
-    </xsd:element>
-    <xsd:complexType name="tSDMNModel">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModel">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:SDMNDefinitions" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the SDMNDefinitions that are included in the SDMNModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="SDMNDefinitions" type="sdmn:tSDMNDefinitions">
-        <xsd:annotation>
-            <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
-                for a Shared Data Model usually would be appended with a “.sdmn” label.
-            </xsd:documentation>
-        </xsd:annotation>        
-    </xsd:element>
-    <xsd:complexType name="tSDMNDefinitions">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEDefinitions">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Data Items that are included in the SDMNDefinitions.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This is a list of the ItemDefinitions that are included in the SDMNPackage.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                TBD... 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>                    
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-
+   
     <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel"/>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
-            <xsd:extension base="sdmn:tSDMNDefinitions">
+            <xsd:extension base="sce:tSCEModel"><!-- FIXME this is supposed to be sdmn:tSDMNModel -->
                 <xsd:sequence>
                     <xsd:element name="itemDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
