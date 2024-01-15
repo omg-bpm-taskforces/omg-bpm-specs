@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+<xsd:schema id="SCEDI" version="1.0"
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
 	xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
 	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified">
+	elementFormDefault="qualified">
 
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI" schemaLocation="DI.xsd"/>
