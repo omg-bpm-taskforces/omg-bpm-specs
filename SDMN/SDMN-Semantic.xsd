@@ -16,37 +16,6 @@
         <xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
     </xsd:complexType>
    
-    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel"/>
-    <xsd:complexType name="tSharedDataModel">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModel"><!-- FIXME this is supposed to be sdmn:tSDMNModel -->
-                <xsd:sequence>
-                    <xsd:element name="itemDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of references to the ItemDefinitions that are included in this SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element name="dataItemRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of references to the DataItems that are included in this SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
     <xsd:element name="dataItem" type="sdmn:tDataItem">
         <xsd:annotation>
             <xsd:documentation>

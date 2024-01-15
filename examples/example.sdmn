@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModel id="SharedDataModel"
+<sdmn:sharedDataModel id="SharedDataModel"
     targetNamespace="https://example.org/shared-data-model"
     xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
@@ -27,14 +27,10 @@
     <sce:categoryRef>childCategory_East</sce:categoryRef>
   </sdmn:dataItem>
 
-  <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
-    <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
-    <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>
-    <sdmn:containmentConnector id="c1">
-      <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
-      <sdmn:targetRef>dataItem2</sdmn:targetRef>
-    </sdmn:containmentConnector>
-  </sdmn:sharedDataModel>
+  <sdmn:containmentConnector id="c1">
+    <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
+    <sdmn:targetRef>dataItem2</sdmn:targetRef>
+  </sdmn:containmentConnector>
 
   <sdmndi:SDMNDI>
     <sdmndi:SDMNDiagram>
@@ -57,4 +53,4 @@
       </sdmndi:SDMNEdge>
     </sdmndi:SDMNDiagram>
   </sdmndi:SDMNDI>
-</sdmn:SDMNModel>
+</sdmn:sharedDataModel>

@@ -13,7 +13,7 @@
     <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
-    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel">
+    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
         <xsd:annotation>
             <xsd:documentation>
                 The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
@@ -22,17 +22,10 @@
             </xsd:documentation>
         </xsd:annotation>        
     </xsd:element>
-    <xsd:complexType name="tSDMNModel">
+    <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
             <xsd:extension base="sce:tSCEModel">
                 <xsd:sequence>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Data Items that are included in the SDMNDefinitions.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
                     <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
@@ -40,10 +33,17 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
-                            <xsd:documentation>
-                                TBD... 
+                            <xsd:documentation> 
+                                This is a list of the Data Items that are included in the SDMNDefinitions.
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation> 
+                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
