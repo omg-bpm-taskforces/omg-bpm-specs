@@ -9,14 +9,27 @@
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
     xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
     xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    >
+
   <!-- FIXME: overriding of model & presentation instead of duplicating them -->
   <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
   <sce:presentation/>
   <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
+    <sce:category id="category_Region" name="Region">
+      <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
+      <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
+      <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
+      <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
+    </sce:category>
     <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
-      <sdmn:dataItem id="dataItem1"/>
-      <sdmn:dataItem id="dataItem2"/>
+      <sce:categoryRef>category_Region</sce:categoryRef>
+      <sdmn:dataItem id="dataItem1">
+        <sce:categoryRef>childCategory_West</sce:categoryRef>
+      </sdmn:dataItem>
+      <sdmn:dataItem id="dataItem2">
+        <sce:categoryRef>childCategory_East</sce:categoryRef>
+      </sdmn:dataItem>
       <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
         <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
         <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>

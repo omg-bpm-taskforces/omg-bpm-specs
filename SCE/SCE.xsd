@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="https://www.omg.org/spec/SCE/20211108/MODEL" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+<xsd:schema id="SCE" version="1.0"
+    targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL" 
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL" 
 	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	elementFormDefault="qualified">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
 	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
-	<xsd:element name="SCEModelPackage" type="tSCEModelPackage" abstract="true">
+	<xsd:element name="SCEModel" type="sce:tSCEModel" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling 
@@ -20,19 +21,49 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEModelPackage">
+	<xsd:complexType name="tSCEModel">
 		<xsd:complexContent>
-			<xsd:extension base="tSCEPackage">
+			<xsd:extension base="sce:tSCEPackage">
 				<xsd:sequence>
-					<xsd:element name="model" type="tSCEModel" minOccurs="1" maxOccurs="1">
+					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This the SCEModel sub-package contained within a SCEModelPackage. This is a subset of the 
+								This is a list of all the Categories contained within a concrete specialization of SCEModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the external relationships contained within a concrete specialization of SCEModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element ref="sce:SCEInstances" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the SCEInstances sub-packages contained within a SCEModel. This is a subset of the 
 								containedPackage association of the SCEPackage element.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="presentation" type="scedi:tSCEDI" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:SCEKindSet" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of terms (kinds) that are part of a concrete specialization of SCEModel.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element ref="sce:modelArtifact" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+								This is a list of all the ModelArtifacts contained within a concrete specialization of SCEDefinitions. 
+								These will usually be contained in an SCEDefinitions that is sub-package to the top-level SCEDefinitions. 
+								This is a subset of the element association of the SCEPackage element.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element ref="scedi:SCEDI" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute contains the Diagram Interchange information contained within this SCEModelPackage.
@@ -40,6 +71,8 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="expressionLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+				<xsd:attribute name="typeLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
