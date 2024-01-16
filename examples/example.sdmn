@@ -4,7 +4,6 @@
     xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
-    xmlns:multiplicity="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
     xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
