@@ -54,9 +54,9 @@
 	</xsd:element>
 	<xsd:complexType name="tSCEDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="di:Diagram">
+			<xsd:extension base="di:tDiagram">
 				<xsd:sequence>
-					<xsd:element name="Size" type="dc:Dimension" minOccurs="0" maxOccurs="1">
+					<xsd:element name="Size" type="dc:tDimension" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The size of this diagram. If not specified, the the SCE-dependent diagram is unbounded.
@@ -93,7 +93,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCEDiagramElement" type="di:DiagramElement" abstract="true">
+	<xsd:element name="SCEDiagramElement" type="di:tDiagramElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				The SCEDiagramElement class is contained by the SCEDiagram and is the base class for DMNShape and DMNEdge. SCEDiagramElement inherits its styling 
@@ -119,7 +119,7 @@
 	</xsd:element>
 	<xsd:complexType name="tSCEEdge">
 		<xsd:complexContent>
-			<xsd:extension base="di:Edge">
+			<xsd:extension base="di:tEdge">
 				<xsd:sequence>
 					<xsd:element ref="scedi:SCELabel" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
@@ -147,7 +147,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="di:tShape">
 				<xsd:attribute name="text" type="xsd:string" use="optional"/>
 			</xsd:extension>
 			<!-- DS changed type from xsd:String to xsd:string (case sensitive) -->
@@ -165,7 +165,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="di:tShape">
 				<xsd:sequence>
 					<xsd:element ref="scedi:SCELabel" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
@@ -206,9 +206,9 @@
 	</xsd:element>
 	<xsd:complexType name="tSCEStyle">
 		<xsd:complexContent>
-			<xsd:extension base="di:Style">
+			<xsd:extension base="di:tStyle">
 				<xsd:sequence>
-					<xsd:element name="fillColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="fillColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The color use to fill the shape. Does not apply to SCEEdge.
@@ -216,14 +216,14 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="strokeColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="strokeColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The color use to draw the shape borders. The default is black.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="fontColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="fontColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The color use to write the label. The default is black.
@@ -237,7 +237,7 @@
 				<xsd:attribute name="fontItalic" type="xsd:boolean" use="optional" default="false"/>
 				<xsd:attribute name="fontSize" type="xsd:double" use="optional" default="8"/>
 				<xsd:attribute name="fontFamily" type="xsd:string" use="optional" default="Arial"/>
-				<xsd:attribute name="labelHorizontalAlignment" type="dc:AlignmentKind" use="optional">
+				<xsd:attribute name="labelHorizontalAlignment" type="dc:tAlignmentKind" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
 							How text should be positioned horizontally within the Label bounds. Default depends
@@ -245,7 +245,7 @@
 						</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
-				<xsd:attribute name="labelVerticalAlignment" type="dc:AlignmentKind" use="optional">
+				<xsd:attribute name="labelVerticalAlignment" type="dc:tAlignmentKind" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
 							How the text should be positioned vertically inside the Label bounds. Default
