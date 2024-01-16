@@ -18,17 +18,13 @@
 		</xsd:annotation>
 	</xsd:import>
 
+	<xsd:element name="extensionElements" type="sce:tExtensionElements" />
+
 	<xsd:element name="DMNElement" type="tDMNElement" abstract="true"/>
 	<xsd:complexType name="tDMNElement">
 		<xsd:sequence>
 			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-			<xsd:element name="extensionElements" minOccurs="0" maxOccurs="1">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
+			<xsd:element ref="extensionElements" minOccurs="0" maxOccurs="1" />
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
 		<xsd:attribute name="label" type="xsd:string" use="optional"/>
@@ -50,6 +46,7 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tSCEModel">
 				<xsd:sequence>
+					<xsd:element ref="extensionElements" minOccurs="0" maxOccurs="1" />
 					<xsd:element ref="import" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element name="itemDefinition" type="tItemDefinition" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="drgElement" minOccurs="0" maxOccurs="unbounded"/>
