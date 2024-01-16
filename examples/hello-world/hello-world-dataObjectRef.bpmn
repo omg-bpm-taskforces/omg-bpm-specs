@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="Definitions_HelloWorld"
+    targetNamespace="http://bpmn.io/schema/bpmn"
+    xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+    xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+    xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+    xmlns:data="https://example.org/hello-world/shared-data-model"
+    >
+
+  <import location="./hello-world.sdmn"
+    namespace="https://example.org/hello-world/shared-data-model"
+    importType="https://www.omg.org/spec/SDMN/20211108/MODEL" />
+
+  <process id="Process_HelloWorld" name="Hello World" isExecutable="true">
+
+    <ioSpecification>
+      <inputSet>
+        <!-- FIXME: dataInputRefs is an IDREF would have to be a QName -->
+        <dataInputRefs>data:dataItem_Name</dataInputRefs>
+      </inputSet>
+      <outputSet>
+        <!-- FIXME: dataOutputRefs is an IDREF would have to be a QName -->
+        <dataOutputRefs>data:dataItem_Greeting</dataOutputRefs>
+      </outputSet>
+    </ioSpecification>
+
+    <businessRuleTask id="DecisionTask_Greeting" name="Greeting">
+      <extensionElements>
+        <zeebe:calledDecision decisionId="Greeting_Decision" resultVariable="Greeting" />
+      </extensionElements>
+      <ioSpecification>
+        <dataInput itemSubjectRef="data:itemDef_Name"
+          id="NameDataInputOfDecisionTask" />
+        <dataOutput itemSubjectRef="data:itemDef_Greeting"
+          id="GreetingDataOutputOfDecisionTask" />
+        <inputSet>
+          <dataInputRefs>NameDataInputOfDecisionTask</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>GreetingDataOutputOfDecisionTask</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation id="DataInputAssociation_Name">
+        <sourceRef>DataObjectReference_Name</sourceRef>
+        <targetRef>NameDataInputOfDecisionTask</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_Greeting">
+        <sourceRef>GreetingDataOutputOfDecisionTask</sourceRef>
+        <targetRef>DataObjectReference_Greeting</targetRef>
+      </dataOutputAssociation>
+    </businessRuleTask>
+    <!-- FIXME: dataObjectRef is an IDREF would have to be a QName -->
+    <dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="data:dataItem_Name" />
+    <!-- FIXME: dataObjectRef is an IDREF would have to be a QName -->
+    <dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="data:dataItem_Greeting" />
+  </process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_HelloWorld">
+      <bpmndi:BPMNShape id="Activity_0iw4g4z_di" bpmnElement="DecisionTask_Greeting">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0vmfhz8_di" bpmnElement="DataObjectReference_Name">
+        <dc:Bounds x="112" y="205" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="115" y="262" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0fozh5s_di" bpmnElement="DataObjectReference_Greeting">
+        <dc:Bounds x="252" y="205" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="249" y="262" width="43" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_Name_di" bpmnElement="DataInputAssociation_Name">
+        <di:waypoint x="148" y="205" />
+        <di:waypoint x="181" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_Greeting_di" bpmnElement="DataOutputAssociation_Greeting">
+        <di:waypoint x="231" y="160" />
+        <di:waypoint x="255" y="205" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
