@@ -3,7 +3,6 @@
     targetNamespace="https://example.org/hello-world/shared-data-model"
     xmlns="https://example.org/hello-world/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
     xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
@@ -11,6 +10,15 @@
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     >
+
+  <scedi:SCEDiagrams>
+    <scedi:SCEDiagram>
+      <scedi:Size width="500" height="500"/>
+      <scedi:SCEShape id="itemDef_Name_di" modelElement="itemDef_Name">
+        <dc:Bounds x="160" y="120" width="150" height="60"/>
+      </scedi:SCEShape>
+    </scedi:SCEDiagram>
+  </scedi:SCEDiagrams>
 
   <!-- DMN will reference by @name while BPMN uses @id -->
   <sdmn:itemDefinition id="itemDef_Name" name="Name"
@@ -24,12 +32,4 @@
   </sdmn:dataItem>
   <sdmn:dataItem id="dataItem_Greeting"/>
 
-  <sdmndi:SDMNDI>
-    <sdmndi:SDMNDiagram>
-      <sdmndi:SDMNShape id="itemDef_Name_di">
-        <dc:Bounds x="160" y="120" width="150" height="60"/>
-        <scedi:sceElementRef>itemDef_Name</scedi:sceElementRef>
-      </sdmndi:SDMNShape>
-    </sdmndi:SDMNDiagram>
-  </sdmndi:SDMNDI>
 </sdmn:sharedDataModel>

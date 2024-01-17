@@ -2,7 +2,6 @@
 <xsd:schema id="SDMN" version="1.0"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -10,7 +9,6 @@
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
-    <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
     <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
@@ -44,14 +42,6 @@
                         <xsd:annotation>
                             <xsd:documentation> 
                                 This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmndi:SDMNDI" minOccurs="0" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This attribute contains the Diagram Interchange information contained within this SDMNPackage.
-                                This redefines the presentation association of SCEModelPackage.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>

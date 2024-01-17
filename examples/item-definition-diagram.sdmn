@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdmn:sharedDataModel id="ItemDefinitionDiagram"
+    targetNamespace="https://example.org/item-definition-diagram"
+    xmlns="https://example.org/item-definition-diagram"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
+    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
+    xmlns:patient="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc"
+    >
+
+    <sce:import location="item-definition.dmn"
+        importType="https://www.omg.org/spec/DMN/20230324/MODEL/"
+        namespace="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" />
+
+    <scedi:SCEDiagrams>
+        <scedi:SCEDiagram>
+            <scedi:SCEShape id="ItemDef_tPatient_Health_Record_di"
+                modelElement="patient:ItemDef_tPatient_Health_Record">
+                <dc:Bounds x="17" y="146" width="244" height="152" />
+            </scedi:SCEShape>
+            <scedi:SCEShape id="ItemDef_tDemographics_di" modelElement="ItemDef_tDemographics">
+                <dc:Bounds x="358" y="33" width="310" height="184" />
+            </scedi:SCEShape>
+            <scedi:SCEShape id="ItemDef_tSex_di" modelElement="ItemDef_tSex">
+                <dc:Bounds x="726" y="35" width="244" height="62" />
+            </scedi:SCEShape>
+            <scedi:SCEShape id="ItemDef_tEthnicity_di" modelElement="ItemDef_tEthnicity">
+                <dc:Bounds x="736" y="191" width="244" height="62" />
+            </scedi:SCEShape>
+            <scedi:SCEShape id="ItemComp_tPatientHealthRecord.Appointment_di"
+                modelElement="ItemComp_tPatientHealthRecord.Appointment">
+                <dc:Bounds x="307" y="311" width="244" height="152" />
+            </scedi:SCEShape>
+            <scedi:SCEEdge id="c1_di" modelElement="toD">
+                <di:waypoint x="260" y="222" />
+                <di:waypoint x="310" y="222" />
+                <di:waypoint x="310" y="49" />
+                <di:waypoint x="359" y="49" />
+            </scedi:SCEEdge>
+            <scedi:SCEEdge id="toA_di" modelElement="ItemComp_tPatientHealthRecord.Appointment">
+                <di:waypoint x="260" y="252" />
+                <di:waypoint x="284" y="252" />
+                <di:waypoint x="284" y="327" />
+                <di:waypoint x="308" y="327" />
+            </scedi:SCEEdge>
+            <scedi:SCEEdge id="toS_di" modelElement="toS">
+                <di:waypoint x="667" y="140" />
+                <di:waypoint x="697" y="140" />
+                <di:waypoint x="697" y="51" />
+                <di:waypoint x="727" y="51" />
+            </scedi:SCEEdge>
+            <scedi:SCEEdge id="toE_di" modelElement="toE">
+                <di:waypoint x="667" y="170" />
+                <di:waypoint x="702" y="170" />
+                <di:waypoint x="702" y="207" />
+                <di:waypoint x="737" y="207" />
+            </scedi:SCEEdge>
+        </scedi:SCEDiagram>
+    </scedi:SCEDiagrams>
+
+</sdmn:sharedDataModel>
