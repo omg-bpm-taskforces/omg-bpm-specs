@@ -10,14 +10,14 @@
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI" schemaLocation="DI.xsd"/>
 
-	<xsd:element name="SCEDI" type="scedi:tSCEDI">
+	<xsd:element name="SCEDiagrams" type="scedi:tSCEDiagrams">
 		<xsd:annotation>
 			<xsd:documentation>
-				The class SCEDI is a container for the shared SCEStyle and all the SCEDiagram defined in a SCE-dependent modeling package.
+				The class SCEDiagrams is a container for all the SCEDiagram and the shared SCEStyle defined in a SCE-dependent modeling package.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEDI">
+	<xsd:complexType name="tSCEDiagrams">
 		<xsd:sequence>
 			<xsd:element ref="scedi:SCEDiagram" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
@@ -33,14 +33,16 @@
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>				
 	</xsd:complexType>
 
-	<xsd:element name="SCEDiagram" type="scedi:tSCEDiagram" abstract="true">
+	<xsd:element name="SCEDiagram" type="scedi:tSCEDiagram">
 		<xsd:annotation>
 			<xsd:documentation>
-				The abstract class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model. 
-				It is contained within the SCEDI element. The languages that are dependent on SCE will define concrete diagrams based on SCEDiagram.
+				The class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model. 
+				It is contained within the SCEDI element. The languages that are dependent on SCE MAY define specialized diagrams based on SCEDiagram
+				if they have to add new elements or attributes. By default they should use SCEDiagram directly.
 				SCEDiagram is the container of SCEDiagramElement (SCEShape(s) and SCEEdge(s)). SCEDiagram cannot include other SCEDiagrams. A SCEDiagram can 
 				define a SCEStyle locally and/or it can refer to a shared one defined in the SCEDI. Properties defined in the local style overrides
 				the one in the referenced shared style. That combined style (shared and local) is the default style for all the SCEDiagramElement contained 
@@ -54,19 +56,19 @@
 		<xsd:complexContent>
 			<xsd:extension base="di:Diagram">
 				<xsd:sequence>
+					<xsd:element name="Size" type="dc:Dimension" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>
+								The size of this diagram. If not specified, the the SCE-dependent diagram is unbounded.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
 					<xsd:element ref="scedi:SCEDiagramElement" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: diagramElement
 								A list of SCEDiagramElements (SCEShape and SCEEdge) that are depicted in the
 								SCE-dependent diagram. The diagram elements are ordered.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="size" type="dc:Dimension" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								The size of this diagram. If not specified, the the SCE-dependent diagram is unbounded.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -119,20 +121,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="di:Edge">
 				<xsd:sequence>
-					<xsd:element name="targetElementRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								The actual SCEDiagramElement this SCEEdge is connecting to. This MUST be specified when the SCEEdge has a target.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="sourceElementRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								The actual SCEDiagramElement this SCEEdge is connecting from. This MUST be specified when the SCEEdge has a source.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 					<xsd:element ref="scedi:SCELabel" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
@@ -188,14 +176,6 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="sceElementRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								A reference to the SCEElement that is being depicted.                
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -231,7 +211,8 @@
 					<xsd:element name="fillColor" type="dc:Color" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								The color use to write the label. The default is black.
+								The color use to fill the shape. Does not apply to SCEEdge.
+								The default is white.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -249,30 +230,30 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="labelHorizontalAlignement" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								How text should be positioned horizontally within the Label bounds. Default depends
-								of the SCEDiagramElement the label is attached to (see section below).
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="labelVerticalAlignment" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								How the text should be positioned vertically inside the Label bounds. Default
-								depends of the SCEDiagramElement the label is attached to (see section below). Start
-								means “top” and end means “bottom”.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="fontStrikeThrough" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontUnderline" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontBold" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontItalic" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontSize" type="xsd:double" use="optional"/>
-				<xsd:attribute name="fontFamily" type="xsd:string" use="optional"/>
+				<xsd:attribute name="fontStrikeThrough" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontUnderline" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontBold" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontItalic" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontSize" type="xsd:double" use="optional" default="8"/>
+				<xsd:attribute name="fontFamily" type="xsd:string" use="optional" default="Arial"/>
+				<xsd:attribute name="labelHorizontalAlignment" type="dc:AlignmentKind" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							How text should be positioned horizontally within the Label bounds. Default depends
+							of the SCEDiagramElement the label is attached to (see section below).
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="labelVerticalAlignment" type="dc:AlignmentKind" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							How the text should be positioned vertically inside the Label bounds. Default
+							depends of the SCEDiagramElement the label is attached to (see section below). Start
+							means “top” and end means “bottom”.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>

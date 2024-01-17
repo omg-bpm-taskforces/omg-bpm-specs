@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
-			xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
-			targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
-            elementFormDefault="qualified"
-            attributeFormDefault="unqualified">
-	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
+<xsd:schema id="DI" version="1.1-SCE1.0"
+		targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
+		xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+		xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		elementFormDefault="qualified">
+	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC"
+			schemaLocation="DC.xsd"/>
 
 	<xsd:annotation>
 		<xsd:documentation>
@@ -23,18 +24,13 @@
 
 	<xsd:complexType name="DiagramElement" abstract="true">
 		<xsd:annotation>
-			<xsd:documentation>DiagramElement is the abstract super type of all elements in diagrams, including diagrams themselves. 
+			<xsd:documentation>
+				DiagramElement is the abstract super type of all elements in diagrams, including diagrams themselves. 
 				When contained in a diagram, diagram elements are laid out relative to the diagram's origin.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="extension" minOccurs="0">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
+			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
 			<xsd:element ref="di:Style" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>an optional locally-owned style for this diagram element.</xsd:documentation>
@@ -46,9 +42,28 @@
 				<xsd:documentation>a reference to an optional shared style element for this diagram element.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="id" type="xsd:ID"/>
+		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
+		<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					a reference to the model element represented by this diagram element.
+					It is optional for Diagrams, but MUST be set on Shapes and Edges.
+					Note that the sourceElement or targetElement attributes of Edge MUST ONLY
+					be present if the Edge is depicted between a different source or target than the
+					one referenced by the modelElement of the Edge.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:complexType>
+
+	<xsd:element name="extension">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
 
 	<xsd:complexType name="Diagram" abstract="true">
 		<xsd:complexContent>
@@ -96,6 +111,24 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="sourceElement" type="xsd:QName" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							an optional reference to the DiagramElement that this Edge starts from.
+							This attribute MUST ONLY be present if the Edge is depicted starting from
+							a different source than the one referenced by the modelElement of the Edge.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="targetElement" type="xsd:QName" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							an optional reference to the DiagramElement that this Edge ends at.
+							This attribute MUST ONLY be present if the Edge is depicted ending at
+							a different target than the one referenced by the modelElement of the Edge.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
