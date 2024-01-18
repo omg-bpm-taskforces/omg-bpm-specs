@@ -12,25 +12,25 @@
     <xsd:element name="BKPMNDI" type="bkpmndi:tBKPMNDI">
     	<xsd:annotation>
     		<xsd:documentation>
-    			The class BKPMNDI is a container for the shared SCE:SCEStyle and all the BKPMNDIagrams defined in a SituationalDataModel.
+    			The class BKPMNDI is a container for the shared SCE::Style and all the BKPMNDIagrams defined in a SituationalDataModel.
     		</xsd:documentation>
     	</xsd:annotation>    	
     </xsd:element>
 	<xsd:complexType name="tBKPMNDI">
 		<xsd:complexContent>
-		    <xsd:extension base="scedi:tSCEDI">
+		    <xsd:extension base="scedi:tDI">
         	    <xsd:sequence>
 			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="diagram" type="bkpmndi:tBKPMNDiagram">
 				        <xsd:annotation>
 					        <xsd:documentation>
-					        	A list of BKPMNDiagrams. This redefines the diagram association within the SCE:SCEDDI element.
+					        	A list of BKPMNDiagrams. This redefines the diagram association within the SCE::DDI element.
 					        </xsd:documentation>
 				        </xsd:annotation>
 			        </xsd:element>
-			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="style" type="scedi:tSCEStyle">
+			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="style" type="scedi:tStyle">
 				        <xsd:annotation>
 					        <xsd:documentation>
-					            A list of shared SCEStyle that can be referenced by all BKPMNDIDIagrams diagrams and BKPMNDIDiagramElements.
+					            A list of shared SCE::Style that can be referenced by all BKPMNDIDIagrams diagrams and BKPMNDIDiagramElements.
 					        </xsd:documentation>
 				        </xsd:annotation>
 			        </xsd:element>
@@ -39,12 +39,12 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="BKPMNDiagram" type="bkpmndi:tBKPMNDiagram" substitutionGroup="scedi:SCEDiagram">
+	<xsd:element name="BKPMNDiagram" type="bkpmndi:tBKPMNDiagram" substitutionGroup="scedi:diagram">
 		<xsd:annotation>
 			<xsd:documentation>
-				The class BKPMNDIagram specializes SCE:SCEDiagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of 
+				The class BKPMNDIagram specializes SCE::Diagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of 
 				all or part of a BKPMNDIagram. BKPMNDIagram is the container of BKPMNDIagramElement (BKPMNShape(s) and BKPMNEdge(s)). BKPMNDIagram cannot include 
-				other BKPMNDIagrams. A BKPMNDIagram can define a SCE:SCEStyle locally and/or it can refer to a shared one defined in the BKPMNDI. Properties 
+				other BKPMNDIagrams. A BKPMNDIagram can define a SCE::Style locally and/or it can refer to a shared one defined in the BKPMNDI. Properties 
 				defined in the local style overrides the one in the referenced shared style. That combined style (shared and local) is the default style 
 				for all the BKPMNDIagramElement contained in this BKPMNDIagram. The BKPMNDIagram class represents a two-dimensional surface with an 
 				origin of (0, 0) at the top left corner. This means that the x and y axes have increasing coordinates to the right and bottom. 
@@ -54,18 +54,18 @@
 	</xsd:element>
 	<xsd:complexType name="tBKPMNDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEDiagram">
+			<xsd:extension base="scedi:tDiagram">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bkpmndi:BKPMNDiagramElement">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: diagramElement
 								A list of BKPMNDIDiagramElements (BKPMNShape and BKPMNEdge) that are depicted in the BKPMNDIagram. 
-								This redefines the diagramElement association within the SCE:SCEDiagram element.
+								This redefines the diagramElement association within the SCE::Diagram element.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element maxOccurs="1" minOccurs="0" name="localStyle" type="scedi:tSCEStyle">
+					<xsd:element maxOccurs="1" minOccurs="0" name="localStyle" type="scedi:tStyle">
 						<xsd:annotation>
 							<xsd:documentation>
 								A BKPMNStyle that defines the default styling for this diagram. Properties defined in that style override the ones in the sharedStyle.
@@ -82,9 +82,9 @@
 			<xsd:documentation>
 				This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence.
 				The BKPMNDIagramElement class is contained by the BKPMNDIagram and is the base class for BKPMNShape and BKPMNEdge. 
-				BKPMNDIagramElement inherits its styling from its parent SCEDiagram. In addition, it can refer to one of the shared 
-				SCE:SCEStyle defined in the BKPMNDI and/or it can define a local style. See section below for more details on styling. 
-				BKPMNDIagramElement MAY also contain a SCE:SCELabel when it has a visible text label. If no SCE:SCELabel is defined, the 
+				BKPMNDIagramElement inherits its styling from its parent SCE::Diagram. In addition, it can refer to one of the shared 
+				SCE::Style defined in the BKPMNDI and/or it can define a local style. See section below for more details on styling. 
+				BKPMNDIagramElement MAY also contain a SCE::Label when it has a visible text label. If no SCE::Label is defined, the 
 				BKPMNDIagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>		
@@ -92,26 +92,26 @@
 
     <xsd:element name="BKPMNEdge" type="bkpmndi:tBKPMNEdge" substitutionGroup="bkpmndi:BKPMNDiagramElement">
     	<xsd:annotation>
-    		<xsd:documentation>The BKPMNEdge class specializes SCE:SCEEdge, which specializes DI::Edge and SCE:SCEDiagramElement. It is a kind of edge that can depict 
+    		<xsd:documentation>The BKPMNEdge class specializes SCE::Edge, which specializes DI::Edge and SCE::DiagramElement. It is a kind of edge that can depict 
     			a relationship between two bBKPMNDIagram model elements. BKPMNEdge are used to depict Connectors or Associations in the BKPMNDIagram model. Since 
     			BKPMNDIagramElement might be depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a BKPMNEdge is 
     			connected. When BKPMNEdge has a source, its sourceModelElement MUST refer to the BKPMNDIagramElement it starts from. That BKPMNDIagramElement MUST 
-    			resolved to the SCE:SCEElement that is the actual source of the Connector or Association. For Requirement, this is the required SCE:SCEElement. 
-    			When it has a target, its targetModelElement MUST refer to the SCEDiagramElement where it ends. That BKPMNDIagramElement MUST resolved to the 
-    			SCE:SCEElement that is the actual target of the Connector or Association.
+    			resolved to the SCE::Element that is the actual source of the Connector or Association. For Requirement, this is the required SCE::Element. 
+    			When it has a target, its targetModelElement MUST refer to the SCE::DiagramElement where it ends. That BKPMNDIagramElement MUST resolved to the 
+    			SCE::Element that is the actual target of the Connector or Association.
     		</xsd:documentation>
     	</xsd:annotation>    	
     </xsd:element>
 	<xsd:complexType name="tBKPMNEdge">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEEdge"/>
+			<xsd:extension base="scedi:tEdge"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
     <xsd:element name="BKPMNShape" type="bkpmndi:tBKPMNShape" substitutionGroup="bkpmndi:BKPMNDiagramElement">
     	<xsd:annotation>
-    		<xsd:documentation>The BKPMNShape class specializes SCE:SCEShape, which specializes DI::Shape and SCE:SCEDiagramElement. It is a kind of shape that depicts a 
-    			SCEElement from the BKPMNDIagram model. BKPMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the 
+    		<xsd:documentation>The BKPMNShape class specializes SCE::Shape, which specializes DI::Shape and SCE::DiagramElement. It is a kind of shape that depicts a 
+    			Element from the BKPMNDIagram model. BKPMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the 
     			diagram. BKPMNDIagram models may add additional shapes to their diagrams. BKPMNShape has no additional properties but a BKPMNDIagram model may extend this 
     			class to add properties that are used to further specify the appearance of some shapes that cannot be deduced from the BKPMNDIagram model.
     		</xsd:documentation>
@@ -119,7 +119,7 @@
     </xsd:element>	
 	<xsd:complexType name="tBKPMNShape">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEShape"/>
+			<xsd:extension base="scedi:tShape"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 		

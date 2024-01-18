@@ -22,20 +22,20 @@
 	</xsd:element>
 	<xsd:complexType name="tBKPMNModelPackage">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEModelPackage">
+			<xsd:extension base="sce:tModelPackage">
 				<xsd:sequence>
 					<xsd:element maxOccurs="1" minOccurs="0" name="presentation" type="bkpmndi:tBKPMNDI">
 						<xsd:annotation>
 							<xsd:documentation>
 								This attribute contains the Diagram Interchange information contained within this package. 
-								This redefines the presentation association of SCEModelPackage.
+								This redefines the presentation association of SCE::ModelPackage.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 					<xsd:element maxOccurs="1" minOccurs="1" name="model" type="tBKPMNModel">
 						<xsd:annotation>
 							<xsd:documentation>
-								This the BkPMNModel sub-package contained within a BKPMNModelPackage. This redefines the model association of SCEModelPackage.
+								This the BkPMNModel sub-package contained within a BKPMNModelPackage. This redefines the model association of SCE::ModelPackage.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>

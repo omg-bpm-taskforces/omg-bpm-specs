@@ -14,13 +14,13 @@
     <xsd:element name="BHMNDI" type="bhmndi:tBHMNDI">
     	<xsd:annotation>
     		<xsd:documentation>
-    			The class BHMNDI is a container for the shared SCE:SCEStyle and all the BHMNDIagrams defined in a SituationalDataModel.
+    			The class BHMNDI is a container for the shared SCE::Style and all the BHMNDIagrams defined in a SituationalDataModel.
     		</xsd:documentation>
     	</xsd:annotation>    	
     </xsd:element>
 	<xsd:complexType name="tBHMNDI">
 		<xsd:complexContent>
-		    <xsd:extension base="scedi:tSCEDI">
+		    <xsd:extension base="scedi:tDI">
         		    <xsd:sequence>
 			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="diagram" type="bhmndi:tBHMNDIagram">
 				        <xsd:annotation>
@@ -29,10 +29,10 @@
 					        </xsd:documentation>
 				        </xsd:annotation>
 			        </xsd:element>
-			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="style" type="scedi:tSCEStyle">
+			        <xsd:element maxOccurs="unbounded" minOccurs="0" name="style" type="scedi:tStyle">
 				        <xsd:annotation>
 					        <xsd:documentation>
-					            A list of shared SCEStyle that can be referenced by all BHMNDIagrams diagrams and BHMNDIagramElements.
+					            A list of shared SCE::Style that can be referenced by all BHMNDIagrams diagrams and BHMNDIagramElements.
 					        </xsd:documentation>
 				        </xsd:annotation>
 			        </xsd:element>
@@ -44,9 +44,9 @@
 	<xsd:element name="BHMNDIagram" type="bhmndi:tBHMNDIagram">
 		<xsd:annotation>
 			<xsd:documentation>
-				The class BHMNDIagram specializes SCE:SCEDiagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of 
+				The class BHMNDIagram specializes SCE::Diagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of 
 				all or part of a BHMNDIagram. BHMNDIagram is the container of BHMNDIagramElement (BHMNShape(s) and BHMNEdge(s)). BHMNDIagram cannot include 
-				other BHMNDIagrams. A BHMNDIagram can define a SCE:SCEStyle locally and/or it can refer to a shared one defined in the BHMNDI. Properties 
+				other BHMNDIagrams. A BHMNDIagram can define a SCE::Style locally and/or it can refer to a shared one defined in the BHMNDI. Properties 
 				defined in the local style overrides the one in the referenced shared style. That combined style (shared and local) is the default style 
 				for all the BHMNDIagramElement contained in this BHMNDIagram. The BHMNDIagram class represents a two-dimensional surface with an origin of (0, 0) 
 				at the top left corner. This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are 
@@ -56,14 +56,14 @@
 	</xsd:element>
 	<xsd:complexType name="tBHMNDIagram">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEDiagram">
+			<xsd:extension base="scedi:tDiagram">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="bhmndi:BHMNDIagramElement">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: diagramElement
 								A list of BHMNDIagramElements (BHMNShape and BHMNEdge) that are depicted in the BHMNDIagram. 
-								This redefines the diagramElement association within the SCE:SCEDiagram element.
+								This redefines the diagramElement association within the SCE::Diagram element.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -78,9 +78,9 @@
 				This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be 
 				referred in the sequence.
 				The BHMNDIagramElement class is contained by the BHMNDIagram and is the base class for BHMNShape and BHMNEdge. 
-				BHMNDIagramElement inherits its styling from its parent SCEDiagram. In addition, it can refer to one of the shared 
-				SCE:SCEStyle defined in the BHMNDI and/or it can define a local style. See section below for more details on styling. 
-				BHMNDIagramElement MAY also contain a SCE:SCELabel when it has a visible text label. If no SCE:SCELabel is defined, the 
+				BHMNDIagramElement inherits its styling from its parent SCE::Diagram. In addition, it can refer to one of the shared 
+				SCE::Style defined in the BHMNDI and/or it can define a local style. See section below for more details on styling. 
+				BHMNDIagramElement MAY also contain a SCE::Label when it has a visible text label. If no SCE::Label is defined, the 
 				BHMNDIagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>		
@@ -88,26 +88,26 @@
 
 	<xsd:element name="BHMNEdge" type="bhmndi:tBHMNEdge">
     	<xsd:annotation>
-    		<xsd:documentation>The BHMNEdge class specializes SCE:SCEEdge, which specializes DI::Edge and SCE:SCEDiagramElement. It is a kind of edge that can depict 
+    		<xsd:documentation>The BHMNEdge class specializes SCE::Edge, which specializes DI::Edge and SCE::DiagramElement. It is a kind of edge that can depict 
     			a relationship between two bBHMNDIagram model elements. BHMNEdge are used to depict Connectors or Associations in the BHMNDIagram model. Since 
     			BHMNDIagramElement might be depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a BHMNEdge is 
     			connected. When BHMNEdge has a source, its sourceModelElement MUST refer to the BHMNDIagramElement it starts from. That BHMNDIagramElement MUST 
-    			resolved to the SCE:SCEElement that is the actual source of the Connector or Association. For Requirement, this is the required SCE:SCEElement. 
-    			When it has a target, its targetModelElement MUST refer to the SCEDiagramElement where it ends. That BHMNDIagramElement MUST resolved to the 
-    			SCE:SCEElement that is the actual target of the Connector or Association.
+    			resolved to the SCE::Element that is the actual source of the Connector or Association. For Requirement, this is the required SCE::Element. 
+    			When it has a target, its targetModelElement MUST refer to the SCE::DiagramElement where it ends. That BHMNDIagramElement MUST resolved to the 
+    			SCE::Element that is the actual target of the Connector or Association.
     		</xsd:documentation>
     	</xsd:annotation>    	
     </xsd:element>
 	<xsd:complexType name="tBHMNEdge">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEEdge"/>
+			<xsd:extension base="scedi:tEdge"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
     <xsd:element name="BHMNShape" type="bhmndi:tBHMNShape">
     	<xsd:annotation>
-    		<xsd:documentation>The BHMNShape class specializes SCE:SCEShape, which specializes DI::Shape and SCE:SCEDiagramElement. It is a kind of shape that depicts a 
-    			SCEElement from the BHMNDIagram model. BHMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the 
+    		<xsd:documentation>The BHMNShape class specializes SCE::Shape, which specializes DI::Shape and SCE::DiagramElement. It is a kind of shape that depicts a 
+    			Element from the BHMNDIagram model. BHMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the 
     			diagram. BHMNDIagram models may add additional shapes to their diagrams. BHMNShape has no additional properties but a BHMNDIagram model may extend this 
     			class to add properties that are used to further specify the appearance of some shapes that cannot be deduced from the BHMNDIagram model.
     		</xsd:documentation>
@@ -115,7 +115,7 @@
     </xsd:element>	
 	<xsd:complexType name="tBHMNShape">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEShape"/>
+			<xsd:extension base="scedi:tShape"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 </xsd:schema>

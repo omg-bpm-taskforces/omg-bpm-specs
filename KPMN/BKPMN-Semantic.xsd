@@ -26,13 +26,13 @@
 	</xsd:element>
 	<xsd:complexType name="tBKPMNModel">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEModel">
+			<xsd:extension base="sce:tModel">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" name="bkpmnVocabulary" type="bkpmn:tBKPMNVocabulary">
 						<xsd:annotation>
 							<xsd:documentation> 
 								This is a list of the BKPMNVocabularies that are included in the BKPMNModel.
-								This is a subset of the list of SCEVocabularies.
+								This is a subset of the list of SCE::Vocabularies.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -83,7 +83,7 @@
 	</xsd:element>
 	<xsd:complexType name="tBKPMNDefinitions">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEDefinitions">
+			<xsd:extension base="sce:tDefinitions">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" name="knowledgeElement" type="bkpmn:tKnowledgeElement">
 						<xsd:annotation>
@@ -109,7 +109,7 @@
 	</xsd:element>
 	<xsd:complexType name="tBKPMNInstances">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEDefinitions">
+			<xsd:extension base="sce:tDefinitions">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" name="packageElement" type="bkpmn:tPackageElement"/>					
 				</xsd:sequence>
@@ -120,7 +120,7 @@
 	<xsd:element name="BKPMNVocabulary" type="bkpmn:tBKPMNVocabulary"/>
 	<xsd:complexType name="tBKPMNVocabulary">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEVocabulary"/>
+			<xsd:extension base="sce:tVocabulary"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 	
@@ -1105,7 +1105,7 @@
 	<xsd:element name="Manifest" type="bkpmn:tManifest"/>
 	<xsd:complexType name="tManifest">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
+			<xsd:extension base="sce:tElement">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="0" name="operationalDocumentRef" type="bkpmn:tOperationalDocumentRef">
 						<xsd:annotation>
@@ -1137,7 +1137,7 @@
 	</xsd:element>
 	<xsd:complexType name="tLanguageProfile">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
+			<xsd:extension base="sce:tElement">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="1" name="modelingLanguage" type="bkpmn:tModelingLanguage">
 						<xsd:annotation>
@@ -1160,7 +1160,7 @@
 	</xsd:element>
 	<xsd:complexType name="tModelingLanguage">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
+			<xsd:extension base="sce:tElement">
 				<xsd:attribute use="required" name="languageName" type="xsd:string">
 					<xsd:annotation>
 						<xsd:documentation>
@@ -1221,7 +1221,7 @@
 	</xsd:element>
 	<xsd:complexType name="tOperationalDocumentRef">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
+			<xsd:extension base="sce:tElement">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="1" name="operationalModelRef" type="bkpmn:tOperationalModelRef"/>					
 					<xsd:element maxOccurs="1" minOccurs="0" name="profile" type="bkpmn:tLanguageProfile"/>
@@ -1396,7 +1396,7 @@
 	</xsd:element>
 	<xsd:complexType name="tKnowledgeElement">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement"/>
+			<xsd:extension base="sce:tElement"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
@@ -1661,7 +1661,7 @@
 	</xsd:element>
 	<xsd:complexType name="tResourceDocumentRef">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEElement">
+			<xsd:extension base="sce:tElement">
 				<xsd:sequence>
 					<xsd:element maxOccurs="unbounded" minOccurs="1" name="documentKindRef" type="bkpmn:tDocumentKind"/>					
 				</xsd:sequence>
