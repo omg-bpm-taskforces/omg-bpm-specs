@@ -44,7 +44,12 @@
       <dmndi:DMNShape id="DMNShape_1a0wixn" dmnElementRef="InputData_1">
         <dc:Bounds height="45" width="125" x="187" y="337" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="DMNEdge_1r1zmhs" dmnElementRef="InformationRequirement_1mk58yo">
+      <dmndi:DMNEdge id="DMNEdge_1r1zmhs" dmnElementRef="InformationRequirement_1mk58yo" modeler:customAttribute="content">
+        <di:extension>
+          <modeler:extension>with content</modeler:extension>
+          <modeler:extension>with content</modeler:extension>
+          <modeler:extension>with content</modeler:extension>
+        </di:extension>
         <di:waypoint x="250" y="337" />
         <di:waypoint x="250" y="200" />
         <di:waypoint x="250" y="180" />
