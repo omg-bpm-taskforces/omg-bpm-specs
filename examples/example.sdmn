@@ -17,20 +17,20 @@
     <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
   </sce:category>
 
-  <scedi:SCEDiagrams>
-    <scedi:SCEDiagram>
-      <scedi:SCEShape id="dataItem1_di" modelElement="dataItem1">
+  <scedi:diagrams>
+    <scedi:diagram>
+      <scedi:shape id="dataItem1_di" modelElement="dataItem1">
         <dc:Bounds x="152" y="115" width="36" height="50" />
-      </scedi:SCEShape>
-      <scedi:SCEShape id="dataItem2_di" modelElement="dataItem2">
+      </scedi:shape>
+      <scedi:shape id="dataItem2_di" modelElement="dataItem2">
         <dc:Bounds x="270" y="115" width="36" height="50" />
-      </scedi:SCEShape>
-      <scedi:SCEEdge id="c1_di" modelElement="c1">
+      </scedi:shape>
+      <scedi:edge id="c1_di" modelElement="c1">
         <di:waypoint x="188" y="140" />
         <di:waypoint x="270" y="140" />
-      </scedi:SCEEdge>
-    </scedi:SCEDiagram>
-  </scedi:SCEDiagrams>
+      </scedi:edge>
+    </scedi:diagram>
+  </scedi:diagrams>
 
   <sdmn:dataItem id="dataItem1">
     <sce:categoryRef>childCategory_West</sce:categoryRef>

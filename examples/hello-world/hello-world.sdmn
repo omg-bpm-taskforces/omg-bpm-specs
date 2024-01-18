@@ -11,14 +11,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     >
 
-  <scedi:SCEDiagrams>
-    <scedi:SCEDiagram>
+  <scedi:diagrams>
+    <scedi:diagram>
       <scedi:Size width="500" height="500"/>
-      <scedi:SCEShape id="itemDef_Name_di" modelElement="itemDef_Name">
+      <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
         <dc:Bounds x="160" y="120" width="150" height="60"/>
-      </scedi:SCEShape>
-    </scedi:SCEDiagram>
-  </scedi:SCEDiagrams>
+      </scedi:shape>
+    </scedi:diagram>
+  </scedi:diagrams>
 
   <!-- DMN will reference by @name while BPMN uses @id -->
   <sdmn:itemDefinition id="itemDef_Name" name="Name"

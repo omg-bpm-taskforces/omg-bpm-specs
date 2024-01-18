@@ -3,38 +3,40 @@
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
+	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
     <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
         <xsd:annotation>
             <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
+                The SharedDataModel class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
+                for all contained elements. The interchange of SDMN files will always be through one or more SharedDataModels. Specifically, an XML file 
                 for a Shared Data Model usually would be appended with a “.sdmn” label.
             </xsd:documentation>
         </xsd:annotation>        
     </xsd:element>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModel">
+            <xsd:extension base="sce:tModel">
                 <xsd:sequence>
                     <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
-                                This is a list of the ItemDefinitions that are included in the SDMNPackage.
+                                This is a list of the ItemDefinitions that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
                     <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation> 
-                                This is a list of the Data Items that are included in the SDMNDefinitions.
+                                This is a list of the Data Items that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>

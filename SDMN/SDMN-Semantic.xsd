@@ -25,7 +25,7 @@
     </xsd:element>
     <xsd:complexType name="tDataItem">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tElement">
                 <xsd:sequence>
                     <xsd:element name="metaDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
@@ -76,7 +76,7 @@
     </xsd:element>
     <xsd:complexType name="tAssignment">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tElement">
                 <xsd:sequence>
                     <xsd:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
@@ -147,7 +147,7 @@
     <xsd:element name="connector" abstract="true" type="sdmn:tConnector"/>
     <xsd:complexType name="tConnector">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tElement">
                 <xsd:sequence>
                     <xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
