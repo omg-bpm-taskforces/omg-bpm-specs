@@ -9,7 +9,20 @@
     xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    >
+    xsi:schemaLocation="
+      https://www.omg.org/spec/SDMN/20211108/MODEL
+      ../../SDMN/SDMN.xsd
+      https://www.omg.org/spec/SCE/20211108/MODEL
+      ../../SCE/SCE.xsd
+      https://www.omg.org/spec/SCE/20211108/SCEDI
+      ../../SCE/SCEDI.xsd
+      http://www.omg.org/spec/SCE/20210830/DI
+      ../../SCE/DI.xsd
+      http://www.omg.org/spec/SCE/20210830/DC
+      ../../SCE/DC.xsd
+      https://www.omg.org/spec/DMN/20191111/MODEL/
+      https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+    ">
 
   <scedi:diagrams>
     <scedi:diagram>
