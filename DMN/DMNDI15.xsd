@@ -14,9 +14,9 @@
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
 							schemaLocation="../SCE/SCEDI.xsd"/>
 
-	<xsd:element name="DMNDI" type="dmndi:DMNDI" substitutionGroup="scedi:SCEDI"/>
+	<xsd:element name="DMNDI" type="dmndi:DMNDI" substitutionGroup="scedi:SCEDiagrams"/>
 	<xsd:element name="DMNDiagram" type="dmndi:DMNDiagram"/>
-	<xsd:element name="DMNDiagramElement" type="di:DiagramElement">
+	<xsd:element name="DMNDiagramElement" type="di:tDiagramElement">
 		<xsd:annotation>
 			<xsd:documentation>This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence</xsd:documentation>
 		</xsd:annotation>
@@ -29,7 +29,7 @@
 
 	<xsd:complexType name="DMNDI">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEDI">
+			<xsd:extension base="scedi:tSCEDiagrams">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNDiagram" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="dmndi:DMNStyle" minOccurs="0" maxOccurs="unbounded"/>
@@ -42,7 +42,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCEDiagram">
 				<xsd:sequence>
-					<xsd:element name="Size" type="dc:Dimension" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDiagramElement" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
 				<xsd:attribute name="useAlternativeInputDataShape" type="xsd:boolean" use="optional" default="false"/>
@@ -54,7 +53,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCEShape">
 				<xsd:sequence>
-					<xsd:element ref="dmndi:DMNLabel" minOccurs="0" maxOccurs="1"/>
 					<xsd:element ref="dmndi:DMNDecisionServiceDividerLine" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
 				<xsd:attribute name="dmnElementRef" type="xsd:QName" use="required"/>
@@ -64,9 +62,9 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-		<xsd:complexType name="DMNDecisionServiceDividerLine">
+	<xsd:complexType name="DMNDecisionServiceDividerLine">
 		<xsd:complexContent>
-			<xsd:extension base="di:Edge"/>
+			<xsd:extension base="scedi:tSCEEdge"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
@@ -74,8 +72,6 @@
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCEEdge">
 				<xsd:attribute name="dmnElementRef" type="xsd:QName" use="required"/>
-				<xsd:attribute name="sourceElement" type="xsd:QName" use="optional"/>
-				<xsd:attribute name="targetElement" type="xsd:QName" use="optional"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
