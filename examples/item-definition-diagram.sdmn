@@ -35,38 +35,38 @@
                 modelElement="patient:ItemDef_tPatient_Health_Record">
                 <dc:Bounds x="17" y="146" width="244" height="152" />
             </scedi:shape>
-            <scedi:shape id="ItemDef_tDemographics_di" modelElement="ItemDef_tDemographics">
+            <scedi:shape id="ItemDef_tDemographics_di" modelElement="patient:ItemDef_tDemographics">
                 <dc:Bounds x="358" y="33" width="310" height="184" />
             </scedi:shape>
-            <scedi:shape id="ItemDef_tSex_di" modelElement="ItemDef_tSex">
+            <scedi:shape id="ItemDef_tSex_di" modelElement="patient:ItemDef_tSex">
                 <dc:Bounds x="726" y="35" width="244" height="62" />
             </scedi:shape>
-            <scedi:shape id="ItemDef_tEthnicity_di" modelElement="ItemDef_tEthnicity">
+            <scedi:shape id="ItemDef_tEthnicity_di" modelElement="patient:ItemDef_tEthnicity">
                 <dc:Bounds x="736" y="191" width="244" height="62" />
             </scedi:shape>
             <scedi:shape id="ItemComp_tPatientHealthRecord.Appointment_di"
-                modelElement="ItemComp_tPatientHealthRecord.Appointment">
+                modelElement="patient:ItemComp_tPatientHealthRecord.Appointment">
                 <dc:Bounds x="307" y="311" width="244" height="152" />
             </scedi:shape>
-            <scedi:edge id="c1_di" modelElement="toD">
+            <scedi:edge id="toD_di" modelElement="patient:toD">
                 <di:waypoint x="260" y="222" />
                 <di:waypoint x="310" y="222" />
                 <di:waypoint x="310" y="49" />
                 <di:waypoint x="359" y="49" />
             </scedi:edge>
-            <scedi:edge id="toA_di" modelElement="ItemComp_tPatientHealthRecord.Appointment">
+            <scedi:edge id="toA_di" modelElement="patient:ItemComp_tPatientHealthRecord.Appointment">
                 <di:waypoint x="260" y="252" />
                 <di:waypoint x="284" y="252" />
                 <di:waypoint x="284" y="327" />
                 <di:waypoint x="308" y="327" />
             </scedi:edge>
-            <scedi:edge id="toS_di" modelElement="toS">
+            <scedi:edge id="toS_di" modelElement="patient:toS">
                 <di:waypoint x="667" y="140" />
                 <di:waypoint x="697" y="140" />
                 <di:waypoint x="697" y="51" />
                 <di:waypoint x="727" y="51" />
             </scedi:edge>
-            <scedi:edge id="toE_di" modelElement="toE">
+            <scedi:edge id="toE_di" modelElement="patient:toE">
                 <di:waypoint x="667" y="170" />
                 <di:waypoint x="702" y="170" />
                 <di:waypoint x="702" y="207" />
