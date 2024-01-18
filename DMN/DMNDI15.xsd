@@ -14,7 +14,7 @@
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
 							schemaLocation="../SCE/SCEDI.xsd"/>
 
-	<xsd:element name="DMNDI" type="dmndi:DMNDI" substitutionGroup="scedi:SCEDiagrams"/>
+	<xsd:element name="DMNDI" type="dmndi:DMNDI" substitutionGroup="scedi:diagrams"/>
 	<xsd:element name="DMNDiagram" type="dmndi:DMNDiagram"/>
 	<xsd:element name="DMNDiagramElement" type="di:tDiagramElement">
 		<xsd:annotation>
@@ -23,13 +23,13 @@
 	</xsd:element>
 	<xsd:element name="DMNShape" type="dmndi:DMNShape" substitutionGroup="dmndi:DMNDiagramElement"/>
 	<xsd:element name="DMNEdge" type="dmndi:DMNEdge" substitutionGroup="dmndi:DMNDiagramElement"/>
-	<xsd:element name="DMNStyle" type="dmndi:DMNStyle" substitutionGroup="scedi:SCEStyle"/>
-	<xsd:element name="DMNLabel" type="dmndi:DMNLabel" substitutionGroup="scedi:SCELabel"/>
+	<xsd:element name="DMNStyle" type="dmndi:DMNStyle" substitutionGroup="scedi:style"/>
+	<xsd:element name="DMNLabel" type="dmndi:DMNLabel" substitutionGroup="scedi:label"/>
 	<xsd:element name="DMNDecisionServiceDividerLine" type="dmndi:DMNDecisionServiceDividerLine"/>
 
 	<xsd:complexType name="DMNDI">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEDiagrams">
+			<xsd:extension base="scedi:tDiagrams">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNDiagram" minOccurs="0" maxOccurs="unbounded"/>
 					<xsd:element ref="dmndi:DMNStyle" minOccurs="0" maxOccurs="unbounded"/>
@@ -40,7 +40,7 @@
 
 	<xsd:complexType name="DMNDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEDiagram">
+			<xsd:extension base="scedi:tDiagram">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNDiagramElement" minOccurs="0" maxOccurs="unbounded"/>
 				</xsd:sequence>
@@ -51,7 +51,7 @@
 
 	<xsd:complexType name="DMNShape">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEShape">
+			<xsd:extension base="scedi:tShape">
 				<xsd:sequence>
 					<xsd:element ref="dmndi:DMNDecisionServiceDividerLine" minOccurs="0" maxOccurs="1"/>
 				</xsd:sequence>
@@ -64,13 +64,13 @@
 
 	<xsd:complexType name="DMNDecisionServiceDividerLine">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEEdge"/>
+			<xsd:extension base="scedi:tEdge"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
 	<xsd:complexType name="DMNEdge">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEEdge">
+			<xsd:extension base="scedi:tEdge">
 				<xsd:attribute name="dmnElementRef" type="xsd:QName" use="required"/>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -78,14 +78,14 @@
 
 	<xsd:complexType name="DMNLabel">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCELabel">
+			<xsd:extension base="scedi:tLabel">
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
 	<xsd:complexType name="DMNStyle">
 		<xsd:complexContent>
-			<xsd:extension base="scedi:tSCEStyle">
+			<xsd:extension base="scedi:tStyle">
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>

@@ -44,7 +44,7 @@
 	<xsd:element name="definitions" type="tDefinitions" />
 	<xsd:complexType name="tDefinitions">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEModel">
+			<xsd:extension base="sce:tModel">
 				<xsd:sequence>
 					<xsd:element ref="extensionElements" minOccurs="0" maxOccurs="1" />
 					<xsd:element ref="import" minOccurs="0" maxOccurs="unbounded"/>
