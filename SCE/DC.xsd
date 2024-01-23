@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
-			targetNamespace="http://www.omg.org/spec/SCE/20210830/DC"
-            elementFormDefault="qualified"
-            attributeFormDefault="unqualified">
+<xsd:schema id="DC" version="1.1-SCE1.0"
+		targetNamespace="http://www.omg.org/spec/SCE/20210830/DC"
+		xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		elementFormDefault="qualified">
 
-	<xsd:element name="Color" type="dc:Color"/>
-	<xsd:element name="Point" type="dc:Point"/>
-	<xsd:element name="Bounds" type="dc:Bounds"/>
-	<xsd:element name="Dimension" type="dc:Dimension"/>
+	<xsd:element name="Color" type="dc:tColor"/>
+	<xsd:element name="Point" type="dc:tPoint"/>
+	<xsd:element name="Bounds" type="dc:tBounds"/>
+	<xsd:element name="Dimension" type="dc:tDimension"/>
 
-	<xsd:complexType name="Color">
+	<xsd:complexType name="tColor">
 		<xsd:annotation>
 			<xsd:documentation>Color is a data type that represents a color value in the RGB format.</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="red" type="dc:rgb" use="required"/>
-		<xsd:attribute name="green" type="dc:rgb" use="required"/>
-		<xsd:attribute name="blue" type="dc:rgb" use="required"/>
+		<xsd:attribute name="red" type="dc:tRGB" use="required"/>
+		<xsd:attribute name="green" type="dc:tRGB" use="required"/>
+		<xsd:attribute name="blue" type="dc:tRGB" use="required"/>
 	</xsd:complexType>
 
-	<xsd:simpleType name="rgb">
+	<xsd:simpleType name="tRGB">
 		<xsd:restriction base="xsd:int">
 			<xsd:minInclusive value="0"/>
 			<xsd:maxInclusive value="255"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:complexType name="Point">
+	<xsd:complexType name="tPoint">
 		<xsd:annotation>
 			<xsd:documentation>A Point specifies an location in some x-y coordinate system.</xsd:documentation>
 		</xsd:annotation>
@@ -34,7 +34,7 @@
 		<xsd:attribute name="y" type="xsd:double" use="required"/>
 	</xsd:complexType>
 
-	<xsd:complexType name="Dimension">
+	<xsd:complexType name="tDimension">
 		<xsd:annotation>
 			<xsd:documentation>Dimension specifies two lengths (width and height) along the x and y axes in some x-y coordinate system.</xsd:documentation>
 		</xsd:annotation>
@@ -42,7 +42,7 @@
 		<xsd:attribute name="height" type="xsd:double" use="required"/>
 	</xsd:complexType>
 
-	<xsd:complexType name="Bounds">
+	<xsd:complexType name="tBounds">
 	   <xsd:annotation>
 			<xsd:documentation>Bounds specifies a rectangular area in some x-y coordinate system that is defined by a location (x and y) and a size (width and height).</xsd:documentation>
 		</xsd:annotation>
@@ -52,7 +52,7 @@
 		<xsd:attribute name="height" type="xsd:double" use="required"/>
 	</xsd:complexType>
 
-	<xsd:simpleType name="AlignmentKind">
+	<xsd:simpleType name="tAlignmentKind">
 		<xsd:annotation>
 			<xsd:documentation>AlignmentKind enumerates the possible options for alignment for layout purposes.</xsd:documentation>
 		</xsd:annotation>
@@ -63,7 +63,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name="KnownColor">
+	<xsd:simpleType name="tKnownColor">
 		<xsd:annotation>
 			<xsd:documentation>KnownColor is an enumeration of 17 known colors.</xsd:documentation>
 		</xsd:annotation>

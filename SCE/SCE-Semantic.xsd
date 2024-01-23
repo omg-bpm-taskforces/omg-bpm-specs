@@ -59,20 +59,6 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="exporter" type="xsd:string" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							This attribute identifies the tool that is exporting the model file that is dependent on SCE.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							This attribute identifies the version of the tool that is exporting the file that is dependent on SCE.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
 				<xsd:attribute name="tag" type="xsd:string" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
