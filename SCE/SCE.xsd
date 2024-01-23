@@ -9,64 +9,63 @@
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
 	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
-	<xsd:element name="SCEModel" type="sce:tSCEModel" abstract="true">
+	<xsd:element name="model" type="sce:tModel" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling 
 				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification. 
 				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications 
 				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the 
-				Collaborations, Processes, and other elements that make up the BPMN model. The SCEPackage element provides the key 
+				Collaborations, Processes, and other elements that make up the BPMN model. The Package element provides the key 
 				attributes and associations that most BMI modeling specifications will need as part of their packaging element.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEModel">
+	<xsd:complexType name="tModel">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEPackage">
+			<xsd:extension base="sce:tPackage">
 				<xsd:sequence>
 					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of all the Categories contained within a concrete specialization of SCEModel.
+								This is a list of all the Categories contained within a concrete specialization of Model.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 					<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of all the external relationships contained within a concrete specialization of SCEModel.
+								This is a list of all the external relationships contained within a concrete specialization of Model.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element ref="sce:SCEInstances" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:instances" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of all the SCEInstances sub-packages contained within a SCEModel. This is a subset of the 
-								containedPackage association of the SCEPackage element.
+								This is a list of all the Instances sub-packages contained within a Model. This is a subset of the 
+								containedPackage association of the Package element.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element ref="sce:SCEKindSet" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:kindSet" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of terms (kinds) that are part of a concrete specialization of SCEModel.
+								This is a list of terms (kinds) that are part of a concrete specialization of Model.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 					<xsd:element ref="sce:modelArtifact" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This is a list of all the ModelArtifacts contained within a concrete specialization of SCEDefinitions. 
-								These will usually be contained in an SCEDefinitions that is sub-package to the top-level SCEDefinitions. 
-								This is a subset of the element association of the SCEPackage element.
+								This is a list of all the ModelArtifacts contained within a concrete specialization of Model. 
+								This is a subset of the element association of the Package element.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element ref="scedi:SCEDiagrams" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="scedi:diagrams" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This element contains the Diagram Interchange information contained within this SCEModelPackage.
+								This element contains the Diagram Interchange information contained within this ModelPackage.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
