@@ -43,17 +43,6 @@
 			</xsd:annotation>
 		</xsd:attribute>
 		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
-		<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
-			<xsd:annotation>
-				<xsd:documentation>
-					a reference to the model element represented by this diagram element.
-					It is optional for Diagrams, but MUST be set on Shapes and Edges.
-					Note that the sourceElement or targetElement attributes of Edge MUST ONLY
-					be present if the Edge is depicted between a different source or target than the
-					one referenced by the modelElement of the Edge.
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:complexType>
 
@@ -111,24 +100,6 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="sourceElement" type="xsd:QName" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							an optional reference to the DiagramElement that this Edge starts from.
-							This attribute MUST ONLY be present if the Edge is depicted starting from
-							a different source than the one referenced by the modelElement of the Edge.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-				<xsd:attribute name="targetElement" type="xsd:QName" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							an optional reference to the DiagramElement that this Edge ends at.
-							This attribute MUST ONLY be present if the Edge is depicted ending at
-							a different target than the one referenced by the modelElement of the Edge.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
