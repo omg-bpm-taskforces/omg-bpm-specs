@@ -71,6 +71,20 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="exporter" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							identifies the tool that has exported the model file
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							identifies the version of the tool that has exported the model file
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 				<xsd:attribute name="expressionLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
 				<xsd:attribute name="typeLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
 			</xsd:extension>
