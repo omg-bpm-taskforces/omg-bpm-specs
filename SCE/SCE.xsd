@@ -63,10 +63,10 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element ref="scedi:SCEDI" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="scedi:SCEDiagrams" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								This attribute contains the Diagram Interchange information contained within this SCEModelPackage.
+								This element contains the Diagram Interchange information contained within this SCEModelPackage.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>

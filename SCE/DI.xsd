@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
-			xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
-			targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
-            elementFormDefault="qualified"
-            attributeFormDefault="unqualified">
-	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
+<xsd:schema id="DI" version="1.1-SCE1.0"
+		targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
+		xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+		xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		elementFormDefault="qualified">
+	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC"
+			schemaLocation="DC.xsd"/>
 
 	<xsd:annotation>
 		<xsd:documentation>
@@ -15,26 +16,21 @@
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:element name="Style" type="di:Style">
+	<xsd:element name="Style" type="di:tStyle">
 		<xsd:annotation>
 			<xsd:documentation>This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 
-	<xsd:complexType name="DiagramElement" abstract="true">
+	<xsd:complexType name="tDiagramElement" abstract="true">
 		<xsd:annotation>
-			<xsd:documentation>DiagramElement is the abstract super type of all elements in diagrams, including diagrams themselves. 
+			<xsd:documentation>
+				DiagramElement is the abstract super type of all elements in diagrams, including diagrams themselves. 
 				When contained in a diagram, diagram elements are laid out relative to the diagram's origin.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="extension" minOccurs="0">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
+			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
 			<xsd:element ref="di:Style" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>an optional locally-owned style for this diagram element.</xsd:documentation>
@@ -46,13 +42,21 @@
 				<xsd:documentation>a reference to an optional shared style element for this diagram element.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="id" type="xsd:ID"/>
+		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:complexType>
 
-	<xsd:complexType name="Diagram" abstract="true">
+	<xsd:element name="extension">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="tDiagram" abstract="true">
 		<xsd:complexContent>
-			<xsd:extension base="di:DiagramElement">			
+			<xsd:extension base="di:tDiagramElement">			
 				<xsd:attribute name="name" type="xsd:string">
 					<xsd:annotation>
 						<xsd:documentation>the name of the diagram.</xsd:documentation>
@@ -72,9 +76,9 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="Shape" abstract="true">
+	<xsd:complexType name="tShape" abstract="true">
 		<xsd:complexContent>
-			<xsd:extension base="di:DiagramElement">
+			<xsd:extension base="di:tDiagramElement">
 				<xsd:sequence>
 					<xsd:element ref="dc:Bounds" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
@@ -86,11 +90,11 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="Edge" abstract="true">
+	<xsd:complexType name="tEdge" abstract="true">
 		<xsd:complexContent>
-			<xsd:extension base="di:DiagramElement">
+			<xsd:extension base="di:tDiagramElement">
 				<xsd:sequence>
-					<xsd:element name="waypoint" type="dc:Point" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="waypoint" type="dc:tPoint" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>an optional list of points relative to the origin of the nesting diagram that specifies the connected line segments of the edge</xsd:documentation>
 						</xsd:annotation>
@@ -100,7 +104,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="Style" abstract="true">
+	<xsd:complexType name="tStyle" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>Style contains formatting properties that affect the appearance or style of diagram elements, including diagram themselves.</xsd:documentation>
 		</xsd:annotation>
