@@ -51,13 +51,16 @@
 		</xsd:sequence>
 	</xsd:group>
 	<xsd:attributeGroup name="attributesOfPackage">
-		<xsd:attribute name="tag" type="xsd:string" use="optional">
+		<xsd:attribute name="tags" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					The tag setting provides another classification mechanism for the Package. This classification could be 
+					The tags attribute provides another classification mechanism for the Package. This classification could be 
 					used as part of a search for a particular model that is a concrete specialization of Package, for example.
 				</xsd:documentation>
 			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:list itemType="xsd:string"/>
+			</xsd:simpleType>
 		</xsd:attribute>
 		<xsd:attribute name="targetNamespace" type="xsd:anyURI" use="optional">
 			<xsd:annotation>
