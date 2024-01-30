@@ -410,10 +410,9 @@
 		<xsd:attribute name="importType" type="xsd:anyURI" use="required">
 			<xsd:annotation>
 				<xsd:documentation>
-					Identifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the 
-					document. The value of the importType attribute MUST be set to http://www.w3.org/2001/XMLSchema when importing XML Schema 1.0 
-					documents, to http://www.w3.org/TR/wsdl20/ when importing WSDL 2.0 documents, and http://www.omg.org/spec/BPMN/20100524/MODEL 
-					when importing BPMN 2.0 documents. Other types of documents MAY be supported.
+					Identifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the
+					document, e.g. when importing XML Schema 1.0 documents the value of the importType attribute MUST be set to
+					http://www.w3.org/2001/XMLSchema. Other types of documents MAY be supported, e.g., BPMN, DMN, or any SCE-based language.
 				</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
