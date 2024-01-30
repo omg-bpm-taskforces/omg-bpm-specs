@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SCEDI" version="1.0"
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
+	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
 	xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
 	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
@@ -94,6 +94,8 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
+	<!-- An xsd:complexType for DiagramElement is deliberately omitted from
+		this XML schema due to the multiple-inheritance in the metamodel -->
 
 	<xsd:element name="edge" type="scedi:tEdge" substitutionGroup="scedi:diagramElement">
 		<xsd:annotation>

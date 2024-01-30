@@ -97,7 +97,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tModelArtifact">
+	<xsd:complexType name="tModelArtifact" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tRootElement"/>
 		</xsd:complexContent>
@@ -238,7 +238,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tBaseElement">
+	<xsd:complexType name="tBaseElement" abstract="true">
 		<xsd:sequence>			
 			<xsd:group ref="sce:elementsOfBaseElement"/>
 		</xsd:sequence>
@@ -331,7 +331,7 @@
 		</xsd:attribute>
 	</xsd:attributeGroup>
 
-	<xsd:element name="rootElement" type="sce:tRootElement">
+	<xsd:element name="rootElement" type="sce:tRootElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				RootElement is the abstract super class for all SCE elements that are contained within Model.
@@ -340,7 +340,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tRootElement">
+	<xsd:complexType name="tRootElement" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tBaseElement"/>
 		</xsd:complexContent>
@@ -353,7 +353,7 @@
 			</xsd:documentation>
 		</xsd:annotation>		
 	</xsd:element>
-	<xsd:complexType name="tElementType">
+	<xsd:complexType name="tElementType" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tRootElement"/>
 		</xsd:complexContent>
@@ -367,7 +367,7 @@
 			</xsd:documentation>
 		</xsd:annotation>		
 	</xsd:element>
-	<xsd:complexType name="tTypedElement">
+	<xsd:complexType name="tTypedElement" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tRootElement">
 				<xsd:sequence>
@@ -391,7 +391,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tAnnotation">
+	<xsd:complexType name="tAnnotation" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tBaseElement"/>
 		</xsd:complexContent>
@@ -498,7 +498,7 @@
 		<xsd:attribute name="textFormat" type="xsd:string" default="text/plain"/>
 	</xsd:complexType>
 
-	<xsd:element name="kind" type="sce:tKind">
+	<xsd:element name="kind" type="sce:tKind" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				A Kind is one of a set of Kinds (terms) that make up an extendable enumerated list of values for a text-based property of an 
@@ -506,7 +506,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tKind">
+	<xsd:complexType name="tKind" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tBaseElement"/>
 		</xsd:complexContent>
@@ -1085,7 +1085,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="kindSet" type="sce:tKindSet" substitutionGroup="sce:package">
+	<xsd:element name="kindSet" type="sce:tKindSet" abstract="true" substitutionGroup="sce:package">
 		<xsd:annotation>
 			<xsd:documentation>
 				This is a list of terms (Kinds) that can be used to define the meaning of elements of a concrete 
@@ -1093,7 +1093,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tKindSet">
+	<xsd:complexType name="tKindSet" abstract="true">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tPackage">
 				<xsd:sequence>
