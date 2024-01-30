@@ -72,22 +72,6 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="sharedStyleRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								A reference to a Style defined in the Diagrams that serves as the default styling of
-								the DiagramElement in the SCE-dependent diagram.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="scedi:style" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								A Style that defines the default styling for this diagram. Properties defined in
-								that style override the ones in the sharedStyle.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
 				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
 					<xsd:annotation>

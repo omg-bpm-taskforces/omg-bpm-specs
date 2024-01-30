@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sce:RelationshipKindSet xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL" 
-	xmlns:xml="http://www.w3.org/XML/1998/namespace" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	id="_adl020900-cgl033-d105-anep021714-01" 
-	name="RelationshipKinds"
-	xsi:schemaLocation="https://www.omg.org/spec/SCE/20211108/MODEL SCE-Semantic.xsd" 
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds">
-	
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-02" 
+<sce:relationshipKindSet id="RelationshipKinds" name="RelationshipKinds"
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/"
+	xmlns:rel="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/"
+	xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		https://www.omg.org/spec/SCE/20211108/MODEL
+		SCE.xsd
+	">
+
+	<sce:relationshipKind id="composition"
 		name="Composition"
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-02"/>
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/composition"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-03" 
-		name="Containment" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-03"/>
+	<sce:relationshipKind id="containment"
+		name="Containment"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/containment"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-04" 
-		name="Correlation" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-04"/>
+	<sce:relationshipKind id="correlation"
+		name="Correlation"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/correlation"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-05" 
-		name="Dependency" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-05"/>
+	<sce:relationshipKind id="dependency"
+		name="Dependency"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/dependency"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl03312005-anep021714-06" 
-		name="Miscellaneous" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl03312005-anep021714-06"/>
+	<sce:relationshipKind id="miscellaneous"
+		name="Miscellaneous"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/miscellaneous"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-07" 
-		name="Reference" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-07"/>
+	<sce:relationshipKind id="reference"
+		name="Reference"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/reference"/>
 
-	<sce:RelationshipKind id="_adl020900-cgl033105-anep021714-08" 
-		name="Generalization" 
-		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds#_adl020900-cgl033105-anep021714-08"/>
+	<sce:relationshipKind id="generalization"
+		name="Generalization"
+		conceptReference="https://www.omg.org/spec/SCE/20211108/MODEL/RelationshipKinds/generalization"/>
 
-</sce:RelationshipKindSet>
+</sce:relationshipKindSet>
