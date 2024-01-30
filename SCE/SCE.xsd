@@ -9,86 +9,77 @@
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
 	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
-	<xsd:element name="SCEModel" type="sce:tSCEModel" abstract="true">
+	<xsd:element name="model" type="sce:tModel" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling 
 				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification. 
 				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications 
 				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the 
-				Collaborations, Processes, and other elements that make up the BPMN model. The SCEPackage element provides the key 
+				Collaborations, Processes, and other elements that make up the BPMN model. The Package element provides the key 
 				attributes and associations that most BMI modeling specifications will need as part of their packaging element.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEModel">
+	<xsd:complexType name="tModel">
+		<xsd:annotation>
+			<xsd:documentation>
+				SCE-based languages MAY directly create an element of type
+				sce:tModel as their XML root element, e.g.,
+				<xsd:element name="sharedDataModel" type="sce:tModel"/>
+			</xsd:documentation>
+		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="sce:tSCEPackage">
+			<xsd:extension base="sce:tPackage">
 				<xsd:sequence>
-					<xsd:element ref="sce:category" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of all the Categories contained within a concrete specialization of SCEModel.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of all the external relationships contained within a concrete specialization of SCEModel.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="sce:SCEInstances" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of all the SCEInstances sub-packages contained within a SCEModel. This is a subset of the 
-								containedPackage association of the SCEPackage element.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="sce:SCEKindSet" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of terms (kinds) that are part of a concrete specialization of SCEModel.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="sce:modelArtifact" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This is a list of all the ModelArtifacts contained within a concrete specialization of SCEDefinitions. 
-								These will usually be contained in an SCEDefinitions that is sub-package to the top-level SCEDefinitions. 
-								This is a subset of the element association of the SCEPackage element.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="scedi:SCEDiagrams" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								This element contains the Diagram Interchange information contained within this SCEModelPackage.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
+					<xsd:group ref="sce:elementsOfModel"/>
 				</xsd:sequence>
-				<xsd:attribute name="exporter" type="xsd:string" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							identifies the tool that has exported the model file
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-				<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
-					<xsd:annotation>
-						<xsd:documentation>
-							identifies the version of the tool that has exported the model file
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-				<xsd:attribute name="expressionLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
-				<xsd:attribute name="typeLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+				<xsd:attributeGroup ref="sce:attributesOfModel"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	
+	<xsd:group name="elementsOfModel">
+		<xsd:sequence>
+			<xsd:element ref="sce:rootElement" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						This is a list of all the RootElements contained within a Model. Many elements will be identified 
+						through additional associations that subset this property.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="scedi:diagrams" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						This element contains the Diagram Interchange information contained within this ModelPackage.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						This is a list of all the external relationships contained within a concrete specialization of Model.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:attributeGroup name="attributesOfModel">
+		<xsd:attribute name="exporter" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					identifies the tool that has exported the model file
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exporterVersion" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					identifies the version of the tool that has exported the model file
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="expressionLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+		<xsd:attribute name="typeLanguage" type="xsd:anyURI" use="optional" default="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+	</xsd:attributeGroup>
 </xsd:schema>
