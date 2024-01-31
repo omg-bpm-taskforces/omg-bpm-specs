@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SCEDI" version="1.0"
-	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+	targetNamespace="https://www.omg.org/spec/SCE/20211108/SCEDI"
+	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
 	xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
 	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
@@ -10,130 +10,111 @@
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC" schemaLocation="DC.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI" schemaLocation="DI.xsd"/>
 
-	<xsd:element name="SCEDI" type="scedi:tSCEDI">
+	<xsd:element name="diagrams" type="scedi:tDiagrams">
 		<xsd:annotation>
 			<xsd:documentation>
-				The class SCEDI is a container for the shared SCEStyle and all the SCEDiagram defined in a SCE-dependent modeling package.
+				The class Diagrams is a container for all the Diagram and the shared Style defined in a SCE-dependent modeling package.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEDI">
+	<xsd:complexType name="tDiagrams">
 		<xsd:sequence>
-			<xsd:element ref="scedi:SCEDiagram" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="scedi:diagram" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						A list of SCEDiagrams.
+						A list of Diagram.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element ref="scedi:SCEStyle" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="scedi:style" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						A list of shared SCEStylethat can be referenced by all SCE-dependent diagrams and SCEDiagramElement.
+						A list of shared Style that can be referenced by all SCE-dependent diagrams and DiagramElement.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>				
 	</xsd:complexType>
 
-	<xsd:element name="SCEDiagram" type="scedi:tSCEDiagram" abstract="true">
+	<xsd:element name="diagram" type="scedi:tDiagram">
 		<xsd:annotation>
 			<xsd:documentation>
-				The abstract class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model. 
-				It is contained within the SCEDI element. The languages that are dependent on SCE will define concrete diagrams based on SCEDiagram.
-				SCEDiagram is the container of SCEDiagramElement (SCEShape(s) and SCEEdge(s)). SCEDiagram cannot include other SCEDiagrams. A SCEDiagram can 
-				define a SCEStyle locally and/or it can refer to a shared one defined in the SCEDI. Properties defined in the local style overrides
-				the one in the referenced shared style. That combined style (shared and local) is the default style for all the SCEDiagramElement contained 
-				in this SCEDiagram. The SCEDiagram class represents a two-dimensional surface with an origin of (0, 0) at the top left corner.
+				The class Diagram specializes DI::Diagram. It is a kind of DI::Diagram that represents a depiction of all or part of a SCE-dependent model. 
+				It is contained within the Diagrams element. The languages that are dependent on SCE MAY define specialized diagrams based on Diagram
+				if they have to add new elements or attributes. By default they should use Diagram directly.
+				Diagram is the container of DiagramElement (Shape(s) and Edge(s)). Diagram cannot include other Diagrams. A Diagram can 
+				define a Style locally and/or it can refer to a shared one defined in the Diagrams. Properties defined in the local style overrides
+				the one in the referenced shared style. That combined style (shared and local) is the default style for all the DiagramElement contained 
+				in this Diagram. The Diagram class represents a two-dimensional surface with an origin of (0, 0) at the top left corner.
 				This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements 
-				that are nested in a SCEDiagram.
+				that are nested in a Diagram.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEDiagram">
+	<xsd:complexType name="tDiagram">
 		<xsd:complexContent>
-			<xsd:extension base="di:Diagram">
+			<xsd:extension base="di:tDiagram">
 				<xsd:sequence>
-					<xsd:element ref="scedi:SCEDiagramElement" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								Element Role: diagramElement
-								A list of SCEDiagramElements (SCEShape and SCEEdge) that are depicted in the
-								SCE-dependent diagram. The diagram elements are ordered.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="size" type="dc:Dimension" minOccurs="0" maxOccurs="1">
+					<xsd:element name="Size" type="dc:tDimension" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The size of this diagram. If not specified, the the SCE-dependent diagram is unbounded.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="sharedStyleRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="scedi:diagramElement" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								A reference to a SCEStyle defined in the SCEDI that serves as the default styling of
-								the SCEDiagramElement in the SCE-dependent diagram.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="scedi:SCEStyle" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								A SCEStyle that defines the default styling for this diagram. Properties defined in
-								that style override the ones in the sharedStyle.
+								Element Role: diagramElement
+								A list of DiagramElements (Shape and Edge) that are depicted in the
+								SCE-dependent diagram. The diagram elements are ordered.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							a reference to the Element represented by this Diagram.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCEDiagramElement" type="di:DiagramElement" abstract="true">
+	<xsd:element name="diagramElement" type="di:tDiagramElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEDiagramElement class is contained by the SCEDiagram and is the base class for DMNShape and DMNEdge. SCEDiagramElement inherits its styling 
-				from its parent SCEDiagram. In addition, it can refer to one of the shared SCEStyle defined in the SCEDI and/or it can define a local style. See 
-				section below for more details on styling. SCEDiagramElement MAY also contain a SCELabel when it has a visible text label. If no SCELabel is defined, 
-				the SCEDiagramElement should be depicted without a label.
+				The DiagramElement class is contained by the Diagram and is the base class for Shape and Edge. DiagramElement inherits its styling 
+				from its parent Diagram. In addition, it can refer to one of the shared Style defined in the DI and/or it can define a local style. See 
+				section below for more details on styling. DiagramElement MAY also contain a Label when it has a visible text label. If no Label is defined, 
+				the DiagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
+	<!-- An xsd:complexType for DiagramElement is deliberately omitted from
+		this XML schema due to the multiple-inheritance in the metamodel -->
 
-	<xsd:element name="SCEEdge" type="scedi:tSCEEdge" substitutionGroup="scedi:SCEDiagramElement">
+	<xsd:element name="edge" type="scedi:tEdge" substitutionGroup="scedi:diagramElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEEdge class specializes DI::Edge and SCEDiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent 
-				model elements. SCEEdge are used to depict Requirements or Associations in the SCE-dependent model. Since SCEDiagramElement might be
-				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SCEEdge is connected. When 
-				SCEEdge has a source, its sourceModelElement MUST refer to the SCEDiagramElement it starts from. That SCEDiagramElement MUST resolved to
-				the SCEElement that is the actual source of the Requirement or Association. For Requirement, this is the required SCEElement. When it has a target, its
-				targetModelElement MUST refer to the SCEDiagramElement where it ends. That SCEDiagramElement MUST resolved to the SCEElement that is the actual 
-				target of the Requirement or Association. For Requirement, this is the SCEElement holding it.
+				The Edge class specializes DI::Edge and DiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent 
+				model elements. Since Element might be
+				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a Edge is connected. When 
+				Edge has a source, its sourceModelElement MUST refer to the DiagramElement it starts from. That DiagramElement MUST resolved to
+				the Element that is the actual source of the Requirement or Association. For Requirement, this is the required Element. When it has a target, its
+				targetModelElement MUST refer to the DiagramElement where it ends. That DiagramElement MUST resolved to the Element that is the actual 
+				target of the Requirement or Association. For Requirement, this is the Element holding it.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEEdge">
+	<xsd:complexType name="tEdge">
 		<xsd:complexContent>
-			<xsd:extension base="di:Edge">
+			<xsd:extension base="di:tEdge">
 				<xsd:sequence>
-					<xsd:element name="targetElementRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								The actual SCEDiagramElement this SCEEdge is connecting to. This MUST be specified when the SCEEdge has a target.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="sourceElementRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								The actual SCEDiagramElement this SCEEdge is connecting from. This MUST be specified when the SCEEdge has a source.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element ref="scedi:SCELabel" minOccurs="0" maxOccurs="1">
+					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: label
@@ -143,43 +124,71 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+					<xsd:annotation>
+						<xsd:documentation>
+							a reference to the Element represented by this Edge.
+							Note that the sourceElement or targetElement attributes of Edge MUST ONLY
+							be present if the Edge is depicted between a different source or target than the
+							one referenced by the modelElement of the Edge.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="sourceElement" type="xsd:QName" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							an optional reference to the DiagramElement that this Edge starts from.
+							This attribute MUST ONLY be present if the Edge is depicted starting from
+							a different source than the one referenced by the modelElement of the Edge.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="targetElement" type="xsd:QName" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							an optional reference to the DiagramElement that this Edge ends at.
+							This attribute MUST ONLY be present if the Edge is depicted ending at
+							a different target than the one referenced by the modelElement of the Edge.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCELabel" type="scedi:tSCELabel"/>
-	<xsd:complexType name="tSCELabel">
+	<xsd:element name="label" type="scedi:tLabel"/>
+	<xsd:complexType name="tLabel">
 		<xsd:annotation>
 			<xsd:documentation>
-				SCELabel represents the depiction of some textual information about a  element. A SCELabel
-				is not a top-level element but is always nested inside either a SCEShape or a SCEEdge. It
+				Label represents the depiction of some textual information about a  element. A Label
+				is not a top-level element but is always nested inside either a Shape or a Edge. It
 				does not have its own reference to a SCE element but rather inherits that reference from its
-				parent SCEShape or DMNEdge. The textual information depicted by the label is derived from
-				the name attribute of the referenced SCEElement.
+				parent Shape or DMNEdge. The textual information depicted by the label is derived from
+				the name attribute of the referenced Element.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="di:tShape">
 				<xsd:attribute name="text" type="xsd:string" use="optional"/>
 			</xsd:extension>
 			<!-- DS changed type from xsd:String to xsd:string (case sensitive) -->
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCEShape" type="scedi:tSCEShape" substitutionGroup="scedi:SCEDiagramElement"/>
-	<xsd:complexType name="tSCEShape">
+	<xsd:element name="shape" type="scedi:tShape" substitutionGroup="scedi:diagramElement"/>
+	<xsd:complexType name="tShape">
 		<xsd:annotation>
 			<xsd:documentation>
-				The SCEShape class specializes DI::Shape and SCEDiagramElement. It is a kind of Shape that depicts a DMNElement from the SCE-dependent model. 
-				SCEShape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
-				to their diagrams. SCEShape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
+				The Shape class specializes DI::Shape and DiagramElement. It is a kind of DI::Shape that depicts a Element from the SCE-dependent model. 
+				Shape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
+				to their diagrams. Shape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
 				further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="di:Shape">
+			<xsd:extension base="di:tShape">
 				<xsd:sequence>
-					<xsd:element ref="scedi:SCELabel" minOccurs="0" maxOccurs="1">
+					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: label
@@ -188,91 +197,91 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="sceElementRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								A reference to the SCEElement that is being depicted.                
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
+				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+					<xsd:annotation>
+						<xsd:documentation>
+							a reference to the Element represented by this Shape.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="SCEStyle" type="scedi:tSCEStyle" substitutionGroup="di:Style">
+	<xsd:element name="style" type="scedi:tStyle" substitutionGroup="di:Style">
 		<xsd:annotation>
 			<xsd:documentation>
-				SCEStyle specializes DC::Style. It is a kind of style that provides appearance options for a SCEDiagramElement. SCEStyle is used to keep some 
+				Style specializes DC::Style. It is a kind of style that provides appearance options for a DiagramElement. Style is used to keep some 
 				non-normative visual attributes such as colors and font. SCE doesn’t give any semantic to color and font styling, but tools can decide to use them and
-				interchange them. SCEDiagramElement style is calculated by percolating up SCEStyle attributes defined at a different level of the hierarchy. 
-				Each attribute is considered independently (meaning that a SCEStyle attribute can be individually overloaded). The precedence rules are as follow:
-				• The SCEStyle defined by the localStyle attribute of the SCEDiagramElement
-				• The SCEStyle referenced by the sharedStyle attribute of the SCEDiagramElement
-				• The SCEStyle defined by the localStyle attribute of the parent SCEDiagram
-				• The SCEStyle referenced by the sharedStyle attribute of the parent SCEDiagram
-				The default attribute value defined in SCEStyle attributes.
+				interchange them. DiagramElement style is calculated by percolating up Style attributes defined at a different level of the hierarchy. 
+				Each attribute is considered independently (meaning that a Style attribute can be individually overloaded). The precedence rules are as follow:
+				• The Style defined by the localStyle attribute of the DiagramElement
+				• The Style referenced by the sharedStyle attribute of the DiagramElement
+				• The Style defined by the localStyle attribute of the parent Diagram
+				• The Style referenced by the sharedStyle attribute of the parent Diagram
+				The default attribute value defined in Style attributes.
 				For example, let’s say we have the following:
-				• SCEDiagramElement has a local SCEStyle that specifies the fillColor and strokeColor
-				• Its parent SCEDiagram defines a local SCEStyle that specifies the fillColor and fontColor
-				Then the resulting SCEDiagramElement should use:
-				• The fillColor and strokeColor defined at the SCEDiagramElement level (as they are defined
+				• DiagramElement has a local Style that specifies the fillColor and strokeColor
+				• Its parent Diagram defines a local Style that specifies the fillColor and fontColor
+				Then the resulting DiagramElement should use:
+				• The fillColor and strokeColor defined at the DiagramElement level (as they are defined
 				locally).
-				• The fontColor defined at the SCEDiagram level (as the fillColor was overloaded locally).
-				• All other SCEStyle attributes would have their default values.
+				• The fontColor defined at the Diagram level (as the fillColor was overloaded locally).
+				• All other Style attributes would have their default values.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
-	<xsd:complexType name="tSCEStyle">
+	<xsd:complexType name="tStyle">
 		<xsd:complexContent>
-			<xsd:extension base="di:Style">
+			<xsd:extension base="di:tStyle">
 				<xsd:sequence>
-					<xsd:element name="fillColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="fillColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								The color use to write the label. The default is black.
+								The color use to fill the shape. Does not apply to Edge.
+								The default is white.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="strokeColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="strokeColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The color use to draw the shape borders. The default is black.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="fontColor" type="dc:Color" minOccurs="0" maxOccurs="1">
+					<xsd:element name="fontColor" type="dc:tColor" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								The color use to write the label. The default is black.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="labelHorizontalAlignement" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								How text should be positioned horizontally within the Label bounds. Default depends
-								of the SCEDiagramElement the label is attached to (see section below).
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="labelVerticalAlignment" type="dc:AlignmentKind" minOccurs="0" maxOccurs="1">
-						<xsd:annotation>
-							<xsd:documentation>
-								How the text should be positioned vertically inside the Label bounds. Default
-								depends of the SCEDiagramElement the label is attached to (see section below). Start
-								means “top” and end means “bottom”.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="fontStrikeThrough" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontUnderline" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontBold" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontItalic" type="xsd:boolean" use="optional"/>
-				<xsd:attribute name="fontSize" type="xsd:double" use="optional"/>
-				<xsd:attribute name="fontFamily" type="xsd:string" use="optional"/>
+				<xsd:attribute name="fontStrikeThrough" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontUnderline" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontBold" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontItalic" type="xsd:boolean" use="optional" default="false"/>
+				<xsd:attribute name="fontSize" type="xsd:double" use="optional" default="8"/>
+				<xsd:attribute name="fontFamily" type="xsd:string" use="optional" default="Arial"/>
+				<xsd:attribute name="labelHorizontalAlignment" type="dc:tAlignmentKind" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							How text should be positioned horizontally within the Label bounds. Default depends
+							of the DiagramElement the label is attached to (see section below).
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="labelVerticalAlignment" type="dc:tAlignmentKind" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							How the text should be positioned vertically inside the Label bounds. Default
+							depends of the DiagramElement the label is attached to (see section below). Start
+							means “top” and end means “bottom”.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
