@@ -119,28 +119,28 @@
 	<xsd:complexType name="tAssociation">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tModelArtifact">
-				<xsd:sequence>
-					<xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
+				<xsd:attribute name="sourceRef" type="xsd:QName" use="optional">
 						<xsd:annotation>
 							<xsd:documentation>
 								The Element that the Association is connecting from.
+							This attribute is optional for backwards compatibility with CMMN.
 						    </xsd:documentation>
 						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="targetRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
+				</xsd:attribute>
+				<xsd:attribute name="targetRef" type="xsd:QName" use="optional">
 						<xsd:annotation>
 							<xsd:documentation>
 								The Element that the Association is connecting to.
+							This attribute is optional for backwards compatibility with CMMN.
 						    </xsd:documentation>
 						</xsd:annotation>
-					</xsd:element>
-				</xsd:sequence>
-				<xsd:attribute name="associationDirection" type="sce:tAssociationDirection" use="required">
+				</xsd:attribute>
+				<xsd:attribute name="associationDirection" type="sce:tAssociationDirection" use="optional" default="None">
 					<xsd:annotation>
 						<xsd:documentation>
 							AssociationDirection is an attribute that defines whether or not the Association shows any directionality with 
-							an arrowhead. The default is “none” (no arrowhead). A value of “one” means that the arrowhead SHALL be at the 
-							Target Object. A value of “both” means that there SHALL be an arrowhead at both ends of the Association line.
+							an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the 
+							Target Object. A value of “Both” means that there SHALL be an arrowhead at both ends of the Association line.
 						</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
@@ -152,14 +152,14 @@
 		<xsd:annotation>
 			<xsd:documentation>
 			    AssociationDirection is an enumerated list that defines the options regarding whether or not an Association shows any directionality 
-			    with an arrowhead. The default is “none” (no arrowhead). A value of “one” means that the arrowhead SHALL be at the Target Object. A 
-			    value of “both” means that there SHALL be an arrowhead at both ends of the Association line.
+			    with an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the Target Object. A 
+			    value of “Both” means that there SHALL be an arrowhead at both ends of the Association line.
 		    </xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="one"/>
-			<xsd:enumeration value="none"/>
-			<xsd:enumeration value="both"/>
+			<xsd:enumeration value="None"/>
+			<xsd:enumeration value="One"/>
+			<xsd:enumeration value="Both"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 
@@ -645,8 +645,8 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="externalRelationship" type="sce:tExternalRelationship"/>	
-	<xsd:complexType name="tExternalRelationship">
+	<xsd:element name="relationship" type="sce:tRelationship"/>	
+	<xsd:complexType name="tRelationship">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tBaseElement">
 				<xsd:sequence>
@@ -710,35 +710,35 @@
 	<xsd:simpleType name="tRelationshipDirection">
 		<xsd:annotation>
 			<xsd:documentation>
-			    This enumeration list specifies the direction of the relationship.
+			    This enumeration list specifies the direction of the Relationship.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="both">
+			<xsd:enumeration value="Both">
 				<xsd:annotation>
 					<xsd:documentation>
-						This literal specifies that the ExternalRelationship is in the direction from the target to the source and from the source to the target.
+						This literal specifies that the Relationship is in the direction from the target to the source and from the source to the target.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>
-			<xsd:enumeration value="backward">
+			<xsd:enumeration value="Backward">
 				<xsd:annotation>
 					<xsd:documentation>
-						This literal specifies that the ExternalRelationship is in the direction from the target to the source.
+						This literal specifies that the Relationship is in the direction from the target to the source.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>
-			<xsd:enumeration value="none">
+			<xsd:enumeration value="None">
 				<xsd:annotation>
 					<xsd:documentation>
-						This literal specifies that the ExternalRelationship between the source and target is none.
+						This literal specifies that the Relationship between the source and target is none.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>
-			<xsd:enumeration value="forward">
+			<xsd:enumeration value="Forward">
 				<xsd:annotation>
 					<xsd:documentation>
-						This literal specifies that the ExternalRelationship is in the direction from the source to the target.
+						This literal specifies that the Relationship is in the direction from the source to the target.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>

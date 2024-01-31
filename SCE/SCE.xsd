@@ -55,10 +55,10 @@
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element ref="sce:externalRelationship" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="sce:relationship" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						This is a list of all the external relationships contained within a concrete specialization of Model.
+						This is a list of all the external Relationships contained within a concrete specialization of Model.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
