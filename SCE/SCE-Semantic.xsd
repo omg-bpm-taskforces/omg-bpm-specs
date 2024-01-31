@@ -189,44 +189,54 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tModelArtifact">
 				<xsd:sequence>
-					<xsd:element name="annotatedElement" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="sce:text" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								If the TextAnnotation is associated with (is the source of an Association) another diagram element, this association will 
-								identify the target of the Association. It is derived from the connected Association element.
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-					<xsd:element name="commentRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-						<xsd:annotation>
-							<xsd:documentation>
-								Comment is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
-								The text within a comment references a Documentation element that is contained in Package. Thus, a particular comment 
-								may appear on multiple diagrams. This attribute is optional, but if it used, then the note attribute SHALL NOT be used.
+								text is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
+								The text within a text is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional, 
+								but if it used, then the useDocumentation attribute SHALL NOT be used.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="language" type="xsd:string" use="required">
+				<xsd:attribute name="textFormat" type="xsd:string" use="optional" default="text/plain">
 					<xsd:annotation>
 						<xsd:documentation>
-							The named language can be a natural language, in which case the body is an informal representation, or an artifical language, 
-							in which case the body is expected to be a formal, machine-parsable representation. If the note attribute is used, 
-							then the language attribute is required.
+							This attribute identifies the format of the text.
+							It MUST follow the mime-type format.
+							The default is "text/plain."
+							This attribute is optional, but if useDocumentation
+							is used, then this attribute SHALL NOT be used.
 					    </xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
-				<xsd:attribute name="note" type="xsd:string" use="required">
+				<xsd:attribute name="useDocumentation" type="xsd:boolean" use="optional" default="false">
 					<xsd:annotation>
 						<xsd:documentation>
-							Note is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
-							The text within a note is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional, 
-							but if it used, then the comment attribute SHALL NOT be used.
+							useDocumentation is one of two attributes that provides text that
+							the modeler wishes to communicate to the reader of the model. This
+							flag will allow a TextAnnotation to display the Documentation of the
+							model element that the TextAnnotation is associated with, i.e., is
+							connected to by an Association.
+							This attribute is optional, but if it used, then the text and
+							textformat attribute SHALL NOT be used.
+							This MUST not be true if there is no Association.
 						</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
 		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:element name="text" type="sce:tText"/>
+	<xsd:complexType name="tText" mixed="true">
+		<xsd:sequence>
+			<xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Added for backwards compatibility with BPMN.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:any>
+		</xsd:sequence>
 	</xsd:complexType>
 
 	<xsd:element name="baseElement" type="sce:tBaseElement" abstract="true">
@@ -484,7 +494,11 @@
 	</xsd:element>
 	<xsd:complexType name="tDocumentation" mixed="true">
 		<xsd:sequence>
-			<xsd:any namespace="##any" processContents="lax" minOccurs="0"/>
+			<xsd:any namespace="##any" processContents="lax" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Added for backwards compatibility with BPMN and CMMN.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:any>
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:ID" use="optional"/>
 		<xsd:attribute name="textFormat" type="xsd:string" default="text/plain"/>
