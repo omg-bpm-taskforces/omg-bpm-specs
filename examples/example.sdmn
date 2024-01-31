@@ -5,8 +5,8 @@
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
-    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
+    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
@@ -24,13 +24,25 @@
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
 
+  <sdmn:dataItem id="dataItem1">
+    <sce:categoryRef>childCategory_West</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:dataItem id="dataItem2">
+    <sce:categoryRef>childCategory_East</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:containmentConnector id="c1">
+    <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
+    <sdmn:targetRef>dataItem2</sdmn:targetRef>
+  </sdmn:containmentConnector>
 
   <sce:category id="category_Region" name="Region">
     <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
     <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
     <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
     <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
-  </sce:category>
+  </sce:category>  
 
   <scedi:diagrams>
     <scedi:diagram>
@@ -46,18 +58,5 @@
       </scedi:edge>
     </scedi:diagram>
   </scedi:diagrams>
-
-  <sdmn:dataItem id="dataItem1">
-    <sce:categoryRef>childCategory_West</sce:categoryRef>
-  </sdmn:dataItem>
-
-  <sdmn:dataItem id="dataItem2">
-    <sce:categoryRef>childCategory_East</sce:categoryRef>
-  </sdmn:dataItem>
-
-  <sdmn:containmentConnector id="c1">
-    <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
-    <sdmn:targetRef>dataItem2</sdmn:targetRef>
-  </sdmn:containmentConnector>
 
 </sdmn:sharedDataModel>

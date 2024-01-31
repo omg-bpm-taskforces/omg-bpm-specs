@@ -24,15 +24,6 @@
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
 
-  <scedi:diagrams>
-    <scedi:diagram>
-      <scedi:Size width="500" height="500"/>
-      <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
-        <dc:Bounds x="160" y="120" width="150" height="60"/>
-      </scedi:shape>
-    </scedi:diagram>
-  </scedi:diagrams>
-
   <!-- DMN will reference by @name while BPMN uses @id -->
   <sdmn:itemDefinition id="itemDef_Name" name="Name"
       itemKind="DataType" multiplicityKind="Unspecified" isCollection="false"
@@ -44,5 +35,14 @@
     <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
   </sdmn:dataItem>
   <sdmn:dataItem id="dataItem_Greeting"/>
+
+  <scedi:diagrams>
+    <scedi:diagram>
+      <scedi:Size width="500" height="500"/>
+      <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
+        <dc:Bounds x="160" y="120" width="150" height="60"/>
+      </scedi:shape>
+    </scedi:diagram>
+  </scedi:diagrams>
 
 </sdmn:sharedDataModel>

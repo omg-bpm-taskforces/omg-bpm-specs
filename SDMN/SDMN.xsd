@@ -3,13 +3,13 @@
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
     xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
@@ -24,7 +24,15 @@
     </xsd:element>
     <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
-            <xsd:extension base="sce:tModel">
+            <xsd:extension base="sce:tPackage">
+                <!-- This was meant to extend sce:tModel but itemDefinition can
+                    not (yet) use substitutionGroup="sce:rootElement".
+                    Once itemDefinition is a rootElement, this complexType will
+                    just be an empty extension of sce:tModel.
+                    By extending sce:tPackage and adding the element of sce:Model
+                    after itemDefinition, the sequence of elements is going
+                    to be backwards-compatible once itemDefinition is a rootElement.
+                    -->
                 <xsd:sequence>
                     <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
@@ -33,21 +41,9 @@
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Data Items that are included in the SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
+                    <xsd:group ref="sce:elementsOfModel"/>
                 </xsd:sequence>
+                <xsd:attributeGroup ref="sce:attributesOfModel"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
