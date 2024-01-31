@@ -120,20 +120,20 @@
 		<xsd:complexContent>
 			<xsd:extension base="sce:tModelArtifact">
 				<xsd:attribute name="sourceRef" type="xsd:QName" use="optional">
-						<xsd:annotation>
-							<xsd:documentation>
-								The Element that the Association is connecting from.
+					<xsd:annotation>
+						<xsd:documentation>
+							The Element that the Association is connecting from.
 							This attribute is optional for backwards compatibility with CMMN.
-						    </xsd:documentation>
-						</xsd:annotation>
+						</xsd:documentation>
+					</xsd:annotation>
 				</xsd:attribute>
 				<xsd:attribute name="targetRef" type="xsd:QName" use="optional">
-						<xsd:annotation>
-							<xsd:documentation>
-								The Element that the Association is connecting to.
+					<xsd:annotation>
+						<xsd:documentation>
+							The Element that the Association is connecting to.
 							This attribute is optional for backwards compatibility with CMMN.
-						    </xsd:documentation>
-						</xsd:annotation>
+						</xsd:documentation>
+					</xsd:annotation>
 				</xsd:attribute>
 				<xsd:attribute name="associationDirection" type="sce:tAssociationDirection" use="optional" default="None">
 					<xsd:annotation>
@@ -386,19 +386,6 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	<xsd:element name="annotation" type="sce:tAnnotation" abstract="true">
-		<xsd:annotation>
-			<xsd:documentation>
-				The Annotation element is an abstract element that is used to organize a set of elements that are used to annotate any 
-				concrete specialization of Element. The containment of Annotations depends on the specific type of Annotation.
-			</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="tAnnotation" abstract="true">
-		<xsd:complexContent>
-			<xsd:extension base="sce:tBaseElement"/>
-		</xsd:complexContent>
-	</xsd:complexType>
 
 	<xsd:element name="import" type="sce:tImport">
 		<xsd:annotation>
@@ -437,7 +424,7 @@
 		</xsd:attribute>				
 	</xsd:complexType>
 	
-	<xsd:element name="attachment" type="sce:tAttachment" substitutionGroup="sce:annotation">
+	<xsd:element name="attachment" type="sce:tAttachment">
 		<xsd:annotation>
 			<xsd:documentation>
 				The Attachment element provides a place for model developers to provide attached documents to a model element.
@@ -448,7 +435,7 @@
 	</xsd:element>
 	<xsd:complexType name="tAttachment">
 		<xsd:complexContent>
-			<xsd:extension base="sce:tAnnotation">
+			<xsd:extension base="sce:tBaseElement">
 				<xsd:attribute name="attachmentLocation" type="xsd:anyURI" use="required">
 					<xsd:annotation>
 						<xsd:documentation>
