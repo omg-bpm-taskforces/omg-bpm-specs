@@ -5,8 +5,8 @@
         <semantic:itemComponent id="_e0e862b6-d054-4844-a7fa-a3c9f6152b32" name="Patient Name" isCollection="false">
             <semantic:typeRef>string</semantic:typeRef>
         </semantic:itemComponent>
-        <semantic:itemComponent id="_ea5c117c-3328-41db-9e2c-e04e4919ee5c" name="Demographics" isCollection="false">
-            <semantic:typeRef id="toD">tDemographics</semantic:typeRef>
+        <semantic:itemComponent id="toD" name="Demographics" isCollection="false">
+            <semantic:typeRef>tDemographics</semantic:typeRef>
         </semantic:itemComponent>
         <semantic:itemComponent id="ItemComp_tPatientHealthRecord.Appointment" name="Appointment" isCollection="true">
             <semantic:itemComponent id="_beb1d80e-a8cb-407f-9316-16970458ce09" name="Appointment Date" isCollection="false">
@@ -33,11 +33,11 @@
         <semantic:itemComponent id="_b4265016-b4ab-4142-9775-d1e4b5dc6f3b" name="Date Of Birth" isCollection="false">
             <semantic:typeRef>date</semantic:typeRef>
         </semantic:itemComponent>
-        <semantic:itemComponent id="_155014a6-5bc6-4ad5-a392-48dd8e1a2022" name="Sex" isCollection="false">
-            <semantic:typeRef id="toS">tSex</semantic:typeRef>
+        <semantic:itemComponent id="toS" name="Sex" isCollection="false">
+            <semantic:typeRef>tSex</semantic:typeRef>
         </semantic:itemComponent>
-        <semantic:itemComponent id="_3e1ae9b0-9058-421b-b5ce-5bb39257ce73" name="Ethnicity" isCollection="true">
-            <semantic:typeRef id="toE">tEthnicity</semantic:typeRef>
+        <semantic:itemComponent id="toE" name="Ethnicity" isCollection="true">
+            <semantic:typeRef>tEthnicity</semantic:typeRef>
         </semantic:itemComponent>
         <semantic:itemComponent id="_7285bbc4-79f6-4f7c-b24e-cf2442263d3e" name="State of Residence" isCollection="false">
             <semantic:typeRef>string</semantic:typeRef>
