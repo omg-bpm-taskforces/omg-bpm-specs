@@ -2,8 +2,8 @@
 <dmn:definitions name="DRD" id="Greeting_DRD"
     namespace="https://example.org/hello-world/decisions"
     xmlns="https://example.org/hello-world/decisions"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
-    xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
+    xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"
     xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
     xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
     >

@@ -2,12 +2,12 @@
 <xsd:schema xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
    
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
-    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/" schemaLocation="../DMN/DMN13.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
 
     <xsd:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">
         <xsd:annotation>

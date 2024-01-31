@@ -4,13 +4,11 @@
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
-    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
     <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">

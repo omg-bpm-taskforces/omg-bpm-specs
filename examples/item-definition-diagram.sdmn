@@ -21,7 +21,7 @@
       ../SCE/DI.xsd
       http://www.omg.org/spec/SCE/20210830/DC
       ../SCE/DC.xsd
-      https://www.omg.org/spec/DMN/20191111/MODEL/
+      https://www.omg.org/spec/DMN/20230324/MODEL/
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
 
