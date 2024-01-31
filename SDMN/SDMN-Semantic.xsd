@@ -9,13 +9,6 @@
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/" schemaLocation="../DMN/DMN13.xsd"/>
 
-    <xsd:element name="import" type="sdmn:tImport"/>
-    <xsd:complexType name="tImport">
-        <xsd:attribute name="namespace" type="xsd:anyURI" use="required"/>
-        <xsd:attribute name="location" type="xsd:string" use="required"/>
-        <xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
-    </xsd:complexType>
-   
     <xsd:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">
         <xsd:annotation>
             <xsd:documentation>
