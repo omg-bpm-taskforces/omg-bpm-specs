@@ -55,5 +55,5 @@ jobs:
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world.dmn
-          xml-schema-file: DMN/DMN13.xsd
+          xml-schema-file: DMN/DMN15.xsd
         if: always()

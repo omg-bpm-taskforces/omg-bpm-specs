@@ -1,64 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage id="SharedDataModel"
+<sdmn:sharedDataModel id="SharedDataModel"
     targetNamespace="https://example.org/shared-data-model"
     xmlns="https://example.org/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
-    xmlns:multiplicity="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
-    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
+    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    >
+    xsi:schemaLocation="
+      https://www.omg.org/spec/SDMN/20211108/MODEL
+      ../SDMN/SDMN.xsd
+      https://www.omg.org/spec/SCE/20211108/MODEL
+      ../SCE/SCE.xsd
+      https://www.omg.org/spec/SCE/20211108/SCEDI
+      ../SCE/SCEDI.xsd
+      http://www.omg.org/spec/SCE/20210830/DI
+      ../SCE/DI.xsd
+      http://www.omg.org/spec/SCE/20210830/DC
+      ../SCE/DC.xsd
+      https://www.omg.org/spec/DMN/20230324/MODEL/
+      https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+    ">
 
-  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
-  <sce:presentation/>
-  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
-    <sce:category id="category_Region" name="Region">
-      <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
-      <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
-      <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
-      <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
-    </sce:category>
-    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
-      <sce:categoryRef>category_Region</sce:categoryRef>
-      <sdmn:dataItem id="dataItem1">
-        <sce:categoryRef>childCategory_West</sce:categoryRef>
-      </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem2">
-        <sce:categoryRef>childCategory_East</sce:categoryRef>
-      </sdmn:dataItem>
-      <sdmn:sharedDataModel id="sharedDataModel1" targetNamespace="https://example.org/shared-data-model">
-        <sdmn:dataItemRef>dataItem1</sdmn:dataItemRef>
-        <sdmn:dataItemRef>dataItem2</sdmn:dataItemRef>
-        <sdmn:containmentConnector id="c1">
-          <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
-          <sdmn:targetRef>dataItem2</sdmn:targetRef>
-        </sdmn:containmentConnector>
-      </sdmn:sharedDataModel>
-    </sdmn:SDMNDefinitions>
-  </sdmn:SDMNModel>
-  <sdmndi:SDMNDI>
-    <sdmndi:SDMNDiagram>
-      <sdmndi:SDMNShape id="dataItem1_di">
+  <sdmn:dataItem id="dataItem1">
+    <sce:categoryRef>childCategory_West</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:dataItem id="dataItem2">
+    <sce:categoryRef>childCategory_East</sce:categoryRef>
+  </sdmn:dataItem>
+
+  <sdmn:containmentConnector id="c1">
+    <sdmn:sourceRef>dataItem1</sdmn:sourceRef>
+    <sdmn:targetRef>dataItem2</sdmn:targetRef>
+  </sdmn:containmentConnector>
+
+  <sce:category id="category_Region" name="Region">
+    <sce:category id="childCategory_North" name="North" aliasIds="N up"/>
+    <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
+    <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
+    <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
+  </sce:category>  
+
+  <scedi:diagrams>
+    <scedi:diagram>
+      <scedi:shape id="dataItem1_di" modelElement="dataItem1">
         <dc:Bounds x="152" y="115" width="36" height="50" />
-        <scedi:sceElementRef>dataItem1</scedi:sceElementRef>
-      </sdmndi:SDMNShape>
-      <sdmndi:SDMNShape id="dataItem2_di">
+      </scedi:shape>
+      <scedi:shape id="dataItem2_di" modelElement="dataItem2">
         <dc:Bounds x="270" y="115" width="36" height="50" />
-        <scedi:sceElementRef>dataItem2</scedi:sceElementRef>
-      </sdmndi:SDMNShape>
-      <sdmndi:SDMNEdge id="c1_di">
+      </scedi:shape>
+      <scedi:edge id="c1_di" modelElement="c1">
         <di:waypoint x="188" y="140" />
         <di:waypoint x="270" y="140" />
-        <!-- FIXME: avoid redundance and use <scedi:sceElementRef>c1</scedi:sceElementRef> -->
-        <!-- FIXME: source and target should either be removed from SCEDI
-          or at least be optional and in the right order -->
-        <scedi:targetElementRef>dataItem2</scedi:targetElementRef>
-        <scedi:sourceElementRef>dataItem1</scedi:sourceElementRef>
-      </sdmndi:SDMNEdge>
-    </sdmndi:SDMNDiagram>
-  </sdmndi:SDMNDI>
-</sdmn:SDMNModelPackage>
+      </scedi:edge>
+    </scedi:diagram>
+  </scedi:diagrams>
+
+</sdmn:sharedDataModel>

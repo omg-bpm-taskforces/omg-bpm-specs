@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage id="HelloWorldDataModel"
+<sdmn:sharedDataModel id="HelloWorldDataModel"
     targetNamespace="https://example.org/hello-world/shared-data-model"
     xmlns="https://example.org/hello-world/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
-    xmlns:multiplicity="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds"
-    xmlns:itemkind="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/ItemKinds"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
     xmlns:di="http://www.omg.org/spec/SCE/20210830/DI" 
     xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC" 
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    >
+    xsi:schemaLocation="
+      https://www.omg.org/spec/SDMN/20211108/MODEL
+      ../../SDMN/SDMN.xsd
+      https://www.omg.org/spec/SCE/20211108/MODEL
+      ../../SCE/SCE.xsd
+      https://www.omg.org/spec/SCE/20211108/SCEDI
+      ../../SCE/SCEDI.xsd
+      http://www.omg.org/spec/SCE/20210830/DI
+      ../../SCE/DI.xsd
+      http://www.omg.org/spec/SCE/20210830/DC
+      ../../SCE/DC.xsd
+      https://www.omg.org/spec/DMN/20230324/MODEL/
+      https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+    ">
 
-  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model id="fixme" targetNamespace="fixme:SCE-41" />
-  <sce:presentation/>
-  <sdmn:SDMNModel id="model1" targetNamespace="fixme:SCE-41">
-    <sdmn:SDMNDefinitions targetNamespace="fixme:SCE-41" id="definitions1">
+  <!-- DMN will reference by @name while BPMN uses @id -->
+  <sdmn:itemDefinition id="itemDef_Name" name="Name"
+      itemKind="DataType" multiplicityKind="Unspecified" isCollection="false"
+      conceptReference="https://en.wikipedia.org/wiki/Name">
+    <dmn:typeRef>string</dmn:typeRef>
+  </sdmn:itemDefinition>
 
-      <sdmn:dataItem id="dataItem_Name" multiplicityKind="Unspecified">
-        <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
-      </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem_Greeting"/>
+  <sdmn:dataItem id="dataItem_Name" multiplicityKind="Unspecified">
+    <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
+  </sdmn:dataItem>
+  <sdmn:dataItem id="dataItem_Greeting"/>
 
-      <!-- DMN will reference by @name while BPMN uses @id -->
-      <sdmn:itemDefinition id="itemDef_Name" name="Name"
-          itemKind="DataType" multiplicityKind="Unspecified" isCollection="false"
-          conceptReference="https://en.wikipedia.org/wiki/Name">
-        <dmn:typeRef>string</dmn:typeRef>
-      </sdmn:itemDefinition>
-      <sdmn:sharedDataModel targetNamespace="fixme:SCE-41" id="sDM1">
-        <sdmn:itemDefinitionRef>itemDef_Name</sdmn:itemDefinitionRef>
-      </sdmn:sharedDataModel>
-    </sdmn:SDMNDefinitions>
-  </sdmn:SDMNModel>
-  <sdmndi:SDMNDI>
-    <sdmndi:SDMNDiagram>
-      <sdmndi:SDMNShape id="itemDef_Name_di">
+  <scedi:diagrams>
+    <scedi:diagram>
+      <scedi:Size width="500" height="500"/>
+      <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
         <dc:Bounds x="160" y="120" width="150" height="60"/>
-        <scedi:sceElementRef>itemDef_Name</scedi:sceElementRef>
-      </sdmndi:SDMNShape>
-    </sdmndi:SDMNDiagram>
-  </sdmndi:SDMNDI>
-</sdmn:SDMNModelPackage>
+      </scedi:shape>
+    </scedi:diagram>
+  </scedi:diagrams>
+
+</sdmn:sharedDataModel>

@@ -2,116 +2,14 @@
 <xsd:schema xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
    
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
-    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/" schemaLocation="../DMN/DMN13.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
 
-    <xsd:element name="import" type="sdmn:tImport"/>
-    <xsd:complexType name="tImport">
-        <xsd:attribute name="namespace" type="xsd:anyURI" use="required"/>
-        <xsd:attribute name="location" type="xsd:string" use="required"/>
-        <xsd:attribute name="importType" type="xsd:anyURI" use="required"/>
-    </xsd:complexType>
-    
-    <xsd:element name="SDMNModel" type="sdmn:tSDMNModel">
-        <xsd:annotation>
-            <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
-                for a Shared Data Model usually would be appended with a “.sdmn” label.
-            </xsd:documentation>
-        </xsd:annotation>        
-    </xsd:element>
-    <xsd:complexType name="tSDMNModel">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModel">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:SDMNDefinitions" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the SDMNDefinitions that are included in the SDMNModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="SDMNDefinitions" type="sdmn:tSDMNDefinitions">
-        <xsd:annotation>
-            <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
-                for a Shared Data Model usually would be appended with a “.sdmn” label.
-            </xsd:documentation>
-        </xsd:annotation>        
-    </xsd:element>
-    <xsd:complexType name="tSDMNDefinitions">
-        <xsd:complexContent>
-            <xsd:extension base="sce:tSCEDefinitions">
-                <xsd:sequence>
-                    <xsd:element ref="sdmn:dataItem" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Data Items that are included in the SDMNDefinitions.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This is a list of the ItemDefinitions that are included in the SDMNPackage.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:sharedDataModel" minOccurs="0" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                TBD... 
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>                    
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-
-    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel"/>
-    <xsd:complexType name="tSharedDataModel">
-        <xsd:complexContent>
-            <xsd:extension base="sdmn:tSDMNDefinitions">
-                <xsd:sequence>
-                    <xsd:element name="itemDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of references to the ItemDefinitions that are included in this SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element name="dataItemRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of references to the DataItems that are included in this SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element ref="sdmn:connector" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:annotation>
-                            <xsd:documentation> 
-                                This is a list of the Connectors (Composition, Containment, Reference, and Data Association) that are included in the SharedDataModel.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
-                </xsd:sequence>
-            </xsd:extension>
-        </xsd:complexContent>
-    </xsd:complexType>
-    
-    <xsd:element name="dataItem" type="sdmn:tDataItem">
+    <xsd:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">
         <xsd:annotation>
             <xsd:documentation>
                 A SDMN Data Item represents a common definition and structure for the data handling elements of the other BPM+ models.
@@ -120,7 +18,7 @@
     </xsd:element>
     <xsd:complexType name="tDataItem">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tRootElement">
                 <xsd:sequence>
                     <xsd:element name="metaDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
                         <xsd:annotation>
@@ -171,7 +69,7 @@
     </xsd:element>
     <xsd:complexType name="tAssignment">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tRootElement">
                 <xsd:sequence>
                     <xsd:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>
@@ -186,7 +84,7 @@
         </xsd:complexContent>
     </xsd:complexType>
 
-    <xsd:element name="itemDefinition" type="sdmn:tItemDefinition">
+    <xsd:element name="itemDefinition" type="sdmn:tItemDefinition"><!-- TODO substitutionGroup="sce:rootElement" -->
         <xsd:annotation>
             <xsd:documentation>
                 Defines the detailed structure, which can be simple or complex, of a Data Item.
@@ -239,10 +137,10 @@
         </xsd:complexContent>
     </xsd:complexType>
     
-    <xsd:element name="connector" abstract="true" type="sdmn:tConnector"/>
+    <xsd:element name="connector" abstract="true" type="sdmn:tConnector" substitutionGroup="sce:rootElement"/>
     <xsd:complexType name="tConnector">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEElement">
+            <xsd:extension base="sce:tRootElement">
                 <xsd:sequence>
                     <xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
                         <xsd:annotation>

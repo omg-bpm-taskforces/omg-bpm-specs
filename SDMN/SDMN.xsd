@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
+<xsd:schema id="SDMN" version="1.0"
+    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="qualified"
-    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
+    elementFormDefault="qualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
-    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
-    <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
-    <xsd:element name="SDMNModelPackage" type="tSDMNModelPackage">
+    <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
         <xsd:annotation>
             <xsd:documentation>
-                The SDMNPackage class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
-                for all contained elements. The interchange of SDMN files will always be through one or more SDMNPackages. Specifically, an XML file 
+                The SharedDataModel class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace 
+                for all contained elements. The interchange of SDMN files will always be through one or more SharedDataModels. Specifically, an XML file 
                 for a Shared Data Model usually would be appended with a “.sdmn” label.
             </xsd:documentation>
         </xsd:annotation>        
     </xsd:element>
-    <xsd:complexType name="tSDMNModelPackage">
+    <xsd:complexType name="tSharedDataModel">
         <xsd:complexContent>
-            <xsd:extension base="sce:tSCEModelPackage">
+            <xsd:extension base="sce:tPackage">
+                <!-- This was meant to extend sce:tModel but itemDefinition can
+                    not (yet) use substitutionGroup="sce:rootElement".
+                    Once itemDefinition is a rootElement, this complexType will
+                    just be an empty extension of sce:tModel.
+                    By extending sce:tPackage and adding the element of sce:Model
+                    after itemDefinition, the sequence of elements is going
+                    to be backwards-compatible once itemDefinition is a rootElement.
+                    -->
                 <xsd:sequence>
-                    <xsd:element ref="SDMNModel" minOccurs="0" maxOccurs="1">
+                    <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
                         <xsd:annotation>
                             <xsd:documentation>
-                                This the SDMNModel sub-package contained within a SDMNModelPackage. This redefines the model association of SCEModelPackage. 
+                                This is a list of the ItemDefinitions that are included in the SharedDataModel.
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>
-                    <xsd:element ref="sdmndi:SDMNDI" minOccurs="0" maxOccurs="1">
-                        <xsd:annotation>
-                            <xsd:documentation>
-                                This attribute contains the Diagram Interchange information contained within this SDMNPackage.
-                                This redefines the presentation association of SCEModelPackage.
-                            </xsd:documentation>
-                        </xsd:annotation>
-                    </xsd:element>
+                    <xsd:group ref="sce:elementsOfModel"/>
                 </xsd:sequence>
+                <xsd:attributeGroup ref="sce:attributesOfModel"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>

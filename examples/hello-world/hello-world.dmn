@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions name="DRD" id="Greeting_DRD"
-  namespace="http://camunda.org/schema/1.0/dmn"
-  xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
-  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
-  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
-  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
-  >
+<dmn:definitions name="DRD" id="Greeting_DRD"
+    namespace="https://example.org/hello-world/decisions"
+    xmlns="https://example.org/hello-world/decisions"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
+    xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"
+    xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
+    xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
+    >
 
-  <import name="data" locationURI="./hello-world.sdmn"
+  <dmn:import name="data" locationURI="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
     importType="https://www.omg.org/spec/shared/20211108/MODEL" />
 
-  <decision id="Greeting_Decision" name="Greeting">
-    <variable name="Greeting" typeRef="data.Greeting" />
-    <informationRequirement id="InformationRequirement">
-      <requiredInput href="#InputData_Name" />
-    </informationRequirement>
-    <literalExpression>
-      <text>"Hello " + Name + "!"</text>
-    </literalExpression>
-  </decision>
+  <dmn:decision id="Greeting_Decision" name="Greeting">
+    <dmn:variable name="Greeting" typeRef="data.Greeting" />
+    <dmn:informationRequirement id="InformationRequirement">
+      <dmn:requiredInput href="#InputData_Name" />
+    </dmn:informationRequirement>
+    <dmn:literalExpression>
+      <dmn:text>"Hello " + Name + "!"</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
 
-  <inputData id="InputData_Name" name="Name">
-    <variable name="Name" typeRef="data.Name" />
-  </inputData>
+  <dmn:inputData id="InputData_Name" name="Name">
+    <dmn:variable name="Name" typeRef="data.Name" />
+  </dmn:inputData>
   
   <!-- Quote from DMN spec:
     "Attribute typeRef references ItemDefinitions and built-in types
@@ -48,4 +49,4 @@
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
-</definitions>
+</dmn:definitions>
