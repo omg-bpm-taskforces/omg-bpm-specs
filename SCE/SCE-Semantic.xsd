@@ -397,31 +397,35 @@
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="tImport">
-		<xsd:attribute name="importType" type="xsd:anyURI" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					Identifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the
-					document, e.g. when importing XML Schema 1.0 documents the value of the importType attribute MUST be set to
-					http://www.w3.org/2001/XMLSchema. Other types of documents MAY be supported, e.g., BPMN, DMN, or any SCE-based language.
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="location" type="xsd:anyURI" use="optional">
-			<xsd:annotation>
-				<xsd:documentation>
-					Identifies the location of the imported element within the document identified by the importType.
-					The attribute is optional for backwards compatibility with DMN.
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="namespace" type="xsd:anyURI" use="optional">
-			<xsd:annotation>
-				<xsd:documentation>
-					Identifies the namespace of the imported element.
-					The attribute is optional for backwards compatibility with CMMN.
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>				
+		<xsd:complexContent>
+			<xsd:extension base="sce:tBaseElement">
+				<xsd:attribute name="importType" type="xsd:anyURI" use="required">
+					<xsd:annotation>
+						<xsd:documentation>
+							Identifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the
+							document, e.g. when importing XML Schema 1.0 documents the value of the importType attribute MUST be set to
+							http://www.w3.org/2001/XMLSchema. Other types of documents MAY be supported, e.g., BPMN, DMN, or any SCE-based language.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="location" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							Identifies the location of the imported element within the document identified by the importType.
+							The attribute is optional for backwards compatibility with DMN.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="namespace" type="xsd:anyURI" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>
+							Identifies the namespace of the imported element.
+							The attribute is optional for backwards compatibility with CMMN.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>				
 	</xsd:complexType>
 	
 	<xsd:element name="attachment" type="sce:tAttachment">
