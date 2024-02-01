@@ -25,9 +25,15 @@
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
 
-    <sce:import location="item-definition.dmn"
+    <sce:import name="Patient_Item_Definitions" location="item-definition.dmn"
         importType="https://www.omg.org/spec/DMN/20230324/MODEL/"
         namespace="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" />
+
+    <sdmn:itemDefinition name="ItemDefWithImportedType">
+        <dmn:itemComponent name="Demographics">
+            <dmn:typeRef>Patient_Item_Definitions.tDemographics</dmn:typeRef>
+        </dmn:itemComponent>
+    </sdmn:itemDefinition>
 
     <scedi:diagrams>
         <scedi:diagram>
