@@ -176,10 +176,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="di:tShape">
-				<xsd:attribute name="text" type="xsd:string" use="optional"/>
-			</xsd:extension>
-			<!-- DS changed type from xsd:String to xsd:string (case sensitive) -->
+			<xsd:extension base="di:tShape"/>
 		</xsd:complexContent>
 	</xsd:complexType>
 
