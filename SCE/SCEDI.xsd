@@ -74,6 +74,8 @@
 					</xsd:element>
 				</xsd:sequence>
 				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+					<!-- This attribute is added to Diagram because the multiple
+						inheritence of the UML metamodel is not supported in XSD.-->
 					<xsd:annotation>
 						<xsd:documentation>
 							a reference to the Element represented by this Diagram.
@@ -115,19 +117,25 @@
 			<xsd:extension base="di:tEdge">
 				<xsd:sequence>
 					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
+						<!-- This element is added to Edge because the multiple
+							inheritence of the UML metamodel is not supported in XSD. -->
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: label
-								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
-								An optional label when the SCE-dependent Element has a visible text label.                
+								An optional label when the SCE-dependent Element has a visible text label.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+					<!-- This attribute is added to Edge because the multiple
+						inheritence of the UML metamodel is not supported in XSD.-->
 					<xsd:annotation>
 						<xsd:documentation>
 							a reference to the Element represented by this Edge.
+							This attribute SHOULD be set on all Edges.
+							It is only optional for backwards compatibility and for
+							special situations where the Edge does not depict a model element.
 							Note that the sourceElement or targetElement attributes of Edge MUST ONLY
 							be present if the Edge is depicted between a different source or target than the
 							one referenced by the modelElement of the Edge.
@@ -189,20 +197,26 @@
 			<xsd:extension base="di:tShape">
 				<xsd:sequence>
 					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
+						<!-- This element is added to Shape because the multiple
+							inheritence of the UML metamodel is not supported in XSD. -->
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: label
-								This element is added to Shape because the dual inheritence of the UML metamodel is not supported in XSD.
 								An optional label when the SCE-dependent Element has a visible text label.                
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+					<!-- This attribute is added to Shape because the multiple
+						inheritence of the UML metamodel is not supported in XSD.-->
 					<xsd:annotation>
 						<xsd:documentation>
 							a reference to the Element represented by this Shape.
-						</xsd:documentation>
+							This attribute SHOULD be set on all Shapes.
+							It is only optional for backwards compatibility and for
+							special situations where the Shape does not depict a model element.
+					</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
