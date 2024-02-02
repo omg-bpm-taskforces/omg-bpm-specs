@@ -124,7 +124,7 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
 							a reference to the Element represented by this Edge.
@@ -198,7 +198,7 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-				<xsd:attribute name="modelElement" type="xsd:QName" use="required">
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
 							a reference to the Element represented by this Shape.
