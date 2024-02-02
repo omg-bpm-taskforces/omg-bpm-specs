@@ -18,7 +18,11 @@
 
 	<xsd:element name="Style" type="di:tStyle">
 		<xsd:annotation>
-			<xsd:documentation>This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence</xsd:documentation>
+			<xsd:documentation>
+				This element should never be instantiated directly, but rather a concrete implementation should.
+				It is placed there only to be referred in the sequence of DiagramElement.
+				This element is not marked as abstract for backwards compatibility with DMN and CMMN.
+			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 
@@ -46,13 +50,12 @@
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:complexType>
 
-	<xsd:element name="extension">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
+	<xsd:element name="extension" type="di:tExtension"/>
+	<xsd:complexType name="tExtension">
+		<xsd:sequence>
+			<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
 
 	<xsd:complexType name="tDiagram" abstract="true">
 		<xsd:complexContent>
@@ -109,13 +112,7 @@
 			<xsd:documentation>Style contains formatting properties that affect the appearance or style of diagram elements, including diagram themselves.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="extension" minOccurs="0">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" /> 
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
+			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
 		</xsd:sequence>
 		<xsd:attribute name="id" type="xsd:ID"/>
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+  xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/"
+  xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"
+  xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+  xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
+  id="Definitions_025r4xs"
+  name="DRD"
+  namespace="http://camunda.org/schema/1.0/dmn"
+  exporter="Camunda Modeler"
+  exporterVersion="5.9.0-nightly.20230209"
+  modeler:executionPlatform="Camunda Cloud"
+  modeler:executionPlatformVersion="8.1.0"
+>
+  <extensionElements>
+    <modeler:extension>with content</modeler:extension>
+  </extensionElements>
+  <decision id="Decision_1" name="Decision 1">
+    <extensionElements>
+      <modeler:extension>with content</modeler:extension>
+    </extensionElements>
+    <informationRequirement id="InformationRequirement_1mk58yo">
+      <extensionElements>
+        <modeler:extension>with content</modeler:extension>
+      </extensionElements>
+      <requiredInput href="#InputData_1" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0wgzwut">
+      <input id="Input_1">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" typeRef="string" />
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1" name="Input" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1a0wixn" dmnElementRef="InputData_1">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1r1zmhs" dmnElementRef="InformationRequirement_1mk58yo" modeler:customAttribute="content">
+        <di:extension>
+          <modeler:extension>with content</modeler:extension>
+          <modeler:extension>with content</modeler:extension>
+          <modeler:extension>with content</modeler:extension>
+        </di:extension>
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
