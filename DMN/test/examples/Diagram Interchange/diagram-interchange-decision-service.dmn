@@ -18,8 +18,8 @@
           <dc:Bounds x="354" y="96" width="197" height="18"/>
         </dmndi:DMNLabel>
         <dmndi:DMNDecisionServiceDividerLine>
-          <di:waypoint xsi:type="dc:Point" x="0" y="210" />
-          <di:waypoint xsi:type="dc:Point" x="906" y="210" />
+          <di:waypoint x="0" y="210" />
+          <di:waypoint x="906" y="210" />
         </dmndi:DMNDecisionServiceDividerLine>
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
