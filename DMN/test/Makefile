@@ -3,4 +3,4 @@ all: validate
 
 .PHONY: validate
 validate:
-	xmllint --schema ../DMN15.xsd --noout source.dmn
+	find . -name '*.dmn' -exec xmllint --schema ../DMN15.xsd --noout {} \;
