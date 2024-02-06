@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="DI" version="1.1-SCE1.0"
-		targetNamespace="http://www.omg.org/spec/SCE/20210830/DI"
-		xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
-		xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+		targetNamespace="https://www.omg.org/spec/SCE/DI/"
+		xmlns:di="https://www.omg.org/spec/SCE/DI/"
+		xmlns:dc="https://www.omg.org/spec/SCE/DC/"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		elementFormDefault="qualified">
-	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DC"
+	<xsd:import namespace="https://www.omg.org/spec/SCE/DC/"
 			schemaLocation="DC.xsd"/>
 
 	<xsd:annotation>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="DC" version="1.1-SCE1.0"
-		targetNamespace="http://www.omg.org/spec/SCE/20210830/DC"
-		xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+		targetNamespace="https://www.omg.org/spec/SCE/DC/"
+		xmlns:dc="https://www.omg.org/spec/SCE/DC/"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		elementFormDefault="qualified">
 
