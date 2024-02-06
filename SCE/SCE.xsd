@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SCE" version="1.0"
-    targetNamespace="https://www.omg.org/spec/SCE/20211108/MODEL" 
-    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL" 
-	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+    targetNamespace="https://www.omg.org/spec/SCE/" 
+    xmlns:sce="https://www.omg.org/spec/SCE/" 
+	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	elementFormDefault="qualified">
 
-	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="SCEDI.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/SCEDI/" schemaLocation="SCEDI.xsd"/>
 	<xsd:include schemaLocation="SCE-Semantic.xsd"/>
 
 	<xsd:element name="model" type="sce:tModel" abstract="true">
