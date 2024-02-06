@@ -26,12 +26,12 @@
 
   <!-- DMN will reference by @name while BPMN uses @id -->
   <sdmn:itemDefinition id="itemDef_Name" name="Name"
-      itemKind="DataType" multiplicityKind="Unspecified" isCollection="false"
+       multiplicityKind="Unspecified" isCollection="false"
       conceptReference="https://en.wikipedia.org/wiki/Name">
     <dmn:typeRef>string</dmn:typeRef>
   </sdmn:itemDefinition>
 
-  <sdmn:dataItem id="dataItem_Name" multiplicityKind="Unspecified">
+  <sdmn:dataItem id="dataItem_Name" itemKind="Information" multiplicityKind="Unspecified">
     <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
   </sdmn:dataItem>
   <sdmn:dataItem id="dataItem_Greeting"/>
