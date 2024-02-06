@@ -74,6 +74,7 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
+                <xsd:attribute name="isCollection" type="xsd:boolean" use="optional" default="false"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>

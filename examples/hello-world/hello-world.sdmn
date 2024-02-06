@@ -31,7 +31,7 @@
     <dmn:typeRef>string</dmn:typeRef>
   </sdmn:itemDefinition>
 
-  <sdmn:dataItem id="dataItem_Name" itemKind="Information" multiplicityKind="Unspecified">
+  <sdmn:dataItem id="dataItem_Name" itemKind="Information" multiplicityKind="Unspecified" isCollection="false">
     <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
   </sdmn:dataItem>
   <sdmn:dataItem id="dataItem_Greeting"/>
