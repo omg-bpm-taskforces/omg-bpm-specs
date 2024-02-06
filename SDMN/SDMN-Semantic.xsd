@@ -67,7 +67,13 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
-                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOnce"/>
+                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOne">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            This defines the Multiplicity of the DataItem. The default is ExactlyOne.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -123,14 +129,6 @@
                             only be viewed in this model. Any changes to the original must be carried out in the source Shared Data Model. Other types of 
                             structures are not allowed for the SDMN . However, BPMN Data Objects and CMMN Case File Items have the capability of references 
                             other types of structures. These other types of structures would not be a part of the SDMN Shared Data Model.
-                        </xsd:documentation>
-                    </xsd:annotation>
-                </xsd:attribute>
-                <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOne">
-                    <xsd:annotation>
-                        <xsd:documentation>
-                            This setting the Multipliciy of the ItemDefinition. The default is ExactlyOne. This attribute MUST have the same value as the 
-                            multiplicty attribute of the associated DataItem. This 
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
