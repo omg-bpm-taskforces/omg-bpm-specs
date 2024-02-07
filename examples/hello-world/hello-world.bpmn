@@ -12,7 +12,7 @@
 
   <bpmn:import location="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
-    importType="https://www.omg.org/spec/SDMN/20211108/MODEL" />
+    importType="https://www.omg.org/spec/SDMN/" />
 
   <bpmn:process id="Process_HelloWorld" name="Hello World" isExecutable="true">
     <bpmn:businessRuleTask id="DecisionTask_Greeting" name="Greeting">

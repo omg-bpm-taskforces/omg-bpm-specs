@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
+<xsd:schema xmlns:sdmn="https://www.omg.org/spec/SDMN/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+    xmlns:sce="https://www.omg.org/spec/SCE/"
     xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     elementFormDefault="qualified"
-    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
+    targetNamespace="https://www.omg.org/spec/SDMN/">
    
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>
     <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
 
     <xsd:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">

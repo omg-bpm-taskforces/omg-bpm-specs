@@ -2,24 +2,24 @@
 <sdmn:sharedDataModel id="SharedDataModel"
     targetNamespace="https://example.org/shared-data-model"
     xmlns="https://example.org/shared-data-model"
-    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
-    xmlns:dc="http://www.omg.org/spec/SCE/20210830/DC"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/"
+    xmlns:sce="https://www.omg.org/spec/SCE/"
+    xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
+    xmlns:di="https://www.omg.org/spec/SCE/DI/"
+    xmlns:dc="https://www.omg.org/spec/SCE/DC/"
     xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-      https://www.omg.org/spec/SDMN/20211108/MODEL
-      ../SDMN/SDMN.xsd
-      https://www.omg.org/spec/SCE/20211108/MODEL
-      ../SCE/SCE.xsd
-      https://www.omg.org/spec/SCE/20211108/SCEDI
-      ../SCE/SCEDI.xsd
-      http://www.omg.org/spec/SCE/20210830/DI
-      ../SCE/DI.xsd
-      http://www.omg.org/spec/SCE/20210830/DC
-      ../SCE/DC.xsd
+      https://www.omg.org/spec/SDMN/
+      https://www.omg.org/spec/SDMN/20240210/SDMN.xsd
+      https://www.omg.org/spec/SCE/
+      https://www.omg.org/spec/SCE/20240210/SCE.xsd
+      https://www.omg.org/spec/SCE/SCEDI/
+      https://www.omg.org/spec/SCE/20240210/SCEDI.xsd
+      https://www.omg.org/spec/SCE/DI/
+      https://www.omg.org/spec/SCE/20240210/DI.xsd
+      https://www.omg.org/spec/SCE/DC/
+      https://www.omg.org/spec/SCE/20240210/DC.xsd
       https://www.omg.org/spec/DMN/20230324/MODEL/
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
@@ -42,7 +42,7 @@
     <sce:category id="childCategory_South" name="South" aliasIds="S down"/>
     <sce:category id="childCategory_East" name="East" aliasIds="E right"/>
     <sce:category id="childCategory_West" name="West" aliasIds="W left"/>
-  </sce:category>  
+  </sce:category>
 
   <scedi:diagrams>
     <scedi:diagram>

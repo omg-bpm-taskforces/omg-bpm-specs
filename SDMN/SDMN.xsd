@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SDMN" version="1.0"
-    targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+    targetNamespace="https://www.omg.org/spec/SDMN/"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/"
+    xmlns:sce="https://www.omg.org/spec/SCE/"
+    xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/" 
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified">
 
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
-    <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
+    <xsd:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>  
+    <xsd:import namespace="https://www.omg.org/spec/SCE/SCEDI/" schemaLocation="../SCE/SCEDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
     <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
