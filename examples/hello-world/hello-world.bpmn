@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example file is non-normative. -->
-<bpmn:definitions id="Definitions_HelloWorld"
+<bpmn:definitions name="Hello World" id="Definitions_HelloWorld"
+    typeLanguage="https://www.omg.org/spec/SDMN/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
     targetNamespace="https://example.org/hello-world/process"
     xmlns="https://example.org/hello-world/process"
     xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
@@ -9,7 +11,17 @@
     xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
     xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
     xmlns:data="https://example.org/hello-world/shared-data-model"
-    >
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.omg.org/spec/BPMN/20100524/MODEL
+      https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd
+      http://www.omg.org/spec/BPMN/20100524/DI
+      https://www.omg.org/spec/BPMN/20100501/BPMNDI.xsd
+      http://www.omg.org/spec/DD/20100524/DI
+      https://www.omg.org/spec/BPMN/20100501/DI.xsd
+      http://www.omg.org/spec/DD/20100524/DC
+      https://www.omg.org/spec/BPMN/20100501/DC.xsd
+    ">
 
   <bpmn:import location="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
@@ -44,7 +56,7 @@
     <bpmn:dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="DataObject_Name" />
     <bpmn:dataObject id="DataObject_Name" itemSubjectRef="data:itemDef_Name" />
     <bpmn:dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="DataObject_Greeting" />
-    <bpmn:dataObject id="DataObject_Greeting" />
+    <bpmn:dataObject id="DataObject_Greeting" itemSubjectRef="data:itemDef_Greeting" />
   </bpmn:process>
 
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">

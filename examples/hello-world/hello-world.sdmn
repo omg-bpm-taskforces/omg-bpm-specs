@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example file is non-normative. -->
 <sdmn:sharedDataModel id="HelloWorldDataModel"
+    typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
     targetNamespace="https://example.org/hello-world/shared-data-model"
     xmlns="https://example.org/hello-world/shared-data-model"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/"
@@ -27,22 +29,50 @@
 
   <!-- DMN will reference by @name while BPMN uses @id -->
   <sdmn:itemDefinition id="itemDef_Name" name="Name"
-      isCollection="false"
       conceptReference="https://en.wikipedia.org/wiki/Name">
     <dmn:typeRef>string</dmn:typeRef>
   </sdmn:itemDefinition>
+  <sdmn:itemDefinition id="itemDef_Greeting" name="Greeting"
+      conceptReference="https://en.wikipedia.org/wiki/Greeting">
+    <dmn:typeRef>string</dmn:typeRef>
+  </sdmn:itemDefinition>
 
-  <sdmn:dataItem id="dataItem_Name" itemKind="Information" multiplicityKind="Unspecified" isCollection="false">
+  <sdmn:dataItem id="dataItem_Name">
     <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
   </sdmn:dataItem>
-  <sdmn:dataItem id="dataItem_Greeting"/>
+  <sdmn:dataItem id="dataItem_Greeting">
+    <sdmn:typeDefinitionRef>itemDef_Greeting</sdmn:typeDefinitionRef>
+  </sdmn:dataItem>
+
+  <sdmn:containmentConnector id="greetingContainsName">
+    <sdmn:sourceRef>dataItem_Greeting</sdmn:sourceRef>
+    <sdmn:targetRef>dataItem_Name</sdmn:targetRef>
+  </sdmn:containmentConnector>
 
   <scedi:diagrams>
-    <scedi:diagram>
+    <scedi:diagram name="Item Definition Diagram">
       <scedi:Size width="500" height="500"/>
       <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
         <dc:Bounds x="160" y="120" width="150" height="60"/>
       </scedi:shape>
+    </scedi:diagram>
+    <scedi:diagram name="Data Item Diagram">
+      <scedi:shape id="dataItem_Greeting_di" modelElement="dataItem_Greeting">
+        <dc:Bounds x="152" y="115" width="36" height="50" />
+        <scedi:label>
+          <dc:Bounds x="149" y="172" width="43" height="14" />
+        </scedi:label>
+      </scedi:shape>
+      <scedi:shape id="dataItem_Name_di" modelElement="dataItem_Name">
+        <dc:Bounds x="270" y="115" width="36" height="50" />
+        <scedi:label>
+          <dc:Bounds x="273" y="172" width="30" height="14" />
+        </scedi:label>
+      </scedi:shape>
+      <scedi:edge id="c1_di" modelElement="greetingContainsName">
+        <di:waypoint x="188" y="140" />
+        <di:waypoint x="270" y="140" />
+      </scedi:edge>
     </scedi:diagram>
   </scedi:diagrams>
 

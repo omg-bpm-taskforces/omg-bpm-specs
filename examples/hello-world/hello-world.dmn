@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example file is non-normative. -->
-<dmn:definitions name="DRD" id="Greeting_DRD"
+<dmn:definitions name="Hello World" id="HelloWorldDRD"
+    typeLanguage="https://www.omg.org/spec/SDMN/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
     namespace="https://example.org/hello-world/decisions"
     xmlns="https://example.org/hello-world/decisions"
     xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"
-    xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
     xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
+    xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
       https://www.omg.org/spec/DMN/20230324/MODEL/
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+      https://www.omg.org/spec/DMN/20230324/DMNDI/
+      https://www.omg.org/spec/DMN/20230324/DMNDI.xsd
+      http://www.omg.org/spec/DMN/20180521/DI/
+      https://www.omg.org/spec/DMN/20180521/DI.xsd
+      http://www.omg.org/spec/DMN/20180521/DC/
+      https://www.omg.org/spec/DMN/20180521/DC.xsd
     ">
 
   <dmn:import name="data" locationURI="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
-    importType="https://www.omg.org/spec/shared/20211108/MODEL" />
+    importType="https://www.omg.org/spec/SDMN/" />
 
   <dmn:decision id="Greeting_Decision" name="Greeting">
     <dmn:variable name="Greeting" typeRef="data.Greeting" />
