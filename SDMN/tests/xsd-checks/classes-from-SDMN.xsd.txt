@@ -1,4 +1,3 @@
-SharedDataModel
 Assignment
 CompensationConnector
 Connector
@@ -7,3 +6,4 @@ DataAssociation
 DataItem
 ItemDefinition
 ReferenceConnector
+SharedDataModel

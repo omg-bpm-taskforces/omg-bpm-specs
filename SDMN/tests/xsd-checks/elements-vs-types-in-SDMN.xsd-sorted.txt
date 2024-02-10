@@ -1,5 +1,3 @@
-sharedDataModel
-SharedDataModel
 argetRef
 assignment
 Assignment
@@ -20,5 +18,7 @@ ransformation
 referenceConnector
 ReferenceConnector
 referenceTargetRef
+sharedDataModel
+SharedDataModel
 sourceRef
 ypeDefinitionRef
