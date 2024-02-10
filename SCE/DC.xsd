@@ -3,7 +3,7 @@
 		targetNamespace="https://www.omg.org/spec/SCE/DC/"
 		xmlns:dc="https://www.omg.org/spec/SCE/DC/"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-		elementFormDefault="qualified">
+		elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xsd:element name="Color" type="dc:tColor"/>
 	<xsd:complexType name="tColor">

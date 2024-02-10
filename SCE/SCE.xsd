@@ -4,7 +4,7 @@
     xmlns:sce="https://www.omg.org/spec/SCE/"
 	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified">
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/SCEDI/" schemaLocation="SCEDI.xsd"/>
 
