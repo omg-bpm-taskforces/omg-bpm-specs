@@ -1,0 +1,9 @@
+SharedDataModel
+Assignment
+CompensationConnector
+Connector
+ContainmentConnector
+DataAssociation
+DataItem
+ItemDefinition
+ReferenceConnector

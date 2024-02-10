@@ -1,0 +1,6 @@
+conceptReference
+dataItemRef
+isCollection
+itemDefinitionRef
+itemKind
+multiplicityKind
