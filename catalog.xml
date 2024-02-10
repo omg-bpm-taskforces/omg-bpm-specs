@@ -1,9 +1,21 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
     <uri
-        name="https://www.omg.org/spec/SCE/20211108/MODEL"
+        name="https://www.omg.org/spec/SCE/"
         uri="./SCE/SCE.xsd" />
-        
+
+    <uri
+        name="https://www.omg.org/spec/SCE/SCEDI/"
+        uri="./SCE/SCEDI.xsd" />
+
+    <uri
+        name="https://www.omg.org/spec/SCE/DI/"
+        uri="./SCE/DI.xsd" />
+
+    <uri
+        name="https://www.omg.org/spec/SCE/DC/"
+        uri="./SCE/DC.xsd" />
+
     <uri
         name="https://www.omg.org/spec/SDMN/20211108/MODEL"
         uri="./SDMN/SDMN.xsd" />
