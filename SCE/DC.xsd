@@ -5,6 +5,9 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified" attributeFormDefault="unqualified">
 
+  <!-- The documentation annotations in this file are non-normative.
+      They are provided for convenience, but the specification text takes precedence. -->
+
   <xs:element name="Color" type="dc:tColor"/>
   <xs:complexType name="tColor">
     <xs:annotation>

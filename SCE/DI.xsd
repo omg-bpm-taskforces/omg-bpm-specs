@@ -6,6 +6,9 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified" attributeFormDefault="unqualified">
 
+  <!-- The documentation annotations in this file are non-normative.
+      They are provided for convenience, but the specification text takes precedence. -->
+
   <xs:import namespace="https://www.omg.org/spec/SCE/DC/"
       schemaLocation="DC.xsd"/>
 
