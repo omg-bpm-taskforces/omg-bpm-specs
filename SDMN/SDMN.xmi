@@ -170,7 +170,7 @@
                   <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1588283733353_132260_88905"
                                    name="Assignment">
                      <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1612214243097_379332_191"
-                                   body="Tbd… An Assignment is contained within a Data Item or a Data Association">
+                                   body="An Assignment is contained within a Data Item or a Data Association">
                         <annotatedElement xmi:idref="_19_0_3_f440358_1588283733353_132260_88905"/>
                      </ownedComment>
                      <generalization xmi:type="uml:Generalization"

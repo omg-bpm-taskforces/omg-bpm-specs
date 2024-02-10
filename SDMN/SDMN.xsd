@@ -218,7 +218,7 @@
   <xs:element name="assignment" type="sdmn:tAssignment">
     <xs:annotation>
       <xs:documentation>
-        tbd...
+        An Assignment is contained within a DataItem or a DataAssociation.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
