@@ -5,7 +5,6 @@
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		elementFormDefault="qualified">
 
-
 	<xsd:element name="Color" type="dc:tColor"/>
 	<xsd:complexType name="tColor">
 		<xsd:annotation>

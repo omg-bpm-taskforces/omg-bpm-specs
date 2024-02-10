@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SCEDI" version="1.0"
 	targetNamespace="https://www.omg.org/spec/SCE/SCEDI/"
-	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/" 
-	xmlns:di="https://www.omg.org/spec/SCE/DI/" 
-	xmlns:dc="https://www.omg.org/spec/SCE/DC/" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
+	xmlns:di="https://www.omg.org/spec/SCE/DI/"
+	xmlns:dc="https://www.omg.org/spec/SCE/DC/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/DI/" schemaLocation="DI.xsd"/>
@@ -34,20 +34,20 @@
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element ref="di:extension" minOccurs="0" maxOccurs="1"/>
-		</xsd:sequence>				
+		</xsd:sequence>
 	</xsd:complexType>
 
 	<xsd:element name="diagram" type="scedi:tDiagram">
 		<xsd:annotation>
 			<xsd:documentation>
-				The class Diagram specializes DI::Diagram. It is a kind of DI::Diagram that represents a depiction of all or part of a SCE-dependent model. 
+				The class Diagram specializes DI::Diagram. It is a kind of DI::Diagram that represents a depiction of all or part of a SCE-dependent model.
 				It is contained within the Diagrams element. The languages that are dependent on SCE MAY define specialized diagrams based on Diagram
 				if they have to add new elements or attributes. By default they should use Diagram directly.
-				Diagram is the container of DiagramElement (Shape(s) and Edge(s)). Diagram cannot include other Diagrams. A Diagram can 
+				Diagram is the container of DiagramElement (Shape(s) and Edge(s)). Diagram cannot include other Diagrams. A Diagram can
 				define a Style locally and/or it can refer to a shared one defined in the Diagrams. Properties defined in the local style overrides
-				the one in the referenced shared style. That combined style (shared and local) is the default style for all the DiagramElement contained 
+				the one in the referenced shared style. That combined style (shared and local) is the default style for all the DiagramElement contained
 				in this Diagram. The Diagram class represents a two-dimensional surface with an origin of (0, 0) at the top left corner.
-				This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements 
+				This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements
 				that are nested in a Diagram.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -89,9 +89,9 @@
 	<xsd:element name="diagramElement" type="di:tDiagramElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				The DiagramElement class is contained by the Diagram and is the base class for Shape and Edge. DiagramElement inherits its styling 
-				from its parent Diagram. In addition, it can refer to one of the shared Style defined in the DI and/or it can define a local style. See 
-				section below for more details on styling. DiagramElement MAY also contain a Label when it has a visible text label. If no Label is defined, 
+				The DiagramElement class is contained by the Diagram and is the base class for Shape and Edge. DiagramElement inherits its styling
+				from its parent Diagram. In addition, it can refer to one of the shared Style defined in the DI and/or it can define a local style. See
+				section below for more details on styling. DiagramElement MAY also contain a Label when it has a visible text label. If no Label is defined,
 				the DiagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -103,9 +103,9 @@
 	<xsd:complexType name="tShape">
 		<xsd:annotation>
 			<xsd:documentation>
-				The Shape class specializes DI::Shape and DiagramElement. It is a kind of DI::Shape that depicts a Element from the SCE-dependent model. 
+				The Shape class specializes DI::Shape and DiagramElement. It is a kind of DI::Shape that depicts a Element from the SCE-dependent model.
 				Shape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
-				to their diagrams. Shape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
+				to their diagrams. Shape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to
 				further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -118,7 +118,7 @@
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: label
-								An optional label when the SCE-dependent Element has a visible text label.                
+								An optional label when the SCE-dependent Element has a visible text label.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -142,12 +142,12 @@
 	<xsd:element name="edge" type="scedi:tEdge" substitutionGroup="scedi:diagramElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				The Edge class specializes DI::Edge and DiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent 
+				The Edge class specializes DI::Edge and DiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent
 				model elements. Since Element might be
-				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a Edge is connected. When 
+				depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a Edge is connected. When
 				Edge has a source, its sourceModelElement MUST refer to the DiagramElement it starts from. That DiagramElement MUST resolved to
 				the Element that is the actual source of the Requirement or Association. For Requirement, this is the required Element. When it has a target, its
-				targetModelElement MUST refer to the DiagramElement where it ends. That DiagramElement MUST resolved to the Element that is the actual 
+				targetModelElement MUST refer to the DiagramElement where it ends. That DiagramElement MUST resolved to the Element that is the actual
 				target of the Requirement or Association. For Requirement, this is the Element holding it.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -223,9 +223,9 @@
 	<xsd:element name="style" type="scedi:tStyle" substitutionGroup="di:Style">
 		<xsd:annotation>
 			<xsd:documentation>
-				Style specializes DC::Style. It is a kind of style that provides appearance options for a DiagramElement. Style is used to keep some 
+				Style specializes DC::Style. It is a kind of style that provides appearance options for a DiagramElement. Style is used to keep some
 				non-normative visual attributes such as colors and font. SCE doesn’t give any semantic to color and font styling, but tools can decide to use them and
-				interchange them. DiagramElement style is calculated by percolating up Style attributes defined at a different level of the hierarchy. 
+				interchange them. DiagramElement style is calculated by percolating up Style attributes defined at a different level of the hierarchy.
 				Each attribute is considered independently (meaning that a Style attribute can be individually overloaded). The precedence rules are as follow:
 				• The Style defined by the localStyle attribute of the DiagramElement
 				• The Style referenced by the sharedStyle attribute of the DiagramElement

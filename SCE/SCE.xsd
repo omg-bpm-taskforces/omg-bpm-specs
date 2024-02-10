@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema id="SCE" version="1.0"
-    targetNamespace="https://www.omg.org/spec/SCE/" 
-    xmlns:sce="https://www.omg.org/spec/SCE/" 
-	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="https://www.omg.org/spec/SCE/"
+    xmlns:sce="https://www.omg.org/spec/SCE/"
+	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/SCEDI/" schemaLocation="SCEDI.xsd"/>
@@ -11,11 +11,11 @@
 	<xsd:element name="model" type="sce:tModel" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling 
-				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification. 
-				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications 
-				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the 
-				Collaborations, Processes, and other elements that make up the BPMN model. The Package element provides the key 
+				This the main SCE package, which contains a set of properties and other elements, that are common to and usable by other modeling
+				specifications. The idea of a “package” is that the package will contain all the elements of a model that is based on that specification.
+				When the content of that model is serialized, the elements will be contained within the package. Some previous BMI specifications
+				have named this packaging element “Definitions.” For example, the BPMN Definitions element is the main package that contains all the
+				Collaborations, Processes, and other elements that make up the BPMN model. The Package element provides the key
 				attributes and associations that most BMI modeling specifications will need as part of their packaging element.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -42,7 +42,7 @@
 			<xsd:element ref="sce:rootElement" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						This is a list of all the RootElements contained within a Model. Many elements will be identified 
+						This is a list of all the RootElements contained within a Model. Many elements will be identified
 						through additional associations that subset this property.
 					</xsd:documentation>
 				</xsd:annotation>
@@ -85,9 +85,9 @@
 	<xsd:element name="package" type="sce:tPackage" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				Package is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not 
-				contained within any element. Its five sub-classes (listed in the next five sections), will be used to organize 
-				the types of content that make up a model or set of models (of a language that utilizes SCE). The Model 
+				Package is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not
+				contained within any element. Its five sub-classes (listed in the next five sections), will be used to organize
+				the types of content that make up a model or set of models (of a language that utilizes SCE). The Model
 				is the top-level package used for distribution of the content of a modeling language.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -107,7 +107,7 @@
 			<xsd:element ref="sce:import" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						This attribute is used to import externally defined elements and make them available for use by elements within a 
+						This attribute is used to import externally defined elements and make them available for use by elements within a
 						concrete specialization of Package.
 					</xsd:documentation>
 				</xsd:annotation>
@@ -131,7 +131,7 @@
 		<xsd:attribute name="tags" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					The tags attribute provides another classification mechanism for the Package. This classification could be 
+					The tags attribute provides another classification mechanism for the Package. This classification could be
 					used as part of a search for a particular model that is a concrete specialization of Package, for example.
 				</xsd:documentation>
 			</xsd:annotation>
@@ -142,7 +142,7 @@
 		<xsd:attribute name="targetNamespace" type="xsd:anyURI" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					This attribute identifies the namespace associated with a concrete specialization of Package and will 
+					This attribute identifies the namespace associated with a concrete specialization of Package and will
 					follow the convention established by XML Schema.
 					The attribute is optional for backwards compatibility with DMN.
 				</xsd:documentation>
@@ -163,20 +163,20 @@
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:attributeGroup>
-	
+
 	<xsd:element name="baseElement" type="sce:tBaseElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
 				BaseElement is the abstract super class for most SCE elements. Basically, it is the root of the SCE metamodel.
 				It provides the basic attributes for id and name,
 				and a set of common associations, such as documentation, that are useful for
-				most elements of a modeling language. Most of the elements within SCE, and any specification that is dependent on SCE, 
+				most elements of a modeling language. Most of the elements within SCE, and any specification that is dependent on SCE,
 				will inherit the attributes and associations of BaseElement.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="tBaseElement" abstract="true">
-		<xsd:sequence>			
+		<xsd:sequence>
 			<xsd:group ref="sce:elementsOfBaseElement"/>
 		</xsd:sequence>
 		<xsd:attributeGroup ref="sce:attributesOfBaseElement"/>
@@ -201,7 +201,7 @@
 			<xsd:element name="categoryRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>
-						This association is used to categorize any concrete specialization of Element. A Category has user-defined semantics, which 
+						This association is used to categorize any concrete specialization of Element. A Category has user-defined semantics, which
 						can be used for documentation or analysis purposes.
 					</xsd:documentation>
 				</xsd:annotation>
@@ -212,7 +212,7 @@
 		<xsd:attribute name="id" type="xsd:ID" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					This optional attribute is used to uniquely identify a Element. The id is REQUIRED if this element is referenced or intended to be 
+					This optional attribute is used to uniquely identify a Element. The id is REQUIRED if this element is referenced or intended to be
 					referenced by something else. If the element is not currently referenced and is never intended to be referenced, the id MAY be omitted.
 				</xsd:documentation>
 			</xsd:annotation>
@@ -220,8 +220,8 @@
 		<xsd:attribute name="name" type="xsd:string" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					The name attribute is a text description or label of the element. In general, the name is optional, but many elements will require a name. 
-					The definition of each specialization of Element will identify this requirement.					
+					The name attribute is a text description or label of the element. In general, the name is optional, but many elements will require a name.
+					The definition of each specialization of Element will identify this requirement.
 				</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
@@ -239,11 +239,11 @@
 			<xsd:annotation>
 				<xsd:documentation>
 					This property provides the capability of including a Concept Reference for any Element.
-					Most BPM+ models (dependent on SCE) are not intended to define full-scale ontologies or domain models, such as data models. 
-					However, the activities, decisions, data items, etc. of BPM+ are representative of elements defined by ontologies or data models. 
-					The specific context of the BPM+ elements may result in different terminology or sub-sets of data representation elements within 
-					the normative domain models. To reduce any confusion due to terminology or data representation, the BPM+ models dependent on SCE 
-					have the capability of linking model elements to the appropriate external source of truth for their domain. The Concept Reference 
+					Most BPM+ models (dependent on SCE) are not intended to define full-scale ontologies or domain models, such as data models.
+					However, the activities, decisions, data items, etc. of BPM+ are representative of elements defined by ontologies or data models.
+					The specific context of the BPM+ elements may result in different terminology or sub-sets of data representation elements within
+					the normative domain models. To reduce any confusion due to terminology or data representation, the BPM+ models dependent on SCE
+					have the capability of linking model elements to the appropriate external source of truth for their domain. The Concept Reference
 					is that mechanism in SCE.
 					It is expected that the value of the URI is persistent.
 				</xsd:documentation>
@@ -283,7 +283,7 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				The Attachment element provides a place for model developers to provide attached documents to a model element.
-				The Attachment element is contained within a concrete specialization of Element. Thus, any concrete element within a model 
+				The Attachment element is contained within a concrete specialization of Element. Thus, any concrete element within a model
 				that is dependent on SCE MAY have one or more Attachments.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -305,8 +305,8 @@
 	<xsd:element name="import" type="sce:tImport">
 		<xsd:annotation>
 			<xsd:documentation>
-				The Import class is used by an implementation of a modeling specification (i.e., a model), dependent on SCE, when referencing an 
-				external element that is contained in a different model. The referenced model can be of the same or different type of modeling 
+				The Import class is used by an implementation of a modeling specification (i.e., a model), dependent on SCE, when referencing an
+				external element that is contained in a different model. The referenced model can be of the same or different type of modeling
 				specification. For example, one SDMN model may import the Data Items from another SDMN model.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -340,10 +340,10 @@
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
-		</xsd:complexContent>				
+		</xsd:complexContent>
 	</xsd:complexType>
-	
-	<xsd:element name="relationship" type="sce:tRelationship"/>	
+
+	<xsd:element name="relationship" type="sce:tRelationship"/>
 	<xsd:complexType name="tRelationship">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tBaseElement">
@@ -433,16 +433,16 @@
 			<xsd:extension base="sce:tBaseElement"/>
 		</xsd:complexContent>
 	</xsd:complexType>
-	
+
 	<xsd:element name="modelArtifact" type="sce:tModelArtifact" abstract="true" substitutionGroup="sce:rootElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				A ModelArtifact is an object that provides supporting information about a model. However, it does not have any behavioral semantics. 
-				The ModelArtifact element is an abstract element that inherits the attributes of Element. ModelArtifacts are contained within a 
-				model type that is defined by a modeling language that extends Model. This will usually be a concrete specialization of a 
-				sub-package Model or a sub-package Instances. At this point, SCE provides three standard Artifacts: Associations, Groups, 
-				and Text Annotations. Additional Artifacts MAY be added to the SCE specification in later versions. A modeler or modeling tool MAY 
-				extend a diagram and add new types of ModelArtifacts. Any new ModelArtifacts MUST follow the connector connection rules defined in 
+				A ModelArtifact is an object that provides supporting information about a model. However, it does not have any behavioral semantics.
+				The ModelArtifact element is an abstract element that inherits the attributes of Element. ModelArtifacts are contained within a
+				model type that is defined by a modeling language that extends Model. This will usually be a concrete specialization of a
+				sub-package Model or a sub-package Instances. At this point, SCE provides three standard Artifacts: Associations, Groups,
+				and Text Annotations. Additional Artifacts MAY be added to the SCE specification in later versions. A modeler or modeling tool MAY
+				extend a diagram and add new types of ModelArtifacts. Any new ModelArtifacts MUST follow the connector connection rules defined in
 				the modeling specification that is dependent on SCE. Associations can be used to link ModelArtifacts to diagram elements and other ModelArtifacts.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -456,9 +456,9 @@
 	<xsd:element name="association" type="sce:tAssociation" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
-				An Association is used to associate ModelArtifacts (often Text Annotations) to other diagram elements. If a ModelArtifact extension, 
-				such as an image, is added to the model, then that new ModelArtifact can be connected by an Association. A modeler can set the direct 
-				of the association such that the connector line will have an arrowhead on either one end or both. The presence of one or two arrowheads 
+				An Association is used to associate ModelArtifacts (often Text Annotations) to other diagram elements. If a ModelArtifact extension,
+				such as an image, is added to the model, then that new ModelArtifact can be connected by an Association. A modeler can set the direct
+				of the association such that the connector line will have an arrowhead on either one end or both. The presence of one or two arrowheads
 				does not have any specific semantic meaning but may provide a visual queue about the nature of the association.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -485,8 +485,8 @@
 				<xsd:attribute name="associationDirection" type="sce:tAssociationDirection" use="optional" default="None">
 					<xsd:annotation>
 						<xsd:documentation>
-							AssociationDirection is an attribute that defines whether or not the Association shows any directionality with 
-							an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the 
+							AssociationDirection is an attribute that defines whether or not the Association shows any directionality with
+							an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the
 							Target Object. A value of “Both” means that there SHALL be an arrowhead at both ends of the Association line.
 						</xsd:documentation>
 					</xsd:annotation>
@@ -498,8 +498,8 @@
 	<xsd:simpleType name="tAssociationDirection">
 		<xsd:annotation>
 			<xsd:documentation>
-			    AssociationDirection is an enumerated list that defines the options regarding whether or not an Association shows any directionality 
-			    with an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the Target Object. A 
+			    AssociationDirection is an enumerated list that defines the options regarding whether or not an Association shows any directionality
+			    with an arrowhead. The default is “None” (no arrowhead). A value of “One” means that the arrowhead SHALL be at the Target Object. A
 			    value of “Both” means that there SHALL be an arrowhead at both ends of the Association line.
 		    </xsd:documentation>
 		</xsd:annotation>
@@ -513,8 +513,8 @@
 	<xsd:element name="group" type="sce:tGroup" substitutionGroup="sce:modelArtifact">
 		<xsd:annotation>
 			<xsd:documentation>
-				The Group object is a ModelArtifact that provides a visual mechanism to informally group elements of a diagram. Groups are often 
-				used to highlight certain sections of a diagram without adding additional constraints or semantics. The highlighted (grouped) 
+				The Group object is a ModelArtifact that provides a visual mechanism to informally group elements of a diagram. Groups are often
+				used to highlight certain sections of a diagram without adding additional constraints or semantics. The highlighted (grouped)
 				section of the diagram can be separated for reporting and analysis purposes.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -539,8 +539,8 @@
 					<xsd:element ref="sce:text" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								text is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. 
-								The text within a text is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional, 
+								text is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram.
+								The text within a text is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional,
 								but if it used, then the useDocumentation attribute SHALL NOT be used.
 							</xsd:documentation>
 						</xsd:annotation>
@@ -589,8 +589,8 @@
 	<xsd:element name="category" type="sce:tCategory" substitutionGroup="sce:rootElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				A Category, which have user-defined semantics, can be used for documentation or metadata organizational purposes. For example, 
-				recommendations (in the healthcare domain) can be assigned a category of “Lifestyle Modification” with further breakdowns into 
+				A Category, which have user-defined semantics, can be used for documentation or metadata organizational purposes. For example,
+				recommendations (in the healthcare domain) can be assigned a category of “Lifestyle Modification” with further breakdowns into
 				“Weight Reduction”, “Exercise Program”, and “Diet Modification” sub-categories.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -617,7 +617,7 @@
 			<xsd:documentation>
 				A kind of Element that is the type or specification of a TypedElement.
 			</xsd:documentation>
-		</xsd:annotation>		
+		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="tElementType" abstract="true">
 		<xsd:complexContent>
@@ -628,10 +628,10 @@
 	<xsd:element name="typedElement" type="sce:tTypedElement" abstract="true" substitutionGroup="sce:rootElement">
 		<xsd:annotation>
 			<xsd:documentation>
-				A kind of Element that has zero or more ElementTypes, identified by the typeRef attribute.  
-				The ElementType(s), if present, provide a specification for the element. 
+				A kind of Element that has zero or more ElementTypes, identified by the typeRef attribute.
+				The ElementType(s), if present, provide a specification for the element.
 			</xsd:documentation>
-		</xsd:annotation>		
+		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="tTypedElement" abstract="true">
 		<xsd:complexContent>
@@ -640,7 +640,7 @@
 					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="unbounded">
 						<xsd:annotation>
 							<xsd:documentation>
-								The class(es) that provide(s) a specification of the Element. This usually is applied to the concrete 
+								The class(es) that provide(s) a specification of the Element. This usually is applied to the concrete
 								Element that serves as an instance in a runtime model.
 							</xsd:documentation>
 						</xsd:annotation>
@@ -653,7 +653,7 @@
 	<xsd:element name="elementRelationshipType" type="sce:tElementRelationshipType" substitutionGroup="sce:elementType">
 		<xsd:annotation>
 			<xsd:documentation>
-				A kind of ElementRelationship that specifies two ElementTypes (rather than Elements). The RelationshipType enumeration 
+				A kind of ElementRelationship that specifies two ElementTypes (rather than Elements). The RelationshipType enumeration
 				element identify specific types of relationships.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -665,7 +665,7 @@
 					<xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								The source ElementType of the relationship. 
+								The source ElementType of the relationship.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
@@ -687,7 +687,7 @@
 				<xsd:attribute name="sourceMultiplicity" type="xsd:string" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
-							This attribute defines the minimum number of target Elements that may be the source for the ElementRelationship 
+							This attribute defines the minimum number of target Elements that may be the source for the ElementRelationship
 							that identifies this ElementRelationshipType source its typeRef association.
 						</xsd:documentation>
 					</xsd:annotation>
@@ -695,7 +695,7 @@
 				<xsd:attribute name="targetMultiplicity" type="xsd:string" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>
-							This attribute defines the minimum number of target Elements that may be the source for the ElementRelationship 
+							This attribute defines the minimum number of target Elements that may be the source for the ElementRelationship
 							that identifies this ElementRelationshipType through its typeRef association.
 							</xsd:documentation>
 					</xsd:annotation>
@@ -718,15 +718,15 @@
 					<xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								The source Element of the relationship. If there is an ElementRelationshipType identified 
-								through the typeRef association, then the source must be a TypedElement. 
+								The source Element of the relationship. If there is an ElementRelationshipType identified
+								through the typeRef association, then the source must be a TypedElement.
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
 					<xsd:element name="targetRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								The target concrete specialization of Element of the relationship. If there is an ElementRelationshipType identified 
+								The target concrete specialization of Element of the relationship. If there is an ElementRelationshipType identified
 								through the typeRef association, then the target must be a TypedElement.
 							</xsd:documentation>
 						</xsd:annotation>
@@ -754,8 +754,8 @@
 	<xsd:element name="kindSet" type="sce:tKindSet" abstract="true" substitutionGroup="sce:package">
 		<xsd:annotation>
 			<xsd:documentation>
-				This is a list of terms (Kinds) that can be used to define the meaning of elements of a concrete 
-				specialization of Package. Multiple KindSets can be defined. They are contained in an Package. 
+				This is a list of terms (Kinds) that can be used to define the meaning of elements of a concrete
+				specialization of Package. Multiple KindSets can be defined. They are contained in an Package.
 			</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
@@ -778,7 +778,7 @@
 	<xsd:element name="kind" type="sce:tKind" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				A Kind is one of a set of Kinds (terms) that make up an extendable enumerated list of values for a text-based property of an 
+				A Kind is one of a set of Kinds (terms) that make up an extendable enumerated list of values for a text-based property of an
 				element property.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -789,7 +789,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:element name="relationshipKindSet" type="sce:tRelationshipKindSet"/>	
+	<xsd:element name="relationshipKindSet" type="sce:tRelationshipKindSet"/>
 	<xsd:complexType name="tRelationshipKindSet">
 		<xsd:complexContent>
 			<xsd:extension base="sce:tKindSet">
@@ -803,11 +803,11 @@
 							</xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-				</xsd:sequence>				
+				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	
+
 	<xsd:element name="relationshipKind" type="sce:tRelationshipKind"/>
 	<xsd:complexType name="tRelationshipKind">
 		<xsd:complexContent>
