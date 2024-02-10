@@ -1,5 +1,7 @@
 sharedDataModel
 SharedDataModel
+itemDefinition
+ItemDefinition
 dataItem
 DataItem
 metaDefinitionRef
@@ -8,10 +10,6 @@ referenceTargetRef
 QName
 typeDefinitionRef
 QName
-assignment
-Assignment
-itemDefinition
-ItemDefinition
 connector
 Connector
 sourceRef
@@ -28,3 +26,5 @@ dataAssociation
 DataAssociation
 transformation
 LiteralExpression
+assignment
+Assignment
