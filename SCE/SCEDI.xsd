@@ -2,13 +2,13 @@
 <xsd:schema id="SCEDI" version="1.0"
 	targetNamespace="https://www.omg.org/spec/SCE/SCEDI/"
 	xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/" 
-	xmlns:dc="https://www.omg.org/spec/SCE/DC/" 
 	xmlns:di="https://www.omg.org/spec/SCE/DI/" 
+	xmlns:dc="https://www.omg.org/spec/SCE/DC/" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	elementFormDefault="qualified">
 
-	<xsd:import namespace="https://www.omg.org/spec/SCE/DC/" schemaLocation="DC.xsd"/>
 	<xsd:import namespace="https://www.omg.org/spec/SCE/DI/" schemaLocation="DI.xsd"/>
+	<xsd:import namespace="https://www.omg.org/spec/SCE/DC/" schemaLocation="DC.xsd"/>
 
 	<xsd:element name="diagrams" type="scedi:tDiagrams">
 		<xsd:annotation>

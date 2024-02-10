@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sce:relationshipKindSet id="RelationshipKinds" name="RelationshipKinds"
+    version="1.0" versionDate="2024-02-10T00:00:00Z"
 	targetNamespace="https://www.omg.org/spec/SCE/RelationshipKinds/"
 	xmlns:rel="https://www.omg.org/spec/SCE/RelationshipKinds/"
 	xmlns:sce="https://www.omg.org/spec/SCE/"
@@ -7,7 +8,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		https://www.omg.org/spec/SCE/
-		SCE.xsd
+		https://www.omg.org/spec/SCE/20240210/SCE.xsd
 	">
 
 	<sce:relationshipKind id="composition"
