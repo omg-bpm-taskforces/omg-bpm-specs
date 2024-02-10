@@ -21,7 +21,7 @@
       https://www.omg.org/spec/SCE/20240210/DC.xsd
     ">
   <sce:import name="Hello_World_Item_Definitions" location="hello-world-item-definitions.sdmn"
-    importType="https://www.omg.org/spec/SDMN/"
-    namespace="https://example.org/hello-world/item-definitions"/>
+      importType="https://www.omg.org/spec/SDMN/"
+      namespace="https://example.org/hello-world/item-definitions"/>
   <!-- ... -->
 </sdmn:sharedDataModel>

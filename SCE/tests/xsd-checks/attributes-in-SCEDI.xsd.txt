@@ -1,0 +1,13 @@
+fontBold
+fontFamily
+fontItalic
+fontSize
+fontStrikeThrough
+fontUnderline
+labelHorizontalAlignment
+labelVerticalAlignment
+modelElement
+modelElement
+modelElement
+sourceElement
+targetElement

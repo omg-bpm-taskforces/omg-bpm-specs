@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sce:relationshipKindSet id="RelationshipKinds" name="RelationshipKinds"
-	targetNamespace="https://www.omg.org/spec/SCE/RelationshipKinds/"
-	xmlns:rel="https://www.omg.org/spec/SCE/RelationshipKinds/"
-	xmlns:sce="https://www.omg.org/spec/SCE/"
-	xmlns:xml="http://www.w3.org/XML/1998/namespace"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-		https://www.omg.org/spec/SCE/
-		SCE.xsd
-	">
+  version="1.0" versionDate="2024-02-10T00:00:00Z"
+  targetNamespace="https://www.omg.org/spec/SCE/RelationshipKinds/"
+  xmlns:rel="https://www.omg.org/spec/SCE/RelationshipKinds/"
+  xmlns:sce="https://www.omg.org/spec/SCE/"
+  xmlns:xml="http://www.w3.org/XML/1998/namespace"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    https://www.omg.org/spec/SCE/
+    https://www.omg.org/spec/SCE/20240210/SCE.xsd
+  ">
 
-	<sce:relationshipKind id="composition"
-		name="Composition"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/composition"/>
+  <sce:relationshipKind id="composition"
+    name="Composition"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/composition"/>
 
-	<sce:relationshipKind id="containment"
-		name="Containment"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/containment"/>
+  <sce:relationshipKind id="containment"
+    name="Containment"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/containment"/>
 
-	<sce:relationshipKind id="correlation"
-		name="Correlation"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/correlation"/>
+  <sce:relationshipKind id="correlation"
+    name="Correlation"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/correlation"/>
 
-	<sce:relationshipKind id="dependency"
-		name="Dependency"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/dependency"/>
+  <sce:relationshipKind id="dependency"
+    name="Dependency"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/dependency"/>
 
-	<sce:relationshipKind id="miscellaneous"
-		name="Miscellaneous"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/miscellaneous"/>
+  <sce:relationshipKind id="miscellaneous"
+    name="Miscellaneous"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/miscellaneous"/>
 
-	<sce:relationshipKind id="reference"
-		name="Reference"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/reference"/>
+  <sce:relationshipKind id="reference"
+    name="Reference"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/reference"/>
 
-	<sce:relationshipKind id="generalization"
-		name="Generalization"
-		conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/generalization"/>
+  <sce:relationshipKind id="generalization"
+    name="Generalization"
+    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/generalization"/>
 
 </sce:relationshipKindSet>
