@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example file is non-normative. -->
 <sdmn:sharedDataModel id="ItemDefinitionDiagram"
+    typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
     targetNamespace="https://example.org/item-definition-diagram"
     xmlns="https://example.org/item-definition-diagram"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/"
@@ -26,6 +28,9 @@
       https://www.omg.org/spec/DMN/20230324/DMN15.xsd
     ">
 
+    <!-- Import the Item Definitions from a DMN file.
+        Normally, SDMN Item Definitions would be imported into DMN.
+        However, the oposite direction could be used for existing models. -->
     <sce:import name="Patient_Item_Definitions" location="item-definition.dmn"
         importType="https://www.omg.org/spec/DMN/20230324/MODEL/"
         namespace="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" />
