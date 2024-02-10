@@ -26,7 +26,7 @@
   <dmn:inputData id="InputData_Name" name="Name">
     <dmn:variable name="Name" typeRef="data.Name" />
   </dmn:inputData>
-  
+
   <!-- Quote from DMN spec:
     "Attribute typeRef references ItemDefinitions and built-in types
     by name not ID. In order to support imported types, typeRef uses
