@@ -17,7 +17,7 @@
         uri="./SCE/DC.xsd" />
 
     <uri
-        name="https://www.omg.org/spec/SDMN/20211108/MODEL"
+        name="https://www.omg.org/spec/SDMN/"
         uri="./SDMN/SDMN.xsd" />
         
     <uri
