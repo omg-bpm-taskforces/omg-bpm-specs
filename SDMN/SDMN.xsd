@@ -10,8 +10,8 @@
   <!-- The documentation annotations in this file are non-normative.
       They are provided for convenience, but the specification text takes precedence. -->
 
-  <xs:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>
-  <xs:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
+  <xs:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="https://www.omg.org/spec/SCE/SCE.xsd"/>
+  <xs:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="https://www.omg.org/spec/DMN/20230324/DMN15.xsd"/>
 
   <xs:element name="sharedDataModel" type="sdmn:tSharedDataModel">
     <xs:annotation>
