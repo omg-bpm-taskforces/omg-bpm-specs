@@ -16,16 +16,6 @@
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:element name="Style" type="di:tStyle">
-		<xsd:annotation>
-			<xsd:documentation>
-				This element should never be instantiated directly, but rather a concrete implementation should.
-				It is placed there only to be referred in the sequence of DiagramElement.
-				This element is not marked as abstract for backwards compatibility with DMN and CMMN.
-			</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-
 	<xsd:complexType name="tDiagramElement" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
@@ -107,6 +97,15 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
+	<xsd:element name="Style" type="di:tStyle">
+		<xsd:annotation>
+			<xsd:documentation>
+				This element should never be instantiated directly, but rather a concrete implementation should.
+				It is placed there only to be referred in the sequence of DiagramElement.
+				This element is not marked as abstract for backwards compatibility with DMN and CMMN.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
 	<xsd:complexType name="tStyle" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>Style contains formatting properties that affect the appearance or style of diagram elements, including diagram themselves.</xsd:documentation>

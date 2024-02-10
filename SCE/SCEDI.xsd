@@ -99,6 +99,46 @@
 	<!-- An xsd:complexType for DiagramElement is deliberately omitted from
 		this XML schema due to the multiple-inheritance in the metamodel -->
 
+	<xsd:element name="shape" type="scedi:tShape" substitutionGroup="scedi:diagramElement"/>
+	<xsd:complexType name="tShape">
+		<xsd:annotation>
+			<xsd:documentation>
+				The Shape class specializes DI::Shape and DiagramElement. It is a kind of DI::Shape that depicts a Element from the SCE-dependent model. 
+				Shape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
+				to their diagrams. Shape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
+				further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="di:tShape">
+				<xsd:sequence>
+					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
+						<!-- This element is added to Shape because the multiple
+							inheritence of the UML metamodel is not supported in XSD. -->
+						<xsd:annotation>
+							<xsd:documentation>
+								Element Role: label
+								An optional label when the SCE-dependent Element has a visible text label.                
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
+					<!-- This attribute is added to Shape because the multiple
+						inheritence of the UML metamodel is not supported in XSD.-->
+					<xsd:annotation>
+						<xsd:documentation>
+							a reference to the Element represented by this Shape.
+							This attribute SHOULD be set on all Shapes.
+							It is only optional for backwards compatibility and for
+							special situations where the Shape does not depict a model element.
+					</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
 	<xsd:element name="edge" type="scedi:tEdge" substitutionGroup="scedi:diagramElement">
 		<xsd:annotation>
 			<xsd:documentation>
@@ -177,46 +217,6 @@
 		</xsd:annotation>
 		<xsd:complexContent>
 			<xsd:extension base="di:tShape"/>
-		</xsd:complexContent>
-	</xsd:complexType>
-
-	<xsd:element name="shape" type="scedi:tShape" substitutionGroup="scedi:diagramElement"/>
-	<xsd:complexType name="tShape">
-		<xsd:annotation>
-			<xsd:documentation>
-				The Shape class specializes DI::Shape and DiagramElement. It is a kind of DI::Shape that depicts a Element from the SCE-dependent model. 
-				Shape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes
-				to their diagrams. Shape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to 
-				further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.
-			</xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexContent>
-			<xsd:extension base="di:tShape">
-				<xsd:sequence>
-					<xsd:element ref="scedi:label" minOccurs="0" maxOccurs="1">
-						<!-- This element is added to Shape because the multiple
-							inheritence of the UML metamodel is not supported in XSD. -->
-						<xsd:annotation>
-							<xsd:documentation>
-								Element Role: label
-								An optional label when the SCE-dependent Element has a visible text label.                
-							</xsd:documentation>
-						</xsd:annotation>
-					</xsd:element>
-				</xsd:sequence>
-				<xsd:attribute name="modelElement" type="xsd:QName" use="optional">
-					<!-- This attribute is added to Shape because the multiple
-						inheritence of the UML metamodel is not supported in XSD.-->
-					<xsd:annotation>
-						<xsd:documentation>
-							a reference to the Element represented by this Shape.
-							This attribute SHOULD be set on all Shapes.
-							It is only optional for backwards compatibility and for
-							special situations where the Shape does not depict a model element.
-					</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>
-			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 

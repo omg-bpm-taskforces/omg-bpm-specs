@@ -6,12 +6,12 @@ Size
 Dimension
 diagramElement
 DiagramElement
+shape
+Shape
 edge
 Edge
 label
 Label
-shape
-Shape
 style
 Style
 fillColor

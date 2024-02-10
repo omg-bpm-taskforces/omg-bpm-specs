@@ -5,11 +5,8 @@
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		elementFormDefault="qualified">
 
-	<xsd:element name="Color" type="dc:tColor"/>
-	<xsd:element name="Point" type="dc:tPoint"/>
-	<xsd:element name="Bounds" type="dc:tBounds"/>
-	<xsd:element name="Dimension" type="dc:tDimension"/>
 
+	<xsd:element name="Color" type="dc:tColor"/>
 	<xsd:complexType name="tColor">
 		<xsd:annotation>
 			<xsd:documentation>Color is a data type that represents a color value in the RGB format.</xsd:documentation>
@@ -26,6 +23,7 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
+	<xsd:element name="Point" type="dc:tPoint"/>
 	<xsd:complexType name="tPoint">
 		<xsd:annotation>
 			<xsd:documentation>A Point specifies an location in some x-y coordinate system.</xsd:documentation>
@@ -34,6 +32,7 @@
 		<xsd:attribute name="y" type="xsd:double" use="required"/>
 	</xsd:complexType>
 
+	<xsd:element name="Dimension" type="dc:tDimension"/>
 	<xsd:complexType name="tDimension">
 		<xsd:annotation>
 			<xsd:documentation>Dimension specifies two lengths (width and height) along the x and y axes in some x-y coordinate system.</xsd:documentation>
@@ -42,6 +41,7 @@
 		<xsd:attribute name="height" type="xsd:double" use="required"/>
 	</xsd:complexType>
 
+	<xsd:element name="Bounds" type="dc:tBounds"/>
 	<xsd:complexType name="tBounds">
 	   <xsd:annotation>
 			<xsd:documentation>Bounds specifies a rectangular area in some x-y coordinate system that is defined by a location (x and y) and a size (width and height).</xsd:documentation>
