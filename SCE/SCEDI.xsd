@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema id="SCEDI" version="1.0"
+<xs:schema id="SCEDI" version="20240210"
     targetNamespace="https://www.omg.org/spec/SCE/SCEDI/"
     xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
     xmlns:di="https://www.omg.org/spec/SCE/DI/"

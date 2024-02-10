@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema id="DC" version="1.1-SCE1.0"
+<xs:schema id="DC" version="20240210"
     targetNamespace="https://www.omg.org/spec/SCE/DC/"
     xmlns:dc="https://www.omg.org/spec/SCE/DC/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
