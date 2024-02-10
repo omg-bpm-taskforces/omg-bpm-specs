@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema id="SDMN" version="1.0"
+<xs:schema id="SDMN" version="1.0"
     targetNamespace="https://www.omg.org/spec/SDMN/"
     xmlns:sdmn="https://www.omg.org/spec/SDMN/"
     xmlns:sce="https://www.omg.org/spec/SCE/"
     xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <!-- The documentation annotations in this file are non-normative.
       They are provided for convenience, but the specification text takes precedence. -->
 
-  <xsd:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>
-  <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
+  <xs:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>
+  <xs:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
 
-  <xsd:element name="sharedDataModel" type="sdmn:tSharedDataModel">
-    <xsd:annotation>
-      <xsd:documentation>
+  <xs:element name="sharedDataModel" type="sdmn:tSharedDataModel">
+    <xs:annotation>
+      <xs:documentation>
         The SharedDataModel class is the outermost containing object for all SDMN elements. It defines the scope of visibility and the namespace
         for all contained elements. The interchange of SDMN files will always be through one or more SharedDataModels. Specifically, an XML file
         for a Shared Data Model usually would be appended with a “.sdmn” label.
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType name="tSharedDataModel">
-    <xsd:complexContent>
-      <xsd:extension base="sce:tPackage">
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="tSharedDataModel">
+    <xs:complexContent>
+      <xs:extension base="sce:tPackage">
         <!-- This was meant to extend sce:tModel but itemDefinition can
           not (yet) use substitutionGroup="sce:rootElement".
           Once itemDefinition is a rootElement, this complexType will
@@ -33,218 +33,218 @@
           after itemDefinition, the sequence of elements is going
           to be backwards-compatible once itemDefinition is a rootElement.
           -->
-        <xsd:sequence>
-          <xsd:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
-            <xsd:annotation>
-              <xsd:documentation>
+        <xs:sequence>
+          <xs:element ref="sdmn:itemDefinition" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
                 This is a list of the ItemDefinitions that are included in the SharedDataModel.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:group ref="sce:elementsOfModel"/>
-        </xsd:sequence>
-        <xsd:attributeGroup ref="sce:attributesOfModel"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:group ref="sce:elementsOfModel"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="sce:attributesOfModel"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="itemDefinition" type="sdmn:tItemDefinition"><!-- TODO substitutionGroup="sce:rootElement" -->
-    <xsd:annotation>
-      <xsd:documentation>
+  <xs:element name="itemDefinition" type="sdmn:tItemDefinition"><!-- TODO substitutionGroup="sce:rootElement" -->
+    <xs:annotation>
+      <xs:documentation>
         Defines the detailed structure, which can be simple or complex, of a Data Item.
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType name="tItemDefinition">
-    <xsd:complexContent>
-      <xsd:extension base="dmn:tItemDefinition">
-        <xsd:attribute name="conceptReference" type="xsd:anyURI" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="tItemDefinition">
+    <xs:complexContent>
+      <xs:extension base="dmn:tItemDefinition">
+        <xs:attribute name="conceptReference" type="xs:anyURI" use="optional">
+          <xs:annotation>
+            <xs:documentation>
               Element Role: conceptReference
               A ItemDefinition can include a Concept Reference. This attribute was added because ItemDefinition is based on the
               DMN ItemDefinition, which is not based on the SCE specification and thus, does not have a built in Concept Reference as part
               of its definition.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="itemDefinitionRef" type="xsd:QName" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="itemDefinitionRef" type="xs:QName" use="optional">
+          <xs:annotation>
+            <xs:documentation>
               A reference to an external ItemDefinition that is imported into this Shared Data Model. The ItemDefinition and its details can
               only be viewed in this model. Any changes to the original must be carried out in the source Shared Data Model. Other types of
               structures are not allowed for the SDMN . However, BPMN Data Objects and CMMN Case File Items have the capability of references
               other types of structures. These other types of structures would not be a part of the SDMN Shared Data Model.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">
-    <xsd:annotation>
-      <xsd:documentation>
+  <xs:element name="dataItem" type="sdmn:tDataItem" substitutionGroup="sce:rootElement">
+    <xs:annotation>
+      <xs:documentation>
         A SDMN Data Item represents a common definition and structure for the data handling elements of the other BPM+ models.
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType name="tDataItem">
-    <xsd:complexContent>
-      <xsd:extension base="sce:tRootElement">
-        <xsd:sequence>
-          <xsd:element name="metaDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="tDataItem">
+    <xs:complexContent>
+      <xs:extension base="sce:tRootElement">
+        <xs:sequence>
+          <xs:element name="metaDefinitionRef" type="xs:QName" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 A reference to an itemDefinition that defines the Properties of the Data Item. The itemComponents of the ItemDefinition structure
                 map to the Properties of a CMMN Case File Item. Each of the itemComponents MUST be a simple type.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:element ref="sdmn:assignment" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="sdmn:assignment" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 Element Role: preAssignement
                 Specifies an optional pre-assignment LiteralExpression. The expression will provide values for one or more of the simple type
                 itemComponents of the ItemDefinition set for the Data Item.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:element name="referenceTargetRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="referenceTargetRef" type="xs:QName" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 Zero or more source Data Item. For reference hierarchies of a Data Item, referenceSourceRef refers to the source of the Data Item. If
                 Data Item b is a referenceTargetRef of Data Item a, then referenceSourceRef of Data Item b is a.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:element name="typeDefinitionRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="typeDefinitionRef" type="xs:QName" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 A reference to an itemDefinition that defines the detailed structure, which can be simple or complex, of the Data Item.
                 A Data Item can have only one of dataItemRef, or typeDefinitionRef as a set attribute. None of them are required, though.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:sequence>
-        <xsd:attribute name="dataItemRef" use="optional" type="xsd:QName"/>
-        <xsd:attribute name="itemKind" type="xsd:string" use="optional" default="Information">
-          <xsd:annotation>
-            <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dataItemRef" use="optional" type="xs:QName"/>
+        <xs:attribute name="itemKind" type="xs:string" use="optional" default="Information">
+          <xs:annotation>
+            <xs:documentation>
               This defines the nature of the DataItem. Possible values are Conceptual, Information, Document,
               Folder, Physical, Relationship, UMLClass, Unknown, Unspecified, WSDLMessage, XSDComplexType,
               XSDElement, and XSDSimpleType.
               The default value is Information.
               If the DataItem has a typeDefinitionRef (to an ItemDefinition),
               then the value of the itemKind MUST be Information.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="multiplicityKind" type="xsd:string" use="optional" default="ExactlyOne">
-          <xsd:annotation>
-            <xsd:documentation>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="multiplicityKind" type="xs:string" use="optional" default="ExactlyOne">
+          <xs:annotation>
+            <xs:documentation>
               This defines the Multiplicity of the DataItem. The default is ExactlyOne.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="isCollection" type="xsd:boolean" use="optional" default="false"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isCollection" type="xs:boolean" use="optional" default="false"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="connector" abstract="true" type="sdmn:tConnector" substitutionGroup="sce:rootElement"/>
-  <xsd:complexType name="tConnector">
-    <xsd:complexContent>
-      <xsd:extension base="sce:tRootElement">
-        <xsd:sequence>
-          <xsd:element name="sourceRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+  <xs:element name="connector" abstract="true" type="sdmn:tConnector" substitutionGroup="sce:rootElement"/>
+  <xs:complexType name="tConnector">
+    <xs:complexContent>
+      <xs:extension base="sce:tRootElement">
+        <xs:sequence>
+          <xs:element name="sourceRef" type="xs:QName" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 The DataItem that the Connector is connecting from.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:element name="targetRef" type="xsd:QName" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="targetRef" type="xs:QName" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 The DataItem that the Connector is connecting to.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="compensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:connector"/>
-  <xsd:complexType name="tCompensationConnector">
-    <xsd:complexContent>
-      <xsd:extension base="sdmn:tConnector"/>
-    </xsd:complexContent>
-  </xsd:complexType>
+  <xs:element name="compensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:connector"/>
+  <xs:complexType name="tCompensationConnector">
+    <xs:complexContent>
+      <xs:extension base="sdmn:tConnector"/>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="containmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:connector"/>
-  <xsd:complexType name="tContainmentConnector">
-    <xsd:complexContent>
-      <xsd:extension base="sdmn:tConnector"/>
-    </xsd:complexContent>
-  </xsd:complexType>
+  <xs:element name="containmentConnector" type="sdmn:tContainmentConnector" substitutionGroup="sdmn:connector"/>
+  <xs:complexType name="tContainmentConnector">
+    <xs:complexContent>
+      <xs:extension base="sdmn:tConnector"/>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="referenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:connector"/>
-  <xsd:complexType name="tReferenceConnector">
-    <xsd:complexContent>
-      <xsd:extension base="sdmn:tConnector"/>
-    </xsd:complexContent>
-  </xsd:complexType>
+  <xs:element name="referenceConnector" type="sdmn:tReferenceConnector" substitutionGroup="sdmn:connector"/>
+  <xs:complexType name="tReferenceConnector">
+    <xs:complexContent>
+      <xs:extension base="sdmn:tConnector"/>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="dataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:connector"/>
-  <xsd:complexType name="tDataAssociation">
-    <xsd:complexContent>
-      <xsd:extension base="sdmn:tConnector">
-        <xsd:sequence>
-          <xsd:element name="transformation" type="dmn:tLiteralExpression" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+  <xs:element name="dataAssociation" type="sdmn:tDataAssociation" substitutionGroup="sdmn:connector"/>
+  <xs:complexType name="tDataAssociation">
+    <xs:complexContent>
+      <xs:extension base="sdmn:tConnector">
+        <xs:sequence>
+          <xs:element name="transformation" type="dmn:tLiteralExpression" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 Specifies an optional transformation Expression. The actual scope of accessible data for that Expression is
                 defined by the source and target of the specific Data Association types.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-          <xsd:element ref="sdmn:assignment" minOccurs="1" maxOccurs="unbounded">
-            <xsd:annotation>
-              <xsd:documentation>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="sdmn:assignment" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
                 Specifies one or more data elements Assignments. By using an Assignment, single data structure elements can be
                 assigned from the source structure to the target structure.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-  <xsd:element name="assignment" type="sdmn:tAssignment">
-    <xsd:annotation>
-      <xsd:documentation>
+  <xs:element name="assignment" type="sdmn:tAssignment">
+    <xs:annotation>
+      <xs:documentation>
         tbd...
-      </xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
-  <xsd:complexType name="tAssignment">
-    <xsd:complexContent>
-      <xsd:extension base="sce:tRootElement">
-        <xsd:sequence>
-          <xsd:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="tAssignment">
+    <xs:complexContent>
+      <xs:extension base="sce:tRootElement">
+        <xs:sequence>
+          <xs:element ref="dmn:expression" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
                 Element Role: value
                 The DMN Expression that evaluates the Assignment.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:sequence>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
-</xsd:schema>
+</xs:schema>
