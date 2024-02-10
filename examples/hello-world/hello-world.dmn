@@ -7,7 +7,11 @@
     xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"
     xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
     xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
-    >
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      https://www.omg.org/spec/DMN/20230324/MODEL/
+      https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+    ">
 
   <dmn:import name="data" locationURI="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
