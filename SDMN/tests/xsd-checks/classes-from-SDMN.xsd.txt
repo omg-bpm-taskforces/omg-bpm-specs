@@ -1,5 +1,5 @@
 Assignment
-CompensationConnector
+CompositionConnector
 Connector
 ContainmentConnector
 DataAssociation

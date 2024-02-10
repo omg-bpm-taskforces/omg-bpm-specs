@@ -176,8 +176,8 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:element name="compensationConnector" type="sdmn:tCompensationConnector" substitutionGroup="sdmn:connector"/>
-  <xs:complexType name="tCompensationConnector">
+  <xs:element name="compositionConnector" type="sdmn:tCompositionConnector" substitutionGroup="sdmn:connector"/>
+  <xs:complexType name="tCompositionConnector">
     <xs:complexContent>
       <xs:extension base="sdmn:tConnector"/>
     </xs:complexContent>

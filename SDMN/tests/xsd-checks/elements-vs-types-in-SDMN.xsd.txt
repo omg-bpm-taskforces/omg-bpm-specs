@@ -16,8 +16,8 @@ sourceRef
 QName
 targetRef
 QName
-compensationConnector
-CompensationConnector
+compositionConnector
+CompositionConnector
 containmentConnector
 ContainmentConnector
 referenceConnector

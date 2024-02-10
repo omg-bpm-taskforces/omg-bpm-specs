@@ -1,8 +1,8 @@
 argetRef
 assignment
 Assignment
-compensationConnector
-CompensationConnector
+compositionConnector
+CompositionConnector
 connector
 Connector
 containmentConnector
