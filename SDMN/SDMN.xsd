@@ -5,7 +5,7 @@
     xmlns:sce="https://www.omg.org/spec/SCE/"
     xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="qualified">
+    elementFormDefault="qualified" attributeFormDefault="unqualified">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>  
     <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
