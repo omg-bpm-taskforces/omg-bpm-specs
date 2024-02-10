@@ -227,9 +227,9 @@
         non-normative visual attributes such as colors and font. SCE doesn’t give any semantic to color and font styling, but tools can decide to use them and
         interchange them. DiagramElement style is calculated by percolating up Style attributes defined at a different level of the hierarchy.
         Each attribute is considered independently (meaning that a Style attribute can be individually overloaded). The precedence rules are as follow:
-        • The Style defined by the localStyle attribute of the DiagramElement
+        • The Style defined by the local Style attribute of the DiagramElement
         • The Style referenced by the sharedStyle attribute of the DiagramElement
-        • The Style defined by the localStyle attribute of the parent Diagram
+        • The Style defined by the local Style attribute of the parent Diagram
         • The Style referenced by the sharedStyle attribute of the parent Diagram
         The default attribute value defined in Style attributes.
         For example, let’s say we have the following:
