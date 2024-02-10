@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This example file is non-normative. -->
 <sdmn:sharedDataModel id="SharedDataModel"
     targetNamespace="https://example.org/shared-data-model"
     xmlns="https://example.org/shared-data-model"

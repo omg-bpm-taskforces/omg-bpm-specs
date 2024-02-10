@@ -7,6 +7,9 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified" attributeFormDefault="unqualified">
 
+  <!-- The documentation annotations in this file are non-normative.
+      They are provided for convenience, but the specification text takes precedence. -->
+
   <xsd:import namespace="https://www.omg.org/spec/SCE/" schemaLocation="../SCE/SCE.xsd"/>
   <xsd:import namespace="https://www.omg.org/spec/DMN/20230324/MODEL/" schemaLocation="../DMN/DMN15.xsd"/>
 

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This example file is non-normative. -->
 <dmn:definitions name="DRD" id="Greeting_DRD"
     namespace="https://example.org/hello-world/decisions"
     xmlns="https://example.org/hello-world/decisions"
