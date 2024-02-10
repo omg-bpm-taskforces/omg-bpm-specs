@@ -110,14 +110,6 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="referenceTargetRef" type="xs:QName" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                Zero or more source Data Item. For reference hierarchies of a Data Item, referenceSourceRef refers to the source of the Data Item. If
-                Data Item b is a referenceTargetRef of Data Item a, then referenceSourceRef of Data Item b is a.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="typeDefinitionRef" type="xs:QName" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>

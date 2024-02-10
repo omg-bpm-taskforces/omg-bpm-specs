@@ -6,8 +6,6 @@ dataItem
 DataItem
 metaDefinitionRef
 QName
-referenceTargetRef
-QName
 typeDefinitionRef
 QName
 connector

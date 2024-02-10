@@ -17,7 +17,6 @@ metaDefinitionRef
 ransformation
 referenceConnector
 ReferenceConnector
-referenceTargetRef
 sharedDataModel
 SharedDataModel
 sourceRef
