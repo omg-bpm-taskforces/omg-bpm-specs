@@ -734,7 +734,7 @@
 					<xsd:element name="typeRef" type="xsd:QName" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								the type shoulde be tElementTypeRelation
+								the type should be tElementTypeRelation
 								The target concrete specialization of Element of the relationship.
 							</xsd:documentation>
 						</xsd:annotation>
