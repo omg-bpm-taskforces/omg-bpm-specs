@@ -20,7 +20,6 @@ targetNamespace
 targetRef
 textFormat
 textFormat
-type
 typeLanguage
 useDocumentation
 version

@@ -366,13 +366,6 @@
             </xs:annotation>
           </xs:element>
         </xs:sequence>
-        <xs:attribute name="type" type="xs:string" use="required">
-          <xs:annotation>
-            <xs:documentation>
-              A description of the type of the element.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute name="direction" type="sce:tRelationshipDirection" use="required">
           <xs:annotation>
             <xs:documentation>
