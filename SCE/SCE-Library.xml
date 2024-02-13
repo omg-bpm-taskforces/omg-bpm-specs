@@ -11,32 +11,12 @@
     https://www.omg.org/spec/SCE/20240210/SCE.xsd
   ">
 
-  <sce:relationshipKind id="composition"
-    name="Composition"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/composition"/>
-
-  <sce:relationshipKind id="containment"
-    name="Containment"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/containment"/>
-
-  <sce:relationshipKind id="correlation"
-    name="Correlation"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/correlation"/>
-
-  <sce:relationshipKind id="dependency"
-    name="Dependency"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/dependency"/>
-
-  <sce:relationshipKind id="miscellaneous"
-    name="Miscellaneous"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/miscellaneous"/>
-
-  <sce:relationshipKind id="reference"
-    name="Reference"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/reference"/>
-
-  <sce:relationshipKind id="generalization"
-    name="Generalization"
-    conceptReference="https://www.omg.org/spec/SCE/RelationshipKinds/generalization"/>
+  <sce:relationshipKind id="Composition"    name="Composition"/>
+  <sce:relationshipKind id="Containment"    name="Containment"/>
+  <sce:relationshipKind id="Correlation"    name="Correlation"/>
+  <sce:relationshipKind id="Dependency"     name="Dependency"/>
+  <sce:relationshipKind id="Miscellaneous"  name="Miscellaneous"/>
+  <sce:relationshipKind id="Reference"      name="Reference"/>
+  <sce:relationshipKind id="Generalization" name="Generalization"/>
 
 </sce:relationshipKindSet>
