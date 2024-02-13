@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001"
+         xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+         xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+   <xmi:documentation xmi:type="xmi:Documentation">
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
+   </xmi:documentation>
+      <package xmi:type="uml:Package" xmi:id="_19_0_2_239e051a_1575919788035_856770_278"
+                       name="SCE">
+         <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1598391438051_125768_928"
+                       body="This section defines the semantic elements of SCE. The main topics are organized into SCE Core Elements, Annotations, External Relationships, Internal Relationships, BPM+ Modeling, and Vocabularies.">
+            <annotatedElement xmi:idref="_19_0_2_239e051a_1575919788035_856770_278"/>
+         </ownedComment>
+         <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851626_24160_348"
+                          name="QName">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_2_239e051a_1575919851654_713455_394">
+               <general href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851627_963566_349"
+                          name="URI">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_2_239e051a_1575919851654_183428_395">
+               <general href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+            </generalization>
+         </packagedElement>
+         <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851622_851177_347"
+                          name="ID"/>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1628207308534_865232_677"
+                          name="Model_sceKindSet">
+            <memberEnd xmi:idref="_19_0_3_f440358_1628207308534_190389_678"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1628207308535_389608_679"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1628207308535_389608_679"
+                      visibility="public"
+                      type="_19_0_4_136803e7_1698950645199_158236_893"
+                      association="_19_0_3_f440358_1628207308534_865232_677"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_4_136803e7_1698950645199_158236_893"
+                          name="Model"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_4_136803e7_1698950766499_633613_923"
+                            general="_19_0_3_f440358_1629320161562_526997_1777"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1598567473591_576433_1891"
+                            name="diagrams"
+                            visibility="public"
+                            aggregation="composite"
+                            association="_19_0_3_f440358_1598567473590_899090_1890">
+               <type href="SCEDI.mdzip#_19_0_3_f440358_1592421860879_351126_180"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1598568656244_667689_1955"
+                             body="This attribute contains the Diagram Interchange information contained within this SCEModelPackage.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1598567473591_576433_1891"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1598567495769_943947_1905"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851646_838670_388"
+                            name="exporter"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851685_618007_466"
+                             body="This attribute identifies the tool that is exporting the model file that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851646_838670_388"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_239e051a_1575919851685_669191_467"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1628207308534_190389_678"
+                            name="kindSet"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1628207146603_2955_645"
+                            association="_19_0_3_f440358_1628207308534_865232_677">
+               <subsettedProperty xmi:idref="_19_0_4_136803e7_1698687239224_752936_158"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1628208186163_139868_748"
+                             body="This is a list of terms (SemanticRefernces) that can be used to define the elements of a concrete specialization of SCEModel.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1628207308534_190389_678"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1628207336772_693789_692"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1628207336773_976930_693"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138091108_767147_573"
+                            name="relationship"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1577137706711_949286_494"
+                            association="_19_0_3_f440358_1577138091108_43881_572">
+               <subsettedProperty xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1590779242142_239145_12564"
+                             body="This is a list of all the ExternalRelationships contained within a concrete specialization of &lt;span&gt;SCEModel.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138091108_767147_573"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1577138105133_280459_583"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1577138105133_953920_584"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851654_734609_393"
+                            name="exporterVersion"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851690_107423_481"
+                             body="This attribute identifies the version of the tool that is exporting the file that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851654_734609_393"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_239e051a_1575919851690_236835_482"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1699466228365_482815_199"
+                            name="expressionLanguage"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1703617684590_717223_25"/>
+               <defaultValue xmi:type="uml:LiteralString" xmi:id="_19_0_4_136803e7_1699466255545_989749_202"
+                             value="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1699466272413_435804_203"
+                            name="typeLanguage"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1703617693705_506560_27"/>
+               <defaultValue xmi:type="uml:LiteralString" xmi:id="_19_0_4_136803e7_1699466296340_38163_206"
+                             value="https://www.omg.org/spec/DMN/20230324/FEEL/"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1705684547099_680654_654"
+                            name="rootElement"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_4_136803e7_1705959817971_695932_49"
+                            association="_19_0_4_136803e7_1705684547098_877241_653">
+               <subsettedProperty xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_4_136803e7_1705684673765_844028_681"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_4_136803e7_1705684673766_326198_682"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1577138091108_43881_572"
+                          name="Model_externalRelationship">
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138091108_767147_573"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138091108_999331_574"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138091108_999331_574"
+                      visibility="private"
+                      type="_19_0_4_136803e7_1698950645199_158236_893"
+                      association="_19_0_3_f440358_1577138091108_43881_572"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1629320161562_526997_1777"
+                          name="Package"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1629824413970_34960_3628"
+                          body="&lt;span&gt;SCEPackage is a basic capability that is used by the other packaging classes in SCE. Thus, by itself it is not contained within any element. It&amp;rsquo;s five sub-classes (listed in the next five sections), will be used to organize the types of content that make up a model or set of models (of a language that utilizes SCE). The SCEModelPackage (see below) is the top-level package used for distribution of the content of a modeling language.Note: a targetNamespce attribute is not required for the metamodel elements for SCE. However, for non-XMI XSDs, a targetNamespace attribute of type anyURI will be included in the tSCEPackage type for the XSD.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1629320161562_526997_1777"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_3_f440358_1629320257869_817105_1831"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1629320298351_832602_1837"
+                            name="element"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_2_239e051a_1575919851616_504344_341"
+                            association="_19_0_3_f440358_1629320298350_87417_1836">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1629761082696_401071_3594"
+                             body="This is a list of all the SCERootElements contained within a &lt;span&gt;SCEModelPackage. Many elements will be identified through additional associations that subset this property.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1629320334128_439394_1851"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1629320334128_326896_1852"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851653_552340_392"
+                            name="import"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_2_239e051a_1575919851618_828136_343"
+                            association="_19_0_2_239e051a_1575919851638_117360_371">
+               <subsettedProperty xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851689_631529_478"
+                             body="This attribute is used to import externally defined elements and make them available for use by elements within a concrete specialization of SCEPackage.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851653_552340_392"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_239e051a_1575919851689_450240_479"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_2_239e051a_1575919851689_142290_477"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1583185406284_695745_39831"
+                            name="version"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1590778666405_675718_12555"
+                             body="This attribute specifies the version of the model package that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1583185406284_695745_39831"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1583185406291_251923_39839"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1583185406289_530282_39832"
+                            name="versionDate"
+                            visibility="public">
+               <type href="UML_Standard_Profile.mdzip#_be00301_1073305590699_364818_1"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1590778686723_892085_12556"
+                             body="The date when the version of the model package that is dependent on was established. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1583185406289_530282_39832"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1583185406292_900616_39841"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1612463623102_452798_307"
+                            name="tags"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1612545965421_785061_575"
+                             body="The tag setting provides another classification mechanism for package. This classification could be used as part of a search for a particular package within a concrete specialization of SCEModelPackage, for example.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1612463623102_452798_307"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1612463646831_992881_309"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1612463646832_616580_310"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1698687239224_752936_158"
+                            name="package"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1629320161562_526997_1777"
+                            association="_19_0_4_136803e7_1698687239222_357637_157">
+               <subsettedProperty xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_4_136803e7_1698687347016_224657_174"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_4_136803e7_1698687347017_567675_175"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1598567473590_899090_1890"
+                          name="Model_presentation">
+            <memberEnd xmi:idref="_19_0_3_f440358_1598567473591_576433_1891"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1598567473592_221019_1892"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1598567473592_221019_1892"
+                      visibility="private"
+                      type="_19_0_4_136803e7_1698950645199_158236_893"
+                      association="_19_0_3_f440358_1598567473590_899090_1890"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_239e051a_1575919851638_117360_371"
+                          name="Package_import">
+            <memberEnd xmi:idref="_19_0_2_239e051a_1575919851653_552340_392"/>
+            <memberEnd xmi:idref="_19_0_2_239e051a_1575919851673_663555_430"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851673_663555_430"
+                      visibility="private"
+                      type="_19_0_3_f440358_1629320161562_526997_1777"
+                      association="_19_0_2_239e051a_1575919851638_117360_371"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_4_136803e7_1698687239222_357637_157"
+                          name="Package_containedPackage">
+            <memberEnd xmi:idref="_19_0_4_136803e7_1698687239224_752936_158"/>
+            <memberEnd xmi:idref="_19_0_4_136803e7_1698687239226_649384_159"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1698687239226_649384_159"
+                      visibility="public"
+                      type="_19_0_3_f440358_1629320161562_526997_1777"
+                      association="_19_0_4_136803e7_1698687239222_357637_157">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_4_136803e7_1698687353807_591716_178"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_4_136803e7_1705684547098_877241_653"
+                          name="Model_modelElement">
+            <memberEnd xmi:idref="_19_0_4_136803e7_1705684547099_680654_654"/>
+            <memberEnd xmi:idref="_19_0_4_136803e7_1705684547100_686945_655"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1705684547100_686945_655"
+                      visibility="public"
+                      type="_19_0_4_136803e7_1698950645199_158236_893"
+                      association="_19_0_4_136803e7_1705684547098_877241_653"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1629320298350_87417_1836"
+                          name="Package_element">
+            <memberEnd xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1629320298351_374407_1838"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1629320298351_374407_1838"
+                      visibility="public"
+                      type="_19_0_3_f440358_1629320161562_526997_1777"
+                      association="_19_0_3_f440358_1629320298350_87417_1836">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1629320313215_150250_1845"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_6490212_1573819587074_232237_1042"
+                          name="ElementType"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_6490212_1574025507178_70463_1361"
+                          body="A kind of SCEElement that can be a type or specification of a TypedElement. This usually is applied to the concrete TypedElement that serves as an instance in a runtime model.An example of a ElementType in the context of Provenance and Pedigree would be the entity-type Thoroughbred Horse that is used to specific the basic characteristics of thoroughbred horses. The entity Secretariat (the horse), which is a TypedElement, is, in a sense, an instance of the entity-type Thoroughbred Horse.">
+               <annotatedElement xmi:idref="_19_0_2_6490212_1573819587074_232237_1042"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_2_6490212_1573819665631_286624_1112"
+                            general="_19_0_4_136803e7_1705959817971_695932_49"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_4_136803e7_1705959817971_695932_49"
+                          name="RootElement"
+                          isAbstract="true">
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_4_136803e7_1705959851281_267480_79"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_239e051a_1575919851616_504344_341"
+                          name="BaseElement"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1592341737946_8645_41"
+                          body="SCEElement extends SCERootElement with a set of common associations, such as documentation, that are useful for most elements of a modeling language. Most of the elements within SCE, and any specification that is dependent on SCE, will inherit the attributes and associations of SCEElement.&lt;span&gt; ">
+               <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851616_504344_341"/>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851634_60783_363"
+                            name="attachment"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_2_239e051a_1575919851620_594938_345"
+                            association="_19_0_2_239e051a_1575919851633_600119_359">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851664_169574_411"
+                             body="This association is used to annotate any concrete specialization of SCEElement with descriptions and other documentation.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851634_60783_363"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_239e051a_1575919851665_957447_412"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_2_239e051a_1575919851661_615496_410"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577749867707_281227_1146"
+                            name="categoryRef"
+                            visibility="public"
+                            type="_19_0_3_f440358_1577144711538_915405_665"
+                            association="_19_0_3_f440358_1577749867707_241411_1145">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585697917670_62609_395"
+                             body="This association is used to categorize any concrete specialization of SCEElement. A Category has user-defined semantics, which can be used for documentation or analysis purposes.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577749867707_281227_1146"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1577749896996_948066_1167"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1577749896997_616686_1168"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330316550_585120_1300"
+                            name="documentation"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1606330257659_393028_1264"
+                            association="_19_0_3_f440358_1606330316549_25213_1299">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606338798268_761540_1395"
+                             body="This association is used to annotate any concrete specialization of SCEElement with descriptions and other documentation.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606330316550_585120_1300"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1606330359997_788267_1310"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1606330360001_714958_1311"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606253986419_255483_806"
+                            name="id"
+                            visibility="public"
+                            isReadOnly="true"
+                            isID="true">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253986421_685645_810"
+                             body="This attribute is used to uniquely identify a SCERootElement. The idis REQUIRED if this element is referenced or intended to be referenced by something else. If the element is not currently referenced and is never intended to be referenced, the idMAY be omitted.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606253986419_255483_806"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606253700784_877041_794"
+                            name="name"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253700787_189019_796"
+                             body="The name attribute is a text description or label of the element. In general, the name is optional, but many elements will require a name. The definition of each specialization of SCERootElement may identify this requirement.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606253700784_877041_794"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1606253700788_144361_797"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606253986420_558152_808"
+                            name="aliasIds"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253986422_613256_816"
+                             body="Various alternative identifiers for this element. Generally, these will be set by tools, but one of them (the humanId), in particular, may be set by the modeler.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606253986420_558152_808"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1606253986422_236410_817"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1606253986421_838672_815"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1697652076772_191539_54"
+                            name="conceptReference"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1697652102005_828683_56"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1632256013642_384607_380"
+                          name="TypedElement"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1632260491432_105659_522"
+                          body="A kind of SCEElement that has zero or more ElementTypes, identified by the typeRef attribute.&lt;span&gt;&amp;#160; The ElementType(s), if present, provide a specification for the element.An example of a TypedElement in the context of Provenance and Pedigree would be the entity Secretariat (the horse) where the entity&amp;rsquo;s pedigree is documented. The entity is a TypedElement since an ElementType, such as Thoroughbred Horse, can be used to specify the basic characteristics of thoroughbred horses. The specific entity Secretariat is, in a sense, an instance of the entity-type Thoroughbred Horse.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1632256013642_384607_380"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1632256039623_564511_407"
+                            general="_19_0_4_136803e7_1705959817971_695932_49"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_6490212_1568118175783_289541_25040"
+                            name="typeRef"
+                            visibility="public"
+                            type="_19_0_2_6490212_1573819587074_232237_1042"
+                            association="_19_0_2_6490212_1568118175783_880412_25039">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1585508687601_160585_1806"
+                             body="The class(es) that provide(s) a specification, through an ElementType, of the TypedElement. This usually is applied to the concrete TypedElement that serves as an instance in a runtime model.">
+                  <annotatedElement xmi:idref="_19_0_2_6490212_1568118175783_289541_25040"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_6490212_1568118197967_680492_25060"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_2_6490212_1568118197968_772973_25061"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1577144711538_915405_665"
+                          name="Category">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1582822544961_754139_146"
+                          body="A Category, which have user-defined semantics, can be used for documentation or metadata organizational purposes. For example, recommendations (in the healthcare domain) can be assigned a category of Lifestyle Modification with further breakdowns into Weight Reduction, Exercise Program, and Diet Modification sub-categories.The Category element inherits the attributes of SCEElement (see table above) and is contained within a SCEPackage (see figure above). It is referenced by any SCEElement. Thus, any concrete element within a model file, dependent on SCE, MAY have zero or more Categories. Further, Categories may be nested such that one Category may contain other Categories. Note: The structure of Category in is different than the structure of Category in BPMN. However, the two structures can be mapped to each other.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1577144711538_915405_665"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1605721265966_539394_307"
+                            general="_19_0_4_136803e7_1705959817971_695932_49"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1598563857729_218974_1696"
+                            name="category"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1577144711538_915405_665"
+                            association="_19_0_3_f440358_1598563857728_661597_1695">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1598930067142_407223_1246"
+                             body="This association allows the nesting of Categories. A Category MAY have more than one child Category.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1598563857729_218974_1696"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1598563950630_780100_1715"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1598563950637_302398_1716"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1598563857730_563116_1697"
+                            name="parentRef"
+                            visibility="public"
+                            type="_19_0_3_f440358_1577144711538_915405_665"
+                            association="_19_0_3_f440358_1598563857728_661597_1695">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1598930084358_16495_1247"
+                             body="This association allows the nesting of Categories. A Category MAY be a parent for more than one Category.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1598563857730_563116_1697"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1598563917928_130036_1709"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1606330316549_25213_1299"
+                          name="Element_documentation">
+            <memberEnd xmi:idref="_19_0_3_f440358_1606330316550_585120_1300"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1606330316550_807914_1301"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330316550_807914_1301"
+                      visibility="public"
+                      type="_19_0_2_239e051a_1575919851616_504344_341"
+                      association="_19_0_3_f440358_1606330316549_25213_1299">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1606330375944_872969_1314"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_239e051a_1575919851633_600119_359"
+                          name="Element_attachment">
+            <memberEnd xmi:idref="_19_0_2_239e051a_1575919851634_60783_363"/>
+            <memberEnd xmi:idref="_19_0_2_239e051a_1575919851659_757485_406"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851659_757485_406"
+                      visibility="private"
+                      type="_19_0_2_239e051a_1575919851616_504344_341"
+                      association="_19_0_2_239e051a_1575919851633_600119_359"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1577749867707_241411_1145"
+                          name="Element_categoryRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1577749867707_281227_1146"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1577749867707_860638_1147"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577749867707_860638_1147"
+                      visibility="private"
+                      type="_19_0_2_239e051a_1575919851616_504344_341"
+                      association="_19_0_3_f440358_1577749867707_241411_1145"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_6490212_1568118175783_880412_25039"
+                          name="typeRef_instance">
+            <memberEnd xmi:idref="_19_0_2_6490212_1568118175783_289541_25040"/>
+            <memberEnd xmi:idref="_19_0_2_6490212_1568118175783_137069_25041"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_2_6490212_1568118175783_137069_25041"
+                      name="instance"
+                      visibility="public"
+                      type="_19_0_3_f440358_1632256013642_384607_380"
+                      association="_19_0_2_6490212_1568118175783_880412_25039">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1585508574539_88922_1647">
+                  <annotatedElement xmi:idref="_19_0_2_6490212_1568118175783_137069_25041"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_6490212_1568118207811_590390_25066"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_2_6490212_1568118207812_180138_25067"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1598563857728_661597_1695"
+                          name="parentRef_child">
+            <memberEnd xmi:idref="_19_0_3_f440358_1598563857729_218974_1696"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1598563857730_563116_1697"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_239e051a_1575919851620_594938_345"
+                          name="Attachment">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851643_725406_380"
+                          body="The Attachment element provides a place for model developers to provide attached documents to a model element.The Attachment element is contained within a concrete specialization of SCEElement. Thus, any concrete element within a model that is dependent on MAY have one or more Attachments.">
+               <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851620_594938_345"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1605648729748_128148_292"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851643_142916_381"
+                            name="attachmentLocation"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851679_168390_446"
+                             body="This attribute identifies the URI location of the attachment.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851643_142916_381"/>
+               </ownedComment>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1606330257659_393028_1264"
+                          name="Documentation">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606336496698_579972_1330"
+                          body="The Documentation element provides a place for model developers to provide descriptive information about an model element.The Documentation element is contained within a concrete specialization of SCEElement. Thus, any concrete element within a model that is dependent on MAY have one or more Documentations.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1606330257659_393028_1264"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606336541214_356314_1331"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606336541216_782389_1332"
+                             body="The Documentation element is contained within a concrete specialization of SCEElement. Thus, any concrete element within a model that is dependent on MAY have one or more Documentations.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606336541214_356314_1331"/>
+               </ownedComment>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1706719407583_890410_123"
+                            name="id"
+                            visibility="public"
+                            isReadOnly="true"
+                            isID="true">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_4_136803e7_1706719407616_858371_125"
+                             body="This attribute is used to uniquely identify a SCERootElement. The id is REQUIRED if this element is referenced or intended to be referenced by something else. If the element is not currently referenced and is never intended to be referenced, the id MAY be omitted.">
+                  <annotatedElement xmi:idref="_19_0_4_136803e7_1706719407583_890410_123"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330486063_265604_1322"
+                            name="text"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606427158678_267835_1462"
+                             body="This attribute is used to capture the text descriptions of any concrete element within a model that is dependent on SCE.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606330486063_265604_1322"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330445087_237441_1318"
+                            name="textFormat"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606427200930_877163_1463"
+                             body="&lt;span&gt;The named language can be a natural language, in which case the body is an informal representation, or an artifical language, in which case the body is expected to be a formal, machine-parsable representation.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1606330445087_237441_1318"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1606330463757_142778_1320"/>
+               <defaultValue xmi:type="uml:LiteralString" xmi:id="_19_0_4_136803e7_1705968479216_753617_64"
+                             value="&#34;text/plain&#34;"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1577137706711_949286_494"
+                          name="Relationship">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1634848601833_33933_201"
+                          body="The ExternalRelationship element is where an external relationship can be defined. It allows a relationship to be defined between and internal model element and an external model element. &lt;span&gt;It is contained in an SCEModel.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1577137706711_949286_494"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1577138383101_566707_662"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577137836968_220122_523"
+                            name="direction"
+                            visibility="public"
+                            type="_19_0_3_f440358_1577138007541_606236_538">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1586204076727_46065_2288"
+                             body="This attribute specifies the direction of the external relationship.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577137836968_220122_523"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138276990_222103_627"
+                            name="sourceRef"
+                            visibility="public"
+                            association="_19_0_3_f440358_1577138276990_613660_626">
+               <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1586204091232_167186_2291"
+                             body="This association defines artifacts that are augmented by the external relationship.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138276990_222103_627"/>
+               </ownedComment>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1577138289522_450549_638"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138296548_776276_646"
+                            name="targetRef"
+                            visibility="public"
+                            association="_19_0_3_f440358_1577138296548_886692_645">
+               <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1586204127757_183386_2292"
+                             body="This association defines artifacts used to extend the semantics of the source element(s).">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138296548_776276_646"/>
+               </ownedComment>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1577138309341_936737_657"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_239e051a_1575919851618_828136_343"
+                          name="Import">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851639_442185_372"
+                          body="The Import class is used by an implementation of a modeling specification (i.e., a model), dependent on SCE, when referencing an external element that is contained in a different model. The referenced model can be of the same or different type of modeling specification. It is contained within a concrete specialization of SCEPackage.">
+               <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851618_828136_343"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_4_136803e7_1706748366600_718585_36"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851639_199253_373"
+                            name="importType"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851674_771505_432"
+                             body="Identifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the document. The value of the importType attribute MUST be set to http://www.w3.org/2001/XMLSchema when importing XML Schema 1.0 documents, to http://www.w3.org/TR/wsdl20/ when importing WSDL 2.0 documents, and http://www.omg.org/spec/BPMN/20100524/MODEL when importing BPMN 2.0 documents. Other types of documents MAY be supported. Importing Xml Schema 1.0, WSDL 2.0 and BPMN 2.0, CBMN 1.0, CMMN 1.1, DMN 1.3, and SDMN 1.0 types MUST be supported. dentifies the type of document being imported by providing an absolute URI that identifies the encoding language used in the document. The value of the importType attribute MUST be set to http://www.w3.org/2001/XMLSchema when importing XML Schema 1.0 documents, to http://www.w3.org/TR/wsdl20/ when importing WSDL 2.0 documents, and http://www.omg.org/spec/BPMN/20100524/MODEL when importing BPMN 2.0 documents. Other types of documents MAY be supported. Importing Xml Schema 1.0, WSDL 2.0 and BPMN 2.0, CBMN 1.0, CMMN 1.1, DMN 1.3, and SDMN 1.0 types MUST be supported. ">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851639_199253_373"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851640_102359_374"
+                            name="location"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851675_88293_435"
+                             body="Identifies the location of the imported element within the document identified by the importType.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851640_102359_374"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_2_239e051a_1575919851675_759004_436"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851640_446842_375"
+                            name="namespace"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851676_635540_438"
+                             body="Identifies the namespace of the imported element.">
+                  <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851640_446842_375"/>
+               </ownedComment>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Enumeration" xmi:id="_19_0_3_f440358_1577138007541_606236_538"
+                          name="RelationshipDirection">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593444143392_550758_33"
+                          body="This enumeration list specifies the direction of the relationship.The following table lists and defines the RelationshipDirection literals.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1577138007541_606236_538"/>
+            </ownedComment>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1577138044922_189412_564"
+                          name="Backward">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593447351523_328431_51"
+                             body="This literal specifies that the &lt;span&gt;ExternalRelationship is in the direction from the target to the source.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138044922_189412_564"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1577138050090_492855_566"
+                          name="Both">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593447341673_668769_50"
+                             body="This literal specifies that the &lt;span&gt;ExternalRelationship is in the direction from the target to the source and from the source to the target.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138050090_492855_566"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1577138038535_845783_562"
+                          name="Forward">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593447331140_770111_49"
+                             body="This literal specifies that the &lt;span&gt;ExternalRelationship is in the direction from the source to the target.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138038535_845783_562"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1577138032631_448665_560"
+                          name="None">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593446976807_139151_48"
+                             body="This literal specifies that the &lt;span&gt;ExternalRelationship is in the direction from the target to the source.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1577138032631_448665_560"/>
+               </ownedComment>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1577138276990_613660_626"
+                          name="ExternalRelationship_sourceRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138276990_222103_627"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138276991_778730_628"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138276991_778730_628"
+                      visibility="private"
+                      type="_19_0_3_f440358_1577137706711_949286_494"
+                      association="_19_0_3_f440358_1577138276990_613660_626"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1577138296548_886692_645"
+                          name="ExternalRelationship_targetRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138296548_776276_646"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1577138296548_882491_647"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1577138296548_882491_647"
+                      visibility="private"
+                      type="_19_0_3_f440358_1577137706711_949286_494"
+                      association="_19_0_3_f440358_1577138296548_886692_645"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_6490212_1580677058045_742585_97"
+                          name="ElementRelationship">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1584276217837_724443_23144"
+                          body="A kind of relationships between two SCEElements. The RelationshipType enumeration element identify specific types of relationships.">
+               <annotatedElement xmi:idref="_19_0_3_6490212_1580677058045_742585_97"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_6490212_1612709025582_795519_892"
+                            general="_19_0_3_f440358_1632256013642_384607_380"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1580677107598_782295_156"
+                            name="sourceRef"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851616_504344_341"
+                            association="_19_0_3_6490212_1580677107598_144203_155">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1585508652772_88206_1772"
+                             body="The source SCEElement of the relationship. If there is an &lt;span&gt;ElementRelationshipType identified through the typeRef association, then the source must be a TypedElement.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1580677107598_782295_156"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1580677163997_870674_199"
+                            name="targetRef"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851616_504344_341"
+                            association="_19_0_3_6490212_1580677163996_861671_198">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1585508677407_510482_1799"
+                             body="The target concrete specialization of SCEElement of the relationship. If there is an &lt;span&gt;ElementRelationshipType identified through the typeRef association, then the target must be a TypedElement.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1580677163997_870674_199"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628420020647_320787_407"
+                            name="typeRef"
+                            visibility="public"
+                            type="_19_0_3_6490212_1628419302767_423719_60"
+                            association="_19_0_3_6490212_1628420020647_758883_406">
+               <redefinedProperty xmi:idref="_19_0_2_6490212_1568118175783_289541_25040"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1631728360645_338949_1286"
+                             body="The class(es) that provide(s) a specification of the ElementRelationship. This usually is applied to the concrete &lt;span&gt;ElementTypeRelationship that serves as an instance in a runtime model. This redefines the typeRef association of SCEElement.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1628420020647_320787_407"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_6490212_1628420052337_817628_421"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635302302636_800914_406"
+                            name="relationshipKindRef"
+                            visibility="public"
+                            type="_19_0_3_f440358_1635266096046_174832_945"
+                            association="_19_0_3_f440358_1635302302635_963986_405">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635879327293_765153_1997"
+                             body="A description of the type of the relationship. See RelationshipKind, below, for more details.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635302302636_800914_406"/>
+               </ownedComment>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_6490212_1628419302767_423719_60"
+                          name="ElementRelationshipType">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1628419712443_537011_380"
+                          body="A kind of ElementRelationship that specifies two ElementTypes (rather than SCEElements). The RelationshipType enumeration element identify specific types of relationships.">
+               <annotatedElement xmi:idref="_19_0_3_6490212_1628419302767_423719_60"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_6490212_1628419416781_888883_259"
+                            general="_19_0_2_6490212_1573819587074_232237_1042"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419468340_304349_265"
+                            name="sourceRef"
+                            visibility="public"
+                            type="_19_0_2_6490212_1573819587074_232237_1042"
+                            association="_19_0_3_6490212_1628419468340_383094_264">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1628636927339_111924_1539"
+                             body="The source concrete specialization of ElementType of the relationship.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1628419468340_304349_265"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419543234_578268_306"
+                            name="targetRef"
+                            visibility="public"
+                            type="_19_0_2_6490212_1573819587074_232237_1042"
+                            association="_19_0_3_6490212_1628419543234_678545_305">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1628636939736_589851_1540"
+                             body="The one or more target ElementTypes of the relationship.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1628419543234_578268_306"/>
+               </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419587342_163588_340"
+                            name="sourceMultiplicity"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1628419846156_802849_393"
+                             body="This attribute defines the minimum number of source SCEElements that may be the source for the &lt;span&gt;ElementRelationship that identifies this &lt;span&gt;ElementRelationshipType through its typeRef association.">
+                  <annotatedElement xmi:idref="_19_0_3_6490212_1628419587342_163588_340"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_6490212_1628419626501_750170_344"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1629490540147_252645_2288"
+                            name="targetMulitplicity"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1629752545351_993042_3083"
+                             body="This attribute defines the minimum number of target SCEElements that may be the source for the &lt;span&gt;ElementRelationship that identifies this &lt;span&gt;ElementRelationshipType through its typeRef association.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1629490540147_252645_2288"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1629490634716_530920_2290"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635302412881_988447_429"
+                            name="relationshipKindRef"
+                            visibility="public"
+                            type="_19_0_3_f440358_1635266096046_174832_945"
+                            association="_19_0_3_f440358_1635302412874_699864_428">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635879336944_550635_1998"
+                             body="A description of the type of the relationship. See RelationshipKind, below, for more details.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635302412881_988447_429"/>
+               </ownedComment>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_4_136803e7_1700521813674_181252_27"
+                          name="RelationshipKindSet">
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_4_136803e7_1700521852184_618545_57"
+                            general="_19_0_3_f440358_1628207146603_2955_645"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521933905_210012_82"
+                            name="term"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1635266096046_174832_945"
+                            association="_19_0_4_136803e7_1700521933905_677092_81">
+               <redefinedProperty xmi:idref="_19_0_3_f440358_1635881107432_162421_2031"/>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1700521939537_983926_90"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_4_136803e7_1700521939538_370068_91"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1635266096046_174832_945"
+                          name="RelationshipKind">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635785830161_60586_974"
+                          body="This class is a type of SemanticReference that serves as the terms for an SCEVocabulary that is used to specify the kind of relationship that exists between two modeling elements referenced by the ElementRelationship and ElementRelationshipType elements. Instead of being defined a fixed enumerated list, the kinds can be defined through a class (&lt;span&gt;RelationshipKind) and instances of that class (as shown below). The instances defined in the Library SHALL be included in any implementation. However, the implementation can allow additional instances of the class if required for a particular modeling situation (see the section entitled RelationshipKinds for more information).In practice, when a modeler creates a model with a ElementRelationship and ElementRelationshipType, the &lt;span&gt;RelationshipKind will be instantiated by one of the six instances in the Library.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1635266096046_174832_945"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1635266144838_200633_972"
+                            general="_19_0_2_239e051a_1575919851617_796474_342"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_6490212_1580677163996_861671_198"
+                          name="incoming_targetRef">
+            <memberEnd xmi:idref="_19_0_3_6490212_1580677163997_870674_199"/>
+            <memberEnd xmi:idref="_19_0_3_6490212_1580677163998_21948_200"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1580677163998_21948_200"
+                      name="incoming"
+                      visibility="public"
+                      type="_19_0_3_6490212_1580677058045_742585_97"
+                      association="_19_0_3_6490212_1580677163996_861671_198">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_6490212_1580677176739_764066_215"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_6490212_1580677176739_247805_216"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1635302412874_699864_428"
+                          name="ElementRelationshipType_relationshipKindRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1635302412881_988447_429"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1635302412881_332716_430"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635302412881_332716_430"
+                      visibility="public"
+                      type="_19_0_3_6490212_1628419302767_423719_60"
+                      association="_19_0_3_f440358_1635302412874_699864_428"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_6490212_1628420020647_758883_406"
+                          name="ElementRelationship_typeRef">
+            <memberEnd xmi:idref="_19_0_3_6490212_1628420020647_320787_407"/>
+            <memberEnd xmi:idref="_19_0_3_6490212_1628420020647_509821_408"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628420020647_509821_408"
+                      visibility="public"
+                      type="_19_0_3_6490212_1580677058045_742585_97"
+                      association="_19_0_3_6490212_1628420020647_758883_406"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_6490212_1580677107598_144203_155"
+                          name="outgoing_sourceRef">
+            <memberEnd xmi:idref="_19_0_3_6490212_1580677107598_782295_156"/>
+            <memberEnd xmi:idref="_19_0_3_6490212_1580677107598_513465_157"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1580677107598_513465_157"
+                      name="outgoing"
+                      visibility="public"
+                      type="_19_0_3_6490212_1580677058045_742585_97"
+                      association="_19_0_3_6490212_1580677107598_144203_155">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_6490212_1580677143587_715380_178"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_6490212_1580677143587_773272_179"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_6490212_1628419543234_678545_305"
+                          name="incoming_targetRef">
+            <memberEnd xmi:idref="_19_0_3_6490212_1628419543234_578268_306"/>
+            <memberEnd xmi:idref="_19_0_3_6490212_1628419543235_983669_307"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419543235_983669_307"
+                      name="incoming"
+                      visibility="public"
+                      type="_19_0_3_6490212_1628419302767_423719_60"
+                      association="_19_0_3_6490212_1628419543234_678545_305">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1629752086675_982467_3070"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1629752086676_137837_3071"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_4_136803e7_1700521933905_677092_81"
+                          name="RelationshipKindSet_term">
+            <memberEnd xmi:idref="_19_0_4_136803e7_1700521933905_210012_82"/>
+            <memberEnd xmi:idref="_19_0_4_136803e7_1700521933906_638693_83"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521933906_638693_83"
+                      visibility="public"
+                      type="_19_0_4_136803e7_1700521813674_181252_27"
+                      association="_19_0_4_136803e7_1700521933905_677092_81"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_6490212_1628419468340_383094_264"
+                          name="outgoing_sourceRef">
+            <memberEnd xmi:idref="_19_0_3_6490212_1628419468340_304349_265"/>
+            <memberEnd xmi:idref="_19_0_3_6490212_1628419468340_686887_266"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419468340_686887_266"
+                      name="outgoing"
+                      visibility="public"
+                      type="_19_0_3_6490212_1628419302767_423719_60"
+                      association="_19_0_3_6490212_1628419468340_383094_264">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1629752065926_332224_3062"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1629752065926_693424_3063"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1635302302635_963986_405"
+                          name="ElementRelationship_relationshipKindRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1635302302636_800914_406"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1635302302637_249751_407"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635302302637_249751_407"
+                      visibility="public"
+                      type="_19_0_3_6490212_1580677058045_742585_97"
+                      association="_19_0_3_f440358_1635302302635_963986_405"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1582230316763_733952_31"
+                          name="Association">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1582230317210_229157_63"
+                          body="&amp;#160;">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1582230316763_733952_31"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585956060619_853280_979"
+                          body="Association Description.docx"/>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1582230317206_478557_58"
+                            general="_19_0_3_f440358_1582230316759_303927_30"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317211_113043_64"
+                            name="sourceRef"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851616_504344_341"
+                            association="_19_0_3_f440358_1582230316765_52886_34">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585712118647_982306_18"
+                             body="The SCEElement that the Association is connecting from.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317211_113043_64"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317239_285149_76"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317216_840559_65"
+                            name="targetRef"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851616_504344_341"
+                            association="_19_0_3_f440358_1582230316773_38296_35">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585712131927_301787_19"
+                             body="The SCEElement that the Association is connecting to.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317216_840559_65"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317240_312431_78"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317218_779221_66"
+                            name="associationDirection"
+                            visibility="public"
+                            type="_19_0_3_f440358_1582230317243_161754_93">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585712107589_836062_17"
+                             body="AssociationDirectionis an attribute that defines whether or not the Association shows any directionality with an arrowhead. The default is none (no arrowhead). A value of one means that the arrowhead SHALL be at the target object. A value of both means that there SHALL be an arrowhead at both ends of the Association line.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317218_779221_66"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1599857092816_353858_1280"/>
+               <defaultValue xmi:type="uml:InstanceValue" xmi:id="_19_0_4_136803e7_1706723089024_594810_94"
+                             instance="_19_0_3_f440358_1582230317244_882604_94"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1582230316764_407899_32"
+                          name="Group">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1582823869066_588894_177"
+                          body="&amp;#160;">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1582230316764_407899_32"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1582230317207_558618_59"
+                            general="_19_0_3_f440358_1582230316759_303927_30"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1582230316765_299942_33"
+                          name="TextAnnotation">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1582230317218_363004_67"
+                          body="&amp;#160;">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1582230316765_299942_33"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1582230317204_585419_57"
+                            general="_19_0_3_f440358_1582230316759_303927_30"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317219_806995_69"
+                            name="textFormat"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585761943436_845416_72"
+                             body="The named language can be a natural language, in which case the body is an informal representation, or an artifical language, in which case the body is expected to be a formal, machine-parsable representation. If the note attribute is used, then the language attribute is required.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317219_806995_69"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317241_878747_82"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317218_944841_68"
+                            name="text"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585761933964_835403_71"
+                             body="Note is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. The text within a note is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional, but if it used, then the commentRef attribute SHALL NOT be used.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317218_944841_68"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317240_554713_80"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1706716777299_722170_64"
+                            name="useDocumentation"
+                            visibility="public">
+               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1706716874374_522951_66"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1582230316759_303927_30"
+                          name="ModelArtifact"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1582230317207_834165_60"
+                          body="A ModelArtifact is an object that provides supporting information about a model. However, it does not have any behavioral semantics. The ModelArtifact element is an abstract element that inherits the attributes of SCEElement. ModelArtifacts are contained within a model type that is defined by a modeling language that extends This will usually be a concrete specialization of a sub-package SCEDefinitions or a sub-package SCEInstances.At this point, SCE provides three standard Artifacts: Associations, Groups, and Text Annotations. Additional Artifacts MAY be added to the SCE specification in later versions. A modeler or modeling tool MAY extend a model and add new types of ModelArtifacts. Any new ModelArtifacts MUST follow the connectorconnection rules defined in the modeling specification that is dependent on SCE. Associations can be used to link ModelArtifacts to model elements and other ModelArtifacts.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1582230316759_303927_30"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1605721180083_644828_301"
+                            general="_19_0_4_136803e7_1705959817971_695932_49"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Enumeration" xmi:id="_19_0_3_f440358_1582230317243_161754_93"
+                          name="AssociationDirection">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585883341583_754403_374"
+                          body="is an enumerated list that defines the options regarding whether or not an Association shows any directionality with an arrowhead. The default is none (no arrowhead). A value of one means that the arrowhead SHALL be at the target object. A value of both means that there SHALL be an arrowhead at both ends of the Association. The following table lists and defines the AssociationDirection literals.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1582230317243_161754_93"/>
+            </ownedComment>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1582230317244_882604_94"
+                          name="None">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585882717519_713930_24"
+                             body="The default is none (no arrowhead).">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317244_882604_94"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1582230317245_383021_95"
+                          name="One">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585882671344_527454_22"
+                             body="means that the arrowhead SHALL be at the targetRef Object.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317245_383021_95"/>
+               </ownedComment>
+            </ownedLiteral>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                          xmi:id="_19_0_3_f440358_1582230317245_974320_96"
+                          name="Both">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_239e051a_1585882679932_342609_23"
+                             body="means that there SHALL be an arrowhead at both ends of the Association.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1582230317245_974320_96"/>
+               </ownedComment>
+            </ownedLiteral>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1582230316765_52886_34"
+                          name="outgoing_sourceRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1582230317211_113043_64"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1582230317219_550402_70"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317219_550402_70"
+                      name="outgoing"
+                      visibility="public"
+                      type="_19_0_3_f440358_1582230316763_733952_31"
+                      association="_19_0_3_f440358_1582230316765_52886_34">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317241_216147_84"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1582230317241_810304_83"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1582230316773_38296_35"
+                          name="incoming_targetRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1582230317216_840559_65"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1582230317220_797908_71"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317220_797908_71"
+                      name="incoming"
+                      visibility="public"
+                      type="_19_0_3_f440358_1582230316763_733952_31"
+                      association="_19_0_3_f440358_1582230316773_38296_35">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1582230317241_537368_86"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1582230317241_930232_85"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_239e051a_1575919851617_796474_342"
+                          name="Kind"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851636_26793_367"
+                          body="Most BPM+ models (dependent on SCE) are not intended to define full-scale ontologies or domain models, such as data models. However, the activities, decisions, data items, etc. of BPM+ are representative of elements defined by ontologies or data models. The specific context of the BPM+ elements may result in different terminology or sub-sets of data representation elements within the normative domain models. To reduce any confusion due to terminology or data representation, the BPM+ models dependent on have the capability of linking model elements to the appropriate external sources of truth for their domain. The SemanticReference is that mechanism in SCE. It is contained within a SCEVocabulary and can be referenced by any SCEElement. This means that any model element from a specification dependent on SCEElement, directly or indirectly, may include one or more SemanticReferences.">
+               <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851617_796474_342"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization"
+                            xmi:id="_19_0_4_136803e7_1706212460058_853602_390"
+                            general="_19_0_2_239e051a_1575919851616_504344_341"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1628207146603_2955_645"
+                          name="KindSet"
+                          isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1628708476339_407497_1544"
+                          body="is a list of terms, through the SemanticReference element, that can be used to relate to model elements to the external definition or meaning. The terms themselves do not represent the definitions or meanings but provide links to an external source. Multiple SCEVocabularies can be defined. They are contained in an SCEModel. Further, SCEVocabularies can be used for creating a user-defined list of enumerated values for use within a modeling language (as opposed to a fixed enumeration list). It is up to the modeling language using to organize the SCEVocabularies into the appropriate enumerated lists. Since the SemanticReference element has a name and the links to external definitions are optional, the list (the SCEVocabulary) can be created before the specific external definitions are established.has one pre-defined SCEVocabulary for the enumerated terms for the RelationshipKind element (see the section entitled RelationshipKind for more information).">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1628207146603_2955_645"/>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1628207431881_107418_721"
+                            general="_19_0_3_f440358_1629320161562_526997_1777"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635881107432_162421_2031"
+                            name="term"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_2_239e051a_1575919851617_796474_342"
+                            association="_19_0_3_f440358_1635881107428_669231_2030">
+               <subsettedProperty xmi:idref="_19_0_3_f440358_1629320298351_832602_1837"/>
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1635881497173_718567_2041"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1635881497177_13437_2042"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1596746104017_984463_154"
+                            name="libraryLocation"
+                            visibility="public"
+                            type="_19_0_2_239e051a_1575919851627_963566_349">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1596816964676_466624_164"
+                             body="This attribute documents the version of the target of the SemanticReference when the SemanticReference was included in the model. If this information is not provided, then it is likely that the conceptURI will navigate to the current version of the target of the SemanticReference, which could have changed since the SemanticReference was established in the model.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1596746104017_984463_154"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1596746141671_999045_156"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521866686_128739_63"
+                            name="importedSet"
+                            visibility="public"
+                            type="_19_0_3_f440358_1628207146603_2955_645"
+                            association="_19_0_4_136803e7_1700521866685_602287_62">
+               <subsettedProperty xmi:idref="_19_0_4_136803e7_1698687239224_752936_158"/>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1700521903378_854335_73"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_4_136803e7_1700521903379_793047_74"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_4_136803e7_1700521866685_602287_62"
+                          name="KindSet_importedSet">
+            <memberEnd xmi:idref="_19_0_4_136803e7_1700521866686_128739_63"/>
+            <memberEnd xmi:idref="_19_0_4_136803e7_1700521866686_559838_64"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521866686_559838_64"
+                      visibility="public"
+                      type="_19_0_3_f440358_1628207146603_2955_645"
+                      association="_19_0_4_136803e7_1700521866685_602287_62"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1635881107428_669231_2030"
+                          name="KindSet_term">
+            <memberEnd xmi:idref="_19_0_3_f440358_1635881107432_162421_2031"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1635881107433_49797_2032"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635881107433_49797_2032"
+                      visibility="public"
+                      type="_19_0_3_f440358_1628207146603_2955_645"
+                      association="_19_0_3_f440358_1635881107428_669231_2030"/>
+         </packagedElement>
+      </package>
+   <mofext:Tag xmi:id="SCE_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="_19_0_2_239e051a_1575919788035_856770_278" value="sce"/>
+</xmi:XMI>

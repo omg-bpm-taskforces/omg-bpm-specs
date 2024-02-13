@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001"
+         xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+         xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+   <xmi:documentation xmi:type="xmi:Documentation">
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
+   </xmi:documentation>
+   <xmi:documentation xmi:type="xmi:Documentation">
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
+   </xmi:documentation>
+      <package xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1635791669681_547985_979"
+                       name="SCELibrary">
+         <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635822618628_168119_1991"
+                       body="A Library is included in to provide standard instances that should be implemented by tools supporting through their implementing of a modeling language dependent on SCE. Currently, defines the instances for one sub-package named (See next section).">
+            <annotatedElement xmi:idref="_19_0_3_f440358_1635791669681_547985_979"/>
+         </ownedComment>
+         <packagedElement xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1635791981905_826651_983"
+                          name="RelationshipKinds">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635823993157_755718_1992"
+                          body="The package contains one instance of an RelationshipKinds which is provided by the Library. The purpose of this vocabulary is to provide a set of standard terms, which are instances of the element is used to specific the kind of relationship that exists between two modeling elements referenced by the and ElementRelationshipType elements. Instead of defined a fixed enumerated list, the kinds can be defined through a class (RelationshipKind) and instances of that class (as shown below). The instances defined in this Library SHALL be included in any implementation. However, the implementation can allow additional instances of the class if required for a particular modeling situation. In practice, when a modeler creates a model with a and ElementRelationshipType, the RelationshipKind will be instantiated by one of the six instances in this Library.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1635791981905_826651_983"/>
+            </ownedComment>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635278777713_34841_74"
+                             name="Reference">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528499171_557834_859"
+                             body="Reference element references the element.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635278777713_34841_74"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635277743274_132742_1070"
+                             name="Containment">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528425382_465393_855"
+                             body="Containment indicates that the  element is a container for the element.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635277743274_132742_1070"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635278778575_905533_75"
+                             name="Generalization">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528510111_633568_860"
+                             body="Generalization indicates that the  element is a generalization of the element (which is based on and extends the ).">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635278778575_905533_75"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635278774810_722286_72"
+                             name="Dependency">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528473697_511888_857"
+                             body="Dependency indicates that element is dependent in some way on the  element.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635278774810_722286_72"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635278776148_185943_73"
+                             name="Miscellaneous">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528487482_177055_858"
+                             body="Miscellaneous indicates thatelement has some relationship with the target element that is of a kind that is not expressed through the other instances.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635278776148_185943_73"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635278542863_966003_45"
+                             name="Composition">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1635528439959_598174_856"
+                             body="Composition indicates that the  element is composed of, in part, the element. Other elements could be included in this composition.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1635278542863_966003_45"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793064353_613348_998"
+                             name="RelationshipKinds">
+               <classifier href="SCE.mdzip#_19_0_4_136803e7_1700521813674_181252_27"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997932997_332066_224">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997933010_919132_225"
+                         instance="_19_0_3_f440358_1635278542863_966003_45"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997956688_633657_235"
+                         instance="_19_0_3_f440358_1635277743274_132742_1070"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997976562_679816_243"
+                         instance="_19_0_3_f440358_1635278774810_722286_72"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997989171_123099_251"
+                         instance="_19_0_3_f440358_1635278776148_185943_73"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997999223_643193_259"
+                         instance="_19_0_3_f440358_1635278777713_34841_74"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635998023375_108660_274"
+                         instance="_19_0_3_f440358_1635278778575_905533_75"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1636079407650_136420_323"
+                         instance="_19_0_3_f440358_1636079336878_8618_302"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793108818_774317_1017"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793155925_410868_1027"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793195346_644415_1035"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793244186_149965_1043"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793254105_842040_1051"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635793263857_550588_1059"/>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635997926672_185083_219">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997932940_994486_220">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997932978_806181_221"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997932983_834585_222">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997932994_932312_223"
+                         instance="_19_0_3_f440358_1635278542863_966003_45"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635997950899_240341_230">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997956662_218726_231">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997956675_301160_232"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997956676_84127_233">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997956683_714361_234"
+                         instance="_19_0_3_f440358_1635277743274_132742_1070"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635997971266_133055_238">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997976543_651413_239">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997976554_159560_240"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997976554_897473_241">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997976561_646897_242"
+                         instance="_19_0_3_f440358_1635278774810_722286_72"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635997983450_586724_246">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997989151_792281_247">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997989159_29994_248"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997989160_191528_249">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997989169_431548_250"
+                         instance="_19_0_3_f440358_1635278776148_185943_73"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635997994498_217152_254">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997999207_966006_255">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997999214_409595_256"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635997999214_924850_257">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635997999222_187752_258"
+                         instance="_19_0_3_f440358_1635278777713_34841_74"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1635998019675_284036_269">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635998023359_765178_270">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635998023366_566114_271"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1635998023366_220657_272">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1635998023374_265672_273"
+                         instance="_19_0_3_f440358_1635278778575_905533_75"/>
+               </slot>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1636079336878_8618_302"
+                             name="Correlation">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635266096046_174832_945"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1636079336894_17638_303"
+                             body="indicates that the element is correlated with the element. This is often used when a mapping is required between the structures of two data elements.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1636079336878_8618_302"/>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:InstanceSpecification"
+                             xmi:id="_19_0_3_f440358_1636079402087_463152_318">
+               <classifier href="SCE.mdzip#_19_0_3_f440358_1635881107428_669231_2030"/>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1636079407618_762701_319">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107433_49797_2032"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1636079407641_281190_320"
+                         instance="_19_0_3_f440358_1635793064353_613348_998"/>
+               </slot>
+               <slot xmi:type="uml:Slot" xmi:id="_19_0_3_f440358_1636079407642_359795_321">
+                  <definingFeature href="SCE.mdzip#_19_0_3_f440358_1635881107432_162421_2031"/>
+                  <value xmi:type="uml:InstanceValue" xmi:id="_19_0_3_f440358_1636079407648_626266_322"
+                         instance="_19_0_3_f440358_1636079336878_8618_302"/>
+               </slot>
+            </packagedElement>
+         </packagedElement>
+      </package>
+   <mofext:Tag xmi:id="SCELibrary_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="_19_0_3_f440358_1635791669681_547985_979" value="scelibrary"/>
+</xmi:XMI>
