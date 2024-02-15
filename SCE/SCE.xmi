@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001"
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20161101"
          xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
          xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
    <xmi:documentation xmi:type="xmi:Documentation">
+      <shortDescription>SCEDI.xmi: XMI representation of the metamodel for SCE version 20240210.</shortDescription>
       <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
       <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
    </xmi:documentation>
@@ -12,18 +13,24 @@
                        body="This section defines the semantic elements of SCE. The main topics are organized into SCE Core Elements, Annotations, External Relationships, Internal Relationships, BPM+ Modeling, and Vocabularies.">
             <annotatedElement xmi:idref="_19_0_2_239e051a_1575919788035_856770_278"/>
          </ownedComment>
+         <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_SCE-DateTime" name="DateTime">
+            <ownedComment xmi:type="uml:Comment" xmi:id="DateTime-_ownedComment.0"
+                          body="The dateTime data type is used to specify a date and a time.">
+               <annotatedElement xmi:idref="_SCE-DateTime"/>
+            </ownedComment>
+         </packagedElement>
          <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851626_24160_348"
                           name="QName">
             <generalization xmi:type="uml:Generalization"
                             xmi:id="_19_0_2_239e051a_1575919851654_713455_394">
-               <general href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <general href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
             </generalization>
          </packagedElement>
          <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851627_963566_349"
                           name="URI">
             <generalization xmi:type="uml:Generalization"
                             xmi:id="_19_0_2_239e051a_1575919851654_183428_395">
-               <general href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <general href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
             </generalization>
          </packagedElement>
          <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_19_0_2_239e051a_1575919851622_851177_347"
@@ -48,7 +55,7 @@
                             visibility="public"
                             aggregation="composite"
                             association="_19_0_3_f440358_1598567473590_899090_1890">
-               <type href="SCEDI.mdzip#_19_0_3_f440358_1592421860879_351126_180"/>
+               <type href="https://www.omg.org/spec/SCE/SCEDI.xmi#_19_0_3_f440358_1592421860879_351126_180"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1598568656244_667689_1955"
                              body="This attribute contains the Diagram Interchange information contained within this SCEModelPackage.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1598567473591_576433_1891"/>
@@ -59,7 +66,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851646_838670_388"
                             name="exporter"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851685_618007_466"
                              body="This attribute identifies the tool that is exporting the model file that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
                   <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851646_838670_388"/>
@@ -75,7 +82,7 @@
                             association="_19_0_3_f440358_1628207308534_865232_677">
                <subsettedProperty xmi:idref="_19_0_4_136803e7_1698687239224_752936_158"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1628208186163_139868_748"
-                             body="This is a list of terms (SemanticRefernces) that can be used to define the elements of a concrete specialization of SCEModel.">
+                             body="This is a list of kinds (terms) that can be used to define the elements of a concrete specialization of SCEModel.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1628207308534_190389_678"/>
                </ownedComment>
                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1628207336772_693789_692"/>
@@ -102,7 +109,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_2_239e051a_1575919851654_734609_393"
                             name="exporterVersion"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_2_239e051a_1575919851690_107423_481"
                              body="This attribute identifies the version of the tool that is exporting the file that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
                   <annotatedElement xmi:idref="_19_0_2_239e051a_1575919851654_734609_393"/>
@@ -195,7 +202,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1583185406284_695745_39831"
                             name="version"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1590778666405_675718_12555"
                              body="This attribute specifies the version of the model package that is dependent on SCE. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1583185406284_695745_39831"/>
@@ -206,7 +213,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1583185406289_530282_39832"
                             name="versionDate"
                             visibility="public">
-               <type href="UML_Standard_Profile.mdzip#_be00301_1073305590699_364818_1"/>
+               <type xmi:idref="_SCE-DateTime"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1590778686723_892085_12556"
                              body="The date when the version of the model package that is dependent on was established. If this attribute is specified for a package element and not specified for any of the sub-packages contained within, then the value set for the higher-level package will be assumed for the lower-level packages.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1583185406289_530282_39832"/>
@@ -217,7 +224,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1612463623102_452798_307"
                             name="tags"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1612545965421_785061_575"
                              body="The tag setting provides another classification mechanism for package. This classification could be used as part of a search for a particular package within a concrete specialization of SCEModelPackage, for example.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1612463623102_452798_307"/>
@@ -368,7 +375,7 @@
                             visibility="public"
                             isReadOnly="true"
                             isID="true">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253986421_685645_810"
                              body="This attribute is used to uniquely identify a SCERootElement. The idis REQUIRED if this element is referenced or intended to be referenced by something else. If the element is not currently referenced and is never intended to be referenced, the idMAY be omitted.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1606253986419_255483_806"/>
@@ -377,7 +384,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606253700784_877041_794"
                             name="name"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253700787_189019_796"
                              body="The name attribute is a text description or label of the element. In general, the name is optional, but many elements will require a name. The definition of each specialization of SCERootElement may identify this requirement.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1606253700784_877041_794"/>
@@ -387,7 +394,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606253986420_558152_808"
                             name="aliasIds"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606253986422_613256_816"
                              body="Various alternative identifiers for this element. Generally, these will be set by tools, but one of them (the humanId), in particular, may be set by the modeler.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1606253986420_558152_808"/>
@@ -556,7 +563,7 @@
                             visibility="public"
                             isReadOnly="true"
                             isID="true">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_4_136803e7_1706719407616_858371_125"
                              body="This attribute is used to uniquely identify a SCERootElement. The id is REQUIRED if this element is referenced or intended to be referenced by something else. If the element is not currently referenced and is never intended to be referenced, the id MAY be omitted.">
                   <annotatedElement xmi:idref="_19_0_4_136803e7_1706719407583_890410_123"/>
@@ -565,7 +572,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330486063_265604_1322"
                             name="text"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606427158678_267835_1462"
                              body="This attribute is used to capture the text descriptions of any concrete element within a model that is dependent on SCE.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1606330486063_265604_1322"/>
@@ -574,7 +581,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1606330445087_237441_1318"
                             name="textFormat"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1606427200930_877163_1463"
                              body="&lt;span&gt;The named language can be a natural language, in which case the body is an informal representation, or an artifical language, in which case the body is expected to be a formal, machine-parsable representation.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1606330445087_237441_1318"/>
@@ -606,7 +613,7 @@
                             name="sourceRef"
                             visibility="public"
                             association="_19_0_3_f440358_1577138276990_613660_626">
-               <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+               <type href="https://www.omg.org/spec/UML/20161101/UML.xmi#Element"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1586204091232_167186_2291"
                              body="This association defines artifacts that are augmented by the external relationship.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1577138276990_222103_627"/>
@@ -619,7 +626,7 @@
                             name="targetRef"
                             visibility="public"
                             association="_19_0_3_f440358_1577138296548_886692_645">
-               <type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Element"/>
+               <type href="https://www.omg.org/spec/UML/20161101/UML.xmi#Element"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1586204127757_183386_2292"
                              body="This association defines artifacts used to extend the semantics of the source element(s).">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1577138296548_776276_646"/>
@@ -806,7 +813,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_6490212_1628419587342_163588_340"
                             name="sourceMultiplicity"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_6490212_1628419846156_802849_393"
                              body="This attribute defines the minimum number of source SCEElements that may be the source for the &lt;span&gt;ElementRelationship that identifies this &lt;span&gt;ElementRelationshipType through its typeRef association.">
                   <annotatedElement xmi:idref="_19_0_3_6490212_1628419587342_163588_340"/>
@@ -816,7 +823,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1629490540147_252645_2288"
                             name="targetMulitplicity"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1629752545351_993042_3083"
                              body="This attribute defines the minimum number of target SCEElements that may be the source for the &lt;span&gt;ElementRelationship that identifies this &lt;span&gt;ElementRelationshipType through its typeRef association.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1629490540147_252645_2288"/>
@@ -840,7 +847,7 @@
             <generalization xmi:type="uml:Generalization" xmi:id="_19_0_4_136803e7_1700521852184_618545_57"
                             general="_19_0_3_f440358_1628207146603_2955_645"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521933905_210012_82"
-                            name="term"
+                            name="relationshipKind"
                             visibility="public"
                             aggregation="composite"
                             type="_19_0_3_f440358_1635266096046_174832_945"
@@ -926,7 +933,7 @@
             </ownedEnd>
          </packagedElement>
          <packagedElement xmi:type="uml:Association" xmi:id="_19_0_4_136803e7_1700521933905_677092_81"
-                          name="RelationshipKindSet_term">
+                          name="RelationshipKindSet_kind">
             <memberEnd xmi:idref="_19_0_4_136803e7_1700521933905_210012_82"/>
             <memberEnd xmi:idref="_19_0_4_136803e7_1700521933906_638693_83"/>
             <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1700521933906_638693_83"
@@ -1025,7 +1032,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317219_806995_69"
                             name="textFormat"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585761943436_845416_72"
                              body="The named language can be a natural language, in which case the body is an informal representation, or an artifical language, in which case the body is expected to be a formal, machine-parsable representation. If the note attribute is used, then the language attribute is required.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1582230317219_806995_69"/>
@@ -1035,7 +1042,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1582230317218_944841_68"
                             name="text"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1585761933964_835403_71"
                              body="Note is one of two attributes that provides text that the modeler wishes to communicate to the reader of the diagram. The text within a note is contained in and specific to the diagram where the TextAnnotation is placed. This attribute is optional, but if it used, then the commentRef attribute SHALL NOT be used.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1582230317218_944841_68"/>
@@ -1045,7 +1052,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1706716777299_722170_64"
                             name="useDocumentation"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_4_136803e7_1706716874374_522951_66"/>
             </ownedAttribute>
          </packagedElement>
@@ -1185,7 +1192,7 @@
                       association="_19_0_4_136803e7_1700521866685_602287_62"/>
          </packagedElement>
          <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1635881107428_669231_2030"
-                          name="KindSet_term">
+                          name="KindSet_kind">
             <memberEnd xmi:idref="_19_0_3_f440358_1635881107432_162421_2031"/>
             <memberEnd xmi:idref="_19_0_3_f440358_1635881107433_49797_2032"/>
             <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1635881107433_49797_2032"
@@ -1194,5 +1201,10 @@
                       association="_19_0_3_f440358_1635881107428_669231_2030"/>
          </packagedElement>
       </package>
-   <mofext:Tag xmi:id="SCE_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="_19_0_2_239e051a_1575919788035_856770_278" value="sce"/>
+   <mofext:Tag xmi:type="mofext:Tag" xmi:id="_org.omg.xmi.nsPrefix" name="org.omg.xmi.nsPrefix" value="sce">
+      <element xmi:idref="_19_0_2_239e051a_1575919788035_856770_278"/>
+   </mofext:Tag>
+   <mofext:Tag xmi:type="mofext:Tag" xmi:id="_org.omg.xmi.schemaType" name="org.omg.xmi.schemaType" value="http://www.w3.org/2001/XMLSchema#dateTime">
+      <element xmi:idref="_SCE-DateTime"/>
+   </mofext:Tag>
 </xmi:XMI>

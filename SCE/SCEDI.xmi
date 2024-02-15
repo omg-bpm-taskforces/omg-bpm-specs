@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001"
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20161101"
          xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
          xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
    <xmi:documentation xmi:type="xmi:Documentation">
-      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
-      <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
-   </xmi:documentation>
-   <xmi:documentation xmi:type="xmi:Documentation">
+      <shortDescription>SCEDI.xmi: XMI representation of the metamodel for SCE Diagram Interchange version 20240210.</shortDescription>
       <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
       <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
    </xmi:documentation>
@@ -22,12 +19,12 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861031_920261_260"
                                name="x"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_312613_261"
                                name="y"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860880_404507_182"
@@ -35,12 +32,12 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_866410_263"
                                name="width"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_707347_264"
                                name="height"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860881_406849_185"
@@ -48,22 +45,22 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_573769_279"
                                name="height"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_216214_280"
                                name="width"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_511973_281"
                                name="x"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_857777_282"
                                name="y"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                </ownedAttribute>
             </packagedElement>
             <packagedElement xmi:type="uml:Enumeration" xmi:id="_19_0_3_f440358_1597259422433_116830_39"
@@ -85,17 +82,17 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259726188_382971_192"
                                name="red"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259778379_763947_196"
                                name="green"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
                </ownedAttribute>
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259802298_54440_200"
                                name="blue"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
                </ownedAttribute>
             </packagedElement>
          </packagedElement>
@@ -105,7 +102,7 @@
                              name="Edge"
                              isAbstract="true">
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861012_837497_232"
-                               name="wayPoints"
+                               name="waypoint"
                                visibility="public"
                                aggregation="composite"
                                type="_19_0_3_f440358_1592421860879_377273_181"
@@ -117,7 +114,7 @@
                </ownedAttribute>
             </packagedElement>
             <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860889_726788_203"
-                             name="Edge_wayPoints">
+                             name="Edge_waypoint">
                <memberEnd xmi:idref="_19_0_3_f440358_1592421861012_837497_232"/>
                <memberEnd xmi:idref="_19_0_3_f440358_1592421861093_975591_371"/>
                <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861093_975591_371"
@@ -155,7 +152,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1705532852769_249329_136"
                                name="id"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                   <lowerValue xmi:type="uml:LiteralInteger"
                               xmi:id="_19_0_4_136803e7_1705532916056_982309_642"/>
                </ownedAttribute>
@@ -167,7 +164,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861085_70664_353"
                                name="name"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165511995_185077_1162"
                                 body="The documentation of the diagram. Default is empty String.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1592421861085_70664_353"/>
@@ -176,7 +173,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861086_109964_354"
                                name="documentation"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165526285_374488_1163"
                                 body="The name of the diagram. Default is empty String.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1592421861086_109964_354"/>
@@ -185,7 +182,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861086_753823_355"
                                name="resolution"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165538438_627516_1164"
                                 body="The resolution of the diagram expressed in user units per inch. Default is 300.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1592421861086_753823_355"/>
@@ -207,7 +204,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259886240_262195_219"
                             name="id"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268566677_612567_295"
                              body="A unique id for this style so it can be referenced. Only styles defined in the SCEDI can be referenced by SCEDiagramElement and SCEDiagram.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597259886240_262195_219"/>
@@ -247,7 +244,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260068976_96965_235"
                             name="fontFamily"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268740281_735919_299"
                              body="A comma-separated list of Font Name that can be used to display the text. The default is Arial.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260068976_96965_235"/>
@@ -257,7 +254,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260096366_491483_239"
                             name="fontSize"
                             visibility="public">
-               <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268779966_899083_300"
                              body="The size in points of the font to use to display the text. The default is 8.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260096366_491483_239"/>
@@ -267,7 +264,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260122203_596770_243"
                             name="fontItalic"
                             visibility="public">
-               <type href="UML_Standard_Profile.mdzip#eee_1045467100323_191782_59"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268802379_84026_301"
                              body="If the text should be displayed in Italic. The default is false.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260122203_596770_243"/>
@@ -277,7 +274,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260159412_245155_247"
                             name="fontBold"
                             visibility="public">
-               <type href="UML_Standard_Profile.mdzip#eee_1045467100323_191782_59"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268815300_723773_302"
                              body="If the text should be displayed in Bold. The default is false.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260159412_245155_247"/>
@@ -287,7 +284,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260188579_4140_251"
                             name="fontUnderline"
                             visibility="public">
-               <type href="UML_Standard_Profile.mdzip#eee_1045467100323_191782_59"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268828497_992782_303"
                              body="If the text should be underlined. The default is false.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260188579_4140_251"/>
@@ -297,7 +294,7 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260215052_879907_255"
                             name="fontStrikeThrough"
                             visibility="public">
-               <type href="UML_Standard_Profile.mdzip#eee_1045467100323_191782_59"/>
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268892589_569298_304"
                              body="If the text should be stroke through. The default is false.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597260215052_879907_255"/>
@@ -329,7 +326,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064549_323071_273"
                                name="name"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064550_383637_278"
                                 body="The documentation of the diagram. Default is empty String.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1597705064549_323071_273"/>
@@ -338,7 +335,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064549_461091_274"
                                name="documentation"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064551_384103_281"
                                 body="The name of the diagram. Default is empty String.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1597705064549_461091_274"/>
@@ -347,7 +344,7 @@
                <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064550_860973_275"
                                name="resolution"
                                visibility="public">
-                  <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Real"/>
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
                   <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064551_231588_284"
                                 body="The resolution of the diagram expressed in user units per inch. Default is 300.">
                      <annotatedElement xmi:idref="_19_0_3_f440358_1597705064550_860973_275"/>
@@ -432,7 +429,7 @@
                             name="modelElement"
                             visibility="public"
                             association="_19_0_3_f440358_1597178033246_563012_2703">
-               <type href="SCE.mdzip#_19_0_2_239e051a_1575919851616_504344_341"/>
+               <type href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_2_239e051a_1575919851616_504344_341"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597178287724_738116_2729"
                              body="A reference to the concrete instance of the SCEElement that is being depicted.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1597178033246_576632_2704"/>
