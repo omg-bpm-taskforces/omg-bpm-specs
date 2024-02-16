@@ -22,7 +22,7 @@
          </ownedComment>
          <packagedElement xmi:type="uml:Dependency" xmi:id="_19_0_3_f440358_1629993398204_889831_38713">
             <client xmi:idref="_19_0_3_f440358_1588023453264_83201_78337"/>
-            <supplier href="SCE.mdzip#_19_0_2_239e051a_1575919788035_856770_278"/>
+            <supplier href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_2_239e051a_1575919788035_856770_278"/>
          </packagedElement>
          <packagedElement xmi:type="uml:PrimitiveType"
                           xmi:id="_19_0_3_f440358_1588023453285_171951_78344"
@@ -44,7 +44,7 @@
          </packagedElement>
          <packagedElement xmi:type="uml:Dependency" xmi:id="_19_0_4_136803e7_1704580198863_263702_43">
             <client xmi:idref="_19_0_3_f440358_1588023453264_83201_78337"/>
-            <supplier href="SCE.mdzip#_19_0_3_f440358_1592418104773_350894_62"/>
+            <supplier href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_3_f440358_1592418104773_350894_62"/>
          </packagedElement>
          <packagedElement xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1609959936588_736727_607"
                           name="SDMN Elements">
@@ -66,7 +66,7 @@
                   </ownedComment>
                   <generalization xmi:type="uml:Generalization"
                                   xmi:id="_19_0_3_f440358_1606328116420_122514_19190">
-                     <general href="SCE.mdzip#_19_0_4_136803e7_1705959817971_695932_49"/>
+                     <general href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_4_136803e7_1705959817971_695932_49"/>
                   </generalization>
                   <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1588023454820_917572_79663"
                                   name="dataItemRef"
@@ -176,14 +176,14 @@
                      </ownedComment>
                      <generalization xmi:type="uml:Generalization"
                                      xmi:id="_19_0_3_f440358_1606328137289_360645_19202">
-                        <general href="SCE.mdzip#_19_0_4_136803e7_1705959817971_695932_49"/>
+                        <general href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_4_136803e7_1705959817971_695932_49"/>
                      </generalization>
                      <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1588284053380_781899_88985"
                                      name="expression"
                                      visibility="public"
                                      aggregation="composite"
                                      association="_19_0_3_f440358_1588284053380_922230_88984">
-                        <type href="DMN.mdzip#_17_0_3_1_42401a5_1375643567533_685035_3031"/>
+                        <type href="https://www.omg.org/spec/DMN/20230324/DMN15.xmi#_17_0_3_1_42401a5_1375643567533_685035_3031"/>
                         <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1588959297008_681552_23662"
                                       body="The DMN Expression that evaluates the Assignment.">
                            <annotatedElement xmi:idref="_19_0_3_f440358_1588284053380_781899_88985"/>
@@ -235,7 +235,7 @@
                   </ownedComment>
                   <generalization xmi:type="uml:Generalization"
                                   xmi:id="_19_0_3_f440358_1588023454569_304440_79071">
-                     <general href="DMN.mdzip#_17_0_3_1_42401a5_1375643567533_707974_3032"/>
+                     <general href="https://www.omg.org/spec/DMN/20230324/DMN15.xmi#_17_0_3_1_42401a5_1375643567533_707974_3032"/>
                   </generalization>
                   <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1704318901912_610735_40"
                                   name="conceptReference"
@@ -271,7 +271,7 @@
                   </ownedComment>
                   <generalization xmi:type="uml:Generalization"
                                   xmi:id="_19_0_3_f440358_1606328290236_958884_19373">
-                     <general href="SCE.mdzip#_19_0_4_136803e7_1705959817971_695932_49"/>
+                     <general href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_4_136803e7_1705959817971_695932_49"/>
                   </generalization>
                   <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1588023454838_927217_79696"
                                   name="targetRef"
@@ -397,7 +397,7 @@
                                   visibility="public"
                                   aggregation="composite"
                                   association="_19_0_3_f440358_1588283974495_373924_88961">
-                     <type href="DMN.mdzip#_17_0_3_1_42401a5_1375643567518_12261_3030"/>
+                     <type href="https://www.omg.org/spec/DMN/20230324/DMN15.xmi#_17_0_3_1_42401a5_1375643567518_12261_3030"/>
                      <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1588959540357_590550_23664"
                                    body=" The actual scope of accessible data for that Expression is defined by the source and target of the specific Data Association ">
                         <annotatedElement xmi:idref="_19_0_3_f440358_1588283974496_131998_88962"/>
@@ -458,15 +458,15 @@
             </ownedComment>
             <generalization xmi:type="uml:Generalization"
                             xmi:id="_19_0_4_136803e7_1705536246173_468478_18012">
-               <general href="SCE.mdzip#_19_0_4_136803e7_1698950645199_158236_893"/>
+               <general href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_4_136803e7_1698950645199_158236_893"/>
             </generalization>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1588023454030_736009_78705"
                             name="diagrams"
                             visibility="public"
                             aggregation="composite"
                             association="_19_0_3_f440358_1588023453294_567587_78350">
-               <type href="SCE.mdzip#_19_0_3_f440358_1592421860879_351126_180"/>
-               <redefinedProperty href="SCE.mdzip#_19_0_3_f440358_1598567473591_576433_1891"/>
+               <type href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_3_f440358_1592421860879_351126_180"/>
+               <redefinedProperty href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_3_f440358_1598567473591_576433_1891"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1588892176938_580533_22761"
                              body="This attribute contains the Diagram Interchange information contained within this SDMN Diagram Interchange">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1588023454030_736009_78705"/>
@@ -479,7 +479,7 @@
                             aggregation="composite"
                             type="_19_0_3_f440358_1588023454011_969331_78670"
                             association="_19_0_3_f440358_1588023453295_581834_78351">
-               <subsettedProperty href="SCE.mdzip#_19_0_3_f440358_1629320298351_832602_1837"/>
+               <subsettedProperty href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_3_f440358_1629320298351_832602_1837"/>
                <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1588892190660_579178_22762"
                              body="This is a list of the ItemDefinitions that are included in the SDMNPackage.See the section entitled &amp;quot;Item Definitions,&amp;quot; below, for more information about ItemDefinitions.">
                   <annotatedElement xmi:idref="_19_0_3_f440358_1588023454030_516783_78706"/>
