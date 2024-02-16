@@ -44,10 +44,10 @@
     <sdmn:typeDefinitionRef>itemDef_Greeting</sdmn:typeDefinitionRef>
   </sdmn:dataItem>
 
-  <sdmn:containmentConnector id="greetingContainsName">
+  <sdmn:compositionConnector id="greetingToName">
     <sdmn:sourceRef>dataItem_Greeting</sdmn:sourceRef>
     <sdmn:targetRef>dataItem_Name</sdmn:targetRef>
-  </sdmn:containmentConnector>
+  </sdmn:compositionConnector>
 
   <scedi:diagrams>
     <scedi:diagram name="Item Definition Diagram">
@@ -69,7 +69,7 @@
           <dc:Bounds x="273" y="172" width="30" height="14" />
         </scedi:label>
       </scedi:shape>
-      <scedi:edge id="c1_di" modelElement="greetingContainsName">
+      <scedi:edge id="greetingToName_di" modelElement="greetingToName">
         <di:waypoint x="188" y="140" />
         <di:waypoint x="270" y="140" />
       </scedi:edge>
