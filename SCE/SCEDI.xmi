@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20161101"
+         xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+         xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
+   <xmi:documentation xmi:type="xmi:Documentation">
+      <shortDescription>SCEDI.xmi: XMI representation of the metamodel for SCE Diagram Interchange version 20240210.</shortDescription>
+      <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
+      <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
+   </xmi:documentation>
+      <package xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1592418104773_350894_62"
+                       name="SCEDI">
+         <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1593443965875_106541_30">
+            <annotatedElement xmi:idref="_19_0_3_f440358_1592418104773_350894_62"/>
+         </ownedComment>
+         <packagedElement xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1597165867404_896004_1165"
+                          name="DC">
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860879_377273_181"
+                             name="Point">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861031_920261_260"
+                               name="x"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_312613_261"
+                               name="y"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860880_404507_182"
+                             name="Dimension">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_866410_263"
+                               name="width"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861032_707347_264"
+                               name="height"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860881_406849_185"
+                             name="Bounds">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_573769_279"
+                               name="height"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_216214_280"
+                               name="width"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_511973_281"
+                               name="x"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861036_857777_282"
+                               name="y"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration" xmi:id="_19_0_3_f440358_1597259422433_116830_39"
+                             name="AlignmentKind">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="_19_0_3_f440358_1597259454464_301645_61"
+                             name="Start"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="_19_0_3_f440358_1597259460898_183881_63"
+                             name="Center"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="_19_0_3_f440358_1597259469297_590144_65"
+                             name="End"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1597259576041_469262_137"
+                             name="Style"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1597259678097_765152_167"
+                             name="Color">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259726188_382971_192"
+                               name="red"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259778379_763947_196"
+                               name="green"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259802298_54440_200"
+                               name="blue"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Integer"/>
+               </ownedAttribute>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package" xmi:id="_19_0_3_f440358_1597165937639_903387_1173"
+                          name="DI">
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860873_4417_179"
+                             name="Edge"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861012_837497_232"
+                               name="waypoint"
+                               visibility="public"
+                               aggregation="composite"
+                               type="_19_0_3_f440358_1592421860879_377273_181"
+                               association="_19_0_3_f440358_1592421860889_726788_203">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861114_827034_383"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="_19_0_3_f440358_1592421861112_8303_382"
+                              value="*"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860889_726788_203"
+                             name="Edge_waypoint">
+               <memberEnd xmi:idref="_19_0_3_f440358_1592421861012_837497_232"/>
+               <memberEnd xmi:idref="_19_0_3_f440358_1592421861093_975591_371"/>
+               <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861093_975591_371"
+                         visibility="private"
+                         type="_19_0_3_f440358_1592421860873_4417_179"
+                         association="_19_0_3_f440358_1592421860889_726788_203"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860881_830425_186"
+                             name="Shape"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861053_60691_306"
+                               name="bounds"
+                               visibility="public"
+                               aggregation="composite"
+                               type="_19_0_3_f440358_1592421860881_406849_185"
+                               association="_19_0_3_f440358_1592421860888_999835_199">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861141_11126_431"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="_19_0_3_f440358_1592421861140_909243_430"
+                              value="*"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860888_999835_199"
+                             name="Shape_bounds">
+               <memberEnd xmi:idref="_19_0_3_f440358_1592421861053_60691_306"/>
+               <memberEnd xmi:idref="_19_0_3_f440358_1592421861091_724416_367"/>
+               <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861091_724416_367"
+                         visibility="private"
+                         type="_19_0_3_f440358_1592421860881_830425_186"
+                         association="_19_0_3_f440358_1592421860888_999835_199"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860881_668587_187"
+                             name="DiagramElement"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_4_136803e7_1705532852769_249329_136"
+                               name="id"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="_19_0_4_136803e7_1705532916056_982309_642"/>
+               </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860882_13423_189"
+                             name="Diagram">
+               <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861053_998204_308"
+                               general="_19_0_3_f440358_1592421860881_668587_187"/>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861085_70664_353"
+                               name="name"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165511995_185077_1162"
+                                body="The documentation of the diagram. Default is empty String.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1592421861085_70664_353"/>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861086_109964_354"
+                               name="documentation"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165526285_374488_1163"
+                                body="The name of the diagram. Default is empty String.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1592421861086_109964_354"/>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861086_753823_355"
+                               name="resolution"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165538438_627516_1164"
+                                body="The resolution of the diagram expressed in user units per inch. Default is 300.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1592421861086_753823_355"/>
+                  </ownedComment>
+               </ownedAttribute>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860882_704429_188"
+                          name="Style">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175972922_470447_2420"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175972923_630290_2421"
+                             body="The following tables presents the additional attributes and associations for SDMNDI">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175972922_470447_2420"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1597259660033_769551_164"
+                            general="_19_0_3_f440358_1597259576041_469262_137"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259886240_262195_219"
+                            name="id"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268566677_612567_295"
+                             body="A unique id for this style so it can be referenced. Only styles defined in the SCEDI can be referenced by SCEDiagramElement and SCEDiagram.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597259886240_262195_219"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597259923071_617184_221"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597259929078_963751_223"
+                            name="fillColor"
+                            visibility="public"
+                            type="_19_0_3_f440358_1597259678097_765152_167">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268599838_60769_297"
+                             body="The color use to fill the shape. Doesn&amp;rsquo;t apply to SCEEdge. The default is white.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597259929078_963751_223"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597259957041_8177_225"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260006076_623270_227"
+                            name="strokeColor"
+                            visibility="public"
+                            type="_19_0_3_f440358_1597259678097_765152_167">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268618377_17041_298"
+                             body="The color use to draw the shape borders. The default is black.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260006076_623270_227"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260028236_559389_229"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260041489_544351_231"
+                            name="fontColor"
+                            visibility="public"
+                            type="_19_0_3_f440358_1597259678097_765152_167">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268584751_147836_296"
+                             body="The color use to write the label. The default is black.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260041489_544351_231"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260056343_763176_233"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260068976_96965_235"
+                            name="fontFamily"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268740281_735919_299"
+                             body="A comma-separated list of Font Name that can be used to display the text. The default is Arial.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260068976_96965_235"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260084369_320094_237"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260096366_491483_239"
+                            name="fontSize"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268779966_899083_300"
+                             body="The size in points of the font to use to display the text. The default is 8.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260096366_491483_239"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260110874_595621_241"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260122203_596770_243"
+                            name="fontItalic"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268802379_84026_301"
+                             body="If the text should be displayed in Italic. The default is false.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260122203_596770_243"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260145955_108218_245"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260159412_245155_247"
+                            name="fontBold"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268815300_723773_302"
+                             body="If the text should be displayed in Bold. The default is false.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260159412_245155_247"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260177846_670474_249"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260188579_4140_251"
+                            name="fontUnderline"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268828497_992782_303"
+                             body="If the text should be underlined. The default is false.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260188579_4140_251"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260203952_938144_253"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260215052_879907_255"
+                            name="fontStrikeThrough"
+                            visibility="public">
+               <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Boolean"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268892589_569298_304"
+                             body="If the text should be stroke through. The default is false.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260215052_879907_255"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260230127_13872_257"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260261615_830617_259"
+                            name="labelHorizontalAlignment"
+                            visibility="public"
+                            type="_19_0_3_f440358_1597259422433_116830_39">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268925960_499946_305"
+                             body="How text should be positioned horizontally within the Label bounds.Default depends of the SCEDiagramElement the label is attached to (see section below).">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260261615_830617_259"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260280546_449321_261"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597260293761_853495_263"
+                            name="labelVerticalAlignment"
+                            visibility="public"
+                            type="_19_0_3_f440358_1597259422433_116830_39">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597268946175_680634_306"
+                             body="How the text should be positioned vertically inside the Label bounds.Default depends of the SCEDiagramElement the label is attached to (see section below). Start means and end means.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597260293761_853495_263"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597260307289_389572_265"/>
+            </ownedAttribute>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1597705064544_767767_272"
+                              name="Diagram">
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064549_323071_273"
+                               name="name"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064550_383637_278"
+                                body="The documentation of the diagram. Default is empty String.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1597705064549_323071_273"/>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064549_461091_274"
+                               name="documentation"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#String"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064551_384103_281"
+                                body="The name of the diagram. Default is empty String.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1597705064549_461091_274"/>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597705064550_860973_275"
+                               name="resolution"
+                               visibility="public">
+                  <type href="https://www.omg.org/spec/UML/20161101/PrimitiveTypes.xmi#Real"/>
+                  <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597705064551_231588_284"
+                                body="The resolution of the diagram expressed in user units per inch. Default is 300.">
+                     <annotatedElement xmi:idref="_19_0_3_f440358_1597705064550_860973_275"/>
+                  </ownedComment>
+               </ownedAttribute>
+            </nestedClassifier>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860883_740024_192"
+                          name="Shape">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597283845120_628670_666"
+                          body="The SCEShape class specializes DI::Shape and SCEDiagramElement. It is a kind of Shape that depicts a SCEElement from the SCE-dependent model.SCEShape represents a Group or a Text Annotation that is depicted on the diagram. SCE-dependent models may add additional shapes to their diagrams.SCEShape has no additional properties but a SCE-dependent model may extend this class to add properties that are used to further specify the appearance of some shapes that cannot be deduced from the SCE-dependent model.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860883_740024_192"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175978085_702895_2426"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175978085_537761_2427"
+                             body="The following table presents the additional attributes and/or associations for SCEShape">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175978085_702895_2426"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861033_274541_268"
+                            general="_19_0_3_f440358_1592421860880_197385_183"/>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861037_679989_284"
+                            general="_19_0_3_f440358_1592421860881_830425_186"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860880_197385_183"
+                          name="DiagramElement">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597283086808_355949_665"
+                          body="The SCEDiagramElement class is contained by the SCEDiagram and is the base class for SCEShape and SCEEdge.SCEDiagramElement inherits its styling from its parent SCEDiagram. In addition, it can refer to one of the shared SCEStyle defined in the SCEDI and/or it can define a local style. See section below for more details on styling.SCEDiagramElement MAY also contain a SCELabel when it has a visible text label. If no SCELabel is defined, the SCEDiagramElement should be depicted without a label.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860880_197385_183"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175967083_334331_2416"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175967085_185880_2417"
+                             body="The following table presents the additional attributes and/or associations for SCEDiagramElement">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175967083_334331_2416"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861033_447692_266"
+                            general="_19_0_3_f440358_1592421860881_668587_187"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861033_632153_269"
+                            name="label"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1592421860882_567089_190"
+                            association="_19_0_3_f440358_1592421860883_973632_193">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597177646435_920345_2671"
+                             body="An optional label when the SCE-dependent Element has a visible text label.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861033_632153_269"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861121_650981_405"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861120_849680_404"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861033_538367_270"
+                            name="sharedStyle"
+                            visibility="public"
+                            isDerived="true"
+                            type="_19_0_3_f440358_1592421860882_704429_188"
+                            association="_19_0_3_f440358_1592421860887_211783_196">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597177768932_343010_2673"
+                             body="A reference to a SCEStyle defined in the SCEDI.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861033_538367_270"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861121_237109_407"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861034_851355_271"
+                            name="style"
+                            visibility="public"
+                            aggregation="composite"
+                            isDerived="true"
+                            type="_19_0_3_f440358_1592421860882_704429_188"
+                            association="_19_0_3_f440358_1592421860886_767333_194">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597177719736_960730_2672"
+                             body="A SCEStyle that defines the styling for this element.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861034_851355_271"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861121_240365_409"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597178033246_576632_2704"
+                            name="modelElement"
+                            visibility="public"
+                            association="_19_0_3_f440358_1597178033246_563012_2703">
+               <type href="https://www.omg.org/spec/SCE/SCE.xmi#_19_0_2_239e051a_1575919851616_504344_341"/>
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597178287724_738116_2729"
+                             body="A reference to the concrete instance of the SCEElement that is being depicted.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597178033246_576632_2704"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597178068398_14100_2718"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860883_574571_191"
+                          name="Edge">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597333348906_931071_667"
+                          body="The SCEEdge class specializes DI::Edge and SCEDiagramElement. It is a kind of Edge that can depict a relationship between two SCE-dependent model elements.SCEEdge are used to depict Associations in the SCE-dependent model. Since SCEDiagramElement might be depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SCEEdge is connected. When SCEEdge has a source, its sourceModelElement MUST refer to the SCEDiagramElement it starts from. That SCEDiagramElement MUST resolved to the SCEElement that is the actual source of the Association. When it has a target, its targetModelElement MUST refer to the SCEDiagramElement where it ends. That SCEDiagramElement MUST resolved to the SCEElement that is the actual target of the Association.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860883_574571_191"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175976501_71717_2424"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175976501_827875_2425"
+                             body="The following table presents the additional attributes and/or associations for SCEEdge">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175976501_71717_2424"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421860890_871433_210"
+                            general="_19_0_3_f440358_1592421860873_4417_179"/>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861033_531122_267"
+                            general="_19_0_3_f440358_1592421860880_197385_183"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597271422172_955806_613"
+                            name="targetElement"
+                            visibility="public"
+                            type="_19_0_3_f440358_1592421860880_197385_183"
+                            association="_19_0_3_f440358_1597271422172_466257_612">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597271817501_944905_659"
+                             body="The actual SCEDiagramElement this SCEEdge is connecting to. This MUST be specified when the SCEEdge has a target.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597271422172_955806_613"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597271478800_941607_627"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597271490072_144728_636"
+                            name="sourceElement"
+                            visibility="public"
+                            type="_19_0_3_f440358_1592421860880_197385_183"
+                            association="_19_0_3_f440358_1597271490072_568570_635">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597271805498_357177_658"
+                             body="The actual SCEDiagramElement this SCEEdge is connecting from. This MUST be specified when the SCEEdge has a source.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597271490072_144728_636"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597271519161_807258_650"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860880_119170_184"
+                          name="Diagram">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597177345145_209035_2670"
+                          body="The abstract class SCEDiagram specializes DI::Diagram. It is a kind of Diagram that represents a depiction of all or part of a SCE-dependent model. It is contained within the SCEDI element (see above). The languages that are dependent on SCE will define concrete diagrams based on SCEDiagram.SCEDiagram is the container of SCEDiagramElement (SCEShape(s) and SCEEdge(s)). SCEDiagram cannot include other SCEDiagrams.A SCEDiagram can define a SCEStyle locally and/or it can refer to a shared one defined in the SCEDI. Properties defined in the local style overrides the one in the referenced shared style. That combined style (shared and local) is the default style for all the SCEDiagramElement contained in this SCEDiagram. The SCEDiagram class represents a two-dimensional surface with an origin of (0, 0) at the top left corner. This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are allowed for diagram elements that are nested in a SCEDiagram.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860880_119170_184"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175971075_642589_2418"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175971076_132104_2419"
+                             body="The following table presents the additional attributes and/or associations for SCEDiagram">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175971075_642589_2418"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1592421861034_462293_273"
+                            general="_19_0_3_f440358_1592421860882_13423_189"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861034_803359_274"
+                            name="size"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1592421860880_404507_182"
+                            association="_19_0_3_f440358_1592421860887_70188_195">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597269057467_868116_309"
+                             body="The size of this diagram. If not specified, the the SCE-dependent diagram is unbounded.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861034_803359_274"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861122_240311_412"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861034_503863_275"
+                            name="diagramElement"
+                            visibility="public"
+                            isOrdered="true"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1592421860880_197385_183"
+                            association="_19_0_3_f440358_1592421860888_408787_201">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597269017622_206937_307"
+                             body="A list of SCEDiagramElements (SCEShape and SCEEdge) that are depicted in the SCE-dependent diagram.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861034_503863_275"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861124_518234_414"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861122_71743_413"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861035_362477_276"
+                            name="sharedStyle"
+                            visibility="public"
+                            isDerived="true"
+                            type="_19_0_3_f440358_1592421860882_704429_188"
+                            association="_19_0_3_f440358_1592421860887_77368_198">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165001267_584739_1160"
+                             body="A reference to a SCEStyle defined in the SCEDI that serves as the default styling of the SCEDiagramElement in the SCE-dependent diagram.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861035_362477_276"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861126_401845_416"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861126_762440_415"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861035_231746_277"
+                            name="style"
+                            visibility="public"
+                            aggregation="composite"
+                            isDerived="true"
+                            type="_19_0_3_f440358_1592421860882_704429_188"
+                            association="_19_0_3_f440358_1592421860888_710947_202">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597269031362_393735_308"
+                             body="A SCEStyle that defines the default styling for this diagram. Properties defined in that style override the ones in the sharedStyle.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861035_231746_277"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861128_844615_418"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860879_351126_180"
+                          name="Diagrams">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1592421861030_48425_255"
+                          body="The class SCEDI is a container for the shared SCEStyle and all the SCEDiagram defined in a SCE-dependent modeling package.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860879_351126_180"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1592421861030_18042_256"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1592421861117_402081_386"
+                             body="The following table presents the additional attributes and/or associations for SCEDI">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861030_18042_256"/>
+               </ownedComment>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861031_590071_257"
+                            name="diagram"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1592421860880_119170_184"
+                            association="_19_0_3_f440358_1592421860887_520034_197">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597165008789_320951_1161"
+                             body="A list of SCEDiagrams.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861031_590071_257"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861117_726679_388"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861117_924867_387"
+                           value="*"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861031_683299_258"
+                            name="style"
+                            visibility="public"
+                            aggregation="composite"
+                            type="_19_0_3_f440358_1592421860882_704429_188"
+                            association="_19_0_3_f440358_1592421860888_323489_200">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597164869016_439180_1159"
+                             body="A list of shared SCEStyle that can be referenced by all SCE-dependent diagrams and SCEDiagramElement.">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1592421861031_683299_258"/>
+               </ownedComment>
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861118_368329_390"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861117_950401_389"
+                           value="*"/>
+            </ownedAttribute>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Class" xmi:id="_19_0_3_f440358_1592421860882_567089_190"
+                          name="Label">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597333682716_849271_673"
+                          body="SCELabel represents the depiction of some textual information about a A SCELabel is not a top-level element but is always nested inside either a SCEShape or a SCEEdge. It does not have its own reference to a SCE element but rather inherits that reference from its parent SCEShape or DMNEdge. The textual information depicted by the label is derived from the name attribute of the referenced SCEElement.">
+               <annotatedElement xmi:idref="_19_0_3_f440358_1592421860882_567089_190"/>
+            </ownedComment>
+            <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175974753_560514_2422"
+                          body="Properties Comment">
+               <ownedComment xmi:type="uml:Comment" xmi:id="_19_0_3_f440358_1597175974753_745849_2423"
+                             body="The following table presents the additional attributes and/or associations for SCELabel">
+                  <annotatedElement xmi:idref="_19_0_3_f440358_1597175974753_560514_2422"/>
+               </ownedComment>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_19_0_3_f440358_1597269795555_64467_578"
+                            general="_19_0_3_f440358_1592421860881_830425_186"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860887_211783_196"
+                          name="SCEDiagramElement_sharedStyleRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861033_538367_270"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861090_827994_364"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861090_827994_364"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_197385_183"
+                      association="_19_0_3_f440358_1592421860887_211783_196">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861152_251435_451"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861151_55610_450"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1597271422172_466257_612"
+                          name="SCEEdge_targetElementRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1597271422172_955806_613"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1597271422173_263645_614"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597271422173_263645_614"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860883_574571_191"
+                      association="_19_0_3_f440358_1597271422172_466257_612">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597271431699_572197_621"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1597271431700_116803_622"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860886_767333_194"
+                          name="SCEDiagramElement_localStyle">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861034_851355_271"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861089_177217_362"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861089_177217_362"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_197385_183"
+                      association="_19_0_3_f440358_1592421860886_767333_194">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597862647482_410738_698"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860883_973632_193"
+                          name="SCEDiagramElement_label">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861033_632153_269"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861088_259362_361"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861088_259362_361"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_197385_183"
+                      association="_19_0_3_f440358_1592421860883_973632_193"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860887_520034_197"
+                          name="SCEDI_diagram">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861031_590071_257"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861090_683053_365"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861090_683053_365"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860879_351126_180"
+                      association="_19_0_3_f440358_1592421860887_520034_197"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860887_77368_198"
+                          name="SCEDiagram_sharedStyleRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861035_362477_276"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861091_971363_366"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861091_971363_366"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_119170_184"
+                      association="_19_0_3_f440358_1592421860887_77368_198">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861152_655566_453"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861152_291544_452"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1597271490072_568570_635"
+                          name="SCEEdge_sourceElementRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1597271490072_144728_636"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1597271490073_565766_637"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597271490073_565766_637"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860883_574571_191"
+                      association="_19_0_3_f440358_1597271490072_568570_635">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1597271500880_471758_644"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1597271500881_653295_645"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860888_710947_202"
+                          name="SCEDiagram_localStyle">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861035_231746_277"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861092_848512_370"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861092_848512_370"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_119170_184"
+                      association="_19_0_3_f440358_1592421860888_710947_202"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860888_323489_200"
+                          name="SCEDI_style">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861031_683299_258"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861091_244738_368"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861091_244738_368"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860879_351126_180"
+                      association="_19_0_3_f440358_1592421860888_323489_200"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860888_408787_201"
+                          name="SCEDiagram_diagramElement">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861034_503863_275"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861092_413497_369"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861092_413497_369"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_119170_184"
+                      association="_19_0_3_f440358_1592421860888_408787_201">
+               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_f440358_1592421861154_953494_455"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1592421861153_299008_454"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1592421860887_70188_195"
+                          name="SCEDiagram_size">
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861034_803359_274"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1592421861089_743752_363"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1592421861089_743752_363"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_119170_184"
+                      association="_19_0_3_f440358_1592421860887_70188_195"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Association" xmi:id="_19_0_3_f440358_1597178033246_563012_2703"
+                          name="SCEDiagramElement_elementRef">
+            <memberEnd xmi:idref="_19_0_3_f440358_1597178033246_576632_2704"/>
+            <memberEnd xmi:idref="_19_0_3_f440358_1597178033247_752472_2705"/>
+            <ownedEnd xmi:type="uml:Property" xmi:id="_19_0_3_f440358_1597178033247_752472_2705"
+                      visibility="private"
+                      type="_19_0_3_f440358_1592421860880_197385_183"
+                      association="_19_0_3_f440358_1597178033246_563012_2703">
+               <lowerValue xmi:type="uml:LiteralInteger"
+                           xmi:id="_19_0_3_f440358_1597178044937_250128_2712"/>
+               <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                           xmi:id="_19_0_3_f440358_1597178044937_935045_2713"
+                           value="*"/>
+            </ownedEnd>
+         </packagedElement>
+      </package>
+   <mofext:Tag xmi:id="SCEDI_mofTag0" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" element="_19_0_3_f440358_1592418104773_350894_62" value="scedi"/>
+</xmi:XMI>

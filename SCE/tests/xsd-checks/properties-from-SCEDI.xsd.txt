@@ -1,0 +1,10 @@
+Diagram
+Diagrams
+Edge
+fillColor
+fontColor
+Label
+Shape
+Size
+strokeColor
+Style
