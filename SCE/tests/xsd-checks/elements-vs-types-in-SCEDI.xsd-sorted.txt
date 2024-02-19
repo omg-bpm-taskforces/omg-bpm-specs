@@ -1,0 +1,17 @@
+diagram
+Diagram
+diagramElement
+diagrams
+Diagrams
+edge
+Edge
+fillColor
+fontColor
+label
+Label
+shape
+Shape
+Size
+strokeColor
+style
+Style
