@@ -3,7 +3,7 @@
          xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
          xmlns:mofext="http://www.omg.org/spec/MOF/20131001">
    <xmi:documentation xmi:type="xmi:Documentation">
-      <shortDescription>SCEDI.xmi: XMI representation of the metamodel for SCE version 20240210.</shortDescription>
+      <shortDescription>SCE.xmi: XMI representation of the metamodel for SCE version 20240210.</shortDescription>
       <xmi:exporter>MagicDraw Clean XMI Exporter</xmi:exporter>
       <xmi:exporterVersion>19.0 v9</xmi:exporterVersion>
    </xmi:documentation>
