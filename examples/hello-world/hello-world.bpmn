@@ -1,49 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions id="Definitions_HelloWorld"
-    targetNamespace="http://bpmn.io/schema/bpmn"
-    xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+<!-- This example file is non-normative. -->
+<bpmn:definitions name="Hello World" id="Definitions_HelloWorld"
+    typeLanguage="https://www.omg.org/spec/SDMN/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
+    targetNamespace="https://example.org/hello-world/process"
+    xmlns="https://example.org/hello-world/process"
+    xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
     xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
     xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
     xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
     xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
     xmlns:data="https://example.org/hello-world/shared-data-model"
-    >
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+      http://www.omg.org/spec/BPMN/20100524/MODEL
+      https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd
+      http://www.omg.org/spec/BPMN/20100524/DI
+      https://www.omg.org/spec/BPMN/20100501/BPMNDI.xsd
+      http://www.omg.org/spec/DD/20100524/DI
+      https://www.omg.org/spec/BPMN/20100501/DI.xsd
+      http://www.omg.org/spec/DD/20100524/DC
+      https://www.omg.org/spec/BPMN/20100501/DC.xsd
+    ">
 
-  <import location="./hello-world.sdmn"
+  <bpmn:import location="./hello-world.sdmn"
     namespace="https://example.org/hello-world/shared-data-model"
-    importType="https://www.omg.org/spec/SDMN/20211108/MODEL" />
+    importType="https://www.omg.org/spec/SDMN/" />
 
-  <process id="Process_HelloWorld" name="Hello World" isExecutable="true">
-    <businessRuleTask id="DecisionTask_Greeting" name="Greeting">
-      <extensionElements>
+  <bpmn:process id="Process_HelloWorld" name="Hello World" isExecutable="true">
+    <bpmn:businessRuleTask id="DecisionTask_Greeting" name="Greeting">
+      <bpmn:extensionElements>
         <zeebe:calledDecision decisionId="Greeting_Decision" resultVariable="Greeting" />
-      </extensionElements>
-      <ioSpecification>
-        <dataInput itemSubjectRef="data:itemDef_Name"
+      </bpmn:extensionElements>
+      <bpmn:ioSpecification>
+        <bpmn:dataInput itemSubjectRef="data:itemDef_Name"
           id="NameDataInputOfDecisionTask" />
-        <dataOutput itemSubjectRef="data:itemDef_Greeting"
+        <bpmn:dataOutput itemSubjectRef="data:itemDef_Greeting"
           id="GreetingDataOutputOfDecisionTask" />
-        <inputSet>
-          <dataInputRefs>NameDataInputOfDecisionTask</dataInputRefs>
-        </inputSet>
-        <outputSet>
-          <dataOutputRefs>GreetingDataOutputOfDecisionTask</dataOutputRefs>
-        </outputSet>
-      </ioSpecification>
-      <dataInputAssociation id="DataInputAssociation_Name">
-        <sourceRef>DataObjectReference_Name</sourceRef>
-        <targetRef>NameDataInputOfDecisionTask</targetRef>
-      </dataInputAssociation>
-      <dataOutputAssociation id="DataOutputAssociation_Greeting">
-        <sourceRef>GreetingDataOutputOfDecisionTask</sourceRef>
-        <targetRef>DataObjectReference_Greeting</targetRef>
-      </dataOutputAssociation>
-    </businessRuleTask>
-    <dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="DataObject_Name" />
-    <dataObject id="DataObject_Name" itemSubjectRef="data:itemDef_Name" />
-    <dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="DataObject_Greeting" />
-    <dataObject id="DataObject_Greeting" />
-  </process>
+        <bpmn:inputSet>
+          <bpmn:dataInputRefs>NameDataInputOfDecisionTask</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet>
+          <bpmn:dataOutputRefs>GreetingDataOutputOfDecisionTask</bpmn:dataOutputRefs>
+        </bpmn:outputSet>
+      </bpmn:ioSpecification>
+      <bpmn:dataInputAssociation id="DataInputAssociation_Name">
+        <bpmn:sourceRef>DataObjectReference_Name</bpmn:sourceRef>
+        <bpmn:targetRef>NameDataInputOfDecisionTask</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_Greeting">
+        <bpmn:sourceRef>GreetingDataOutputOfDecisionTask</bpmn:sourceRef>
+        <bpmn:targetRef>DataObjectReference_Greeting</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:businessRuleTask>
+    <bpmn:dataObjectReference id="DataObjectReference_Name" name="Name" dataObjectRef="DataObject_Name" />
+    <bpmn:dataObject id="DataObject_Name" itemSubjectRef="data:itemDef_Name" />
+    <bpmn:dataObjectReference id="DataObjectReference_Greeting" name="Greeting" dataObjectRef="DataObject_Greeting" />
+    <bpmn:dataObject id="DataObject_Greeting" itemSubjectRef="data:itemDef_Greeting" />
+  </bpmn:process>
 
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_HelloWorld">
@@ -73,4 +87,4 @@
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-</definitions>
+</bpmn:definitions>

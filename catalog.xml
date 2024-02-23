@@ -17,7 +17,7 @@
         uri="./SCE/DC.xsd" />
 
     <uri
-        name="https://www.omg.org/spec/SDMN/20211108/MODEL"
+        name="https://www.omg.org/spec/SDMN/"
         uri="./SDMN/SDMN.xsd" />
         
     <uri
@@ -27,6 +27,10 @@
     <uri
         name="http://www.omg.org/spec/BPMN/20100524/MODEL"
         uri="./BPMN/BPMN20.xsd" />
+        
+    <uri
+        name="https://www.omg.org/spec/DMN/20230324/MODEL/"
+        uri="./DMN/DMN15.xsd" />
         
     <uri
         name="https://www.omg.org/spec/DMN/20211108/MODEL/"
