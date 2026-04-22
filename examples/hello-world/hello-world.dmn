@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions name="DRD" id="Greeting_DRD"
   namespace="http://camunda.org/schema/1.0/dmn"
-  xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
-  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
-  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
-  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
+  dmnVersion="1.7"
+  xmlns="https://www.omg.org/spec/DMN/"
+  xmlns:dmndi="https://www.omg.org/spec/DMN/DMNDI/"
+  xmlns:dc="https://www.omg.org/spec/SCE/DC/"
+  xmlns:di="https://www.omg.org/spec/SCE/DI/"
   >
 
   <import name="data" locationURI="./hello-world.sdmn"
