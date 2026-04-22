@@ -57,10 +57,10 @@ jobs:
           xml-file: examples/hello-world/hello-world.bpmn
           xml-schema-file: BPMN/BPMN20.xsd
         if: always()
-      - name: Validate hello-world.dmn using DMN15.xsd
+      - name: Validate hello-world.dmn using DMN.xsd
         id: xmllint-dmn-hello-world
         uses: ChristophWurst/xmllint-action@v1.2
         with:
           xml-file: examples/hello-world/hello-world.dmn
-          xml-schema-file: DMN/DMN13.xsd
+          xml-schema-file: DMN/DMN.xsd
         if: always()
