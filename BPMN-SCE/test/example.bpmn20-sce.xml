@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+        xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL ../BPMN20.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+        xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+        xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+        id="Definitions_03hqsw6"
+        targetNamespace="http://bpmn.io/schema/bpmn"
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+        xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+        exporter="Camunda Modeler"
+        exporterVersion="5.1.0-nightly.20220704"
+        modeler:executionPlatform="Camunda Cloud"
+        modeler:executionPlatformVersion="8.0.0"
+        >
+    <sce:model id="exampleModel" targetNamespace="https://example.org">
+        <sce:definitions id="exampleDefinitions" targetNamespace="https://example.org">
+            <bpmn:process id="Process_076jtl2" isExecutable="true">
+                <bpmn:startEvent id="StartEvent_1" />
+            </bpmn:process>
+        </sce:definitions>
+    </sce:model>
+</bpmn:definitions>
