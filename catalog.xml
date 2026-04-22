@@ -29,6 +29,10 @@
         uri="./BPMN/BPMN20.xsd" />
         
     <uri
+        name="https://www.omg.org/spec/DMN/"
+        uri="./DMN/DMN.xsd" />
+        
+    <uri
         name="https://www.omg.org/spec/DMN/20211108/MODEL/"
         uri="./DMN/DMN14.xsd" />
         
