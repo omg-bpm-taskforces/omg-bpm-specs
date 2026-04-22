@@ -6,7 +6,7 @@
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
     xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     >
 

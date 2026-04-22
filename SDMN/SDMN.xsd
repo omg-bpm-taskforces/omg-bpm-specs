@@ -2,13 +2,13 @@
 <xsd:schema xmlns="https://www.omg.org/spec/SDMN/20211108/MODEL"
     xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
     xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified"
     targetNamespace="https://www.omg.org/spec/SDMN/20211108/MODEL">
 
     <xsd:import namespace="https://www.omg.org/spec/SCE/20211108/MODEL" schemaLocation="../SCE/SCE.xsd"/>  
-    <xsd:import namespace="https://www.omg.org/spec/DMN/20191111/MODEL/"/>
+    <xsd:import namespace="https://www.omg.org/spec/DMN/"/>
     <xsd:import namespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" schemaLocation="SDMNDI.xsd"/>
     <xsd:include schemaLocation="SDMN-Semantic.xsd"/>
 
@@ -41,8 +41,8 @@
                         </xsd:annotation>
                     </xsd:element>
                 </xsd:sequence>
-                <xsd:attribute name="expressionLanguage" default="https://www.omg.org/spec/DMN/20191111/FEEL/" use="optional" type="xsd:anyURI"/>
-                <xsd:attribute name="typeLanguage" default="https://www.omg.org/spec/DMN/20191111/FEEL/" use="optional" type="xsd:anyURI"/>
+                <xsd:attribute name="expressionLanguage" default="https://www.omg.org/spec/DMN/FEEL/" use="optional" type="xsd:anyURI"/>
+                <xsd:attribute name="typeLanguage" default="https://www.omg.org/spec/DMN/FEEL/" use="optional" type="xsd:anyURI"/>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
