@@ -1,0 +1,7 @@
+Composition
+Containment
+Correlation
+Dependency
+Generalization
+Miscellaneous
+Reference

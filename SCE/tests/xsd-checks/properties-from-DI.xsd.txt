@@ -1,0 +1,7 @@
+Diagram
+DiagramElement
+Edge
+Extension
+Shape
+Style
+waypoint

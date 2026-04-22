@@ -1,0 +1,6 @@
+Diagram
+Diagrams
+Edge
+Label
+Shape
+Style
