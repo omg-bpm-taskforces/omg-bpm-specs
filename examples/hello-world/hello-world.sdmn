@@ -1,42 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sdmn:SDMNModelPackage id="HelloWorldDataModel"
+<!-- This example file is non-normative. -->
+<sdmn:sharedDataModel id="HelloWorldDataModel"
+    typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
+    expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/"
     targetNamespace="https://example.org/hello-world/shared-data-model"
     xmlns="https://example.org/hello-world/shared-data-model"
-    xmlns:sdmn="https://www.omg.org/spec/SDMN/20211108/MODEL"
-    xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
-    xmlns:sce="https://www.omg.org/spec/SCE/20211108/MODEL"
-    xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/"
+    xmlns:sdmn="https://www.omg.org/spec/SDMN/"
+    xmlns:sce="https://www.omg.org/spec/SCE/"
+    xmlns:scedi="https://www.omg.org/spec/SCE/SCEDI/"
+    xmlns:di="https://www.omg.org/spec/SCE/DI/"
+    xmlns:dc="https://www.omg.org/spec/SCE/DC/"
+    xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    >
+    xsi:schemaLocation="
+      https://www.omg.org/spec/SDMN/
+      https://www.omg.org/spec/SDMN/20240210/SDMN.xsd
+      https://www.omg.org/spec/SCE/
+      https://www.omg.org/spec/SCE/20240210/SCE.xsd
+      https://www.omg.org/spec/SCE/SCEDI/
+      https://www.omg.org/spec/SCE/20240210/SCEDI.xsd
+      https://www.omg.org/spec/SCE/DI/
+      https://www.omg.org/spec/SCE/20240210/DI.xsd
+      https://www.omg.org/spec/SCE/DC/
+      https://www.omg.org/spec/SCE/20240210/DC.xsd
+      https://www.omg.org/spec/DMN/20230324/MODEL/
+      https://www.omg.org/spec/DMN/20230324/DMN15.xsd
+    ">
 
-  <!-- FIXME: overriding of model & presentation instead of duplicating them -->
-  <sce:model xsi:type="sdmn:tSDMNModel" targetNamespace="https://example.org/hello-world/shared-data-model" id="model1">
-    <sce:SCEDefinitions xsi:type="sdmn:tSDMNDefinitions" targetNamespace="https://example.org/hello-world/shared-data-model" id="definitions1">
+  <!-- DMN will reference by @name while BPMN uses @id -->
+  <sdmn:itemDefinition id="itemDef_Name" name="Name"
+      conceptReference="https://en.wikipedia.org/wiki/Name">
+    <dmn:typeRef>string</dmn:typeRef>
+  </sdmn:itemDefinition>
+  <sdmn:itemDefinition id="itemDef_Greeting" name="Greeting"
+      conceptReference="https://en.wikipedia.org/wiki/Greeting">
+    <dmn:typeRef>string</dmn:typeRef>
+  </sdmn:itemDefinition>
 
-      <sdmn:dataItem id="dataItem_Name">
-        <sdmn:multiplicityKindRef id="mKR1"
-          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
-      </sdmn:dataItem>
-      <sdmn:dataItem id="dataItem_Greeting">
-        <sdmn:multiplicityKindRef id="mKR4"
-          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
-      </sdmn:dataItem>
+  <sdmn:dataItem id="dataItem_Name">
+    <sdmn:typeDefinitionRef>itemDef_Name</sdmn:typeDefinitionRef>
+  </sdmn:dataItem>
+  <sdmn:dataItem id="dataItem_Greeting">
+    <sdmn:typeDefinitionRef>itemDef_Greeting</sdmn:typeDefinitionRef>
+  </sdmn:dataItem>
 
-      <!-- DMN will reference by @name while BPMN uses @id -->
-      <sdmn:itemDefinition id="itemDef_Name" name="Name" isCollection="false">
-        <dmn:typeRef>string</dmn:typeRef>
-        <sdmn:itemKindRef id="iKR_Unspecified"
-          conceptURI="https://www.omg.org/spec/SDMN/20211108/MODEL/SDMNLibrary/ItemKinds#_adl020900-cgl033105-anep021715-10"/>
-        <sdmn:multiplicityKindRef id="mKR_Unspecified"
-          conceptURI="https://www.omg.org/spec/SCE/20211108/MODEL/SDMNLibrary/MultiplicityKinds#_adl020900-cgl033105-anep021716-05"/>
-      </sdmn:itemDefinition>
-    </sce:SCEDefinitions>
-    <sdmn:definitions targetNamespace="falko" id="definitions2"></sdmn:definitions>
-  </sce:model>
-  <scedi:SCEDI xsi:type="sdmndi:tSDMNDI"></scedi:SCEDI>
-  <sdmn:model xsi:type="sdmn:tSDMNModel" targetNamespace="falko" id="model2">
-    <!-- FIXME: this shouldn't be possible -->
-  </sdmn:model>
-  <sdmndi:SDMNDI></sdmndi:SDMNDI>
-</sdmn:SDMNModelPackage>
+  <sdmn:compositionConnector id="greetingToName">
+    <sdmn:sourceRef>dataItem_Greeting</sdmn:sourceRef>
+    <sdmn:targetRef>dataItem_Name</sdmn:targetRef>
+  </sdmn:compositionConnector>
+
+  <scedi:diagrams>
+    <scedi:diagram name="Item Definition Diagram">
+      <scedi:Size width="500" height="500"/>
+      <scedi:shape id="itemDef_Name_di" modelElement="itemDef_Name">
+        <dc:Bounds x="160" y="120" width="150" height="60"/>
+      </scedi:shape>
+    </scedi:diagram>
+    <scedi:diagram name="Data Item Diagram">
+      <scedi:shape id="dataItem_Greeting_di" modelElement="dataItem_Greeting">
+        <dc:Bounds x="152" y="115" width="36" height="50" />
+        <scedi:label>
+          <dc:Bounds x="149" y="172" width="43" height="14" />
+        </scedi:label>
+      </scedi:shape>
+      <scedi:shape id="dataItem_Name_di" modelElement="dataItem_Name">
+        <dc:Bounds x="270" y="115" width="36" height="50" />
+        <scedi:label>
+          <dc:Bounds x="273" y="172" width="30" height="14" />
+        </scedi:label>
+      </scedi:shape>
+      <scedi:edge id="greetingToName_di" modelElement="greetingToName">
+        <di:waypoint x="188" y="140" />
+        <di:waypoint x="270" y="140" />
+      </scedi:edge>
+    </scedi:diagram>
+  </scedi:diagrams>
+
+</sdmn:sharedDataModel>

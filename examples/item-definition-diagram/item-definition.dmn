@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- This example file is non-normative. -->
+<dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/"  xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/"  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:feel="https://www.omg.org/spec/DMN/20230324/FEEL/"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"  xmlns="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" id="_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" name="Serialization for Falko" namespace="http://www.trisotech.com/definitions/_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc" exporter="Decision Modeler" exporterVersion="8.12.1-pre.28.e825106" xml:lang="en" triso:logoChoice="Default">
+    <dmn:extensionElements/>
+    <dmn:itemDefinition name="tPatient_Health_Record" id="ItemDef_tPatient_Health_Record" label="tPatient_Health_Record" isCollection="false">
+        <dmn:itemComponent id="_e0e862b6-d054-4844-a7fa-a3c9f6152b32" name="Patient Name" isCollection="false">
+            <dmn:typeRef>string</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="toD" name="Demographics" isCollection="false">
+            <dmn:typeRef>tDemographics</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="ItemComp_tPatientHealthRecord.Appointment" name="Appointment" isCollection="true">
+            <dmn:itemComponent id="_beb1d80e-a8cb-407f-9316-16970458ce09" name="Appointment Date" isCollection="false">
+                <dmn:typeRef>dateTime</dmn:typeRef>
+            </dmn:itemComponent>
+            <dmn:itemComponent id="_77fe63bb-9fa9-4b79-b34e-a5e9f85a6732" name="Vital Signs and Measurements" isCollection="false">
+                <dmn:typeRef>string</dmn:typeRef>
+            </dmn:itemComponent>
+            <dmn:itemComponent id="_2b1f0d5e-fbbd-4933-abd0-5645c9538d3b" name="Exam Data" isCollection="false">
+                <dmn:typeRef>string</dmn:typeRef>
+            </dmn:itemComponent>
+            <dmn:itemComponent id="_55a583da-9059-4225-a342-91f7b3a6fd02" name="Treatment Plan" isCollection="false">
+                <dmn:typeRef>string</dmn:typeRef>
+            </dmn:itemComponent>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="_c4ae46eb-ad7f-4ec3-b519-334e05e63b16" name="Referral" isCollection="true">
+            <dmn:typeRef>string</dmn:typeRef>
+        </dmn:itemComponent>
+    </dmn:itemDefinition>
+    <dmn:itemDefinition name="tDemographics" id="ItemDef_tDemographics" label="tDemographics" isCollection="false">
+        <dmn:itemComponent id="_6f8740f2-91ae-480e-a853-d123a3c3fbd6" name="Age" isCollection="false">
+            <dmn:typeRef>yearMonthDuration</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="_b4265016-b4ab-4142-9775-d1e4b5dc6f3b" name="Date Of Birth" isCollection="false">
+            <dmn:typeRef>date</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="toS" name="Sex" isCollection="false">
+            <dmn:typeRef>tSex</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="toE" name="Ethnicity" isCollection="true">
+            <dmn:typeRef>tEthnicity</dmn:typeRef>
+        </dmn:itemComponent>
+        <dmn:itemComponent id="_7285bbc4-79f6-4f7c-b24e-cf2442263d3e" name="State of Residence" isCollection="false">
+            <dmn:typeRef>string</dmn:typeRef>
+        </dmn:itemComponent>
+    </dmn:itemDefinition>
+    <dmn:itemDefinition name="tSex" id="ItemDef_tSex" label="tSex" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+        <dmn:allowedValues>
+            <dmn:extensionElements>
+                <triso:constraintDetails id="_9797e99c-005b-4dfe-bce5-ac07d1368a31" constraintsType="enumeration">
+                    <triso:value>"Male","Female","Undetermined","Declined to State"</triso:value>
+                    <triso:display>"Male", "Female", "Undetermined", "Declined to State"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Male"</triso:value>
+                        <triso:display>"Male"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Female"</triso:value>
+                        <triso:display>"Female"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Undetermined"</triso:value>
+                        <triso:display>"Undetermined"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Declined to State"</triso:value>
+                        <triso:display>"Declined to State"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </dmn:extensionElements>
+            <dmn:text>"Male","Female","Undetermined","Declined to State"</dmn:text>
+        </dmn:allowedValues>
+    </dmn:itemDefinition>
+    <dmn:itemDefinition name="tEthnicity" id="ItemDef_tEthnicity" label="tEthnicity" isCollection="false">
+        <dmn:typeRef>string</dmn:typeRef>
+        <dmn:allowedValues>
+            <dmn:extensionElements>
+                <triso:constraintDetails id="_4a4c619b-fcd0-4681-8bf4-58c5067c16e7" constraintsType="enumeration">
+                    <triso:value>"Asian","Native American","Decline to State","African","Pacific Islander","Caucasian","Hispanic"</triso:value>
+                    <triso:display>"Asian", "Native American", "Decline to State", "African", "Pacific Islander", "Caucasian", "Hispanic"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Asian"</triso:value>
+                        <triso:display>"Asian"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Native American"</triso:value>
+                        <triso:display>"Native American"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Decline to State"</triso:value>
+                        <triso:display>"Decline to State"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"African"</triso:value>
+                        <triso:display>"African"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Pacific Islander"</triso:value>
+                        <triso:display>"Pacific Islander"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Caucasian"</triso:value>
+                        <triso:display>"Caucasian"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Hispanic"</triso:value>
+                        <triso:display>"Hispanic"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </dmn:extensionElements>
+            <dmn:text>"Asian","Native American","Decline to State","African","Pacific Islander","Caucasian","Hispanic"</dmn:text>
+        </dmn:allowedValues>
+    </dmn:itemDefinition>
+    <dmn:decisionService id="_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <dmn:variable name="Whole Model Decision Service" id="_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc_DS_VAR" typeRef="Any"/>
+    </dmn:decisionService>
+    <dmn:decisionService id="_240ad78e-c04f-405b-807f-d6bd5cf50dcd_DS" name="Diagram Page 1" triso:dynamicDecisionService="true">
+        <dmn:variable name="Diagram Page 1" id="_240ad78e-c04f-405b-807f-d6bd5cf50dcd_DS_VAR" typeRef="Any"/>
+    </dmn:decisionService>
+    <dmn:inputData id="_64d7a4b4-8b01-4025-bc7b-4bfc47172734" name="Falko" triso:readOnly="false">
+        <dmn:variable name="Falko" id="_8645c0a2-fc0e-4ac8-bcc4-0da1bc489a34" typeRef="tPatient_Health_Record"/>
+    </dmn:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_240ad78e-c04f-405b-807f-d6bd5cf50dcd" triso:modelElementRef="_48922aca-2600-4bf5-bfa5-3d27fe5b445b" name="Page 1">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1485"/>
+            <dmndi:DMNShape id="_f00badba-b990-4ebb-b790-c6384d7401de" dmnElementRef="_64d7a4b4-8b01-4025-bc7b-4bfc47172734">
+                <dc:Bounds x="474.2588291168213" y="230.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_f4f68aec-7074-4dd8-98e8-e26bdc2d97cc_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</dmn:definitions>

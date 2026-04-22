@@ -1,0 +1,14 @@
+argetRef
+Assignment
+CompositionConnector
+Connector
+ContainmentConnector
+DataAssociation
+DataItem
+ItemDefinition
+metaDefinitionRef
+ransformation
+ReferenceConnector
+SharedDataModel
+sourceRef
+ypeDefinitionRef
