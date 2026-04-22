@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xsd:schema elementFormDefault="qualified" 
-	targetNamespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI" 
-	xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI" 
-	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI" 
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
+	xmlns:sdmndi="https://www.omg.org/spec/SDMN/20211108/SDMNDI"
+	xmlns:scedi="https://www.omg.org/spec/SCE/20211108/SCEDI"
 	xmlns:di="http://www.omg.org/spec/SCE/20210830/DI"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 	<xsd:import namespace="https://www.omg.org/spec/SCE/20211108/SCEDI" schemaLocation="../SCE/SCEDI.xsd"/>
 	<xsd:import namespace="http://www.omg.org/spec/SCE/20210830/DI"/>
-	
+
     <xsd:element name="SDMNDI" type="sdmndi:tSDMNDI">
     	<xsd:annotation>
     		<xsd:documentation>
     			The class SDMNDI is a container for the shared SCE:SCEStyle and all the SDMNDiagrams defined in a SharedDataModel.
     		</xsd:documentation>
-    	</xsd:annotation>    	
+    	</xsd:annotation>
     </xsd:element>
 	<xsd:complexType name="tSDMNDI">
 		<xsd:complexContent>
@@ -42,15 +42,15 @@
 	<xsd:element name="SDMNDiagram" type="sdmndi:tSDMNDiagram" substitutionGroup="scedi:SCEDiagram">
     	<xsd:annotation>
     		<xsd:documentation>
-    			The class SDMNDiagram specializes SCE:SCEDiagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of 
-    			all or part of a SDMNDiagram. SDMNDiagram is the container of SDMNDiagramElement (SDMNShape(s) and SDMNEdge(s)). SDMNDiagram cannot include 
-    			other SDMNDiagrams. A SDMNDiagram can define a SCE:SCEStyle locally and/or it can refer to a shared one defined in the SDMNDI. Properties 
-    			defined in the local style overrides the one in the referenced shared style. That combined style (shared and local) is the default style 
-    			for all the SDMNDiagramElement contained in this SDMNDiagram. The SDMNDiagram class represents a two-dimensional surface with an origin of (0, 0) 
-    			at the top left corner. This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are 
+    			The class SDMNDiagram specializes SCE:SCEDiagram, which specializes DI::Diagram. It is a kind of Diagram that represents a depiction of
+    			all or part of a SDMNDiagram. SDMNDiagram is the container of SDMNDiagramElement (SDMNShape(s) and SDMNEdge(s)). SDMNDiagram cannot include
+    			other SDMNDiagrams. A SDMNDiagram can define a SCE:SCEStyle locally and/or it can refer to a shared one defined in the SDMNDI. Properties
+    			defined in the local style overrides the one in the referenced shared style. That combined style (shared and local) is the default style
+    			for all the SDMNDiagramElement contained in this SDMNDiagram. The SDMNDiagram class represents a two-dimensional surface with an origin of (0, 0)
+    			at the top left corner. This means that the x and y axes have increasing coordinates to the right and bottom. Only positive coordinates are
     			allowed for diagram elements that are nested in a SDMNDiagram.
     		</xsd:documentation>
-    	</xsd:annotation>    	
+    	</xsd:annotation>
     </xsd:element>
 	<xsd:complexType name="tSDMNDiagram">
 		<xsd:complexContent>
@@ -60,7 +60,7 @@
 						<xsd:annotation>
 							<xsd:documentation>
 								Element Role: diagramElement
-								A list of SDMNDiagramElements (SDMNShape and SDMNEdge) that are depicted in the SDMNDiagram. 
+								A list of SDMNDiagramElements (SDMNShape and SDMNEdge) that are depicted in the SDMNDiagram.
 								This redefines the diagramElement association within the SCE:SCEDiagram element.
 							</xsd:documentation>
 						</xsd:annotation>
@@ -74,10 +74,10 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				This element should never be instantiated directly, but rather concrete implementation should. It is placed there only to be referred in the sequence.
-				The SDMNDiagramElement class is contained by the SDMNDiagram and is the base class for SDMNShape and SDMNEdge. 
-				SDMNDiagramElement inherits its styling from its parent SCEDiagram. In addition, it can refer to one of the shared 
-				SCE:SCEStyle defined in the SDMNDI and/or it can define a local style. See section below for more details on styling. 
-				SDMNDiagramElement MAY also contain a SCE:SCELabel when it has a visible text label. If no SCE:SCELabel is defined, the 
+				The SDMNDiagramElement class is contained by the SDMNDiagram and is the base class for SDMNShape and SDMNEdge.
+				SDMNDiagramElement inherits its styling from its parent SCEDiagram. In addition, it can refer to one of the shared
+				SCE:SCEStyle defined in the SDMNDI and/or it can define a local style. See section below for more details on styling.
+				SDMNDiagramElement MAY also contain a SCE:SCELabel when it has a visible text label. If no SCE:SCELabel is defined, the
 				SDMNDiagramElement should be depicted without a label.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -85,15 +85,15 @@
 
     <xsd:element name="SDMNEdge" type="sdmndi:tSDMNEdge" substitutionGroup="sdmndi:SDMNDiagramElement">
     	<xsd:annotation>
-    		<xsd:documentation>The SDMNEdge class specializes SCE:SCEEdge, which specializes DI::Edge and SCE:SCEDiagramElement. It is a kind of edge that can depict 
-    			a relationship between two SDMNDiagram model elements. SDMNEdge are used to depict Connectors or Associations in the SDMNDiagram model. Since 
-    			SDMNDiagramElement might be depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SDMNEdge is 
-    			connected. When SDMNEdge has a source, its sourceModelElement MUST refer to the SDMNDiagramElement it starts from. That SDMNDiagramElement MUST 
-    			resolved to the SCE:SCEElement that is the actual source of the Connector or Association. For Requirement, this is the required SCE:SCEElement. 
-    			When it has a target, its targetModelElement MUST refer to the SCEDiagramElement where it ends. That SDMNDiagramElement MUST resolved to the 
+    		<xsd:documentation>The SDMNEdge class specializes SCE:SCEEdge, which specializes DI::Edge and SCE:SCEDiagramElement. It is a kind of edge that can depict
+    			a relationship between two SDMNDiagram model elements. SDMNEdge are used to depict Connectors or Associations in the SDMNDiagram model. Since
+    			SDMNDiagramElement might be depicted more than once, sourceElement and targetElement attributes allow to determine to which depiction a SDMNEdge is
+    			connected. When SDMNEdge has a source, its sourceModelElement MUST refer to the SDMNDiagramElement it starts from. That SDMNDiagramElement MUST
+    			resolved to the SCE:SCEElement that is the actual source of the Connector or Association. For Requirement, this is the required SCE:SCEElement.
+    			When it has a target, its targetModelElement MUST refer to the SCEDiagramElement where it ends. That SDMNDiagramElement MUST resolved to the
     			SCE:SCEElement that is the actual target of the Connector or Association.
     		</xsd:documentation>
-    	</xsd:annotation>    	
+    	</xsd:annotation>
     </xsd:element>
 	<xsd:complexType name="tSDMNEdge">
 		<xsd:complexContent>
@@ -103,13 +103,13 @@
 
 	<xsd:element name="SDMNShape" type="sdmndi:tSDMNShape" substitutionGroup="sdmndi:SDMNDiagramElement">
     	<xsd:annotation>
-    		<xsd:documentation>The SDMNShape class specializes SCE:SCEShape, which specializes DI::Shape and SCE:SCEDiagramElement. It is a kind of shape that depicts a 
-    			SCEElement from the SDMNDiagram model. SDMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the 
-    			diagram. SDMNDiagram models may add additional shapes to their diagrams. SDMNShape has no additional properties but a SDMNDiagram model may extend this 
+    		<xsd:documentation>The SDMNShape class specializes SCE:SCEShape, which specializes DI::Shape and SCE:SCEDiagramElement. It is a kind of shape that depicts a
+    			SCEElement from the SDMNDiagram model. SDMNShape represents a Data Item or a SCE DiagramArtifacts Group or a Text Annotation that is depicted on the
+    			diagram. SDMNDiagram models may add additional shapes to their diagrams. SDMNShape has no additional properties but a SDMNDiagram model may extend this
     			class to add properties that are used to further specify the appearance of some shapes that cannot be deduced from the SDMNDiagram model.
     		</xsd:documentation>
-    	</xsd:annotation>    	
-    </xsd:element>	
+    	</xsd:annotation>
+    </xsd:element>
 	<xsd:complexType name="tSDMNShape">
 		<xsd:complexContent>
 			<xsd:extension base="scedi:tSCEShape"/>
